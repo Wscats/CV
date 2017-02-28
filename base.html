@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="fakefish's page,let u know me" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<style>
+			#c {
+				position: absolute;
+				z-index: -1;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>fakefish</h1>
+		<dl>
+			<dt>Email</dt>
+			<dd>fakefish.wjy[at]gmail.com</dd>
+			<dt>Birthday</dt>
+			<dd>1992.2</dd>
+			<dt>Work Experience</dt>
+			<dd>
+				<ol>
+					<li>6.2015
+						<a href="http://m.so.com/">360 搜索</a>
+					</li>
+					<li>12.2013-6.2015
+						<a href="http://segmentfault.com/">Segmentfault</a>
+					</li>
+					<li>7.2013-9.2013
+						<a href="http://yunshipei.com">云适配AllMobilize.inc</a>
+					</li>
+				</ol>
+			</dd>
+			<dt>Social</dt>
+			<dd>
+				<ol>
+					<li>
+						<a href="http://blog.segmentfault.com/fakefish">技术博客</a>
+					</li>
+					<li>
+						<a href="https://github.com/fakefish">Github</a>
+					</li>
+					<li>
+						<a href="http://www.weibo.com/fakefish">新浪微博</a>
+					</li>
+					<li>
+						<a href="http://www.zhihu.com/people/fakefish">知乎</a>
+					</li>
+					<li>
+						<a href="https://github.com/fakefish/fakefish.github.com/issues?labels=blog&amp;state=open">随手代码日志</a>
+					</li>
+				</ol>
+			</dd>
+			<dt>Demos</dt>
+			<dd>
+				<ul>
+					<li>1.2016
+						<a href="https://github.com/fakefish/Weekly75">react-native 版奇舞周刊</a>
+					</li>
+					<li>6.2015
+						<a href="http://fakefish.github.io/react-webpack-cookbook/">React 和 Webpack 小书</a>
+					</li>
+					<li>4.2015
+						<a href="https://github.com/fakefish/sf-react-native">Segmentfault React Native版iOS客户端</a>
+					</li>
+					<li>3.2015
+						<a href="http://fakefish.github.io/js-algorithms/A*/snake.html">A* 贪吃蛇</a>
+					</li>
+					<li>12.2014
+						<a href="https://github.com/fakefish/react-demo">React Demo</a>
+					</li>
+					<li>10.2014
+						<a href="https://github.com/fakefish/mobilepage.js">MobilePage</a>
+					</li>
+					<li>12.2013
+						<a href="http://fakefish.me/games/Froot-Wars">canvas游戏</a>[
+						<a href="https://github.com/fakefish/Froot-Wars">源码</a>]</li>
+					<li>5.2013 角色管理系统[课程设计][
+						<a href="https://github.com/fakefish/cactus">源码</a>]</li>
+					<li>3.2013 纯ajax的系统[
+						<a href="https://github.com/fakefish/fcms">源码</a>]</li>
+				</ul>
+			</dd>
+			<dt>
+            <a href="http://fakefish.github.io/resume.pdf">Resume</a>
+        </dt>
+		</dl>
+		<hr>
+		<canvas id="c"></canvas>
+		<script src="http://fakefish.github.io/js-algorithms/A*/A*.js"></script>
+		<script>
+			var c = document.querySelector("#c");
+			var ctx = c.getContext('2d');
+			var W = window.innerWidth;
+			var H = window.innerHeight;
+			c.width = W;
+			c.height = H;
+
+			var DOT_SIZE = 30;
+			var i,
+				_this,
+				next,
+				x, y,
+				map = [],
+				len;
+			for(y = 0; y < H / DOT_SIZE; y++) {
+				map[y] = [];
+				for(x = 0; x < W / DOT_SIZE; x++) {
+					map[y][x] = {};
+				}
+			}
+			var snake = {
+				body: [
+					[0, 0]
+				],
+				food: [1, 3],
+				path: [],
+				render: function() {
+					_this = this;
+					ctx.fillStyle = getRandomColor();
+					_this.body.forEach(function(arr) {
+						map[arr[1]][arr[0]].closed = true;
+					});
+					_this.path = _this.findPath({
+						x: _this.food[0],
+						y: _this.food[1]
+					});
+					if(_this.path) {
+						_this.path = _this.path.map(function(obj) {
+							return [obj.x, obj.y]
+						});
+						if(_this.path.length !== 0) {
+							// _this.path.forEach(function(point) {
+							//   _this.drawDot(point);
+							// });
+							_this.getPath(_this.path);
+						} else if(getManhattan(_this.body[0], _this.food) === 1) {
+							_this.getPoint();
+						}
+					} else {
+						// 如果找不到路了，尝试跳点
+						// var tmpPoint = getRandomPoint();
+						// while(!_this.findPath(tmpPoint)) {
+						//   tmpPoint = getRandomPoint();
+						// }
+					}
+
+					ctx.fillStyle = "#000";
+					_this.body.forEach(function(point) {
+						_this.drawDot(point);
+					});
+					ctx.fillStyle = getRandomColor();
+					_this.drawDot(_this.food);
+				},
+				getPoint: function() {
+					this.body.unshift(this.food);
+
+					while(1) {
+						this.food = getRandomPoint();
+						if(this.isContain(this.food)) {
+							this.food = getRandomPoint();
+						} else {
+							break;
+						}
+					}
+				},
+				getPath: function(path) {
+					this.body.unshift(path[0]);
+					this.body.pop();
+				},
+				findPath: function(target) {
+					return AStarSearch({
+						x: _this.body[0][0],
+						y: _this.body[0][1]
+					}, target, map, this.body);
+				},
+				drawDot: function(position) {
+					ctx.fillRect(position[0] * DOT_SIZE, position[1] * DOT_SIZE, DOT_SIZE, DOT_SIZE);
+				},
+				isContain: function(point) {
+					var checkResult = false;;
+					this.body.forEach(function(body) {
+						if(body[0] == point[0] && body[1] == point[1]) {
+							checkResult = true;
+						}
+					});
+					return checkResult;
+				},
+			}
+
+			function render() {
+				ctx.clearRect(0, 0, W, H);
+				snake.render();
+				requestAnimationFrame(render);
+			}
+
+			function getRandomColor() {
+				return "#" + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+			}
+
+			function getRandomPoint() {
+				return [~~(Math.random() * W / DOT_SIZE), ~~(Math.random() * H / DOT_SIZE)];
+			}
+			// 计算曼哈顿距离
+			function getManhattan(start, end) {
+				return Math.abs(start[0] - end[0]) + Math.abs(start[1] - end[1]);
+			}
+
+			render()
+				// var timer = setInterval(render,400);
+		</script>
+	</body>
+
+</html>
