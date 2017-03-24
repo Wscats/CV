@@ -103,7 +103,6 @@
 
 ## 参考技能关键字
 本技能关键字列表是从最近招聘Web前端的数百份简历中统计出来的，括号中是出现的词频。如果你的简历要投递给有机器（简历分选系统）和不如机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
-
 - web(889)
 - javascript(596)
 - css(555)
@@ -188,12 +187,23 @@
 感谢您花时间阅读，期待你能找到一份不错的前端工作。
 
 
+## 其他参考
 | Article | Article |
 | --------- | --------- |
-|[Javascript深浅拷贝](https://github.com/Wscats/Good-text-Share/issues/57)|[Javascript中的apply和call继承](https://github.com/Wscats/Good-text-Share/issues/56)|
-|[Javascript的jsonp原理](https://github.com/Wscats/Good-text-Share/issues/55)|[Javascript监听触摸事件](https://github.com/Wscats/Good-text-Share/issues/49)|
-|[Javascript中的var self = this](https://github.com/Wscats/Good-text-Share/issues/52)|[Javascript面向对象编程](https://github.com/Wscats/Good-text-Share/issues/32)|
-|[Javascript滑屏切换场景](https://github.com/Wscats/Good-text-Share/issues/14)|[Javascript获取经纬度，关于调用百度API的问题](https://github.com/Wscats/Good-text-Share/issues/16)|
-|[妙用Javascript运算符](https://github.com/Wscats/Good-text-Share/issues/3)|[深入理解Javascript函数编程](https://github.com/Wscats/Good-text-Share/issues/1)|
-|[Javascript的setTimeout详细用例](https://github.com/Wscats/Good-text-Share/issues/4)|[sessionstorage，localstorage和cookie](https://github.com/Wscats/Good-text-Share/issues/42)|
-|[JS日期对比](https://github.com/Wscats/Good-text-Share/issues/11)|[写给前端面试者](https://github.com/amfe/article/issues/5)|
+|[写给前端面试者（大漠，淘宝）](https://github.com/amfe/article/issues/5)|[谈谈面试与面试题、谈谈面试与面试题 II （winter，淘宝）](https://github.com/wintercn/blog/issues/8)|
+
+|[互联网公司技术岗实习/求职经验（实习内推+简历+面试+offer篇）（张秋怡，阿里巴巴）](http://www.cnblogs.com/joyeecheung/p/5003980.html)|
+[史上最全 前端开发面试问题及答案整理](https://github.com/hawx1993/Front-end-Interview-questions)|
+
+|[前端开发面试题（马云云，ZTE）](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions)|
+[收集的前端面试题和答案（邱德清，阿里妈妈）](https://github.com/qiu-deqing/FE-interview)
+
+|[web前端面试相关的知识点（王文杰，乐视云）](https://github.com/wangwenjie1314/webQd)|[一道常被人轻视的前端JS面试题（沧海）](http://www.cnblogs.com/xxcanghai/p/5189353.html)|
+
+|[常见前端面试题及答案（默语，腾讯）](http://www.cnblogs.com/syfwhu/p/4434132.html)|
+|[前端工作面试问题（一）（Ruipeng Zhang，哈工大）](http://www.cnblogs.com/syfwhu/p/4434132.html)|
+
+|[面试经验分享之数据结构、算法题（Song Chengru，清华）](https://github.com/Wscats/Good-text-Share/issues/42)|
+|[如何面试前端工程师？——知乎](https://www.zhihu.com/question/19568008)|
+
+|[写给前端面试者](https://github.com/amfe/article/issues/5)|
