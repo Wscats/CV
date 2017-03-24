@@ -93,11 +93,13 @@
 以下均为我熟练使用的技能
 - Web开发：PHP/Node
 - Web框架：ThinkPHP/CodeIgniter
-- 前端框架：Bootstrap/AngularJS/Vue/EmberJS/Cocos2dJS/ionic
+- 前端框架：AngularJS/Vue/EmberJS/Cocos2dJS/ionic
+- 前端样式库：WeUI/Bootstrap/AmazeUI
+- 前端工具库：jQuery/Zepto
 - 前端插件：Swiper/Iscroll/ui-router
 - 前端工具：Webpack/Gulp/Sass/Less/Cordova
 - 数据库相关：MySQL/PgSQL/PDO/SQLite
-- 版本管理、文档和自动化部署工具：Svn/Git/PHPDoc/Phing/Composer
+- 版本管理、文档和自动化部署工具：SVN/Git
 - 单元测试：PHPUnit/SimpleTest/Qunit
 - 云和开放平台：SAE/BAE/AWS/微博开放平台/微信应用开发
 
@@ -107,14 +109,14 @@
 2、能适当运用CSS3使页面在现代浏览器上效果更佳；
 3、熟练运用rem单位和flex布局实现不同浏览器宽度下的整页缩放；
 4、熟练使用photoshop软件进行简单的图片处理，能根据图片特征保存成最优的格式；
-5、熟练使用原生javascript以及常用javaScript库，如jQuery、Zepto.js；
+5、熟练使用原生javascript以及常用javaScript库，如jQuery、Zepto；
 6、能运用模块化、面向对象的方式编程；
 7、了解http协议，能够根据http请求报文、响应报文和状态码排查问题；
 8、熟练运用ajax实现异步数据传递，熟悉JSON等数据交换格式；了解php和数据库；
 9、了解如何使用Node.js搭建本地server模拟接口返回数据测试ajax接口；
 10、能使用Bootstrap、WeUI、Ionic等前端样式库和框架进行开发；
 11、熟练运用AngularJS，VueJS进行模块开发，了解双向数据绑定原理，熟练编写控制器、服务、组件等
-12、熟练使用gulp对代码进行压缩合并；熟悉使用git和SVN进行代码管理和版本控制；
+12、熟练使用Gulp对代码进行压缩合并；熟悉使用Git和SVN进行代码管理和版本控制；
 
 ```
 
@@ -151,4 +153,4 @@
 
 
 # 最后
-感谢您花时间阅读，期待你能找到一份不错的前端工作。
+最近比较忙，后面有时间继续整理，感谢您花时间阅读，期待你能找到一份不错的前端工作，谢谢。
