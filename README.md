@@ -103,10 +103,11 @@
 
 ## 参考技能关键字
 本技能关键字列表是从最近招聘Web前端的数百份简历中统计出来的，括号中是出现的词频。如果你的简历要投递给有机器（简历分选系统）和不如机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
-- web(889)
-- javascript(596)
-- css(555)
-- html(430)
+
+| Skill | Skill | Skill | Skill |
+| --------- | --------- | --------- | --------- |
+|web(889)|javascript(596)|css(555)|html(430)|
+
 - jquery(323)
 - html5(312)
 - js(311)
@@ -182,12 +183,7 @@
 - django(4)
 
 ---
-
-# 最后
-感谢您花时间阅读，期待你能找到一份不错的前端工作。
-
-
-## 其他参考
+# 其他参考
 | Article | Article |
 | --------- | --------- |
 |[初级前端面试需要带什么作品？——知乎）](https://www.zhihu.com/question/39486348)|[如何面试前端工程师？——知乎](https://www.zhihu.com/question/19568008)|
@@ -197,3 +193,7 @@
 |[前端开发面试题（马云云，ZTE）](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions)|[收集的前端面试题和答案（邱德清，阿里妈妈）](https://github.com/qiu-deqing/FE-interview)|
 |[web前端面试相关的知识点（王文杰，乐视云）](https://github.com/wangwenjie1314/webQd)|[一道常被人轻视的前端JS面试题（沧海）](http://www.cnblogs.com/xxcanghai/p/5189353.html)|
 |[常见前端面试题及答案（默语，腾讯）](http://www.cnblogs.com/syfwhu/p/4434132.html)|[前端工作面试问题（一）（Ruipeng Zhang，哈工大）](http://www.cnblogs.com/syfwhu/p/4434132.html)|
+
+
+# 最后
+感谢您花时间阅读，期待你能找到一份不错的前端工作。
