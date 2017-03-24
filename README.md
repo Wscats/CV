@@ -28,9 +28,9 @@
 # 联系方式
 （HR会打印你的简历，用于在面试的时候联系，所以联系方式放到最上边会比较方便）
 
-- 手机：135******** （```如果是外地手机，可注明。如经常关机，要写上最优联系时间```）
-- Email：goodman@gmail.com （```虽然我觉得QQ邮箱无所谓，不过有些技术人员比较反感，建议用163,gmail也可以```）
-- QQ/微信号：6*******（```提供一个通过网络可以联系到你的方式```）
+- 手机：139******** （```如果是外地手机，可注明。如经常关机，要写上最优联系时间```）
+- Email：wscats@gmail.com （```虽然我觉得QQ邮箱无所谓，不过有些技术人员比较反感，建议用163,gmail也可以```）
+- QQ/微信号：7*******（```提供一个通过网络可以联系到你的方式```）
 
 ---
 
@@ -40,7 +40,7 @@
  - 本科/XX大学计算机系 
  - 工作年限/经验：3年
  - 技术博客：https://wscats.github.io/blog ( ``` 使用GitHub Page映射页面会显得的逼格较高 ```  )
- - Github：http://github.com/geekcompany ( ``` 原创repo+多star的Github帐号会极大的提升你的个人品牌 ```  )
+ - Github：https://github.com/Wscats ( ``` 原创repo+多star的Github帐号会极大的提升你的个人品牌 ```  )
  - 期望职位：Web前端程序员/工程师
  - 期望薪资：税前月薪15k~20k，特别喜欢的公司可例外
  - 期望城市：广州
@@ -85,7 +85,7 @@
 ## 技术文章
 （挑选你写作或翻译的技术文章，好的文章可以从侧面证实你的表达和沟通能力，也帮助招聘方更了解你）
 - [我如何用前端技术得到XXOO网站的VIP](https://github.com/Wscats/Good-text-Share/issues/62)
-- [我如何用前端技术得到XXOO网站的VIP](https://github.com/Wscats/Good-text-Share/issues/62) （ ```好的翻译文章可以侧证你对英文技术文档的阅读能力```）
+- [深入理解Javascript函数编程](https://github.com/Wscats/Good-text-Share/issues/1) （ ```好的翻译文章可以侧证你对英文技术文档的阅读能力```）
 
 
 # 技能清单
@@ -101,86 +101,41 @@
 - 单元测试：PHPUnit/SimpleTest/Qunit
 - 云和开放平台：SAE/BAE/AWS/微博开放平台/微信应用开发
 
+例如你可以这样写,当然你得根据自己的个人情况进行修改
+```
+1、熟练使用合理的结构和样式编写兼容主流浏览器的页面；
+2、能适当运用CSS3使页面在现代浏览器上效果更佳；
+3、熟练运用rem单位和flex布局实现不同浏览器宽度下的整页缩放；
+4、熟练使用photoshop软件进行简单的图片处理，能根据图片特征保存成最优的格式；
+5、熟练使用原生javascript以及常用javaScript库，如jQuery、Zepto.js；
+6、能运用模块化、面向对象的方式编程；
+7、了解http协议，能够根据http请求报文、响应报文和状态码排查问题；
+8、熟练运用ajax实现异步数据传递，熟悉JSON等数据交换格式；了解php和数据库；
+9、了解如何使用Node.js搭建本地server模拟接口返回数据测试ajax接口；
+10、能使用Bootstrap、WeUI、Ionic等前端样式库和框架进行开发；
+11、熟练运用AngularJS，VueJS进行模块开发，了解双向数据绑定原理，熟练编写控制器、服务、组件等
+12、熟练使用gulp对代码进行压缩合并；熟悉使用git和SVN进行代码管理和版本控制；
+
+```
+
 ## 参考技能关键字
 本技能关键字列表是从最近招聘Web前端的数百份简历中统计出来的，括号中是出现的词频。如果你的简历要投递给有机器（简历分选系统）和不如机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
 
-| Skill | Skill | Skill | Skill |
-| --------- | --------- | --------- | --------- |
-|web(889)|javascript(596)|css(555)|html(430)|
-
-- jquery(323)
-- html5(312)
-- js(311)
-- ajax(196)
-- css3(176)
-- w3c(168)
-- div(156)
-- php(134)
-- xhtml(106)
-- java(92)
-- ui(78)
-- photoshop(75)
-- dom(63)
-- xml(56)
-- json(54)
-- yui(51)
-- flash(45)
-- bootstrap(43)
-- python(43)
-- http(38)
-- dreamweaver(38)
-- ext(33)
-- linux(33)
-- seo(32)
-- prototype(29)
-- chrome(28)
-- pc(28)
-- nodejs(28)
-- firefox(26)
-- ps(25)
-- angularjs(25)
-- fireworks(24)
-- extjs(23)
-- safari(22)
-- www(22)
-- mobile(22)
-- jsp(22)
-- mvc(22)
-- backbone(21)
-- node(21)
-- ruby(20)
-- github(19)
-- ios(18)
-- ie6(18)
-- android(18)
-- asp(18)
-- sass(17)
-- wap(16)
-- mootools(16)
-- ie(16)
-- mysql(15)
-- flex(14)
-- firebug(13)
-- bom(13)
-- webapp(12)
-- less(12)
-- web2(11)
-- angular(10)
-- git(10)
-- dw(10)
-- as(10)
-- mac(10)
-- psd(8)
-- o2o(7)
-- dojo(7)
-- actionscript3(6)
-- grunt(5)
-- ue(5)
-- zepto(5)
-- actionscript(5)
-- ie8(5)
-- coffeescript(5)
-- django(4)
+| Skill | Skill | Skill | Skill | Skill | Skill |
+| --------- | --------- | --------- | --------- | --------- | --------- |
+|web(889)|javascript(596)|css(555)|html(430)|jquery(323)|html5(312)|
+|js(311)|ajax(196)|css3(176)|w3c(168)|div(156)|php(134)|
+|xhtml(106)|java(92)|ui(78)|photoshop(75)|dom(63)|xml(56)|
+|json(54)|yui(51)|flash(45)|bootstrap(43)|python(43)|http(38)|
+|dreamweaver(38)|ext(33)|linux(33)|seo(32)|prototype(29)|chrome(28)|
+|pc(28)|nodejs(28)|firefox(26)|ps(25)|angularjs(25)|fireworks(24)|
+|extjs(23)|safari(22)|www(22)|mobile(22)|jsp(22)|mvc(22)|
+|backbone(21)|node(21)|ruby(20)|github(19)|ios(18)|ie6(18)|
+|android(18)|asp(18)|sass(17)|wap(16)|mootools(16)|ie(16)|
+|mysql(15)|flex(14)|firebug(13)|bom(13)|webapp(12)|less(12)|
+|web2(11)|angular(10)|git(10)|dw(10)|as(10)|mac(10)|
+|psd(8)|o2o(7)|dojo(7)|actionscript3(6)|grunt(5)|ue(5)|
+|zepto(5)|actionscript(5)|ie8(5)|coffeescript(5)|django(4)|
 
 ---
 # 其他参考
