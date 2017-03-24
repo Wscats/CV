@@ -190,18 +190,10 @@
 ## 其他参考
 | Article | Article |
 | --------- | --------- |
+|[初级前端面试需要带什么作品？——知乎）](https://www.zhihu.com/question/39486348)|[如何面试前端工程师？——知乎](https://www.zhihu.com/question/19568008)|
+|[写给前端面试者](https://github.com/amfe/article/issues/5)|[如何写好一份前端简历](https://github.com/Wscats/CV)|
 |[写给前端面试者（大漠，淘宝）](https://github.com/amfe/article/issues/5)|[谈谈面试与面试题、谈谈面试与面试题 II （winter，淘宝）](https://github.com/wintercn/blog/issues/8)|
-|[互联网公司技术岗实习/求职经验（实习内推+简历+面试+offer篇）（张秋怡，阿里巴巴）](http://www.cnblogs.com/joyeecheung/p/5003980.html)|
-[史上最全 前端开发面试问题及答案整理](https://github.com/hawx1993/Front-end-Interview-questions)|
-|[前端开发面试题（马云云，ZTE）](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions)|
-[收集的前端面试题和答案（邱德清，阿里妈妈）](https://github.com/qiu-deqing/FE-interview)
-
+|[互联网公司技术岗实习/求职经验（实习内推+简历+面试+offer篇）（张秋怡，阿里巴巴）](http://www.cnblogs.com/joyeecheung/p/5003980.html)|[史上最全 前端开发面试问题及答案整理](https://github.com/hawx1993/Front-end-Interview-questions)|
+|[前端开发面试题（马云云，ZTE）](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions)|[收集的前端面试题和答案（邱德清，阿里妈妈）](https://github.com/qiu-deqing/FE-interview)|
 |[web前端面试相关的知识点（王文杰，乐视云）](https://github.com/wangwenjie1314/webQd)|[一道常被人轻视的前端JS面试题（沧海）](http://www.cnblogs.com/xxcanghai/p/5189353.html)|
-
-|[常见前端面试题及答案（默语，腾讯）](http://www.cnblogs.com/syfwhu/p/4434132.html)|
-|[前端工作面试问题（一）（Ruipeng Zhang，哈工大）](http://www.cnblogs.com/syfwhu/p/4434132.html)|
-
-|[面试经验分享之数据结构、算法题（Song Chengru，清华）](https://github.com/Wscats/Good-text-Share/issues/42)|
-|[如何面试前端工程师？——知乎](https://www.zhihu.com/question/19568008)|
-
-|[写给前端面试者](https://github.com/amfe/article/issues/5)|
+|[常见前端面试题及答案（默语，腾讯）](http://www.cnblogs.com/syfwhu/p/4434132.html)|[前端工作面试问题（一）（Ruipeng Zhang，哈工大）](http://www.cnblogs.com/syfwhu/p/4434132.html)|
