@@ -91,17 +91,18 @@
 # 技能清单
 （我一般主张将技能清单写入到工作经历里边去。不过很难完整，所以有这么一段也不错）
 以下均为我熟练使用的技能
-- Web开发：PHP/Hack/Node
-- Web框架：ThinkPHP/Yaf/Yii/Lavaral/LazyPHP
-- 前端框架：Bootstrap/AngularJS/EmberJS/HTML5/Cocos2dJS/ionic
-- 前端工具：Bower/Gulp/SaSS/LeSS/PhoneGap
+- Web开发：PHP/Node
+- Web框架：ThinkPHP/CodeIgniter
+- 前端框架：Bootstrap/AngularJS/Vue/EmberJS/Cocos2dJS/ionic
+- 前端插件：Swiper/Iscroll/ui-router
+- 前端工具：Webpack/Gulp/Sass/Less/Cordova
 - 数据库相关：MySQL/PgSQL/PDO/SQLite
 - 版本管理、文档和自动化部署工具：Svn/Git/PHPDoc/Phing/Composer
 - 单元测试：PHPUnit/SimpleTest/Qunit
 - 云和开放平台：SAE/BAE/AWS/微博开放平台/微信应用开发
 
 ## 参考技能关键字
-本技能关键字列表是从最近招聘Web前端的数百份JD中统计出来的，括号中是出现的词频。如果你的简历要投递给有机器（简历分选系统）和不如机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
+本技能关键字列表是从最近招聘Web前端的数百份简历中统计出来的，括号中是出现的词频。如果你的简历要投递给有机器（简历分选系统）和不如机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
 
 - web(889)
 - javascript(596)
@@ -180,9 +181,6 @@
 - ie8(5)
 - coffeescript(5)
 - django(4)
-
-
-
 
 ---
 
