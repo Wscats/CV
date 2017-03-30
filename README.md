@@ -183,6 +183,7 @@ I wrote javascript
 # 其他参考
 | Article | Article |
 | --------- | --------- |
+|[前端程序员经常忽视的一个JavaScript面试题](https://github.com/Wscats/Good-text-Share/issues/85)|[怎样才是一份好的技术简历？](https://github.com/Wscats/CV)|
 |[初级前端面试需要带什么作品？——知乎）](https://www.zhihu.com/question/39486348)|[如何面试前端工程师？——知乎](https://www.zhihu.com/question/19568008)|
 |[写给前端面试者](https://github.com/amfe/article/issues/5)|[如何写好一份前端简历](https://github.com/Wscats/CV)|
 |[写给前端面试者（大漠，淘宝）](https://github.com/amfe/article/issues/5)|[谈谈面试与面试题、谈谈面试与面试题 II （winter，淘宝）](https://github.com/wintercn/blog/issues/8)|
