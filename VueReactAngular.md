@@ -14,6 +14,8 @@
 |内置过滤器|currency,uppercase,lowercase,json,number,filter,orderBy,limitTo...|filterBy...|无|
 |自定义指令|有指令 ng-xxx 使用app.directive()去定义|有指令 v-xxx 使用Vue.directive()去定义|无|
 |内置指令|ng-app,ng-controller,ng-model,ng-bind,ng-style,ng-class,ng-bind-html,ng-if,ng-show...|v-model,@click,:src|没有|
+|自定义组件|app.directive()/app.components()实现|.vue/Vue.component实现|React.createClass()实现|
+|组件通信|$rootScope,服务等|props/vuex|redux|
 |jQ工具包|jQlite|引入jQ|引入jQ|
 |绑定数据|{{xxx}}/ng-bind|{{xxx}}/v-text|{xxx}|
 |绑定函数|通过$scope和ng-click等指令完成|通过methods和@click等指令完成|通过定义函数和onClick={}等方法完成|
@@ -22,6 +24,7 @@
 
 ## 初始化
 angular
+
 ```javascript
 var app = angular.module("app",[]);
 		app.controller("indexCtrl",function($scope){
@@ -29,6 +32,7 @@ var app = angular.module("app",[]);
 		})
 ```
 vue
+
 ```javascript
 new Vue({
 			el:"#demo",
@@ -40,6 +44,7 @@ new Vue({
 		})
 ```
 react
+
 ```javascript
 var text = "Hello WorldD";
 		ReactDOM.render(
@@ -57,6 +62,7 @@ var text = "Hello WorldD";
 
 ## Ajax
 angular
+
 注意使用之前一定要注入$http服务,只有angular才有服务的概念，服务其实就是封装好一大堆可服用的方法,jQ来扩展react和vue的功能
 ```javascript
 $http({
@@ -103,6 +109,7 @@ var getData = function(){
 
 ## 绑定数据
 angular
+
 双向数据绑定,$scope的属性值绑定对应的值，然后通过ng-bind或者{{}}实现渲染
 ```javascript
 //HTML VIEW
@@ -112,6 +119,7 @@ $scope.text = "xxxx"
 ```
 
 vue
+
 双向数据绑定,通过在data里面定义属性值，然后通过v-text或者{{}}实现渲染
 ```javascript
 //HTML VIEW
@@ -123,6 +131,7 @@ data:{
 ```
 
 react
+
 单向数据绑定,通过定义一个变量，然后使用{}进行绑定
 ```javascript
 //JS MODEL
@@ -164,6 +173,7 @@ var getData = function(){}
 ## 自定义指令
 其实就是把相同类型的DOM操作封装在一起，然后实现复用
 angular
+
 ```
 <ng-color>组件</ng-color>
 <div ng-color="">指令</div>
@@ -181,6 +191,7 @@ app.directive("ngColor",function(){
 })
 ```
 vue
+
 全局和局部的directive有单数复数的区分
 ```
 Vue.directive()//全局定义
@@ -219,6 +230,7 @@ react
 
 ## 过滤器
 angular
+
 过滤器其实是一种特殊的服务，封装一个处理相同类型数据的方法,使用的时候用管道字符+过滤器名字
 ```javascript
 //HTML
@@ -232,6 +244,7 @@ app.filter("html",function($sce){
 		})
 ```
 vue
+
 ```javascript
 <p>{{text|ed}}</p>
 Vue.filter("过滤器的名字",function(){})
@@ -242,10 +255,152 @@ Vue.filter("过滤器的名字",function(){})
 			}
 ```
 react
+
 实现一个类过滤器的方法
 ```
 var ed = function(input){
 	return input+"ed"
 }
 <p>{ed(text)}</p>
+```
+
+## 组件
+组件类似一个jQ的插件，一个正常的组件应该包含(html,js,css),他拥有独有功能，并且可以随意复用,就算组件不是为了复用，也可以解耦程序，方便我们分开管理
+angular
+它是支持templateUrl,它可以把组件的模板写在外面的html文件,
+```javascript
+<xheader></xheader>
+//1.6以上新增 app.component()
+		app.directive("ngColor", function() {
+			return {
+				link: function(scope, ele, attr) {
+					ele.css("color", attr.ngColor)
+				}
+			}
+		})
+```
+vue
+
+**.vue**后缀的文件，然后经过webpack,vue-loader来去处理成我们以下的形式
+```javascript
+<template>
+	//html只能有一个跟节点
+<template>
+<script>
+	//js
+	module.exports = {}
+</script>
+<style></style>
+```
+```javascript
+//全局定义
+		Vue.component("xheader",{
+			template:"<div>第一个组件</div>",
+			methods:{},
+			data:function(){
+				return {
+					
+				}
+			},
+			filters:{}
+		})
+//局部定义
+new Vue({
+	components:{
+		//code
+	}
+})
+```
+react
+
+定义组件的时候注意要用大写开头
+```javascript
+		//定义
+		var Xheader = React.createClass({
+			render:function(){
+				return (
+					<div>这是一个组件</div>
+				)
+			}
+		})
+		//使用
+		<Xheader />
+```
+
+## 路由
+angular
+```javascript
+//ng-route 只能实现单层路由
+//ui-router 实现路由嵌套 
+//1.引入ui路由的js文件,引入在angular.js之后
+<script src="ui-router" />
+//2.注入ui.router/ngRoute模块
+var app = angular.module("app", ["ui.router"]);
+//3.配置路由
+app.config()
+//4.添加
+<div ng-view></div>
+<div ui-view></div>
+<ui-view></ui-view>
+```
+vue
+```javascript
+//vue-router	实现单层路由和多层路由
+1.引入vue-router,一定要在vue.js之后引入
+2.配合webpack引入模块,非webpack下则不用
+		Vue.use(VueRouter)
+3.配置路由,定义每个组件匹配的路由格式,路由用的时候是在单页面的url后面加#/路由名字
+		var router = new VueRouter({
+			routes: [{
+				path: "/index",
+				component: firstCp
+			}, {
+				path: "/home",
+				component: secondCp
+			}]
+		})
+4.添加
+		<router-view></router-view>
+
+
+```
+react
+```
+1.引入react-router
+2.配置路由
+3.添加
+<Router></Router>
+```
+
+
+## 组件通信
+angular
+```
+1.$rootScope angular的全局变量
+2.利用自定义服务,定义一个服务(该服务可以为空对象),在需要通信数据的组件或者控制器里面注入该服务,然后对服务的属性值赋值,其他组件和控制器就可以通过该服务获取到对应的值，从而完成通信
+		app.service("exchange",function(){
+			return {
+				
+			}
+		})
+3.事件委托 $broadcast $emit和$on
+4.cookie,本地存储
+5.服务器
+6.路由传参  比如 /index/:id/:num
+```
+
+vue
+```
+1.父传子
+props
+2.状态管理工具
+vuex
+```
+
+react
+```
+1.父传子
+props
+2.状态管理工具
+redux
 ```
