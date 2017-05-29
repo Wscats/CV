@@ -76,6 +76,7 @@ $http({
 			})
 ```
 vue
+
 实现ajax,要不写原生ajax,要不引入jQ,vue-resource,this.$http().then
 ```
 getData:function(){
@@ -93,6 +94,7 @@ getData:function(){
 				}
 ```
 react
+
 需要引入jQ,也可以用原生，也可以用第三方库
 ```
 var getData = function(){
