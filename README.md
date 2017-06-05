@@ -162,24 +162,29 @@ I wrote javascript
 这里尽量不要重复叙述相同的技能点，保持好每一条都是独特的，每一条描述出现的英文技能点关键词尽量保持大小统一，比如`Bootstrap、WeUI、Ionic`，这样写没问题，但是不要个别大写个别小写`bootstrap、WeUI、ionic`，遇到强迫症的HR就尴尬了，不过有些还是例外的比如`jQuery`,还是第二个字母大写吧(...额，不解释)，还有这里不要出现一些“感性“的描述，比如熟悉使用PHP，能跟后端工程师愉快的合作(什么鬼)，这些句子就不要出现了
 
 ## 参考技能关键字
-本技能关键字列表是从最近招聘Web前端的数百份简历中统计出来的，括号中是出现的词频。如果你的简历要投递给有机器（简历分选系统）和不如机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
+本技能关键字列表是在简历中统计出来的高频词。如果您的简历要投递给有机器（简历筛选系统）和非机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
 
 | Skill | Skill | Skill | Skill | Skill | Skill |
 | --------- | --------- | --------- | --------- | --------- | --------- |
-|web|javascript|css|html|jQuery|html5|
-|js|ajax|css3|w3c|div|php|
-|websocket|charles|vue|angular|react|cordova|
-|xhtml|java|ui|photoshop|dom|xml|
-|json|weui|flash|bootstrap|python|http|
-|dreamweaver|ext|linux|seo|prototype|chrome|
-|pc|nodejs|firefox|ps|fireworks|express|
-|extjs|safari|www|mobile|jsp|mvc|
-|backbone|node|ruby|github|ios|ie6|
-|android|asp|sass|wap|mootools|ie|
-|mysql|flex|firebug|bom|webapp|less|
-|web2|svn|git|dw|as|mac|
-|psd|o2o|dojo|actionscript3|grunt|ue|
-|zepto|actionscript|ie8|coffeescript|django|
+|web|javascript|html5|css3|||
+|ajax|w3c|div|css|html|ES6|
+|vue|angular|react|backbone|jQuery|zepto|
+|json|xml|xhtml|bom|dom||
+|flash|jssdk|phonegap|cordova|||
+|ui|photoshop|weui|bootstrap|ionic||
+|atom|visual studio code|hbuilder|sublime text|firebug|dreamweaver|
+|firefox|chrome|safari|charles|||
+|linux|mac|windows|ios|android||
+|express|nodejs|koa||||
+|asp|jsp|java|ruby|python|php|
+|ps|mobile|mvc|mvvm|mvp|www|
+|http|https|ftp|ssl|websocket|seo|
+|github|stackoverflow|segmentFault|coding|csdn||
+|sass|less|AMD|CMD|requirejs|seajs|
+|mysql|flex|webapp||||
+|gulp|grunt|webpack|git|svn||
+|actionscript|coffeescript|typescript||||
+|微信小程序|微信公众号|阿里云|知乎|||
 
 ---
 # 其他参考
