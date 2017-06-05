@@ -162,7 +162,7 @@ I wrote javascript
 这里尽量不要重复叙述相同的技能点，保持好每一条都是独特的，每一条描述出现的英文技能点关键词尽量保持大小统一，比如`Bootstrap、WeUI、Ionic`，这样写没问题，但是不要个别大写个别小写`bootstrap、WeUI、ionic`，遇到强迫症的HR就尴尬了，不过有些还是例外的比如`jQuery`,还是第二个字母大写吧(...额，不解释)，还有这里不要出现一些“感性“的描述，比如熟悉使用PHP，能跟后端工程师愉快的合作(什么鬼)，这些句子就不要出现了
 
 ## 参考技能关键字
-本技能关键字列表是在简历中统计出来的高频词。如果您的简历要投递给有机器（简历筛选系统）和非机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
+本技能关键字列表是在简历和招聘信息中统计出来的高频词。如果您的简历要投递给有机器（简历筛选系统）和非机器（不懂技术的HR）筛选简历环节的地方，请一定从下边高频关键词中选择5～10个适合你自己的。
 
 | Skill | Skill | Skill | Skill | Skill | Skill |
 | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -171,7 +171,7 @@ I wrote javascript
 |vue|angular|react|backbone|jQuery|zepto|
 |json|xml|xhtml|bom|dom||
 |flash|jssdk|phonegap|cordova|||
-|ui|photoshop|weui|bootstrap|ionic||
+|ui|photoshop|weui|bootstrap|ionic|flex|
 |atom|visual studio code|hbuilder|sublime text|firebug|dreamweaver|
 |firefox|chrome|safari|charles|||
 |linux|mac|windows|ios|android||
@@ -181,7 +181,7 @@ I wrote javascript
 |http|https|ftp|ssl|websocket|seo|
 |github|stackoverflow|segmentFault|coding|csdn||
 |sass|less|AMD|CMD|requirejs|seajs|
-|mysql|flex|webapp||||
+|mysql|webapp|||||
 |gulp|grunt|webpack|git|svn||
 |actionscript|coffeescript|typescript||||
 |微信小程序|微信公众号|阿里云|知乎|||
