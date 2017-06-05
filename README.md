@@ -2,7 +2,7 @@
 在写简历之前，我们必须清楚的了解一件事情，那就是简历是什么？
 它不是人生履历，不是项目清单，也不是技能大放送。
 简历的存在只有一个目的 —— 帮你约到面试。只要能达到这个目的，简历可以是一段视频，一个开源项目，一张照片，甚至是一行字，比如：
-```
+```javascript
 I wrote javascript
 ```
 当然，绝大部分简历的形式，就是我们所熟知的，是一篇文章。即使你通过其他方式获得了面试，当你入职的时候，还是要有这么一份纸质简历的，所以不要想着偷懒。
@@ -76,7 +76,7 @@ I wrote javascript
 
 ---
 根据上面的模板你可以这样来写
-```
+```html
 广州XX有限公司（2016.09 ~ 2017.03）技术部-前端工程师
 这个项目目的主要以成人学历为主线开发，有大专、本科、资格证等线上销售的教育培训产品。
 我在此项目负责了前期界面研究，做出原型设计，原型切图，配合后台开发人员设计界面与开发功能，并负责框架开发，封装公共组件，以及根据需要引进第三方插件。
@@ -86,12 +86,12 @@ I wrote javascript
 # 自我评价
 最好突出自己的优势，比如学习能力，带队能力和技术能力等等
 想简单点可以这样写：
-```
+```html
 喜欢学习新技术，有良好的文档编写和代码书写规范，耐心打磨用户体验和用户界面
 有良好的沟通能力和团队合作能力，性格随和，认真负责，自学能力强
 ```
 详细的你也可以这样来
-```
+```html
 1. 对前端技术具有浓厚的兴趣，喜欢逛CSDN，博客园等技术论坛；
 2. 具备良好的审美能力，有良好的代码编程习惯；（说好的审美，可以和设计师好好玩耍）
 3. 学习适应能力强，愿意不断学习新知识丰富自己；（学习能力大企业最看重）
@@ -129,12 +129,12 @@ I wrote javascript
 - 云和开放平台：SAE/BAE/AWS/微博开放平台/微信应用开发
 
 例如你可以这样写,当然你得根据自己的个人情况进行修改
-```
+```html
 1、熟练使用合理的结构和样式编写兼容主流浏览器的页面；
 2、能适当运用CSS3使页面在现代浏览器上效果更佳；
 3、熟练运用rem单位和flex布局实现不同浏览器宽度下的整页缩放；
 4、熟练使用photoshop软件进行简单的图片处理，能根据图片特征保存成最优的格式；
-5、熟练使用原生javascript以及常用javaScript库，如jQuery、zepto；
+5、熟练使用原生javaScript以及常用javaScript库，如jQuery、zepto；
 6、能运用模块化、面向对象的方式编程；
 7、了解http协议，能够根据http请求报文、响应报文和状态码排查问题；
 8、熟练运用ajax实现异步数据传递，熟悉JSON等数据交换格式；了解php和数据库；
@@ -144,20 +144,20 @@ I wrote javascript
 12、熟练使用Gulp对代码进行压缩合并；熟悉使用Git和SVN进行代码管理和版本控制；
 
 ```
-当然再举个例子（精通慎用！熟悉可以多用，额哼）
-```
-熟练HTML、DIV+CSS的页面布局，能根据设计图完成页面制作
-熟练响应式布局、弹性盒布局，熟悉基于HTML5的WebApp开发以及移动端适配
-熟练主流浏览器的兼容性以及相应的适配技术，完成页面的完整兼容
-熟练掌握HTML5、CSS3新增功能，了解Canvas动画制作
-熟悉掌握原生JavaScript，熟悉jQuery，了解Zepto
-熟练Bootstrap、AngularJS等前段框架，了解MUI、Vue框架
-熟练使用AJAX进行数据交互，协助后端开发工程师完成项目
-熟练JSON数据的使用以及处理方式
-熟练LocalStorage、SessionStorage、Cookie等本地存储
-熟悉使用Swiper、Font-awesome、jQueryUI以及jQuery插件等前端插件
-熟练使用Cordova插件将WebApp打包成安卓App，实现混合App开发
-熟练使用DW、SublimeText、HBulid、Git、Gulp、Scss、Photoshop 等开发工具
+当然再举个例子（精通慎用！熟悉可以多用，不够自信就用了解吧，额哼）
+```html
+1、熟练HTML、DIV+CSS的页面布局，能根据设计图完成页面制作
+2、熟练响应式布局、弹性盒布局，熟悉基于HTML5的WebApp开发以及移动端适配
+3、熟练主流浏览器的兼容性以及相应的适配技术，完成页面的完整兼容
+4、熟练掌握HTML5、CSS3新增功能，了解Canvas动画制作
+5、熟悉掌握原生JavaScript，熟悉jQuery，了解Zepto
+6、熟练Bootstrap、AngularJS等前段框架，了解MUI、Vue框架
+7、熟练使用AJAX进行数据交互，协助后端开发工程师完成项目
+8、熟练JSON数据的使用以及处理方式
+9、熟练LocalStorage、SessionStorage、Cookie等本地存储
+10、熟悉使用Swiper、Font-awesome、jQueryUI以及jQuery插件等前端插件
+11、熟练使用Cordova插件将WebApp打包成安卓App，实现混合App开发
+12、熟练使用DW、SublimeText、HBulid、Git、Gulp、Scss、Photoshop 等开发工具
 ```
 这里尽量不要重复叙述相同的技能点，保持好每一条都是独特的，每一条描述出现的英文技能点关键词尽量保持大小统一，比如`Bootstrap、WeUI、Ionic`，这样写没问题，但是不要个别大写个别小写`bootstrap、WeUI、ionic`，遇到强迫症的HR就尴尬了，不过有些还是例外的比如`jQuery`,还是第二个字母大写吧(...额，不解释)，还有这里不要出现一些“感性“的描述，比如熟悉使用PHP，能跟后端工程师愉快的合作(什么鬼)，这些句子就不要出现了
 
@@ -166,19 +166,20 @@ I wrote javascript
 
 | Skill | Skill | Skill | Skill | Skill | Skill |
 | --------- | --------- | --------- | --------- | --------- | --------- |
-|web(889)|javascript(596)|css(555)|html(430)|jQuery(323)|html5(312)|
-|js(311)|ajax(196)|css3(176)|w3c(168)|div(156)|php(134)|
-|xhtml(106)|java(92)|ui(78)|photoshop(75)|dom(63)|xml(56)|
-|json(54)|yui(51)|flash(45)|bootstrap(43)|python(43)|http(38)|
-|dreamweaver(38)|ext(33)|linux(33)|seo(32)|prototype(29)|chrome(28)|
-|pc(28)|nodejs(28)|firefox(26)|ps(25)|angularjs(25)|fireworks(24)|
-|extjs(23)|safari(22)|www(22)|mobile(22)|jsp(22)|mvc(22)|
-|backbone(21)|node(21)|ruby(20)|github(19)|ios(18)|ie6(18)|
-|android(18)|asp(18)|sass(17)|wap(16)|mootools(16)|ie(16)|
-|mysql(15)|flex(14)|firebug(13)|bom(13)|webapp(12)|less(12)|
-|web2(11)|angular(10)|git(10)|dw(10)|as(10)|mac(10)|
-|psd(8)|o2o(7)|dojo(7)|actionscript3(6)|grunt(5)|ue(5)|
-|zepto(5)|actionscript(5)|ie8(5)|coffeescript(5)|django(4)|
+|web|javascript|css|html|jQuery|html5|
+|js|ajax|css3|w3c|div|php|
+|websocket|charles|vue|angular|react|cordova|
+|xhtml|java|ui|photoshop|dom|xml|
+|json|weui|flash|bootstrap|python|http|
+|dreamweaver|ext|linux|seo|prototype|chrome|
+|pc|nodejs|firefox|ps|fireworks|express|
+|extjs|safari|www|mobile|jsp|mvc|
+|backbone|node|ruby|github|ios|ie6|
+|android|asp|sass|wap|mootools|ie|
+|mysql|flex|firebug|bom|webapp|less|
+|web2|svn|git|dw|as|mac|
+|psd|o2o|dojo|actionscript3|grunt|ue|
+|zepto|actionscript|ie8|coffeescript|django|
 
 ---
 # 其他参考
