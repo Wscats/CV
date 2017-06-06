@@ -166,24 +166,27 @@ I wrote javascript
 
 | Skill | Skill | Skill | Skill | Skill | Skill |
 | --------- | --------- | --------- | --------- | --------- | --------- |
-|web|javascript|html5|css3|||
+|web|javascript|html5|css3|H5|js|
 |ajax|w3c|div|css|html|ES6|
 |vue|angular|react|backbone|jQuery|zepto|
-|json|xml|xhtml|bom|dom||
-|flash|jssdk|phonegap|cordova|||
+|json|xml|xhtml|bom|dom|svg|
 |ui|photoshop|weui|bootstrap|ionic|flex|
+|semantic|foundation|yui|
 |atom|visual studio code|hbuilder|sublime text|firebug|dreamweaver|
-|firefox|chrome|safari|charles|||
-|linux|mac|windows|ios|android||
-|express|nodejs|koa||||
 |asp|jsp|java|ruby|python|php|
 |ps|mobile|mvc|mvvm|mvp|www|
 |http|https|ftp|ssl|websocket|seo|
-|github|stackoverflow|segmentFault|coding|csdn||
 |sass|less|AMD|CMD|requirejs|seajs|
-|mysql|webapp|||||
+|github|stackoverflow|segmentFault|coding|csdn||
+|linux|mac|windows|ios|android||
 |gulp|grunt|webpack|git|svn||
+|flash|jssdk|phonegap|cordova|hybrid||
+|firefox|chrome|safari|charles|||
+|express|nodejs|koa||||
+|mysql|webapp|||||
 |actionscript|coffeescript|typescript||||
+|面向对象|闭包|继承|组件化|模块化|数据结构|
+|正则表达式|兼容性|安全性|重构|交互|性能|
 |微信小程序|微信公众号|阿里云|知乎|||
 
 ---
