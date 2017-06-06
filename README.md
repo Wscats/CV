@@ -183,8 +183,8 @@ I wrote javascript
 |firefox|chrome|safari|charles|||
 |express|nodejs|koa||||
 |semantic|foundation|yui||||
-|mysql|webapp|||||
 |actionscript|coffeescript|typescript||||
+|mysql|webapp|||||
 |面向对象|闭包|继承|组件化|模块化|数据结构|
 |正则表达式|兼容性|安全性|重构|交互|性能|
 |微信小程序|微信公众号|阿里云|知乎|||
