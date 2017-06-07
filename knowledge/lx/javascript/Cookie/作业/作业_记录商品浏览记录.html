@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业_记录商品浏览记录</title>
+	<style>
+		ul{list-style:none;padding:0;margin:0;}
+		.goods-list li{display:inline-block;width:220px;border:1px solid #ddd;padding:10px;margin:10px;}
+		.goods-list li:hover{background-color:#efefef;}
+		.goods-list li img{width:220px;}
+		.goods-list .price{color:#f00;font-weight:bold;}
+		.goods-list .price::before{
+			content:"￥";
+		}
+	</style>
+	<script>
+	window.onload = function(){
+
+		// 商品数据
+		var list = [{
+			"imgurl":"images/160.jpg",
+			"title":"Bottega Veneta/葆蝶家 女士牛皮粉色钱包 114076 V0041 6811",
+			"price":5186,
+			"guid":"g001"
+		},{
+			"imgurl":"images/161.jpg",
+			"title":"Bottega Veneta/葆蝶家 时尚拼色小羊皮手提包",
+			"price":21128,
+			"guid":"g002"
+		},{
+			"imgurl":"images/162.jpg",
+			"title":"Bottega Veneta/葆蝶家 BV男包手拿包羊皮 224053 V4651 1000",
+			"price":10461,
+			"guid":"g003"
+		},{
+			"imgurl":"images/163.jpg",
+			"title":"Bottega Veneta/葆蝶家手提包",
+			"price":15278,
+			"guid":"g004"
+		},{
+			"imgurl":"images/164.jpg",
+			"title":"[16秋冬]Bottega Veneta/葆蝶家 女士 羊皮 编织纹理 单肩包 DU",
+			"price":23644,
+			"guid":"g005"
+		},{
+			"imgurl":"images/165.jpg",
+			"title":"Bottega Veneta/葆蝶家 女士黑色羊皮斜挎包 354761 V0016 8175",
+			"price":23254,
+			"guid":"g006"
+		},{
+			"imgurl":"images/166.jpg",
+			"title":"Bottega Veneta/葆蝶家 经典编织设计浅蓝色羊皮女士长款钱包#302357 V001N 4906",
+			"price":5556,
+			"guid":"g007"
+		},{
+			"imgurl":"images/167.jpg",
+			"title":"Bottega Veneta/葆蝶家 女士咖色羊皮短款钱包# 335531 V4651 2314",
+			"price":2951,
+			"guid":"g008"
+		},{
+			"imgurl":"images/168.jpg",
+			"title":"Bottega Veneta/葆蝶家 女士牛皮黑色手拿包 407255 V001N 1000",
+			"price":7636,
+			"guid":"g009"
+		},{
+			"imgurl":"images/169.jpg",
+			"title":"Bottega Veneta/葆蝶家 女士酒红色编织小羊皮单肩包 245354 V0016 2289",
+			"price":12076,
+			"guid":"g010"
+		}];
+
+
+		var goodsList = document.getElementsByClassName('goods-list')[0];
+
+		//遍历数据，写入页面.goods-list
+		var ul = document.createElement('ul');
+		list.forEach(function(item){
+			var li = document.createElement('li');
+			li.setAttribute('data-guid',item.guid);
+
+			var link = document.createElement('a');
+			link.href = 'details.html';
+
+			var img = document.createElement('img');
+			img.src = item.imgurl;
+
+			// 把图片插入a标签
+			link.appendChild(img);
+
+			// 标题
+			var h4 = document.createElement('h4');
+			h4.innerHTML = item.title;
+
+			// 价格
+			var price =document.createElement('p');
+			price.className = 'price';
+			price.innerText = item.price;
+
+			var btnAdd = document.createElement('button');
+			btnAdd.className = 'add2cart';
+			btnAdd.innerText = '加入购物车';
+
+			// 组合
+			li.appendChild(link);
+			li.appendChild(h4);
+			li.appendChild(price);
+			li.appendChild(btnAdd);
+
+			ul.appendChild(li);
+		});
+
+		goodsList.appendChild(ul);
+
+
+		// 点击商品时，进入商品详情页
+		// 进入商品详情页前，把当前商品的信息保存到cookie
+
+		// 利用事件委托把事件绑定到goodsList
+		goodsList.onclick = function(e){
+			e = e || window.event;
+			var target = e.target || e.srcElement;
+
+			if(target.tagName.toLowerCase() === 'img'){
+				var currentGUID = target.parentElement.parentElement.getAttribute('data-guid');
+
+				// 根据guid获取整个商品的信息
+				var currentGoods = list.filter(function(item){
+					return item.guid === currentGUID;
+				})[0];
+
+				// 把当前商品写入cookie
+				var now = new Date();
+				now.setDate(now.getDate()+3);
+				document.cookie = 'currentGoods=' + JSON.stringify(currentGoods) + ';expires=' + now;
+			}
+		}
+		
+	}
+	</script>
+</head>
+<body>
+	<div class="goods-list"></div>
+</body>
+</html>

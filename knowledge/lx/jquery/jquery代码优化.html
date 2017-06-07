@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery代码优化</title>
+</head>
+<body>
+	<!-- 
+		1）jquery版本，理论上来说，版本越高，性能更好
+		2）选择器
+			#id => tag标签 => class类 => [attr]属性 => :伪类
+		3）缓存对象 
+			var $a = $('.class');
+		4）链式调用
+			$('.content').css().animate()
+		5）避免频繁操作DOM节点
+			for(var i=0;i<1000;i++){
+				$('table').append('<tr><td>'+i+'</td></tr>');
+			}
+			var _html='';
+			for(var i=0;i<1000;i++){
+				_html +='<tr><td>'+i+'</td></tr>';
+			}
+			$('table').append(_html);
+		6）事件代理
+			//有一个100行10列的表格==>1000个单元格
+			$('table td').click(function(){
+				console.log($(this).html());
+			})
+			===》
+			$('table').on('click','td',function(){
+				console.log($(this).html());
+			});
+		7）尽量用原生的方法
+			if($(':checkbox').prop('checked')){}
+			if($(':checkbox')[0].checked){};
+			//判断元素是否存在
+			if($('table')[0])
+		8）封装插件
+	 -->
+</body>
+</html>

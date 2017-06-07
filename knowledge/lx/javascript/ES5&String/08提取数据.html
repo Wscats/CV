@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08提取数据</title>
+	<script>
+		/*
+			取出name, age和gender的值
+			1)先获取?后的字符
+			2）用&分隔字符串为数组
+			3)遍历数组，提取name,age,gender
+		 */
+		var url = 'https://www.baidu.com/s?name=wangmouqiang&age=20&gender=male'
+		
+		console.log(url.substring(2,5));
+		console.log(url.substr(-10,5));
+
+
+		// var name = url.substr(url.indexOf('name=')+5,6);
+		// console.log(name)
+
+		// 1)先获取?后的字符
+		var idx = url.indexOf('?');
+		var attr = url.substring(idx+1);
+		attr = attr.split('&');console.log(attr)
+
+		attr.forEach(function(item){
+			var arr = item.split('=');
+			console.log(arr[0],arr[1]);
+		});
+
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02获取页面元素</title>
+	<script>
+		// document.getElementById()
+		// getElementsByClassName();
+		// getElementsByTagName();
+		// document.getElementsByName();
+		// querySelector()：返回DOM节点
+		// querySelectorAll():返回数组
+
+
+
+		document.addEventListener('DOMContentLoaded',function(){
+			var link = document.querySelectorAll('#box a');
+			console.log(link)
+		})
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div class="list">
+			<a href="#">获取</a>
+			<a href="#">获取</a>
+			<a href="#">获取</a>
+		</div>
+	</div>
+</body>
+</html>

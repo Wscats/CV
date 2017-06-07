@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气预报</title>
+	<style>
+		body{font-family:'微软雅黑';}
+		ul{list-style: none;padding:0;margin:0;}
+		#weather{border:1px solid #ddd;padding:10px;font-size:12px;}
+		#weather h1 small{display: block;font-size:16px;margin:5px 0;font-weight:normal;color:#c00;}
+		#weather ul{padding:5px;overflow:hidden;}
+		#weather li{float:left;padding:5px;width:143px;height:200px;border-right:1px dotted #ddd;}
+		#weather li.last{border-right:none;float:right;}
+		#weather .date{padding-bottom:10px;margin-bottom:10px;text-align:center;font-weight:bold;border-bottom:1px dotted #ddd;}
+		
+		.type{height:70px;}
+		.qt{background:url(tianqi/1.png) no-repeat center;}
+		.yt{background: url(tianqi/2.png) no-repeat center;}
+		.zhenyu{background:url(tianqi/10.png) no-repeat center;}
+		.duoyun{background:url(tianqi/3.png) no-repeat center;}
+		.by{background:url(tianqi/12.png) no-repeat center;}
+		.zy{background:url(tianqi/10.png) no-repeat center;}
+		.xy{background:url(tianqi/9.png) no-repeat center;}
+		.leiyu{background: url(tianqi/16.png) no-repeat center;}
+		.dayu{background: url(tianqi/11.png) no-repeat center;}
+	</style>
+	<script>
+	document.addEventListener('DOMContentLoaded',()=>{
+		var weather = document.querySelector('#weather');
+		var cityName = document.querySelector('#cityName');
+
+		var xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = ()=>{
+			if(xhr.readyState === 4 && xhr.status === 200){
+				var res = JSON.parse(xhr.responseText);
+				console.log(res);
+
+				var today = document.createElement('div');
+				today.classList.add('today');
+
+				var city = document.createElement('h4');
+				city.innerHTML = res.data.city + '未来5天天气预报';
+
+				var tips = document.createElement('p');
+				tips.classList.add('tips');
+				tips.innerHTML = '温馨提示：'+ res.data.ganmao;
+
+				var temp = document.createElement('p');
+				temp.classList.add('temp');
+				temp.innerHTML = res.data.wendu;
+
+				today.appendChild(city);
+				today.appendChild(tips);
+				today.appendChild(temp);
+
+				
+
+				// 未来5天的天气
+				var ul = document.createElement('ul');
+				ul.classList.add('weather-list');
+				res.data.forecast.map((item)=>{
+					var li = document.createElement('li');
+
+					var type;
+
+					// 判断天气类型
+					switch(item.type){
+						case '小雨':type='xy';break;
+						case '中雨':type='zy';break;
+						case '阵雨':type='zhenyu';break;
+						case '多云':type='duoyun';break;
+						case '晴':type='qt';break;
+						case '阴':type='yt';break;
+
+					}
+
+
+					li.innerHTML = `
+					<h4 class="date">${item.date}</h4>
+					<p class="type ${type}">${item.type}</p>
+					<p class="temp">${item.low}/${item.high}</p>
+					`;
+
+					ul.appendChild(li);
+				});
+
+				// 添加到页面
+				weather.innerHTML = '';
+				weather.appendChild(today);
+				weather.appendChild(ul);
+			}
+		}
+
+		xhr.open('get','http://wthrcdn.etouch.cn/weather_mini?city=广州',true);
+		// 如果服务器接口没完成，作为前端，我们要学会模拟数据
+		// xhr.open('get','data/weather.json',true);
+
+		xhr.send(null);
+
+
+		// 输入城市显示对应天气
+		cityName.onblur = ()=>{
+			var _cityName = cityName.value;
+
+			xhr.open('get','http://wthrcdn.etouch.cn/weather_mini?city='+_cityName,true);
+
+			xhr.send(null);
+		}
+	});
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="cityName" placeholder="请输入城市名，如：广州">
+	<div id="weather">
+		
+	</div>
+	
+</body>
+</html>

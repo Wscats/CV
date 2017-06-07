@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加载更多</title>
+	<style>
+		body{padding:50px;}
+		ul{list-style: none;padding:0;margin:0;}/*reset*/
+		#datalist{border:1px solid #ddd;padding:15px;}
+		#datalist li{padding:15px 5px;border-bottom:1px dotted #ccc;}
+		#datalist li h4{margin:0;}
+		#page span{display:inline-block;margin:5px;width:40px;line-height:1.8;text-align: center;background-color:#dfdfdf;color:#666;}
+		#page span.active{background-color:#fc0;color:#fff;}
+	</style>
+	<script>
+	document.addEventListener('DOMContentLoaded',function(){
+
+		var datalist =  document.querySelector('#datalist');
+		var loadmore =  document.querySelector('.loadmore');
+
+		var xhr = new XMLHttpRequest();
+
+		var pageNo = 1;
+
+		// 处理数据
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4 && xhr.status === 200){
+				// 用JSON.parse的前提是xhr.responseText一个json字符串
+				// console.log(xhr.responseText);
+				var res = JSON.parse(xhr.responseText);
+
+
+				var ul = document.createElement('ul');
+				res.forEach((item)=>{
+					var li = document.createElement('li');
+
+					li.innerHTML = `
+					<h4>${item.name}</h4>
+					<p>${item.content}</p>
+					`;
+
+					ul.appendChild(li);
+				});
+
+				datalist.appendChild(ul);
+
+				// pageNo更新
+				pageNo++;
+			}
+		}
+
+		xhr.open('get','http://localhost/1612/ajax/football.php?pageNo='+pageNo,true);
+
+		xhr.send(null);
+
+
+		var lastPage = pageNo;
+		// var timer;
+		// 滚动加载更多
+		window.onscroll = ()=>{
+			var scrollTop = window.scrollY;
+
+			// 滚动条差不多滚动到底部时
+			if(scrollTop >= document.body.scrollHeight - window.innerHeight-100){
+				
+				/*if(timer) return;
+
+				timer = setTimeout(()=>{
+					pageNo++;
+					xhr.open('get','http://localhost/1612/ajax/football.php?pageNo='+pageNo,true);
+
+					xhr.send(null);
+
+					timer = undefined;
+				},100);*/
+
+				// 如果上一次请求跟本次一样，则忽略本次请求
+				if(lastPage == pageNo) return;
+
+				xhr.open('get','http://localhost/1612/ajax/football.php?pageNo='+pageNo,true);
+
+				xhr.send(null);
+
+				
+				lastPage = pageNo;
+			}
+		}
+	});
+		
+	</script>
+</head>
+<body>
+	<div id="datalist"></div>
+</body>
+</html>

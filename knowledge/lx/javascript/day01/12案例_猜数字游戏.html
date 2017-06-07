@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12案例_猜数字游戏</title>
+	<script>
+		/*
+			思路：
+			1.生成1-100随机数
+				Math.random()：得到一个0-1但不包括1的数字
+			2.点击按钮时判断输入的数字与随机数的关系
+				* 定义一个函数
+				* 获取输入的值
+				* 判断
+		 */
+		
+		// 1.生成1-100随机数
+		var randomNum = Math.round(Math.random()*100);
+		
+		// 定义一个判断函数
+		function guess(){
+			// 获取输入的值
+			var num = document.getElementById('num');
+			var _num = num.value;
+
+			// 判断_num与随机数的关系
+			if(_num > randomNum){
+				alert('大了');
+			}else if(_num < randomNum){
+				alert('小了');
+			}else{
+				alert('恭喜你，都会抢答了');
+			}
+		}
+
+	</script>
+</head>
+<body>
+
+<h1>猜数子游戏</h1>
+
+<p>现在已生成一个1-100的数字，猜中有奖</p>
+<input type="number" id="num">
+<button onclick="guess()">确定</button>
+
+</body>
+</html>

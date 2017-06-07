@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07测试身材</title>
+	<style>
+		#output{padding:20px;color:#0c0;}
+	</style>
+	<script>
+		/*
+			开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适
+			思路：
+				1）获取输入的身高和体重
+				2）利用公式“(身高-108)*2=体重”来判断身材是否标准
+		 */
+		function check(){
+			var output = document.getElementById('output');
+
+			// 1）获取输入的身高和体重
+			var height = document.getElementById('height');
+			var weight = document.getElementById('weight');
+
+			var _height = Number(height.value);
+			var _weight = Number(weight.value);
+
+			// 根据身高计算标准体重
+			var sWeight = (_height-108)*2;
+
+			if(_weight === sWeight){
+				output.innerHTML = '你的身材异常标准，你可以做教练了';
+			}
+
+			// 肥胖
+			else if(_weight > sWeight + 10){
+				output.innerHTML = '你应该减肥了';
+			}
+
+			// 太瘦
+			else if(_weight < sWeight - 10){
+				output.innerHTML = '你太瘦了，多吃肉';
+			}
+
+			// 微胖
+			else if(_weight > sWeight && _weight <= sWeight+10){
+				output.innerHTML = '欢迎加入微胖界';
+			}
+
+			// 微瘦
+			else if(_weight < sWeight && _weight >= sWeight - 10){
+				output.innerHTML = '欢迎加入微瘦界';
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>测试身材</h1>
+	身高：<input type="text" id="height">
+	体重：<input type="text" id="weight">
+	<button onclick="check()">测试</button>
+	<div id="output"></div>
+</body>
+</html>

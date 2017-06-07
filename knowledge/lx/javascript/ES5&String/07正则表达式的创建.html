@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07正则表达式的创建</title>
+	<script>
+		var str = 'Good good study, day day up';
+		
+		// 字面量
+		var reg = /good/gi;//good=>hao
+
+		// 构造函数
+		var reg = new RegExp('good','gi');
+
+		// 参数
+		// i,g
+
+		console.log(str.replace(reg,'hao'));
+	</script>
+</head>
+<body>
+</body>
+</html>

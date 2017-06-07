@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11轮播图</title>
+	<script>
+		
+	window.onload = function(){
+		var girl = document.getElementById('girl');
+		var btnStop = document.getElementById('btnStop');
+
+		//每3s切换一张图片
+		var idx = 1;
+		var timer = setInterval(carousel,1000);
+
+		// 轮播函数
+		function carousel(){
+			idx++;
+			girl.src = 'img/g'+idx+'.jpg';
+
+			if(idx>=5){
+				// clearInterval(timer);
+				idx = 0;
+			}
+		}
+
+		// 点击暂停
+		btnStop.onclick = function(){
+
+			if(timer){
+				clearInterval(timer);
+				timer = undefined;
+				btnStop.innerHTML = '轮播';
+			}else{
+				timer = setInterval(carousel,1000);
+				btnStop.innerHTML = '暂停';
+			}
+			
+		}
+	}
+
+	</script>
+</head>
+<body>
+	<div id="box"><img src="img/g1.jpg" id="girl"></div>
+	<button id="btnStop">暂停</button>
+</body>
+</html>

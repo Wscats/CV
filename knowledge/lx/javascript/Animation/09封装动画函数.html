@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09封装动画函数</title>
+	<style>
+		.box{position:absolute;left:200px;width:100px;height:100px;background-color: #f00;}
+	</style>
+	<script src="../common.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var box = document.querySelector('.box');
+
+			// animate(box,'opacity',0.3);//5s
+			// animate(box,'width',600);//10s 490
+
+			// animate(box,{opacity:0.3,width:600,height:150});
+
+			// 宽度先改变成600，然后高度再变成150
+			// 回调函数：某个操作完成后再调用这个函数
+			animate(box,{opacity:0.3,width:600},function(){
+				animate(box,{height:250});
+				console.log(666)
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

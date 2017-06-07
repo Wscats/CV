@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15自动登录勾选</title>
+	<style>
+		.tips{position:relative;margin-top:20px;padding:10px;border:1px solid #f60;background-color: #ffc;color:#f60;width:200px;}
+		.tips::before,.tips::after{
+			content:'';
+			position:absolute;top:-20px;left:10px;
+			border:10px solid #f60;
+			border-color:transparent transparent #f60;
+		}
+
+		.tips::after{
+			top:-18px;
+			border-bottom-color:#ffc;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var autoLogin = document.getElementById('autoLogin');
+			var btnLogin = document.getElementById('btnLogin');
+			var tips = autoLogin.nextElementSibling;
+
+			autoLogin.onclick = function(){
+				// if(autoLogin.checked){
+				// 	tips.style.display = 'none';
+				// }else{
+				// 	tips.style.display = 'block';
+				// }
+
+				tips.style.display = autoLogin.checked ? 'none' : 'block';
+				btnLogin.disabled = autoLogin.checked ? false : true;
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="checkbox" id="autoLogin">自动登录
+	<div class="tips">
+		为了您的安全，请不要在网吧等公共场所使用！
+	</div>
+
+	<button id="btnLogin" disabled>登录</button>
+</body>
+</html>

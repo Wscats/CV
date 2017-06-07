@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10数组扩展</title>
+	<script>
+		var arr = [10,20,21,22];
+		for(var i=0;i<arr.length;i++){
+			//arr[i]
+			//可以随时退出
+		}
+
+		arr.forEach(function(item){
+			//item
+		});
+
+		//ES6 for..of
+		for(var item of arr){
+			console.log(item);
+			if(item >= 20){
+				break;
+			}
+		}
+
+
+		var obj = {name:'xx',age:18}
+
+		document.addEventListener('DOMContentLoaded',function(){
+			var lis = document.querySelectorAll('li');
+
+			for(let li of lis){
+				console.log(li.innerHTML);
+			}
+
+			// 打印li的索引值
+			// for(var i=0;i<lis.length;i++){
+			// 	lis[i].idx = i;
+			// 	lis[i].onclick = function(){
+			// 		console.log(this.idx)
+			// 	}
+			// }
+			
+			for(let i=0;i<lis.length;i++){
+				lis[i].onclick = function(){
+					console.log(i)
+				}
+			}
+		})
+
+	</script>
+</head>
+<body>
+	<ul>
+		<li>数组1</li>
+		<li>数组2</li>
+		<li>数组3</li>
+		<li>数组4</li>
+		<li>数组5</li>
+		<li>数组6</li>
+		<li>数组7</li>
+		<li>数组8</li>
+		<li>数组9</li>
+		<li>数组10</li>
+	</ul>
+</body>
+</html>

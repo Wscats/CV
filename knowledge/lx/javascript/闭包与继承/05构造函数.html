@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05构造函数</title>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			// 声明一个构造函数
+			function Tab(opt){
+				this.title = opt.title;
+				this.content = opt.content;
+				this.idx = opt.idx || 0;
+
+
+			}
+
+			// 原型对象
+			Tab.prototype.init = function(){
+				console.log('init')
+			};
+			Tab.prototype.show = function(){};
+
+			// 实例
+			var tab1 = new Tab({
+				title:['篮球','足球','羽毛球'],
+				content:['你是科比','啪叽咯','林丹']
+			});
+
+			tab1.init();
+			tab1.toString();
+			// tab1.to();
+
+			console.log(tab1)
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06封装加减乘除</title>
+	<script>
+		window.onload = function(){
+			// 这里的代码在页面加载完成后执行
+			// 获取页面元素
+			var num1 = document.getElementById('num1');
+			var num2 = document.getElementById('num2');
+			var ysf = document.getElementById('ysf');
+			var btnCalc = document.getElementById('btnCalc');
+			var output = document.getElementById('output');
+
+			// 绑定点击事件
+			btnCalc.onclick = function(){
+				// 点击按钮的时候执行
+				var _num1 = Number(num1.value);
+				var _num2 = Number(num2.value);
+				var _ysf = ysf.value;
+				console.log(_ysf);
+
+				// 根据运算符的值进行相应的运算
+				switch(_ysf){
+					case '+':
+						output.innerHTML = _num1 + _num2;
+						break;
+					case '-':
+						output.innerHTML = _num1 - _num2;
+						break;
+					case 'x':
+						output.innerHTML = _num1 * _num2;
+						break;
+					case '/':
+						output.innerHTML = _num1 / _num2;
+						break;
+					case '%':
+						output.innerHTML = _num1 % _num2;
+						break;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="num1">
+	<select id="ysf">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="x">&times;</option>
+		<option value="/">/</option>
+		<option value="%">%</option>
+	</select>
+	<input type="text" id="num2">
+	<button id="btnCalc">计算</button>
+	<div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07作用域</title>
+	<script>
+		// 作用域
+		// 全局作用域：x全局变量
+		var x = 100;
+
+		function sum(){
+			// 局部作用域
+			// y:局部变量
+			var y = 20;
+			var res = x + y;
+			console.log(res);
+		}
+
+		sum();//120
+
+		function test(){
+			console.log('test:',x);
+			console.log('test:',y);//报错后：终止代码的执行
+		}
+
+		test();
+
+		console.log(x);
+		console.log(y);//报错：外部不能使用局部变量
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

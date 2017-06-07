@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜简单版</title>
+	<style>
+	html,body{overflow:hidden;}
+		body,div,ul,li{margin:0;padding:0;}
+		#box ul{width:768px;height:172px;list-style-type:none;margin:10px auto;}
+		#box li{float:left;width:170px;height:170px;cursor:pointer;display:inline;border:1px solid #ddd;margin:0 10px;}
+		#box li.active{border:1px solid #a10000;}
+		#box li img{width:170px;height:170px;vertical-align:top;}
+		#big{position:absolute;width:400px;height:400px;border:2px solid #ddd;display:none;}
+		#big div{position:absolute;top:0;left:0;width:400px;height:400px;opacity:0.5;filter:alpha(opacity=50);background:#fff url(img/loading.gif) 50% 50% no-repeat;}
+	</style>
+	<script>
+	window.onload = function(){
+		var box = document.getElementById('box');
+		var big = document.getElementById('big');
+
+		// 给#box绑定mouseover事件
+		box.onmouseover = function(e){
+			e = e || window.event;
+			var target = e.target || e.srcElement;
+
+			// 判断是否移入img标签
+			if(target.tagName.toLowerCase() === 'img'){
+				var currentLi = target.parentElement;
+				currentLi.className = 'active';
+
+				// 创建img
+				var bigImg = document.createElement('img');
+				bigImg.src = target.src.replace('.jpg','_big.jpg');
+
+				big.innerHTML = '';
+				big.appendChild(bigImg);
+
+				big.style.left = e.clientX + 10 + 'px';
+				big.style.top = e.clientY + 10 + 'px';
+
+				big.style.display = 'block';
+			}
+
+		}
+
+		box.onmouseout = function(e){
+			e = e || window.event;
+			var target = e.target || e.srcElement;
+
+			// 判断是否移入img标签
+			if(target.tagName.toLowerCase() === 'img'){
+				var currentLi = target.parentElement;
+
+				// 清除高亮样式
+				currentLi.className = '';
+
+				// 隐藏大图
+				big.style.display = 'none';
+			}
+		}
+
+		// 鼠标移动事件
+		box.onmousemove = function(e){
+			e = e || window.event;
+
+			var left = e.clientX + 10;
+			var top = e.clientY + 10;
+
+			// 当右侧的空间无法容纳当前大图时，显示在左侧
+			if(window.innerWidth - e.clientX <= big.offsetWidth + 10){
+				left = e.clientX - big.offsetWidth - 10;
+			}
+
+
+			big.style.left = left + 'px';
+			big.style.top = top + 'px';
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="box">
+	    <ul>
+	    	<li><img src="img/shirt_1.jpg"></li>
+	        <li><img src="img/shirt_2.jpg"></li>
+	        <li><img src="img/shirt_3.jpg"></li>
+	        <li><img src="img/shirt_4.jpg"></li>
+	    </ul>
+	</div>
+	<div id="big"></div>
+</body>
+</html>

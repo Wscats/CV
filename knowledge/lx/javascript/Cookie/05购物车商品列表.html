@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>保存购物车信息</title>
+	<style>
+		ul{list-style:none;padding:0;margin:0;}
+		.goods li{display:inline-block;border:1px solid #ddd;padding:10px;margin:10px;}
+		.goods li:hover{background-color:#efefef;}
+		.goods .price{color:#f00;font-weight:bold;}
+		.goods .price::before{
+			content:"￥";
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		/*
+			添加到购物车
+				1）点击按钮，把当前商品信息写入cookie
+					* 如果当前商品已经存在cookie，则数量+1
+				2）在购物车页面读取cookie，把商品信息显示到页面
+
+			**cookie中只能保存字符串
+			*JSON.stringify()：把对象/数组转换成json字符串
+			*JSON.parse()：把json字符串转换成数组/对象
+			*JSON字符串格式要求
+				* 所有属性必需使用双引号
+				* 字符串必须使用双引号
+				* 不能有注释
+		 */
+		var goods = document.getElementsByClassName('goods')[0];
+
+		// 用于保存购物车中的商品列表
+		var carlist = [];
+
+		// 如果cookie中存在商品列表，则赋值给carlist
+		var cookie = document.cookie.split('; ');
+		cookie.forEach(function(item){
+			var arr = item.split('=');
+			if(arr[0] === 'carlist'){
+				// 在cookie中得到的数据都是字符串
+				// 所以需要转换成数组/对象
+				carlist = JSON.parse(arr[1]);
+			}
+		});
+
+		// 事件委托
+		// 把本来绑定到button的事件委托给父级元素goods处理
+		// 利用事件冒泡的原理来实现
+		goods.onclick = function(e){
+			e = e || window.event;
+			var target = e.target || e.srcElement;
+
+			// 点击按钮时添加到购物车
+			if(target.tagName.toLowerCase() === 'button'){
+				var currentLi = target.parentElement.parentElement;
+				var currentGUID = currentLi.getAttribute('data-guid');
+
+				// 判断当前商品是否已经存在cookie
+				// 如果已存在，则数量+1
+				// 否则直接追加到cookie
+				for(var i=0;i<carlist.length;i++){
+					if(carlist[i].guid === currentGUID){
+						carlist[i].qty++;
+						break;
+					}
+				}
+
+				// 如果i值等于carlist.length
+				// 说明当前商品不存在cookie中
+				if(i===carlist.length){
+					// 创建一个对象，用于保存商品信息
+					var obj = {};
+
+					obj.guid = currentGUID;
+					obj.src = currentLi.firstElementChild.src;
+					obj.name = currentLi.children[1].innerText;
+					obj.price = currentLi.children[2].innerText;
+					obj.qty = 1;
+					carlist.push(obj);
+				}
+
+				// 把商品信息写入cookie
+				// 保留3天
+				var now = new Date();
+				now.setDate(now.getDate() + 3);
+				document.cookie = 'carlist=' + JSON.stringify(carlist) + ';expires='+now;
+			}
+
+		}
+
+
+
+	}
+	</script>
+</head>
+<body>
+	<ul class="goods">
+		<li data-guid="g01">
+			<img src="img/shirt_1.jpg">
+			<p>短袖衬衣</p>
+			<p class="price">98.88</p>
+			<div class="add2cart">
+				<button>添加到购物车</button>
+			</div>
+		</li>
+		<li data-guid="g02">
+			<img src="img/shirt_2.jpg">
+			<p>短袖衬衣2</p>
+			<p class="price">88.88</p>
+			<div class="add2cart">
+				<button>添加到购物车</button>
+			</div>
+		</li>
+		<li data-guid="g03">
+			<img src="img/shirt_3.jpg">
+			<p>短袖衬衣3</p>
+			<p class="price">9.98</p>
+			<div class="add2cart">
+				<button>添加到购物车</button>
+			</div>
+		</li>
+		<li data-guid="g04">
+			<img src="img/shirt_4.jpg">
+			<p>短袖衬衣4</p>
+			<p class="price">8.88</p>
+			<div class="add2cart">
+				<button>添加到购物车</button>
+			</div>
+		</li>
+	</ul>
+	<a href="05car.html">去结算</a>
+</body>
+</html>

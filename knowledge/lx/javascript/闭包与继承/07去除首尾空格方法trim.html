@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07去除首尾空格方法trim</title>
+	<script>
+		var str = '   ni 好   ';
+		// console.log(str.trim());
+
+		// var str = new String('   ni 好   ');
+		// str.trim()
+		// str.indexOf(),str.slice,str.search,match,replace,
+
+
+		// 判断当前浏览器支持trim方法
+		if(!String.prototype.trim){
+			String.prototype.trim = function(){
+				// this：这里的this就是字符串本身
+
+				var res = this.replace(/^\s+|\s+$/g,'');
+
+				return res;
+			}
+			// str.trim();//=>'ni 好'
+		}
+
+		console.log(str.trim());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

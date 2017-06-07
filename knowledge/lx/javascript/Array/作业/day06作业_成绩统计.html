@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>day06作业_成绩统计</title>
+	<script>
+		/*
+			以下是某班级一次考试的成绩表。请计算每个学生总成绩，并按总成绩排名。统计各单科成绩第一名，输出其成绩与学号。
+
+				学号	语文	数学	英语	总成绩	备注
+				1		105		62		118		
+				2		89		78		120		
+				3		86		64		80		
+				4		78		99		91		
+				5		107.5	97		70		
+				6		112		61		92		
+				7		101		79		104		
+				8		71		72		105		
+				9		56		68		61		
+				10		98		83		77	
+
+
+			1）先计算每个学生的总成绩
+			2）根据总成绩排名
+			3）计算单科第一名，并输出学号
+		*/
+
+		var score = [{
+			sno:1,
+			chinese:105,
+			math:62,
+			english:118
+		},{
+			sno:2,
+			chinese:89,
+			math:78,
+			english:120
+		},{
+			sno:3,
+			chinese:86,
+			math:64,
+			english:80
+		},{
+			sno:4,
+			chinese:78,
+			math:99,
+			english:91
+		},{
+			sno:5,
+			chinese:107.5,
+			math:97,
+			english:70
+		},{
+			sno:6,
+			chinese:112,
+			math:61,
+			english:92
+		},{
+			sno:7,
+			chinese:101,
+			math:79,
+			english:104
+		},{
+			sno:8,
+			chinese:71,
+			math:72,
+			english:105
+		},{
+			sno:9,
+			chinese:56,
+			math:68,
+			english:61
+		},{
+			sno:10,
+			chinese:98,
+			math:83,
+			english:77
+		}];
+
+		var top1_chinese = {score:0,sno:0};
+		var top1_math = {score:0,sno:0};
+		var top1_english = {score:0,sno:0};
+
+		for(var i=0;i<score.length;i++){
+			// 添加总成绩属性total
+			score[i].total = score[i].chinese + score[i].math + score[i].english;
+
+			if(score[i].chinese > top1_chinese.score){
+				top1_chinese.score = score[i].chinese;
+				top1_chinese.sno = score[i].sno;
+			}
+
+			if(score[i].math > top1_math.score){
+				top1_math.score = score[i].math;
+				top1_math.sno = score[i].sno;
+			}
+
+			if(score[i].english > top1_english.score){
+				top1_english.score = score[i].english;
+				top1_english.sno = score[i].sno;
+			}
+		}
+
+		// 根据总成绩排名
+		score.sort(function(a,b){
+			return a.total - b.total;
+		}).reverse();
+
+		console.log(score,top1_english,top1_math,top1_chinese)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

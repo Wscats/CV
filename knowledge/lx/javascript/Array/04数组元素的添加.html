@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04数组元素的添加</title>
+	<script>
+		var arr = ['刘备','关羽','张飞'];
+
+		// 往数组中添加元素
+		// arr[3] = '赵云';
+		// arr[arr.length] = '赵云';
+
+		// 数组方法
+		arr.push('赵云');
+
+
+		// 修改元素
+		// arr[1] = '赵云';
+
+		console.log(arr);//['刘备','关羽','张飞','赵云'];
+
+
+		//把赵云移动到老大的位置
+		arr.unshift(arr.pop());
+
+		console.log(arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#loading{height:10px;width:0;background-color: #00f;}
+	</style>
+	<script>
+		
+		window.onload = function(){
+			/*
+				
+			 */
+			
+			var countDown = document.getElementById('countDown');
+			var btnBuy = document.getElementById('btnBuy');
+
+			// var endDate = '2017/2/23';
+
+			// 如何创建指定时间对象
+			var endDate = new Date('2017/2/23 16:43:10');
+			
+			myCountDown();
+
+			var timer = setInterval(myCountDown,1000);
+
+			function myCountDown(){
+				var now = new Date();
+
+				// 计算时间差
+				// 把时间转换成毫秒数再相减
+				// 372s = > 72分12s
+				var offset = Math.floor((endDate.getTime() - now.getTime())/1000);
+
+				// 格式：1天1小时20分30秒
+
+				// 计算剩余秒数
+				var secLeft = offset%60;
+
+				// 计算剩余的分钟数
+				var minLeft = parseInt(offset/60)%60;
+
+				var hourLeft = parseInt(offset/60/60)%24
+
+				var dayLeft = parseInt(offset/60/60/24)
+
+				// 写入页面
+				countDown.innerHTML = dayLeft + '天' + hourLeft + '时' + minLeft + '分' + secLeft + '秒';
+
+
+				if(offset <= 0){
+					clearInterval(timer);
+
+					// 改变为可购买图片路径
+					btnBuy.src = 'img/btn_buy.jpg';
+
+					// 隐藏倒计时
+					countDown.style.display = 'none';
+				}
+			}
+		}
+
+		
+	</script>
+</head>
+<body>
+	<div id="countDown"></div>
+	<img src="img/btn_buy0.jpg" id="btnBuy">
+</body>
+</html>

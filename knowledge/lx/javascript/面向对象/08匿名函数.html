@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08匿名函数</title>
+	<script>
+		//匿名函数没名字，如何执行
+		function sum(){
+
+		}
+		sum();
+
+		// 避免污染全局环境
+		(function(){
+			console.log('我没名字，我怕谁')
+		})();
+
+		// 匿名函数传参
+		(function(num){
+			console.log(num * 2);
+		})(100);
+
+
+		// 匿名函数自执行
+		(function(){
+			console.log('匿名函数自执行1')
+		}());
+
+		+function(){
+			console.log('匿名函数自执行2')
+		}();
+
+		!function(){
+			console.log('匿名函数自执行3')
+		}();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

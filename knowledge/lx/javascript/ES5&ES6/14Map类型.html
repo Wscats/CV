@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14Map类型</title>
+	<script>
+		// 创建对象
+		var obj = new Object();
+		obj.name = 'xxx';
+
+		// Map
+		// 设置Map数据
+		var data = new Map();
+		data.set("S0", "张三"); 
+		data.set("S1", "李四"); 
+		data.set("S2", "王五");
+		console.log(data);
+
+		// 获取Map类型的数据
+		console.log(data.get('S0'));
+
+
+		// Map数据类型的遍历
+		// let [key,val] = ['S0','张三']
+		for(let [key,val] of data){
+		    console.log(key,val);
+		}
+
+		console.log(data.keys());
+		console.log(data.values());
+		console.log(data.entries());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

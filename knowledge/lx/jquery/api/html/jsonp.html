@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp请求</title>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		// 预设一个全局函数
+		/*function getData(data){
+			console.log(data);
+		}
+		var script = document.createElement('script');
+		script.src = 'http://localhost/api/jsonp.php?callback=getData';
+
+		document.head.appendChild(script);*/
+
+
+		$(function(){
+			$.ajax({
+				url:'http://localhost/api/jsonp.php',
+				dataType:'jsonp',
+				success:function(data){
+					console.log(data)
+				}
+			})
+		});
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

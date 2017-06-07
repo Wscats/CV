@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08解构的用途</title>
+	<script>
+	// 变量的交换
+		var a = 10;
+		var b = 20;
+		// var c = a;
+		// a = b;
+		// b = c;
+		// console.log(a,b);
+
+		[a,b] = [b,a];
+		console.log('变量交换：',a,b);
+
+		// 定义函数参数
+		function person(name,age,gender){
+			var obj = {
+				name:name,
+				age:age,
+				gender:gender
+			}
+			return obj;
+		}
+
+		person('laoxie',18,'man');
+
+		// 升级版
+		function person(opt){
+			var obj = {
+				name:opt.name,
+				age:opt.age,
+				gender:opt.gender || '男'//支持默认值
+			}
+			return obj;
+		}
+
+		// 终极版
+		function person({name,age=19,gender='男'}){
+			// var {name,age,gender} = {age:18,name:'laoxie',gender:'man'}
+			var obj = {
+				name:name,
+				age:age,
+				gender:gender
+			}
+			return obj;
+		}
+		console.log(person({age:18,name:'laoxie'}));
+		console.log(person({name:'laoli'}));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

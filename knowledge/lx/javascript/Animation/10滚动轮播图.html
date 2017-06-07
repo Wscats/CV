@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10滚动轮播图</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.carousel{position:relative;border:5px solid #ddd;width:320px;height:320px;overflow:hidden;}
+		.carousel ul{position:relative;}
+		.carousel ul img{display:block;}
+
+		.page{position: absolute;right:15px;bottom:15px;}
+		.page span{display:inline-block;margin:0 5px;width:8px;height:8px;overflow:hidden;text-align:center;background-color:#efefef;border-radius:50%;text-indent:-2000em;}
+		.page span.active{background-color:#f60;color:#fff;}
+
+		.prev,.next{display:none;position: absolute;width:60px;height:60px;line-height:60px;background:url(img/btn.gif) no-repeat;color:#fff;text-align:center;opacity: 0.6}
+		.prev{left:-5px;top:0;bottom:0;margin:auto 0;}
+		.next{right:-5px;top:50%;margin-top:-25px;background-position:0 -60px;}
+	</style>
+	<script src="../common.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			let carousel = document.querySelector('.carousel');
+			let list = carousel.children[0];
+			let prev = carousel.querySelector('.prev');
+			let next = carousel.querySelector('.next');
+
+			// 默认显示第一张
+			var idx = 0;
+
+			// 图片的数量
+			var len = list.children.length;
+
+			// 获取图片的高度
+			var imgHeight = carousel.clientHeight;
+
+			let timer = setInterval(autoPlay,3000);
+
+
+			// 生成页码
+			let page = document.createElement('div');
+			page.classList.add('page');
+			for(var i=1;i<=len;i++){
+				let span = document.createElement('span');
+				span.innerText = i;
+				if(i===1){
+					span.classList.add('active');
+				}
+
+				page.appendChild(span);
+			}
+			carousel.appendChild(page);
+
+			// 点击页码切换
+			page.onclick = (e)=>{
+				if(e.target.tagName.toLowerCase() === 'span'){
+					idx = e.target.innerText - 1;
+					showPic();
+				}
+			}
+
+
+
+			// 鼠标移入移出
+			carousel.onmouseenter = function(){
+				prev.style.display = 'block';
+				next.style.display = 'block';
+				clearInterval(timer);
+			}
+
+			carousel.onmouseleave = function(){
+				prev.style.display = 'none';
+				next.style.display = 'none';
+				timer = setInterval(autoPlay,3000);
+			}
+
+			// 点击上一张，下一张
+			carousel.onclick = (e)=>{
+				if(e.target.className === 'prev'){
+					idx--;
+
+					showPic();
+				}else if(e.target.className === 'next'){
+					idx++;
+
+					showPic()
+				}
+			}
+
+
+			// 封装轮播函数
+			function autoPlay(){
+				idx++;
+
+				showPic();
+			}
+
+
+			// 展示图片的函数
+			function showPic(){
+				// 到最后一张时，重新回到第一张
+				if(idx>list.children.length-1){
+					idx = 0;
+				}else if(idx<0){
+					idx = list.children.length-1;
+				}
+
+				// 页码高亮
+				// 高亮前先取消所有
+				
+				for(var i=0;i<len;i++){
+					page.children[i].classList.remove('active');
+				}
+
+				page.children[idx].classList.add('active');
+
+
+				// 根据idx滚动到某一张图片
+				animate(list,{top:-idx*imgHeight});
+			}
+		});
+	</script>
+</head>
+<body>
+	<div class="carousel">
+		<ul>
+			<li><img src="img/g1.jpg" alt=""></li>
+			<li><img src="img/g2.jpg" alt=""></li>
+			<li><img src="img/g3.jpg" alt=""></li>
+			<li><img src="img/g4.jpg" alt=""></li>
+			<li><img src="img/g5.jpg" alt=""></li>
+		</ul>
+		<div class="prev"></div>
+		<div class="next"></div>
+	</div>
+</body>
+</html>

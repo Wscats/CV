@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04系统弹窗</title>
+	<script>
+		// window.alert('alert弹窗');
+		// alert('alert弹窗');//代码执行暂停
+
+		
+
+		window.onload = function(){
+			var beauty = document.getElementById('beauty');
+
+			beauty.onclick = function(){
+				if(confirm('你真的忍心不要这个美女么？')){
+					beauty.style.display = 'none';
+				}
+			}
+		}
+
+		var myname = prompt('好汉，请留下你的大名','大侠');
+		document.write('你好'+myname + ', 欢迎来到xxx聊天室');
+	</script>
+	
+</head>
+<body>
+	<img src="img/g3.jpg" id="beauty">
+	
+</body>
+</html>

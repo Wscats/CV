@@ -1,0 +1,92 @@
+[
+    {
+        "src": "media/beyond - 喜欢你.mp3",
+        "singer": "beyond",
+        "name": "喜欢你",
+        "filename": "media/beyond - 喜欢你.jpg"
+    },
+    {
+        "src": "media/beyond - 真的爱你.mp3",
+        "singer": "beyond",
+        "name": "真的爱你",
+        "filename": "media/beyond - 真的爱你.jpg"
+    },
+    {
+        "src": "media/方大同 - 红豆 - 完整版.mp3",
+        "singer": "方大同",
+        "name": "红豆",
+        "filename": "media/方大同 - 红豆 - 完整版.jpg"
+    },
+    {
+        "src": "media/杨坤 - 无所谓.mp3",
+        "singer": "杨坤",
+        "name": "无所谓",
+        "filename": "media/杨坤 - 无所谓.jpg"
+    },
+    {
+        "src": "media/陈冠蒲-蓝眼泪.mp3",
+        "singer": "陈冠蒲",
+        "name": "蓝眼泪",
+        "filename": "media/陈冠蒲-蓝眼泪.jpg"
+    },
+    {
+        "src": "media/陈奕迅 - 十年.mp3",
+        "singer": "陈奕迅",
+        "name": "十年",
+        "filename": "media/陈奕迅 - 十年.jpg"
+    },
+    {
+        "src": "media/陈妃平-永远到底有多远.mp3",
+        "singer": "陈妃平",
+        "name": "永远到底有多远",
+        "filename": "media/陈妃平-永远到底有多远.jpg"
+    },
+    {
+        "src": "media/陈小春-我有什么资格不要你.mp3",
+        "singer": "陈小春",
+        "name": "我有什么资格不要你",
+        "filename": "media/陈小春-我有什么资格不要你.jpg"
+    },
+    {
+        "src": "media/陈慧娴-千千阙歌(粤).mp3",
+        "singer": "陈慧娴",
+        "name": "千千阙歌(粤)",
+        "filename": "media/陈慧娴-千千阙歌(粤).jpg"
+    },
+    {
+        "src": "media/陈慧林-花花宇宙.mp3",
+        "singer": "陈慧林",
+        "name": "花花宇宙",
+        "filename": "media/陈慧林-花花宇宙.jpg"
+    },
+    {
+        "src": "media/陈慧琳-记事本.mp3",
+        "singer": "陈慧琳",
+        "name": "记事本",
+        "filename": "media/陈慧琳-记事本.jpg"
+    },
+    {
+        "src": "media/陈琳 - 爱就爱了.mp3",
+        "singer": "陈琳",
+        "name": "爱就爱了",
+        "filename": "media/陈琳 - 爱就爱了.jpg"
+    },
+    {
+        "src": "media/陈超-求佛.mp3",
+        "singer": "陈超",
+        "name": "求佛",
+        "filename": "media/陈超-求佛.jpg"
+    },
+    {
+        "src": "media/筷子兄弟-小苹果.mp3",
+        "singer": "筷子兄弟",
+        "name": "小苹果",
+        "album": "media/筷子兄弟-小苹果.jpg"
+    },
+    {
+        "src": "media/凤凰传奇-最炫民族风.mp3",
+        "singer": "凤凰传奇",
+        "name": "最炫民族风",
+        "album": "media/凤凰传奇-最炫民族风.jpg"
+    }
+]

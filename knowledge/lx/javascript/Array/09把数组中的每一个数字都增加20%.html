@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编写一个map(arr)函数，把数组中的每一个数字都增加20%，并返回新的数组</title>
+	<script>
+		/*
+			编写一个map(arr)函数，把数组中的每一个数字都增加20%，并返回新的数组
+			目的：返回新的数组
+				* 数组中的每一个数字都增加20%
+
+			1）遍历数组
+			2）复制数组中的每一项元素并在原来的基础上增加20%
+			3）把新的值写入新的数组
+		 */
+		var arr = [10,15,2,32,5,4,20,8,48,54,6];
+
+		function map(arr){
+			var newArr = [];
+			for(var i=0;i<arr.length;i++){
+				newArr[i] = arr[i] + arr[i]*0.2;
+			}
+
+			return newArr;
+		}
+
+		var arr2 = map(arr);//
+		console.log(arr2,arr);
+
+
+		// 最简单复制数组的方式
+		var arr3 = arr.slice(0);
+		arr3.push('new');
+		console.log(arr3,arr);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

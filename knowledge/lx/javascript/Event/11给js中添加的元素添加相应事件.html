@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用事件委托实现新添加的按钮响应点击事件</title>
+	<script>
+		window.onload =function(){
+			var box = document.getElementById('box');
+			var btnAdd = document.getElementById('btnAdd');
+
+			// 
+			// var buttons = box.getElementsByTagName('button');
+			// for(var i=0;i<buttons.length;i++){
+			// 	buttons[i].onclick = function(){
+			// 		console.log(this.innerText);
+			// 	}
+			// }
+
+			// 把事件绑定到#box
+			// 只绑定了一次事件
+			// 利用事件冒泡
+			box.onclick = function(e){
+				// 事件源对象
+				console.log(e.target.innerText);
+			}
+
+			// 添加按钮
+			btnAdd.onclick = function(){
+				var btn = document.createElement('button');
+				btn.innerText = '点你';
+
+				box.appendChild(btn);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="btnAdd">添加元素</button>
+	<div id="box">
+		<button>点我1</button>
+		<button>点我2</button>
+	</div>
+</body>
+</html>

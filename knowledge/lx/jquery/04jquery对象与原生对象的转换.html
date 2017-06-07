@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02jQuery选择器.</title>
+	<style>
+		.container{
+			height:100px;background: #ffc;border:1px solid #fc0;
+		}
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			// jQuery对象
+			var $btnShow = $('#btnShow');
+
+			console.log('jquery html方法：',$btnShow.html());
+
+			// jquery对象转原生对象用：get(idx)
+			$btnShow.get(1);
+			$btnShow[1]
+
+
+
+			// 节点对象（原生js对象）
+			var btnShow = document.querySelector('#btnShow');
+
+			// 把原生对象转jquery对象
+			// $(dom)
+			$(btnShow).html()
+
+			console.log('原生innerHTML属性：',btnShow.innerHTML)
+
+
+			//判断一个jquery对象是否存在页面
+			//* 判断jquery对象的length属性
+			//* 把jquery对象转换成原生对象
+			var $btnShow = $('#btnShow');
+			/*if($btnShow.length>0){
+				console.log('存在');
+			}*/
+			if($btnShow[0]){
+				console.log('存在');
+			}
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		.container
+	</div>
+
+	<button id="btnShow">显示隐藏</button>
+	<button>测试用</button>
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿学习git之前要搞清楚以下知识：
+* 安装与配置
+    - https://git-for-windows.github.io
+* 工作区与版本库概念
+* 注册git远程仓库
+    - https://github.com/

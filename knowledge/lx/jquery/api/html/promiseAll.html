@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个ajax请求</title>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+	$(function(){
+		/*
+			$.ajax({
+				url:'http://localhost/api/req1.php',
+				success:function(str1){
+					console.log(str1);
+
+					$.ajax({
+						url:'http://localhost/api/req2.php',
+						success:function(str2){
+							console.log(str2);
+
+							$.ajax({
+								url:'http://localhost/api/req3.php',
+								success:function(str3){
+									console.log(str3);
+
+									document.body.innerHTML = str1 + str2 + str3
+								}
+							})
+						}
+					})
+				}
+			})
+		 */
+		var p1 = new Promise(function(resolve,reject){
+			// 这时的状态：pending
+			$.ajax({
+				url:'http://localhost/api/req1.php',
+				success:function(str1){
+					// console.log(str1);
+					
+					
+					//把promise对象的状态改成resolved
+					//只要状态被修改成resolved，就不会再改变
+					resolve(str1);
+				}
+			})
+		});
+
+		var p2 = new Promise(function(resolve,reject){
+			$.ajax({
+				url:'http://localhost/api/req2.php',
+				success:function(str2){
+					// console.log(str2);
+
+					resolve(str2);
+				}
+			})
+		});
+
+		var p3 = new Promise(function(resolve,reject){
+			$.ajax({
+				url:'http://localhost/api/req3.php',
+				success:function(str3){
+					// console.log(str3);
+
+					resolve(str3)
+				}
+			});
+		});
+
+
+		// 等3个请求都成功后
+		// 把数据写入页面
+		var pAll = Promise.all([p1,p2,p3]);
+
+		pAll.then(function(data){
+			console.log('所有：',data);
+		});
+
+
+		// 返回第一个完成的数据
+		var pFast = Promise.race([p1,p2,p3]);
+
+		pFast.then(function(data){
+			console.log('手速最快：',data);
+		});
+	})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

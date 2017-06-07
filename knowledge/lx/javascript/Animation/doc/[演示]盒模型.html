@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型演示</title>
+	<style>
+		.content{height:200px;background-color:#8bb5c0;}
+		.box{margin:50px;padding:50px;border:30px solid #fddd9b;background-color:#c2cf8a;}
+		.container{position:relative;margin:50px auto;border:1px dashed #333;width:500px;background-color:#f9cc9d;}
+		.active{color:#f00;}
+
+		.h,.v{position:absolute;height:15px;width:400px;}
+		.h span,.v span{position:absolute;left:50%;top:10px;}
+		.h .size,.v .size{position:absolute;left:0;right:0;top:0;bottom:0;margin:auto 0;background:#333;}
+
+		.h{border-left:1px solid #333;border-right:1px solid #333;}
+		.h .size{height:1px;}
+		.h span{margin-left:-50px;}
+
+		.v{height:200px;width:15px;border-top:1px solid #333;border-bottom:1px solid #333;}
+		.v .size{margin:0 auto;width:1px;}
+		.v span{left:-50px;top:50%;transform:rotate(-90deg);}
+
+		#clientWidth{left:80px;top:385px;width:340px;}
+		#clientHeight{left:430px;top:80px;height:300px;}
+		#clientLeft{left:50px;top:180px;width:30px;}
+		#clientTop{left:180px;top:50px;height:30px;}
+		#clientTop span{transform:none;left:10px;top:5px;}
+
+		#offsetWidth{left:50px;top:15px;width:400px;}
+		#offsetHeight{left:465px;top:50px;height:360px;}
+		#offsetLeft{left:0;top:70px;width:50px;}
+		#offsetTop{left:30px;top:0;height:50px;}
+
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var container = document.getElementsByClassName('container')[0];
+			var buttons = document.getElementsByTagName('button');
+
+			var a,b;
+			for(var i=0,len=buttons.length;i<len;i++){
+				buttons[i].index = i;
+				buttons[i].onclick = function(){
+					this.active = !this.active;
+					this.className = this.active ? 'active' : '';
+					if(this.index < 3){
+						a = this.id.substring(3).toLowerCase();
+					}else{
+						b = this.id.substring(3)
+					}
+					if(a && b){
+						show(a,b);
+					}
+				}
+			}
+			
+			function show(a,b){
+				var className = (b=='Height' || b=='Top') ? 'v' : 'h';
+				var text = a + b;
+				var _label = document.getElementById(text)
+				if(_label){
+					_label.parentNode.removeChild(_label);
+					return;
+				}
+				var label = document.createElement('div');
+				label.className = className;
+				label.id = text;
+				
+				label.innerHTML = '<div class="size"></div><span>' + text + '</span>';
+				container.appendChild(label);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>盒模型</h1>
+	
+	<button id="btnClient">client</button><button id="btnOffset">offset</button><button id="btnScroll" disabled>scroll</button>
+	<p><button id="btnLeft">left</button><button id="btnTop">top</button><button id="btnWidth">width</button><button id="btnHeight">height</button></p>
+	<div class="container">
+		<div class="box">
+			<div class="content"></div>
+		</div>
+		<!-- <div class="h" id="clientWidth"><div class="size"></div><span>clientWidth</span></div>
+		<div class="v" id="clientHeight"><div class="size"></div><span>clientHeight</span></div>
+		<div class="h" id="clientLeft"><div class="size"></div><span>clientLeft</span></div>
+		<div class="v" id="clientTop"><div class="size"></div><span>clientTop</span></div> -->
+
+		<!-- <div class="h" id="offsetWidth"><div class="size"></div><span>offsetWidth</span></div>
+		<div class="v" id="offsetHeight"><div class="size"></div><span>offsetHeight</span></div>
+		<div class="h" id="offsetLeft"><div class="size"></div><span>offsetLeft</span></div>
+		<div class="v" id="offsetTop"><div class="size"></div><span>offsetTop</span></div> -->
+		
+	</div>
+	
+</body>
+</html>

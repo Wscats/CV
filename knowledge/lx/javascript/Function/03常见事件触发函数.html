@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03常见事件触发函数</title>
+	<style>
+		#box{width:300px;height:80px;background-color:#ffc;border:1px solid #f90;}
+	</style>
+	<script>
+	window.onload = function(){
+		// 获取页面元素#box
+		var box = document.getElementById('box');
+
+		
+		// 点击#box这个元素是执行
+		// 具名函数
+		function clickHandle(){
+			console.log('点击');
+		}
+
+		// 点击事件
+		box.onclick = clickHandle;
+
+		// 鼠标移入事件
+		// 匿名函数（没有名字函数）
+		box.onmouseover = function(){
+			console.log('移入事件');
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05打印99乘法表</title>
+	<style>
+		span{display: inline-block;padding:0 5px;margin:5px;width:60px;line-height:2;background-color: #efefef;text-align:center;}
+	</style>
+	<script>
+		/*
+			打印99乘法表
+		*/
+	
+		// 外层循环控制行
+		for(var i=1;i<=9;i++){
+			// 内层循环控制列
+			for(var j=1;j<=i;j++){
+				document.write('<span>' + j + '&times;' + i + '=' + i*j +'</span>');
+			}
+			document.write('<br/>')
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

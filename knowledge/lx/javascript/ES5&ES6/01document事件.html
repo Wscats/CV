@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01document事件</title>
+	<script>
+		// window.onload的替代方案
+		// 1. DOMContentLoaed只能通过事件监听的方式绑定
+		// 注意大小写
+		document.addEventListener('DOMContentLoaded',function(){
+			console.log(666)
+		});
+
+	
+		// readystatechange事件
+		document.onreadystatechange = function(){
+			console.log(document.readyState);
+			if(document.readyState === 'complete'){
+				//这里的代码在DOM节点完成时执行
+			}
+			// console.log('readystatechange');
+			// console.log(document.getElementById('box'));
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16简化版jquery的使用</title>
+	<script src="../common.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var h4 = document.createElement('h4');
+			h4.innerHTML = 'CBA';
+
+
+			$('#container').css('color','#f00').append('<strong>篮球NBA</strong>').append(h4);
+
+
+			// 删除元素
+			$('button').on('click',function(){
+				$('.content').remove();
+			});
+		});
+	</script>
+</head>
+<body>
+	
+	<div id="container">
+		<h1>#container</h1>
+	</div>
+	<div class="content">
+		.content
+	</div>
+	<div class="content">
+		.content
+	</div>
+
+	<button>删除</button>
+</body>
+</html>

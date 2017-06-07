@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02自由落体</title>
+	<style>
+		body{overflow:hidden;}
+		.ball{position:absolute;left:50%;width:100px;height:100px;border-radius: 50%;background-color:#f00;}
+
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			let ball = document.querySelector('.ball');
+			let speed = 1;
+
+			// 自由落体运动
+			// speed不断增加
+			// 不断改top值
+			let timer = setInterval(()=>{
+				let top = ball.offsetTop;
+				speed++;
+				if(top >= window.innerHeight - ball.offsetHeight*2){
+					top = window.innerHeight - ball.offsetHeight - speed;
+
+					// 清除定时器
+					clearInterval(timer);
+				}
+
+				ball.style.top = top + speed + 'px';
+			},50);
+		});
+	</script>
+</head>
+<body>
+	<div class="ball"></div>
+</body>
+</html>

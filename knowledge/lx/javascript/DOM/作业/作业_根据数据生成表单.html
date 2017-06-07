@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>根据数据生成表单</title>
+	<script>
+	window.onload = function(){
+		/*
+			根据数据生成表单
+			目的：根据数据生成html结构
+				1）生成select下拉框 ==> <label for="">xx</label><select><option></option></select>
+				2）生成多行文本框   ==> <label>xx</label><textarea></textarea>
+				3）checkbox/radio ==> <labe>xx</labe> <span><label><input type="checkbox">篮球</label></span>
+				4）其他情况 ==> <label>xxx</label> <input type="text">
+		 */
+		
+		var arr = [{
+                label: "用户名",
+                name: "username",
+                type: "text"
+            }, {
+                label: "密码",
+                name: "password",
+                type: "password"
+            }, {
+                label: "性别",
+                name: "gender",
+                type: "select",
+                value: ['男', '女', '不男', '不女', 'Gay', '妖王']
+            }, {
+                label: "爱好",
+                name: "hobby",
+                type: "checkbox",
+                value: ['篮球', '足球', '羽毛球', '兵乓球', '爬山', '购物', '旅游', '看美女']
+            }, {
+                label: '是否已婚',
+                name: 'married',
+                type: 'radio',
+                value: ['已婚', '未婚']
+            },
+            {
+                label: '简介',
+                name: 'resume',
+                type: 'textarea'
+            }];
+
+        // 创建一个form表单
+        var form = document.createElement('form');
+
+        // 遍历数组生成表单元素
+        // select,textare,checkbox,radio,else...
+        arr.forEach(function(item){
+            // 创建p标签，用于放置label和表单元素
+            var p = document.createElement('p');
+
+            // 生成label标签
+            var label = document.createElement('label');
+            label.setAttribute('for',item.name);
+            label.innerHTML = item.label;
+
+            // 生成表单元素
+            var input;
+
+            // 根据类型生成相应的html结构
+            switch(item.type){
+                // select
+                // <select id name><option></option></select>
+                case 'select':
+                    input  = document.createElement('select');
+                    input.name = item.name;
+                    input.id = item.name;
+
+                    input.innerHTML = item.value.map(function(opt){
+                        return '<option value="'+opt+'">'+opt+'</option>';
+                    }).join('');//['<option value="男">男</option>']
+                    break;
+
+                // 多行文本框textarea
+                case 'textarea':
+                    input = document.createElement('textarea');
+                    input.name = item.name;
+                    input.id = item.id;
+                    break;
+
+                case 'radio':
+                case 'checkbox':
+                    // 生成span标签，用于包裹所有的checkbox,radio的选项
+                    // <span><label><input type="checkbox">篮球</label><label><input type="checkbox">足球</label>...</span>
+                    input = document.createElement('span');
+
+                    input.innerHTML = item.value.map(function(opt){
+                        return '<label><input type="'+item.type+'" name="'+item.name+'" value="'+opt+'">'+opt+'</label>';
+                    }).join('');
+                    break;
+
+                default:
+                    input = document.createElement('input');
+                    input.type = item.type;
+                    input.name = item.name;
+                    input.id = item.name;
+
+            }
+
+            // 把label和input写入p标签
+            p.appendChild(label);
+            p.appendChild(input);
+
+            // 把p标签写入表单
+            form.appendChild(p);
+        });
+
+        // 遍历完成后把form表单写入页面
+        document.body.appendChild(form);
+	}
+		
+
+
+
+	</script>
+</head>
+<body>
+	<!-- <form>
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" name="username" id="username">
+        </p>
+        <p>
+            <label for="password">密码</label>
+            <input type="password" name="password" id="password">
+        </p>   
+    </form> -->
+</body>
+</html>

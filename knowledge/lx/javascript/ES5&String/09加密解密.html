@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08提取数据</title>
+	<script>
+	window.onload = function(){
+		var msg = document.getElementById('msg');
+		var btn = document.getElementById('btn');
+		var output = document.getElementById('output');
+		var btn2 = document.getElementById('btn2');
+
+
+		// 绑定点击事件
+		btn.onclick = function(){
+			var _msg = msg.value;
+			var arr = [];
+			for(var i=0;i<_msg.length;i++){
+				arr.push(_msg.charCodeAt(i));
+			}
+			output.innerHTML = arr.join();
+		}
+
+		// 加密
+		btn2.onclick = function(){
+			var _msg = output.innerHTML;
+
+			// 转回数组
+			var arr = _msg.split(',');
+
+			var str = '';
+			arr.forEach(function(num){
+				str += String.fromCharCode(num);
+			});
+
+			output.innerHTML = str;
+		}
+	}
+
+	</script>
+</head>
+<body>
+	<input type="text" id="msg"><button id="btn">加密</button><button id="btn2">加密</button>
+	<div id="output"></div>
+</body>
+</html>

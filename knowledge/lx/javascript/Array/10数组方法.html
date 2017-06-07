@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10数组方法</title>
+	<script>
+		// splice(start,deleteNum,...item)
+		// start：插入元素的位置
+		// deleteNum:要删除的数量
+		// item：要插入或者替换的元素（可以是多个）
+		var superStar = ['胡歌','霍建华','高圆圆','贾玲'];
+		
+		// 插入一个元素
+		// push
+		// superStar.push('吴莫愁');
+		// superStar.splice(1,0,'吴莫愁','李莫愁');
+
+
+		// 替换
+		// superStar.splice(1,1,'吴莫愁','李莫愁');
+
+		
+		//删除
+		// superStar.splice(2,2);
+
+
+		console.log(superStar);
+
+
+		// 把数组写入页面
+		/*var str = '';
+		for(var i=0;i<superStar.length;i++){
+			str += superStar[i] + ', '
+		}*/
+		var str = superStar.join(' ');
+		document.write(str);
+
+
+		// concat
+		var arr1 = ['html','css']
+		var arr2 = ['html5','css3','javascript'];
+
+		var res = arr1.concat('ecmascript','js',arr2);
+
+		console.log(res,arr1);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

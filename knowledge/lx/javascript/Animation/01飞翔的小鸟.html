@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01飞翔的小鸟</title>
+	<style>
+		img{position: absolute;left:0;top:0;}
+		.dleft{transform:rotateY(180deg);}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			let bird = document.querySelector('img');
+
+			let speed = 5;
+
+			// 往右移动
+			let timer = setInterval(()=>{
+				let left = bird.offsetLeft;
+				// left值每50ms在原来的基础上+5像素
+				// 边界处理
+				if(left >= window.innerWidth - bird.offsetWidth || left <0){
+					speed = -speed;
+				}
+
+				if(speed<0){
+					bird.classList.add('dleft');
+				}else{
+					bird.classList.remove('dleft');
+				}
+
+				bird.style.left = left + speed + 'px';
+			},20);
+		});
+	</script>
+</head>
+<body>
+	<img src="img/bird.gif">
+</body>
+</html>

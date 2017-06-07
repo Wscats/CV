@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04求最大数</title>
+	<script>
+		function max(){
+			var num1 = document.getElementById('num1');
+			var num2 = document.getElementById('num2');
+
+			var _num1 = Number(num1.value);//这里得到的是字符串
+			var _num2 = Number(num2.value);
+
+			// 判断大小
+			if(_num1 > _num2){
+				document.write('最大值为：'+_num1);
+			}else{
+				document.write('最大值为：'+_num2);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="num1"> 
+	<input type="text" id="num2">
+	<button onclick="max()">求最大数</button>
+</body>
+</html>

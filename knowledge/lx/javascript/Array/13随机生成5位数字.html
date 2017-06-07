@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13随机生成5位数字</title>
+	<script>
+		/*
+			随机生成一个五位以内的数，然后输出该数共有多少位，每位分别是什么
+		*/
+		
+		var num = parseInt(Math.random()*100000);
+		console.log(num);
+
+		var str = String(num);//39727 => '39727';
+
+		console.log(num + '共有' + str.length + '位');
+
+		for(var i=0;i<str.length;i++){
+			console.log(str[i]);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01常用事件</title>
+	<script>
+		window.onload = function(){
+			var content = document.getElementById('content');
+			var username = document.getElementById('username');
+			content.onselect = function(){
+				console.log('select')
+			}
+
+			username.onselect = function(){
+				console.log(666)
+			}
+
+			// 获得焦点时触发
+			username.onfocus = function(){
+				console.log(111)
+			}
+
+
+			// input事件
+			// 输入时触发
+			username.oninput = function(){
+				console.log('input')
+			}
+		}
+	</script>
+</head>
+<body>
+	<p id="content">onload 页面元素（包括图片多媒体等）加载完成后</p>
+	<p>onbeforeunload 用户退出页面。</p>
+	<p>onresize 窗口或框架被重新调整大小。</p>
+	<p>onselect 文本被选中。</p>
+
+	<input type="text" id="username">
+</body>
+</html>

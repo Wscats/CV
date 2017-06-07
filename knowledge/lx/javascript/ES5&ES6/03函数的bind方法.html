@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03函数的bind方法</title>
+	<script>
+		setTimeout(function(){
+			// 这里的this指向window
+			console.log(this);
+		},1000);
+
+		document.onclick = function(){
+			console.log(this);
+		}
+
+		document.addEventListener('DOMContentLoaded',function(){
+			var msg = document.querySelector('#msg');
+
+			msg.onchange = function(){
+				console.log(this);//msg
+				setTimeout(function(){
+					console.log(this.value);
+				}.bind(this),2000);
+			}
+		});
+
+
+		var myname = '你好';
+		var obj = {
+			myname:'laoxie'
+		}
+		function get(){
+			console.log(this)
+			console.log(this.myname);
+		}
+		get();
+
+		// 把函数绑定到obj对象
+		obj.get = get;
+
+		obj.get();//laoxie
+
+
+	</script>
+</head>
+<body>
+	<input type="text" id="msg">
+</body>
+</html>

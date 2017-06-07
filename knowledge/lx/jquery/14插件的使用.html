@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14插件的使用</title>
+	<style>
+		body{padding-bottom:400px;}
+		.smallPic{margin:200px;}
+		.smallPic img{}
+	</style>
+	<link rel="stylesheet" href="js/jquery.gdszoom/jquery.gdszoom.css">
+
+	<!-- 1.引入jquery -->
+	<script src="js/jquery-3.1.1.js"></script>
+	<script src="js/jquery.gdszoom/jquery.gdszoom.js"></script>
+	<script>
+	$(function(){
+		/*
+			插件的引入步骤
+			1. 引入jquery
+			2. 引入插件
+			3. 引入相关文件，css
+		 */
+
+		 $('.smallPic').gdszoom({width:600,gap:10});
+		 $('.meinv').gdszoom({width:200,height:100});
+	});
+		
+		 
+	</script>
+</head>
+<body>
+	<div class="smallPic"><img src="car_min.png" data-big="car.jpg"></div>
+
+	<div class="meinv"><img src="img/zb.jpg" style="width:100px"></div>
+</body>
+</html>

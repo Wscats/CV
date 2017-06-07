@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>复制到购物车</title>
+    <style>
+    body{padding:20px;margin:0;height:100%;}
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .cart-list {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        width: 200px;
+        /*height: 400px;*/
+        border: 1px solid #ddd;
+        /*overflow-y:auto;*/
+    }
+    
+    .cart-list h4 {
+        margin: 0;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #ddd;
+    }
+    .cart-list img {
+        width: 60px;
+    }
+
+    .cart-list li{position:relative;height:200px;}
+    .cart-list .btn-close{position:absolute;top:0;right:0;padding:5px;}
+    .cart-list .btn-close:hover{background-color:#f00;color:#fff;}
+    
+    .goods-list li{float:left;padding:10px 15px;width:300px;height:400px;}
+    .goods-list img {
+        width: 200px;
+    }
+    .clone-img{position: absolute;}
+    </style>
+   <script src="js/common.js"></script>
+   <script>
+       document.addEventListener('DOMContentLoaded',function(){
+            /*
+                购买商品飞入购物车的效果
+                    1）给按钮绑定点击事件
+                        1>复制当前商品图片(用于实现动画效果)
+                            * 把复制的图片写入页面
+                            * 把复制的图片定位到与当前商品图片一致
+                        2>动画飞入效果
+                            改变top,left,width属性
+                        3>复制当前商品所有信息(用于往购物车添加)，等飞入动画完成后添加到购物车列表
+                            * 删除复制商品中的“添加到购物车”按钮
+                            * 在购复制商品中添加移除按钮
+                            	点击按钮时，删除购物车中对应的商品
+                    2)删除用于动画的图片
+             */
+            
+            // 获取页面元素
+            var goodsList = document.querySelector('.goods-list ul');
+            var myCar = document.querySelector('.cart-list');
+            var carList = myCar.querySelector('ul');
+
+            // 1）给按钮绑定点击事件
+            // 利用事件委托
+            goodsList.onclick = (e)=>{
+                if(e.target.tagName.toLowerCase() === 'button'){
+                    // 获取当前li
+                    var curretLi = e.target.parentElement.parentElement;
+                    var currentImg = curretLi.firstElementChild;
+
+                    // 1>复制当前商品图片(用于实现动画效果)
+                    var cloneImg = currentImg.cloneNode();
+                    cloneImg.classList.add('clone-img');
+
+                    // 把复制的图片定位到与当前商品图片一致
+                    cloneImg.style.left = currentImg.offsetLeft + 'px';
+                    cloneImg.style.top = currentImg.offsetTop + 'px';
+
+                    // 把复制的图片写入页面
+                    document.body.appendChild(cloneImg);
+
+                    // 抛物线飞入效果
+                    // top:myCar.offsetTop + carList.offsetTop + carList.offsetHeight
+                    var yspeed = -10;
+                    var topTarget = myCar.offsetTop + carList.offsetTop + carList.offsetHeight;
+                    var timer = setInterval(()=>{
+                        var currentTop = cloneImg.offsetTop;
+                        yspeed++;
+
+                        // 当currentTop到达目标值后，停止定时器
+                        if(currentTop >= topTarget){
+                            clearInterval(timer);
+                        }
+
+                        cloneImg.style.top = currentTop + yspeed + 'px';
+                    },50);
+
+                    // 2>动画飞入效果
+                    animate(cloneImg,{left:myCar.offsetLeft + carList.offsetLeft,width:20},function(){
+                        // 删除用于动画的图片
+                        document.body.removeChild(cloneImg);
+
+                        // 3>复制当前商品所有信息(用于往购物车添加)，等飞入动画完成后添加到购物车列表
+                        var cloneLi = curretLi.cloneNode(true);
+
+                        // 删除复制商品中的“添加到购物车”按钮
+                        cloneLi.removeChild(cloneLi.children[1]);
+
+                        // 在购复制商品中添加移除按钮
+                        var btnClose = document.createElement('span');
+                        btnClose.classList.add('btn-close');
+                        btnClose.innerHTML = '&times;';
+                        cloneLi.appendChild(btnClose);
+
+                        carList.appendChild(cloneLi);
+
+                        // 停止top抛物线定时器
+                        clearInterval(timer);
+                    });
+
+
+                    
+                }
+            }
+
+            // 点击按钮时，删除购物车中对应的商品
+            carList.onclick = (e)=>{
+                if(e.target.className === 'btn-close'){
+                    var currentLi = e.target.parentElement;
+
+                    carList.removeChild(currentLi);
+                }
+            }
+       });
+   </script>
+</head>
+
+<body>
+    <div class="goods-list">
+        <h4>产品列表</h4>
+        <ul>
+            <li><img src="img/g1.jpg">
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+                <p>亚瑟士ASICS跑步鞋2015春夏新款运动鞋男款避震跑鞋KAYANO T4H2N-9001 橙色/白色 42</p>
+            </li>
+            <li><img src="img/g2.jpg">
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+                <p>亚瑟士ASICS运动鞋2015春夏新款跑步鞋女鞋稳定跑鞋KAYANO T4H7N-0701 黄色/白色 37.5</p>
+            </li>
+            <li><img src="img/g3.jpg">
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+                <p>亚瑟士ASICS跑步鞋春夏透气稳定女款跑鞋 KAYANO T4N5N-3591 玫红色/黑色 37.5</p>
+            </li>
+            <li><img src="img/g4.jpg">
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+                <p>亚瑟士ASICS高帮运动休闲鞋男鞋运动鞋DOUBLEH54XJ-5050 黑色/黑色 40.5</p>
+            </li>
+            <li><img src="img/g5.jpg">
+                <p>
+                    <button>添加到购物车</button>
+                </p>
+                <p>Onitsuka Tiger运动休闲鞋女COLORADO D4S6N-1850 珊瑚色/淡灰色 37.5</p>
+            </li>
+        </ul>
+    </div>
+    <div class="cart-list">
+        <h4>购物车列表</h4>
+        <ul>
+        </ul>
+    </div>
+</body>
+
+</html>

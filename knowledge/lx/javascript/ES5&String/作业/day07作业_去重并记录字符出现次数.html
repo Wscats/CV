@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>day07作业_去重并记录字符出现次数</title>
+	<script>
+		/*
+			已知字符串 “a,a,b,c,c,d” 编程实现以下功能。
+			* 统计每个字符出现的次数，结果显示 a：2、b：1、c：2、d：1
+			* 去掉重复的字符，使结果显示 abcd
+			
+			1）把字符串转成数组
+				split()
+			2）遍历数组，利用对象记录每一个字符出现的次数
+				* 创建空对象
+				* 把遍历的字符作为对象的属性并记录次数
+			3）最后遍历对象，打印出以上格式
+		 */
+		
+		 // 1）把字符串转成数组
+		 var str = 'a,a,b,c,c,d';
+		 var arr = str.split(',');
+
+		 // 2）遍历数组，利用对象记录每一个字符出现的次数
+		 var obj = {};//{a:2,b:1,c:2,d:1}
+
+		 arr.forEach(function(item){
+		 	// 判断obj对象中是否存在以item字符为属性名的属性
+		 	if(obj[item] === undefined){
+		 		// 如果obj中不存在当前属性，则说明当前属性第一次出现
+		 		obj[item] = 1;
+		 	}else{
+		 		obj[item]++;
+		 	}
+		 });
+
+		 console.log(obj);
+
+		 // 3）最后遍历对象，打印出以上格式
+		 var res1 = '';
+		 var res2 = '';
+
+		 for(var attr in obj){
+		 	res1 += attr + ':' + obj[attr] + '、';
+		 	res2 += attr;
+		 }
+
+		 console.log(res1.slice(0,-1));
+		 console.log(res2);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

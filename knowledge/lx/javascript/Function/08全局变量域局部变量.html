@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08全局变量域局部变量</title>
+	<script>
+	// 全局变量
+	var z = 0.1;
+	function init(){
+
+		var x = 100;
+
+		function sum(){
+			// 函数内部使用变量遵循：就近原则
+			// 1. 先在本函数内查找变量
+			// 2. 如果找不到，则向上查找
+			// ....
+			// 3. 在全局作用域中查找，如果查找不到，则报错
+
+			// 局部变量
+			var y = 20;
+			// var x = 30;
+
+			console.log(x+y+z);//100 + 20
+		}
+
+		sum();//50
+	}
+
+	init();
+		
+
+		console.log(x);//100
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

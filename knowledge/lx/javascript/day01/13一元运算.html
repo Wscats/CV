@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13一元运算</title>
+	<script>
+	var num = 10;
+
+	// 前置
+	// ++自增：在原来的基础上加1
+	// 返回值：自增之前的值
+	var res = num++;
+
+	// res ==> 10 //res得到的时num++的返回值
+	// num ==> 11
+
+
+	// --自减：在原来的基础上减1
+	// 返回值：自减之前的值
+	var num2 = 20;
+	var res2 = num2--; //=> res2：20，num2:19
+
+	var num3 = 10;
+	var res = num3++ + num3++ + num3--;//33
+			  // 10     + 11     + 12
+
+
+	// 后置：
+	// 与前置的区别：返回值=>自增之之后的值
+	var num4 = 10;
+	var res4 = ++num4;
+	var res = num4++ + ++num4 + num4-- + num4;//45
+			  // 10     + 12     + 12 + 11
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

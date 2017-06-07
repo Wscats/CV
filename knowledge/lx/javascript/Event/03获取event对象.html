@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03获取event对象</title>
+	<style>
+		.box{width:400px;height:100px;border:1px solid #ddd;background-color: #ffc;font-size:40px;line-height:100px;text-align:center;color:#999;}
+
+	</style>
+	<script>
+		window.onload = function(){
+			var box = document.getElementsByClassName('box')[0];
+
+			// 判断鼠标按键
+			box.onmousedown = function(e){
+				// 获取event对象
+				// 事件处理函数的第一个参数
+				console.log(e.button);
+
+				// 左键
+				if(e.button === 0){
+					box.innerText = '你按了左键';
+				}else if(e.button === 1){
+					box.innerText = '滚';
+				}else{
+					box.innerText = '你按了右键';
+				}
+
+
+				// 
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+</body>
+</html>

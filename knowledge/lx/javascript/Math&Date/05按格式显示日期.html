@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	window.onload = function(){
+		/*
+			将当前日期格式化输出为 “2015年08月24 星期五”格式
+		*/
+	
+		// 运行代码时的本地时间
+		var now = new Date();
+
+		var year = now.getFullYear();
+
+		var month = now.getMonth();
+
+		var date = now.getDate();
+
+		// 星期0-6
+		var week = now.getDay();
+
+
+		// 获取页面元素
+		var time = document.getElementById('time');
+
+		/*var weekStr;
+		switch(week){
+			case 0 :
+				weekStr = '星期天';
+				break;
+			case 1 :
+				weekStr = '星期一';
+				break;
+			case 2 :
+				weekStr = '星期二';
+				break;
+			case 3 :
+				weekStr = '星期三';
+				break;
+			case 4 :
+				weekStr = '星期四';
+				break;
+			case 5 :
+				weekStr = '星期五';
+				break;
+			case 6 :
+				weekStr = '星期六';
+				break;
+		}*/
+
+		var arrWeek = ['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+		time.innerHTML = year + '年'+month+'月'+date+' ' + arrWeek[week];
+	}
+		
+
+	</script>
+</head>
+<body>
+	<div id="time"></div>
+</body>
+</html>

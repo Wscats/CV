@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01对象的创建</title>
+	<script>
+
+		/* 
+		面向过程
+		function smell(){
+			console.log('闻一闻')
+		}
+
+		function lick(){
+			console.log('舔一舔')
+		}
+
+		function bite(){
+			console.log('咬一咬')
+		}
+
+		smell();
+		lick();
+		bite();*/
+
+
+		// 面向对象
+		// 1.创建一个对象
+		var dog = {}
+
+		// 2.描述一个对象
+		// 描述这个对象有什么
+		// 描述这个对象能做什么
+		dog.smell = function(){console.log('闻一闻')}
+		dog.lick = function(){console.log('舔一舔')}
+		dog.bite = function(){console.log('咬一咬')}
+
+		dog.smell();
+		dog.lick();
+		dog.bite();
+
+
+		// 对象的属性
+		// 对象有什么
+		var person = {name:'xx',age:18,gender:'man'}
+
+		// 对象的方法
+		// 对像能做什么
+		person.eat = function(){
+
+		}
+
+
+		// 封装：工厂函数
+		function createDog(opt){
+			// 1.创建一个对象
+			var dog = {
+				// ....
+			}
+
+			// 2.描述一个对象
+			// 描述这个对象有什么
+			// 描述这个对象能做什么
+			dog.smell = function(){console.log('闻一闻')}
+			dog.lick = function(){console.log('舔一舔')}
+			dog.bite = function(){console.log('咬一咬')}
+
+			return dog;
+		}
+		var dog1 = createDog({color:'#ff0',name:''});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

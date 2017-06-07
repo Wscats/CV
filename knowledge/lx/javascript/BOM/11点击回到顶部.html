@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10吸顶菜单</title>
+	<style>
+		body{margin:0;padding-bottom:2000px;}
+		#totop{display:none;position:fixed;right:0;bottom:0;width:100px;height:100px;background-color: #f00;color:#fff;line-height:100px;text-align:center;}
+	</style>
+	<script>
+	for(var i=0;i<100;i++){
+		document.write('<p>测试滚动' + i + '</p>');
+	}
+
+	window.onload = function(){
+		var totop = document.getElementById('totop');
+
+		// 滚动距离超过200时，显示返回顶部按钮
+		window.onscroll = function(){
+			var scrollTop = window.scrollY;
+
+			if(scrollTop>=200){
+				totop.style.display = 'block';
+			}else{
+				totop.style.display = 'none';
+			}
+		}
+
+
+		// 点击返回顶部
+		totop.onclick = function(){
+			var scrollTop = window.scrollY;
+
+			var timer = setInterval(function(){
+				scrollTop -= scrollTop/10;
+
+				if(scrollTop <= 5){
+					scrollTop = 0;
+					clearInterval(timer);
+				}
+
+				window.scrollTo(0,scrollTop);
+			});
+			
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="totop">返回顶部</div>
+</body>
+</html>

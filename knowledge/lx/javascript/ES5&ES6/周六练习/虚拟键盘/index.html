@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	
+	<title>Online Keyboard</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<div id="container">
+	<div id="write"></div>
+	<ul id="keyboard">
+		<li class="symbol"><span class="off">`</span><span class="on">~</span></li>
+		<li class="symbol"><span class="off">1</span><span class="on">!</span></li>
+		<li class="symbol"><span class="off">2</span><span class="on">@</span></li>
+		<li class="symbol"><span class="off">3</span><span class="on">#</span></li>
+		<li class="symbol"><span class="off">4</span><span class="on">$</span></li>
+		<li class="symbol"><span class="off">5</span><span class="on">%</span></li>
+		<li class="symbol"><span class="off">6</span><span class="on">^</span></li>
+		<li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
+		<li class="symbol"><span class="off">8</span><span class="on">*</span></li>
+		<li class="symbol"><span class="off">9</span><span class="on">(</span></li>
+		<li class="symbol"><span class="off">0</span><span class="on">)</span></li>
+		<li class="symbol"><span class="off">-</span><span class="on">_</span></li>
+		<li class="symbol"><span class="off">=</span><span class="on">+</span></li>
+		<li class="delete lastitem">delete</li>
+		<li class="tab">tab</li>
+		<li class="letter">q</li>
+		<li class="letter">w</li>
+		<li class="letter">e</li>
+		<li class="letter">r</li>
+		<li class="letter">t</li>
+		<li class="letter">y</li>
+		<li class="letter">u</li>
+		<li class="letter">i</li>
+		<li class="letter">o</li>
+		<li class="letter">p</li>
+		<li class="symbol"><span class="off">[</span><span class="on">{</span></li>
+		<li class="symbol"><span class="off">]</span><span class="on">}</span></li>
+		<li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
+		<li class="capslock">caps lock</li>
+		<li class="letter">a</li>
+		<li class="letter">s</li>
+		<li class="letter">d</li>
+		<li class="letter">f</li>
+		<li class="letter">g</li>
+		<li class="letter">h</li>
+		<li class="letter">j</li>
+		<li class="letter">k</li>
+		<li class="letter">l</li>
+		<li class="symbol"><span class="off">;</span><span class="on">:</span></li>
+		<li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
+		<li class="return lastitem">return</li>
+		<li class="left-shift">shift</li>
+		<li class="letter">z</li>
+		<li class="letter">x</li>
+		<li class="letter">c</li>
+		<li class="letter">v</li>
+		<li class="letter">b</li>
+		<li class="letter">n</li>
+		<li class="letter">m</li>
+		<li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
+		<li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
+		<li class="symbol"><span class="off">/</span><span class="on">?</span></li>
+		<li class="right-shift lastitem">shift</li>
+		<li class="space lastitem"> </li>
+	</ul>
+</div>
+
+<script>
+	var keys = keyboard.children;
+	var tempChar;
+	var isShift = false;
+	var isCapslock = false;
+	document.onkeydown = function(e){
+		var asc = e.keyCode || e.which;
+		e.preventDefault();
+		tempChar = null;
+		console.log(asc)
+		switch(asc){
+			case 8 : tempChar = "delete"; break;
+			case 9 : tempChar = "tab"; break;
+			case 20 : {
+				tempChar = "caps lock"; 
+				isCapslock = (isCapslock?false:true);
+				break;
+			}
+			case 16 : {
+				tempChar = "shift"; 
+				isShift = true;
+				break;
+			}
+			case 13 : tempChar = "return"; break;
+			case 32 : tempChar = ""; break;
+			case 192 : tempChar = (isShift?"~":"`"); break;
+			case 189 : tempChar = (isShift?"_":"-"); break;
+			case 187 : tempChar = (isShift?"+":"="); break;
+			case 219 : tempChar = (isShift?"{":"["); break;
+			case 221 : tempChar = (isShift?"}":"]"); break;
+			case 220 : tempChar = (isShift?"|":"\\"); break;
+			case 186 : tempChar = (isShift?":":";"); break;
+			case 222 : tempChar = (isShift?"\"":"'"); break;
+			case 188 : tempChar = (isShift?"<":","); break;
+			case 190 : tempChar = (isShift?">":"."); break;
+			case 191 : tempChar = (isShift?"?":"/"); break;
+			case 48 : tempChar = (isShift?")":0); break;
+			case 49 : tempChar = (isShift?"!":1); break;
+			case 50 : tempChar = (isShift?"@":2); break;
+			case 51 : tempChar = (isShift?"#":3); break;
+			case 52 : tempChar = (isShift?"$":4); break;
+			case 53 : tempChar = (isShift?"%":5); break;
+			case 54 : tempChar = (isShift?"^":6); break;
+			case 55 : tempChar = (isShift?"&":7); break;
+			case 56 : tempChar = (isShift?"*":8); break;
+			case 57 : tempChar = (isShift?"(":9); break;
+			default : {
+				tempChar = String.fromCharCode(asc);
+				if(isShift) {
+					if(isCapslock) tempChar = tempChar.toLowerCase();
+					isShift = false;
+				} else {
+					if(!isCapslock) tempChar = tempChar.toLowerCase();
+				}
+			}
+		}
+		for(var i=0; i<keys.length; i++){
+			if(keys[i].innerText == tempChar) {
+				$(keys[i]).trigger("click");
+				keys[i].style.background = "#f40";
+				(function(key){
+					setTimeout(function(){
+						key.style.background = "white";
+					},100);
+				})(keys[i]);
+				break;
+			}
+		}
+	}
+	
+	
+</script>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script type="text/javascript" src="js/keyboard.js"></script>
+</body>
+</html>

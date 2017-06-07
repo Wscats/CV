@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02利用函数计算阶乘</title>
+	<script>
+	// 延迟代码执行
+	// 页面加载事件onload
+	// 当页面上所有的内容加载完成后才执行函数中的代码
+	window.onload = function(){
+		/*
+			02利用函数计算阶乘
+				1）获取页面元素
+				2）根据输入的值计算阶乘
+		 */
+		function factorial(){
+			var output = document.getElementById('output');
+
+			// 获取页面元素的值
+			var num = document.getElementById('num').value;
+
+			var res = 1;
+			for(var i=2;i<=num;i++){
+				res *= i;
+			}
+
+			// 把计算的结果写入#output
+			output.innerHTML = res;
+		}
+
+		// 第一种执行函数的方式：手动执行
+		// factorial();
+
+		// 事件驱动
+		// 按钮.onclick = factorial;
+		var btnCalc = document.getElementById('btnCalc');
+
+		// console.log(btnCalc);
+
+		// 事件绑定
+		// 点击事件
+		btnCalc.onclick = factorial;
+	}
+	</script>
+</head>
+<body>
+	<input type="text" id="num">
+	<button id="btnCalc">计算阶乘</button>
+	<div id="output"></div>
+	
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ASCII码</title>
+	<style>
+	#container{font-size:16px;}
+	#container > div{display:inline-block;padding:1;width:55px;border:1px solid #ccc;text-align:center;}
+	#container span,#container strong{
+		display:block;
+		padding:5px;
+	}
+	#container span{background: #efefef;padding:3px 0;}
+	</style>
+	<script>
+	window.onload = function(){
+		var str = 'abcdefghijklmnopqrstuvwxyz';
+		str = str.toUpperCase() + str;
+		str = '0123456789' + str;
+
+		var html = '';
+		for(var i=0;i<str.length;i++){
+			html += '<div><span>' + str[i] + '</span><strong>' + str.charCodeAt(i) + '</strong></div>';
+			if(i == 9 || i == 35) html+= '<br>';
+		}
+
+		document.getElementById('container').innerHTML = html;
+	}
+		
+	</script>
+</head>
+<body>
+	<h1>数字/字母对应的ASCII码表</h1>
+	<div id="container"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12tab标签切换</title>
+	<style>
+		.tab{border:1px solid #ddd;width:400px;}
+		.tab .title{border-bottom:2px solid #ddd;overflow:hidden;padding:1px;line-height:2;}
+		.tab .title span{float:left;padding:5px 20px;border-right:1px solid #ddd;}
+		.tab .title span.active{background-color: #fc0;color:#fff;}
+		.content{padding:10px;text-align:center;}
+	</style>
+	<script>
+		window.onload = function(){
+			var tab = document.getElementsByClassName('tab')[0];
+			var content = tab.getElementsByClassName('content');
+			var title = tab.firstElementChild.children;
+
+			// 默认给第一个span添加高亮
+			title[0].className = 'active';
+
+			// 给每个span绑定点击事件
+			for(var i=0;i<title.length;i++){
+				// 把i的值保存到元素节点中
+				title[i].idx = i;
+
+				title[i].onclick = function(){
+					// 清楚所有高亮
+					// 隐藏所有图片
+					for(var j=0;j<title.length;j++){
+						title[j].removeAttribute('class');
+						content[j].style.display = 'none';
+					}
+
+					// 给当前span添加高亮
+					this.className = 'active';
+
+					// 显示当前图片
+					content[this.idx].style.display = 'block';
+				}
+
+				// 隐藏除第一张以外的所有图片
+				if(i>0){
+
+					content[i].style.display = 'none';
+				}
+			}
+			console.log('循环完成：' + i)
+		}
+	</script>
+</head>
+<body>
+	<div class="tab">
+		<div class="title">
+			<span>Tab1</span>
+			<span>Tab2</span>
+			<span>Tab3</span>
+		</div>
+		<div class="content"><img src="img/g1.jpg"></div>
+		<div class="content"><img src="img/g2.jpg"></div>
+		<div class="content"><img src="img/g3.jpg"></div>
+	</div>
+</body>
+</html>

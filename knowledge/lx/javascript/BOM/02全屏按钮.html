@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02全屏按钮</title>
+	<style>
+		#pop{position:absolute;top:100px;left:200px;width:200px;height:200px;border:5px solid #ddd;}
+	</style>
+	<script>
+	window.onload = function(){
+		var pop = document.getElementById('pop');
+		var btnFullScreen = document.getElementById('btnFullScreen');
+
+
+		// 点击全屏
+		btnFullScreen.onclick = function(){
+			// top,left
+			pop.style.top = 0 ;
+			pop.style.left = 0;
+
+			// 窗口宽高
+			pop.style.width = window.innerWidth - 10 + 'px';
+			pop.style.height = window.innerHeight - 10 + 'px';
+		}
+
+		
+	}	
+	</script>
+	
+</head>
+<body>
+	<div id="pop"><button id="btnFullScreen">全屏</button></div>
+	
+</body>
+</html>

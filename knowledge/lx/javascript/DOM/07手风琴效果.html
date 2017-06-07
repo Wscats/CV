@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.sfq{border:1px solid #ddd;}
+		.sfq h4{margin:1px;height:40px;line-height:40px;padding-left:10px;border-bottom:1px solid #ddd;background-color: #efefef;}
+		.content{display:none;padding:15px;min-height:200px;}
+	</style>
+	<script>
+	window.onload = function(){
+		// 手风琴效果
+		// 点击问题，显示答案
+		
+		var sfq = document.getElementsByClassName('sfq')[0];
+		var h4 = sfq.getElementsByTagName('h4');
+		var content = sfq.getElementsByClassName('content');
+
+		// 遍历所有的h4元素节点，单独给每一个h4绑定点击事件
+		// 点击h4显示,h4下一个div
+
+		for(var i=0;i<h4.length;i++){
+			h4[i].onclick = function(){
+
+				// this:当前点击的元素节点
+				var currentContent = this.nextElementSibling;
+
+				// 判断当前元素是否显示
+				if(currentContent.style.display === 'none' || currentContent.style.display===''){
+					// 先隐藏所有contnet
+					for(var i=0;i<content.length;i++){
+						content[i].style.display = 'none';
+					}
+				
+					// 在显示当前content
+					currentContent.style.display = 'block';
+
+					
+
+				}else{
+					currentContent.style.display = 'none';
+				}
+
+
+			}
+		}
+	}
+
+
+	</script>
+</head>
+<body>
+	<div class="sfq">
+		<h4>问题1</h4>
+		<div class="content">答案1</div>
+		<h4>问题2</h4>
+		<div class="content">答案2</div>
+		<h4>问题3</h4>
+		<div class="content">答案3</div>
+		<h4>问题4</h4>
+		<div class="content">答案4</div>
+		<h4>问题5</h4>
+		<div class="content">答案5</div>
+	</div>
+</body>
+</html>

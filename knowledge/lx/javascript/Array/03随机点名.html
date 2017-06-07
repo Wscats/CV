@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03随机点名简单版</title>
+	<script>
+	window.onload = function(){
+		//0 - arr.length-1
+		var arr = ['何国荣','黄耀华','司徒健伟','洪斌','黄博霖','肖清琳','杜凡','方洋','顾伟淘','胡子荣','谢孟宁','蒋涛','陈志权','谢霖辉','谢坤裕','梁喜龙','雷燕豪','江启民','胡泽浩'];
+
+		var name = document.getElementById('name');
+		var btn = document.getElementById('btnDM');
+
+		btn.onclick = function(){
+			// 得到一个随机整数
+			var idx = parseInt(Math.random()*arr.length);
+
+			// 把取到的名字写入#name输入框
+			name.value = arr[idx];
+		}
+	}
+	
+	</script>
+</head>
+<body>
+	<input type="text" id="name">
+	<button id="btnDM">随机点名</button>
+</body>
+</html>

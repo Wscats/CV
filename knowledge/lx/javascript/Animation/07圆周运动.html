@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07圆周运动</title>
+	<style>
+		.earth,.sun{
+			position:absolute;width:200px;height:200px;border-radius: 50%;background-color: gold
+		}
+		.earth{width:50px;height:50px;background-color: skyblue;}
+		.sun{box-shadow:0 0 0 219px #fff, 0 0 0 220px gold;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			var earth = document.querySelector('.earth');
+			var sun = document.querySelector('.sun');
+
+			// 太阳中心
+			var ccx = window.innerWidth/2;
+			var ccy = window.innerHeight/2;
+
+			// 公转半径
+			var r = 320;
+			var deg = 0;
+
+
+
+			// 定位
+			// 把太阳定位到中间
+			// 把地球定位到太阳半径400的位置
+			sun.style.left = ccx - sun.offsetWidth/2 + 'px';
+			sun.style.top = ccy - sun.offsetWidth/2 + 'px';
+			earth.style.left = ccx + r - earth.offsetWidth/2 + 'px';
+			earth.style.top = ccy - earth.offsetHeight/2 + 'px';
+
+
+			// 圆周运动
+			var timer = setInterval(()=>{
+				deg +=2;
+				// 计算弧度
+				var radian = deg*Math.PI/180;
+
+				// 计算地球运动的圆心
+				var x = ccx + r*Math.cos(radian);
+				var y = ccy + r*Math.sin(radian);
+
+
+				earth.style.left = x - earth.offsetWidth/2 + 'px';
+				earth.style.top = y - earth.offsetHeight/2 + 'px';
+			},30);
+
+		});
+	</script>
+</head>
+<body>
+	<div class="sun"></div>
+	<div class="earth"></div>
+</body>
+</html>

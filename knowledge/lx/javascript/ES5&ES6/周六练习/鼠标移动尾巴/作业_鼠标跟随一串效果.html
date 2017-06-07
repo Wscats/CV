@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>鼠标跟随一连串效果</title>
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <style>
+	    .leaf {
+	        width: 10px;
+	        height: 10px;
+	        position: absolute;
+	        top: 0;
+	        left: 0;
+	    }
+	    
+	    .leaf::after {
+	        font-family: fontawesome;
+	        content: "\f06c";
+	        font-size: 18px;
+	        color: green;
+	    }
+    </style>
+    <script>
+    	document.addEventListener('DOMContentLoaded',()=>{
+    		/*
+    			鼠标跟随一连串效果
+    			1）创建20个元素
+    			2）鼠标移动时20个元素逐个跟随效果
+    				* 先给第一个元素定位到光标位置
+    				* 遍历其他元素，从最后的元素开始，把当前元素的位置定位到它的前一个元素的位置
+    		 */
+    		
+    		// 1）创建20个元素
+    		for(var i=0;i<20;i++){
+    			var leaf = document.createElement('div');
+    			leaf.classList.add('leaf');
+
+    			document.body.appendChild(leaf);
+    		}
+
+
+    		// 2）鼠标移动时20个元素逐个跟随效果
+    		var leafs = document.querySelectorAll('.leaf');
+
+    		document.onmousemove = function(e){
+
+    			// * 先给第一个元素定位到光标位置
+    			leafs[0].style.left = e.pageX + 'px';
+    			leafs[0].style.top = e.pageY + 'px';
+
+    			// 遍历其他元素，从最后的元素开始，把当前元素的位置定位到它的前一个元素的位置
+    			for(var i=leafs.length-1;i>0;i--){
+    				leafs[i].style.left = leafs[i-1].offsetLeft + 'px';
+    				leafs[i].style.top = leafs[i-1].offsetTop + 'px';
+    			}
+    		}
+
+    	});
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

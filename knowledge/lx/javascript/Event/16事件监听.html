@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16事件监听</title>
+	<script>
+		window.onload = function(){
+			/*
+				事件绑定的第二中方式：
+				事件监听addEventListener()
+			 */
+			var btn =document.getElementById('btn');
+			var btn2 =document.getElementById('btn2');
+
+			// 这种事件绑定方法同名事件会被覆盖
+			btn.onclick = function(){
+				console.log('click');
+			}
+
+			btn.onclick = function(){
+				console.log('第二次click');
+			}
+
+			btn.addEventListener('click',function(){
+				console.log('第三次click');
+			},false);
+
+			btn.onclick = function(){
+				console.log('第四次click');
+			}
+
+			// 清除事件
+			btn.onclick = null;
+
+			// 事件监听
+			// addEventListener()
+			btn2.addEventListener('click',function(){
+				console.log('第1次点击')
+			},false);
+			btn2.addEventListener('click',function(){
+				console.log('第2次点击')
+			},false);
+
+
+			// 推荐的事件监听方式
+			// 用具名函数
+			function handler(){
+				console.log('第3次点击')
+			}
+			btn2.addEventListener('click',handler,false);
+
+
+			// 清除事件监听
+			// 参数一定要跟绑定时一样
+			btn2.removeEventListener('click',handler);
+
+
+			// ie8-的事件监听方式
+			// attachEvent('onclick',)
+			// 没有第三个参数
+			// btn2.attachEvent('onclick',handler);
+			// 
+			// IE8-清除事件监听
+			// btn2.detachEvent('onclick',handler);
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">按钮</button>
+	<button id="btn2">按钮2</button>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03点击按钮打印当前索引值</title>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			var button = document.querySelectorAll('button');
+
+			// 遍历按钮，绑定事件，打印索引值
+			// 传统：
+			// for(var i=0;i<button.length;i++){
+			// 	button[i].idx = i;
+			// 	button[i].onclick = function(){
+			// 		console.log(this.idx);
+			// 	}
+			// }
+
+			// ES6
+			/*for(let i=0;i<button.length;i++){
+
+				button[i].onclick = function(){
+					console.log(i);
+				}
+			}*/
+
+
+			// 闭包
+			for(var i=0;i<button.length;i++){
+				function handle(idx){
+					// var idx = 
+					return function(){//abc
+						console.log(idx);
+					}
+				}
+
+				button[i].onclick = handle(i);
+			}
+
+		})
+	</script>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<button>按钮5</button>
+</body>
+</html>

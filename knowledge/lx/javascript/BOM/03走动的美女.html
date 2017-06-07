@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02全屏按钮</title>
+	<style>
+		#beauty{position:absolute;top:0;left:20px;width:200px;height:200px;border:5px solid #ddd;}
+	</style>
+	<script>
+	window.onload = function(){
+		var beauty = document.getElementById('beauty');
+
+		var left = 0;
+		var timer = setInterval(function(){
+			left += 8;
+			// 到达边缘时停止走动
+			if(left >= window.innerWidth - 210){
+				clearInterval(timer);
+				left =  window.innerWidth - 210;
+			}
+			beauty.style.left = left + 'px';
+
+
+		},30)
+	}	
+	</script>
+	
+</head>
+<body>
+	<img src="img/g3.jpg" id="beauty">
+	
+</body>
+</html>

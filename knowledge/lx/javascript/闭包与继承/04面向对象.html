@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04面向对象的tab标签切换</title>
+	<style>
+		.tab{width:600px;margin:0 auto;}
+		.tab .content{min-height:100px;padding:20px;border:1px solid #ddd;}
+		.tab .title span{display:inline-block;padding:0 10px;line-height:2;border:1px solid #ddd;border-bottom:none;}
+		.tab .title span.active{background-color:#f60;color:#fff;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			// 创建对象的放方式
+			// 1.字面量
+			// 2.构造函数
+			// 	* new Object()
+			// 	* 自定义构造函数
+
+			// 1.描述对象
+			var Tab = {
+				// 描述属性
+				title:['篮球','足球','羽毛球'],
+				content:['你是科比','啪叽咯','林丹'],
+				idx:0,
+
+				// 描述方法
+				// 初始化：生成DOM节点&绑定事件
+				init:function(){
+					var tabContainer = document.createElement('div');
+					tabContainer.classList.add('tab');
+
+					var tabTitle = document.createElement('div');
+					tabTitle.classList.add('title');
+
+					tabTitle.innerHTML = this.title.map((item,idx)=>{
+						return `<span data-idx="${idx}">${item}</span>`;
+					}).join('');
+
+
+					var tabContent = document.createElement('div');
+					tabContent.classList.add('content');
+
+					tabContent.innerHTML = this.content.map((item)=>{
+						return `<div>${item}</div>`;
+					}).join('');
+
+					// 把标题和内容添加到.tab
+					tabContainer.appendChild(tabTitle);
+					tabContainer.appendChild(tabContent);
+
+					// 写入页面
+					document.body.appendChild(tabContainer);
+
+
+					// 传递DOM节点
+					this.tabContainer = tabContainer;
+
+					this.show();
+
+					// 绑定事件
+					tabTitle.onclick = e=>{
+						if(e.target.tagName.toLowerCase() === 'span'){
+							// 更新index值
+							this.idx = e.target.dataset.idx;
+							this.show();
+						}
+					}
+
+
+				},
+
+				// 显示tab切换
+				show:function(){
+					var tabTitle = this.tabContainer.querySelector('.title');
+					var tabContent = this.tabContainer.querySelector('.content');
+
+					// 遍历去除所有高亮
+					for(var i=0;i<tabTitle.children.length;i++){
+						tabTitle.children[i].classList.remove('active');
+						tabContent.children[i].style.display = 'none';
+					}
+
+					// 当前高亮
+					tabTitle.children[this.idx].classList.add('active');
+					tabContent.children[this.idx].style.display = 'block';
+				}
+			}
+
+			// 2.操作对象
+			Tab.init();
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

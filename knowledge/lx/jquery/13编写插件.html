@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13编写插件</title>
+	<style>
+		.lxpopover{position:absolute;width:500px;height:200px;background-color:#efefef;border:5px solid #ddd;}
+		.lxpopover .title{padding-left:15px;height:40px;line-height:40px;background-color: #efefef;border-bottom:1px solid #ddd;}
+		.lxpopover .content{padding:15px;}
+		.lxpopover .btnClose{position:absolute;right:0;top:0;padding:5px;}
+		.lxpopover .btnClose:hover{background-color: #f00;color:#fff;}
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		//创建一个弹窗插件
+		
+		$(function(){
+			// $('body').lxpopover();
+			// $('#box').lxpopover();
+			$('.pop').lxpopover().css('border-color','#f00');
+		});
+
+
+		// jQuery.prototype.remove = function(){
+		// 	for(var i=0;i<this.length;i++){
+		// 		this[i].parentElement.removeChild(this[i])
+		// 	}
+		// }
+
+	</script>
+</head>
+<body>
+	<!-- <div class="lxpopover">
+		<div class="title"></div>
+		<div class="content"></div>
+		<span class="btnClose"></span>
+	</div> -->
+
+	<div id="box" class="pop"></div>
+	<div class="pop"></div>
+</body>
+</html>

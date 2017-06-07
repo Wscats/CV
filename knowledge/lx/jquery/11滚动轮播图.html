@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10滚动轮播图</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.carousel{position:relative;border:5px solid #ddd;width:320px;height:320px;overflow:hidden;}
+		.carousel ul{position:relative;}
+		.carousel ul img{display:block;}
+
+		.page{position: absolute;right:15px;bottom:15px;}
+		.page span{display:inline-block;margin:0 5px;width:8px;height:8px;overflow:hidden;text-align:center;background-color:#efefef;border-radius:50%;text-indent:-2000em;}
+		.page span.active{background-color:#f60;color:#fff;}
+
+		.prev,.next{display:none;position: absolute;width:60px;height:60px;line-height:60px;background:url(img/btn.gif) no-repeat;color:#fff;text-align:center;opacity: 0.6}
+		.prev{left:-5px;top:0;bottom:0;margin:auto 0;}
+		.next{right:-5px;top:50%;margin-top:-25px;background-position:0 -60px;}
+
+		.carousel:hover .next,.carousel:hover .prev{
+			display:block;
+		}
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			var $carousel = $('.carousel');
+			var $ul = $carousel.children('ul');
+
+			var len = $ul.children().length;
+
+			var index = 0;
+
+			// 自动轮播
+			var timer;
+
+
+			// 生成分页
+			// 创建一个div
+			var $page = $('<div/>');
+			$page.addClass('page');
+
+			for(var i=0;i<len;i++){
+				var $span = $('<span/>').html(i+1);
+
+				if(i===index){
+					$span.addClass('active');
+				}
+
+				$page.append($span);
+			}
+
+			$carousel.append($page);
+
+
+			// 鼠标移入移除
+			$carousel.on('mouseenter',function(){
+				clearInterval(timer);
+			}).on('mouseleave',function(){
+				timer = setInterval(function(){
+					index++;
+
+					showPic();
+				},3000);
+			})
+
+			// 事件触发函数
+			// trigger()
+
+			// 手动触发mouseleave事件
+			.trigger('mouseleave');
+
+
+			// 上一张/下一张
+			$carousel.on('click','.prev',function(){
+				index--;
+				showPic();
+			}).on('click','.next',function(){
+				index++;
+				showPic();
+			}).on('click','.page span',function(){
+				index = $(this).index();
+
+				showPic();
+			});
+			
+
+			function showPic(){
+				if(index<0){
+					index = len - 1;
+				}else if(index > len - 1){
+					index = 0;
+				}
+
+				// 页码高亮
+				$page.children().eq(index).addClass('active').siblings().removeClass('active');
+
+				$ul.animate({top:-index*320})
+			}
+		})
+	</script>
+</head>
+<body>
+	<div class="carousel">
+		<ul>
+			<li><img src="img/g1.jpg" alt=""></li>
+			<li><img src="img/g2.jpg" alt=""></li>
+			<li><img src="img/g3.jpg" alt=""></li>
+			<li><img src="img/g4.jpg" alt=""></li>
+			<li><img src="img/g5.jpg" alt=""></li>
+		</ul>
+		<div class="prev"></div>
+		<div class="next"></div>
+	</div>
+</body>
+</html>

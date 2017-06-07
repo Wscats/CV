@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数声明</title>
+	<script>
+	var sum
+		/* 
+			函数声明提前
+			1.查找js中定义的函数，并保存起来（变量声明）
+			2.从上往执行代码
+
+
+			只声明变量不赋值，则变量为undefined
+		*/
+
+		// 在函数声明前执行这个函数
+		check();
+
+		// 1.函数声明
+		// 可以在任意位置执行
+		function check(){
+			console.log('666');
+		}
+
+
+		// 2.赋值式(变量声明)
+		// 不能在函数赋值前执行
+		var sum = function(){
+			var a = 10;
+			var b = 20;
+			console.log(a + b);
+		}
+
+		sum();//30
+
+
+		// 3. 构造函数
+		var test = new Function();
+		
+
+
+		// 函数的执行
+		// 格式：函数名()
+		// check();
+
+
+		console.log(myName);
+		var myName = 'laoxie';
+
+
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

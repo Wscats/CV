@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06过滤不文明用语</title>
+	<style>
+		textarea{display: block;width:300px;height:60px;padding:4px;}
+	</style>
+	<script>
+	window.onload = function(){
+		/*
+			把留言中不文明用于替换成“*”
+		 */
+		
+		var mingan = '法轮功,shit,我草,TMD,金三胖'.split(',');
+
+		var msg = document.getElementById('msg');
+		var btnSend = document.getElementById('btnSend');
+		var list = document.getElementById('list');
+
+
+		// 绑定点击事件
+		btnSend.onclick = function(){
+			// 先获取输入的信息
+			var _msg = msg.value;
+
+			// 替换不文明用于
+
+			// 利用循环的方式：替换所有不文明用语
+			/*for(var i=0;i<mingan.length;i++){
+				// 如果_msg还包含当前不文明用语
+				while(_msg.indexOf(mingan[i]) >= 0){
+					_msg = _msg.replace(mingan[i],'**');
+				}
+			}*/
+
+			// 利用正则表达式：替换所有不文明用语
+			for(var i=0;i<mingan.length;i++){
+				// var reg = /mingan[i]/gi
+				var reg = new RegExp(mingan[i],'gi');
+				_msg = _msg.replace(reg,'**');
+			}
+			
+			var str = '<li>' + _msg + '</li>';
+
+			list.innerHTML += str;
+		}
+	}
+		
+
+	</script>
+</head>
+<body>
+	<textarea id="msg"></textarea>
+	<button id="btnSend">发送</button>
+	<ul id="list">
+		<li>asdfasdfadf</li>
+	</ul>
+</body>
+</html>

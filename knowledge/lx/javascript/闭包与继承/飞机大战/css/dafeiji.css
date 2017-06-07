@@ -1,0 +1,128 @@
+
+
+* {margin: 0; padding: 0; border: none;}
+body, html {width: 100%; height: 100%; overflow: hidden;}
+ul, li {list-style: none;}
+a {text-decoration: none;}
+
+/************ 主菜单 ***************/
+.main {
+	width: 480px;
+	height: 100%;
+	background: url(../images/bg.jpg) repeat-y;
+	margin: 0 auto;
+	position: relative;
+}
+
+.main #list {
+	width: 200px;
+	height: 400px;
+	position: absolute;
+	left: 140px; top: 100px;
+}
+
+.main #list li {
+	width: 198px;
+	height: 75px;
+	background: #f40;
+	color: white;
+	font-size: 30px;
+	font-family: "微软雅黑";
+	border: 1px solid black;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 75px;
+	cursor: pointer;
+}
+
+/************ 游戏加载界面  **************/
+.logo {
+	width: 428px;
+	height: 104px;
+	background: url(../images/logo.png) no-repeat;
+	position: absolute;
+	left: 26px; top: 25%;
+}
+
+.loading {
+	width: 200px;
+	height: 42px;
+	background: url(../images/loading1.png) no-repeat;
+	position: absolute;
+	left: 140px; top: 60%;
+}
+
+
+/************ 游戏界面 ****************/
+/*我的飞机*/
+.myplane {
+	width: 98px;
+	height: 122px;
+	background: url(../images/me.png) no-repeat;
+	position: absolute;
+}
+
+/*子弹*/
+.bullet {
+	width: 7px;
+	height: 18px;
+	background: url(../images/bullet.png) no-repeat;
+	position: absolute;
+}
+/*子弹爆炸*/
+.bullet-die {
+	width: 40px;
+	height: 43px;
+	background: url(../images/die1.png) no-repeat;
+	position: absolute;
+}
+
+/*大型飞机*/
+.enemy-large {
+	width: 165px;
+	height: 256px;
+	background: url(../images/plane3.png) no-repeat;
+	position: absolute;
+}
+
+/*中型飞机*/
+.enemy-middle {
+	width: 70px; 
+	height: 92px;
+	background: url(../images/plane2.png) no-repeat;
+	position: absolute;
+}
+
+/*小型飞机*/
+.enemy-small {
+	width: 59px; 
+	height: 36px;
+	background: url(../images/plane1.png) no-repeat;
+	position: absolute;
+}
+
+/*分数*/
+.score {
+	width: 100px;
+	height: 30px;
+	background: yellow;
+	text-align: center;
+	line-height: 30px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+

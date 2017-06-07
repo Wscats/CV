@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11对象扩展</title>
+	<script>
+		function person(opt){
+			var defaults = {
+				age:19,
+				gender:'男'
+			}
+			// var obj = {};
+			// obj.name = name;
+			// obj.age = age;
+			// obj.gender = gender;
+
+			// for(var attr in opt){
+			// 	// 把opt的属性覆盖到default
+			// 	// 如果opt中传gender
+			// 	defaults[attr] = opt[attr];
+			// }
+
+			return Object.assign({},defaults,opt);
+
+
+			// return defaults;
+		}
+
+		/*var p1 = person('laoxie',19,'男');//{name:'laoxie',age:19,gender:'男'}
+		var p2 = person('xiaomin',19,'女');
+		var p2 = person('小明',19);//{name:'小明',age:19,gender:'男'}*/
+		let p1 = person({name:'小明',age:18});
+		let p2 = person({name:'小明plus'});
+		console.log(p1,p2);
+
+
+		// ES6
+		// Object.assign
+		var obj1 = {name:'张三',gender:'女'}
+		var obj2 = {score:98,gender:'男'}
+
+		// for(var attr in obj2){
+		// 	obj1[attr] = obj2[attr];
+		// }
+		var newObj = Object.assign({},obj1,obj2);
+		console.log(obj1,obj2,newObj);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

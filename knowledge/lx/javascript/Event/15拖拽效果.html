@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15拖拽效果</title>
+	<style>
+		.pop{position: absolute;width:480px;border:1px solid #ddd;}
+		.pop header{padding-left:10px;height:40px;line-height:40px;border-bottom:1px solid #ddd;}
+		.pop .content{padding:15px;min-height:100px;}
+		.pop .btn-close{position:absolute;top:0;right:0;padding:10px;}
+		.pop .btn-close:hover{background-color: #f00;color:#fff;}
+	</style>
+	<script>
+		window.onload = function(){
+			var pop = document.getElementsByClassName('pop')[0];
+			var btnClose = pop.getElementsByClassName('btn-close')[0];
+
+			// 给弹窗绑定mousedown事件
+			pop.onmousedown = function(evt){
+				// 保存按下时光标距离header的距离
+				var ox = evt.offsetX;
+				var oy = evt.offsetY;
+
+				// 在mousedown事件中给document绑定mousemove事件
+				document.onmousemove = function(e){
+					pop.style.left = e.clientX - ox + 'px';
+					pop.style.top = e.clientY - oy + 'px';
+
+					e.preventDefault();
+				}
+			}
+
+			// 鼠标弹起后清除document的mousemove事件
+			pop.onmouseup = function(){
+				document.onmousemove = null;
+			}
+
+
+			// 关闭
+			btnClose.onmousedown = function(e){
+				pop.style.display = 'none';
+				
+				// 阻止事件冒泡只能阻止同类事件
+				e.stopPropagation();
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<div class="pop">
+		<header>
+			弹窗标题
+		</header>
+		<div class="content"></div>
+		<span class="btn-close">&times;</span>
+	</div>
+</body>
+</html>

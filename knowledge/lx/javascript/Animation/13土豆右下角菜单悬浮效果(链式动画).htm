@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>土豆右下角菜单悬浮效果(链式动画)</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        font: 12px/1.25 tahoma, arial, 宋体, sans-serif;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    body {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        _position: relative;
+        overflow: hidden;
+    }
+    
+    .page {
+        position: fixed;
+        _position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    
+    #qf_bottom {
+        width: 203px;
+        height: 50px;
+        background: url(img/minibar.png) no-repeat 0 0;
+        position: absolute;
+        right: -165px;
+        bottom: 0;
+        z-index: 20001;
+    }
+    
+    #nav {
+        height: 22px;
+        margin: 5px 0 0 43px;
+        width: 125px;
+    }
+    
+    #nav li {
+        float: left;
+        width: 25px;
+    }
+    
+    #nav li a {
+        display: block;
+        height: 22px;
+        width: 25px;
+    }
+    
+    #nav li .show,
+    #nav li a:hover {
+        background: url(img/minibar.png) no-repeat 0 -51px;
+    }
+    
+    #nav .li_1 .show,
+    #nav .li_1 a:hover {
+        background-position: -25px -51px
+    }
+    
+    #nav .li_2 .show,
+    #nav .li_2 a:hover {
+        background-position: -50px -51px
+    }
+    
+    #nav .li_3 .show,
+    #nav .li_3 a:hover {
+        background-position: -75px -51px
+    }
+    
+    #nav .li_4 .show,
+    #nav .li_4 a:hover {
+        background-position: -100px -51px
+    }
+    
+    .qf {
+        color: #FFFFFF;
+        height: 16px;
+        margin: 4px 0 0 8px;
+        overflow: hidden;
+        width: 160px;
+    }
+    
+    #but {
+        bottom: 0;
+        display: block;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        width: 33px;
+        z-index: 20002;
+    }
+    
+    .but_hide {
+        background: url(img/minibar.png) no-repeat -170px 0;
+    }
+    
+    .but_hide:hover {
+        background-position: -203px 0;
+    }
+    
+    .but_show {
+        background: url(img/minibar.png) no-repeat -236px 0;
+    }
+    
+    .but_show:hover {
+        background-position: -269px 0;
+    }
+    
+    #qf_box {
+        bottom: -315px;
+        display: none;
+        height: 315px;
+        padding: 0 0 48px;
+        position: absolute;
+        right: 1px;
+        width: 200px;
+        z-index: 20000;
+    }
+    
+    .bg {
+        background: url(img/mini_jpgs.jpg) no-repeat 0 0;
+        height: 315px;
+        opacity: 0.9;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 200px;
+    }
+    
+    .nav2_bg {
+        bottom: 48px;
+        height: 176px;
+        left: 0;
+        position: absolute;
+        width: 34px;
+        background: url(img/mini_jpgs.jpg) no-repeat 0 -139px;
+    }
+    
+    #list_nav {
+        background: url(img/minibar.png) no-repeat scroll 0 -255px transparent;
+        height: 139px;
+        left: 0;
+        position: absolute;
+        top: 2px;
+        width: 34px;
+    }
+    
+    #list_nav a {
+        color: #FFFFFF;
+        display: block;
+        height: 27px;
+        line-height: 25px;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    #list_nav .show {
+        color: #FF9900;
+    }
+    
+    #list_nav a:hover {
+        color: #FFFF00;
+    }
+    
+    .clos {
+        background: url(img/minibar.png) no-repeat 0 -76px;
+        cursor: pointer;
+        height: 9px;
+        position: absolute;
+        right: 10px;
+        top: 14px;
+        width: 9px;
+    }
+    
+    .box_right {
+        color: #FFFFFF;
+        height: 285px;
+        overflow: hidden;
+        position: absolute;
+        right: 6px;
+        top: 28px;
+        width: 150px;
+    }
+    </style>
+    <script src="../common.js"></script>
+    <script>
+    	document.addEventListener('DOMContentLoaded',function(){
+    		var btn = document.querySelector('#but');
+    		var qfBottom = document.querySelector('#qf_bottom');
+    		var qfBox = document.querySelector('#qf_box');
+
+    		// 点击按钮，显示qf_bottom动画
+    		// 改变right属性
+    		btn.onclick = function(){
+    			animate(qfBottom,{right:0},()=>{
+    				qfBox.style.display = 'block';
+    				animate(qfBox,{bottom:0});
+    			});
+    		}
+
+    		// 收起动画
+    		qfBox.onclick = function(e){
+    			if(e.target.id === 'btn_close'){
+    				animate(qfBox,{bottom:-315},function(){
+    					qfBox.style.display = 'none';
+    					animate(qfBottom,{right:-165});
+    				});
+    			}
+    		}
+
+    	})
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <div id="qf_bottom">
+            <ul id='nav'>
+                <li>
+                    <a href="###"></a>
+                </li>
+                <li class='li_1'>
+                    <a href="###"></a>
+                </li>
+                <li class='li_2'>
+                    <a href="###"></a>
+                </li>
+                <li class='li_3'>
+                    <a href="###"></a>
+                </li>
+                <li class='li_4'>
+                    <a href="###"></a>
+                </li>
+            </ul>
+            <h2 class="qf">千锋JS</h2>
+        </div>
+        <a class="but_show" id="but" href="#"></a>
+        <div id="qf_box">
+            <div class="bg"></div>
+            <div class="nav2_bg"></div>
+            <ul id="list_nav">
+                <li><a class="show" href="#" target="_blank">天气</a></li>
+                <li class="tab2"><a href="#" target="_blank">星座</a></li>
+                <li class="tab3"><a href="#" target="_blank">排行</a></li>
+                <li class="tab4"><a href="#" target="_blank">热点</a></li>
+                <li class="tab5"><a href="#" target="_blank">直播</a></li>
+            </ul>
+            <a class='clos' id="btn_close"></a>
+            <div class="box_right">
+                <div>北京</div>
+                <div>
+                    <div>
+                        <strong><em>今天</em> (周二)</strong>
+                        <img title="晴" src="img/01.gif" class="pic">
+                    </div>
+                    <span>-1~10C°</span>
+                    <span>晴</span>
+                    <span>微风小于3级</span>
+                </div>
+                <div>
+                    <div>
+                        <strong><em>明天</em> (周三)</strong>
+                        <img title="多云" src="img/02.gif" class="pic">
+                    </div>
+                    <span>0~11C°</span>
+                    <span>多云</span>
+                    <span>北风3-4级</span>
+                </div>
+                <div>
+                    <div>
+                        <strong><em>后天</em> (周四)</strong>
+                        <img title="晴" src="img/01.gif" class="pic">
+                    </div>
+                    <span>-1~12C°</span>
+                    <span>晴</span>
+                    <span>北风3-4级 转 微风小于3级</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

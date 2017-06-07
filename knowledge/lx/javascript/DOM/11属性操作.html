@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11属性操作</title>
+	<script>
+		window.onload = function(){
+			var box = document.getElementById('box');
+
+			// 添加一个类red
+			box.className = 'red';
+			box.title = '红色的盒子';
+
+			box.innerHTML = '<p>红色的盒子</p>';
+			// box.idx = 10;
+
+			// 以data-*开头的属性称为自定属性（符合web标准）
+			box.setAttribute('data-idx',10);
+
+			// .idx这种方式不能获取自定义属性值
+			// 要用getAttribute('idx')
+			console.log(box.getAttribute('data-idx'));
+
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

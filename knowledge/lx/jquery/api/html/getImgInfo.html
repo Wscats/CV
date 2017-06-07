@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取图片信息（宽高）</title>
+	<script>
+		/*
+			图片预加载
+		 */
+		var preloadImage = function (path) {
+			return new Promise(function (resolve, reject) {
+				var image = new Image();
+				image.onload  = ()=>{
+					resolve(image);
+				}
+				image.onerror = function(){
+					reject()
+				};
+				image.src = path;
+			});
+		};
+
+		//使用
+		var p1 = preloadImage('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490357972848&di=68bd91de30a55e57bca78c3ab8f155d2&imgtype=0&src=http%3A%2F%2Fimg.tuku.cn%2Ffile_big%2F201403%2Fa44b857896f249629830967a6b1fc164.jpg');
+
+		p1.then(function(img){
+			console.log(img)
+		    document.body.appendChild(img);
+		    console.log(img.offsetWidth,img.offsetHeight);
+		},function(){
+			console.log('图片加载失败');
+		})
+
+
+
+		/* 
+		p1.catch(function(){
+
+		})
+
+		相当于
+		p1.then(null,function(){
+	
+		})
+		*/
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>找出所有的水仙花数</title>
+	<script>
+		/*
+			输入两个数n，a，如果n==3， a == 2；
+			输出 2 + 22 + 222 的值。（不用输出式子）
+			如: n == 4， a == 3；
+			输出 3 + 33 + 333 + 3333的值。
+			提示:
+
+			n = 3,相加三次,每次相加比前一次相加的数,多一位
+			每次多的这个位数的值为a, 3, 3*10+3, 33*10+3
+		*/
+		
+		// n用来控制遍历次数
+		var n=4;
+
+		// a为每个数字的组成部分
+		var a=3;
+		
+
+		var temp = 0;
+
+		var sum = 0;
+
+		for(var i=1;i<=n;i++){
+			temp = temp*10 + a;
+
+			console.log(temp);
+
+			// 计算叠数的和
+			sum += temp;
+		}
+
+		console.log(sum);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

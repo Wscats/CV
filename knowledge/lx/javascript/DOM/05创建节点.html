@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05创建节点</title>
+	<script>
+		window.onload = function(){
+			// 往body元素插入h1
+			// 1.创建一个h1元素
+
+			var h1 = document.createElement('h1');
+
+			// 给h1写入内容
+			h1.innerHTML = 'html5 1612';
+
+			// 文本节点的方式
+			// var txt = document.createTextNode('h5 1612');
+			// h1.appendChild(txt);
+
+
+			// 把h1写入body
+			document.body.appendChild(h1);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

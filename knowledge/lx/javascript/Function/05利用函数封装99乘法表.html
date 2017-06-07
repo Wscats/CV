@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05利用函数封装99乘法表</title>
+	<style>
+		span{display: inline-block;padding:0 5px;margin:5px;width:60px;line-height:2;background-color: #efefef;text-align:center;}
+	</style>
+	<script>
+		window.onload = function(){
+			var btnShow = document.getElementById('btnShow');
+			var output = document.getElementById('output');
+
+			btnShow.onclick = function(){
+				// 字符串拼接
+				var str = '';
+
+				// 外层循环控制行
+				for(var i=1;i<=9;i++){
+					// 内层循环控制列
+					for(var j=1;j<=i;j++){
+						str += '<span>' + j + '&times;' + i + '=' + i*j +'</span>';
+					}
+					str += '<br/>';
+				}
+				// console.log(str);
+
+				output.innerHTML = str;
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="btnShow">显示99乘法表</button>
+	<div id="output"></div>
+</body>
+</html>

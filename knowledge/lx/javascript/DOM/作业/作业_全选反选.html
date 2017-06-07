@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业：全选与反选</title>
+	<script>
+		window.onload = function(){
+			/*
+				思路：
+				1）获取页面元素
+				2）全选/不选
+					给#all复选框绑定点击事件
+				3）#all复选框状态修改
+					hobby复选框全勾选，则#all为勾选状态
+					hobby复选框中只要有一个未勾选，则#all为取消状态
+				4）反选
+					遍历所有hobby复选框，勾选的取消，没勾选的勾选上
+			 */
+			
+			// 1）获取页面元素
+			var all = document.getElementById('all');
+			var fx = document.getElementById('fx');
+			var hobby = document.getElementsByName('hobby');
+
+			// 2）全选/不选
+			// 把所有hobby复选框的状态改成与#all一致
+			all.onclick = function(){
+				for(var i=0;i<hobby.length;i++){
+					hobby[i].checked = all.checked;
+				}
+			}
+
+			// 给每个hobby复选框绑定点击事件
+			// 判定#all复选框的勾选状态
+			for(var i=0;i<hobby.length;i++){
+				hobby[i].onclick = function(){
+					all.checked = isCheckAll();
+				}
+			}
+
+			// 封装#all勾选状态函数
+			// * 如果所有的hobby勾选，则#all勾选
+			// * 只有有一个hobby未勾选，则#all取消勾选
+			function isCheckAll(){
+				// 假设hobby全部勾选
+				var res = true;
+
+				for(var i=0;i<hobby.length;i++){
+					if(!hobby[i].checked){
+						res = false;
+						break;
+					}
+				}
+
+				return res;
+			}
+
+			// 4）反选
+			// 把所有hobby的勾选状态取反
+			fx.onclick = function(){
+				for(var i=0;i<hobby.length;i++){
+					hobby[i].checked = !hobby[i].checked;
+				}
+
+				all.checked = isCheckAll();
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<table id="dataList">
+		<caption>爱好</caption>
+		<thead>
+			<th><input type="checkbox" name="all" id="all">全选</th>
+			<th><input type="checkbox" name="fx" id="fx">反选</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>篮球</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>足球</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>羽毛球</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>爬山</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>游泳</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>购物</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>看电影</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>旅游</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>音乐</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="hobby"></td>
+				<td>画画</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

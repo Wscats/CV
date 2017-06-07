@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11计算不定数量的数值的和</title>
+	<script>
+		// 计算不定数量的数值的和
+		function sum(){
+			var res = 0;
+
+			for(var i=0;i<arguments.length;i++){
+				res += arguments[i];
+			}
+
+			console.log(res);
+		}
+
+		sum(10,11,0.5,100,20);//141.5
+		sum(10,11,0.5,100,20,100,22,33,55);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

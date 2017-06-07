@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12水平无缝滚动轮播图</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.carousel{position:relative;border:5px solid #ddd;width:810px;height:320px;overflow:hidden;}
+		.carousel ul{position:relative;}
+		.carousel ul li{float:left;}
+		.carousel ul img{display:block;}
+
+		.page{position: absolute;right:15px;bottom:15px;}
+		.page span{display:inline-block;margin:0 5px;width:30px;height:30px;line-height:30px;overflow:hidden;text-align:center;background-color:#efefef;border-radius:50%;box-shadow:0 0 5px rgba(0,0,0,.5);}
+		.page span.active{background-color:#f60;color:#fff;}
+
+		.prev,.next{position: absolute;width:60px;height:60px;line-height:60px;background:url(img/btn.gif) no-repeat;color:#fff;text-align:center;opacity: 0.6}
+		.prev{left:-5px;top:0;bottom:0;margin:auto 0;}
+		.next{right:-5px;top:50%;margin-top:-25px;background-position:0 -60px;}
+	</style>
+	<script src="../common.js"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded',()=>{
+		/*
+			1)设置ul的宽度，让li水平排列
+				* 获取图片的数量和宽度
+		 */
+		var carousel = document.querySelector('.carousel');
+		var list = carousel.querySelector('ul');
+		var firstImg = list.querySelector('img');
+
+		// 实现无缝滚动
+		var cloneLi = list.firstElementChild.cloneNode(true);
+		list.appendChild(cloneLi);
+
+
+		// 获取图片的数量和宽度
+		var len = list.children.length;
+		var imgWidth;
+		var idx = 0;
+
+		// 等图片加载完成再获取图片的宽度
+		firstImg.onload = function(){
+			imgWidth = firstImg.offsetWidth;
+
+			// 1)设置ul的宽度，让li水平排列
+			list.style.width = imgWidth*len + 'px';
+		}
+
+
+
+
+
+		// 轮播效果
+		carousel.timer = setInterval(autoPlay,3000);
+
+		// 鼠标移入移出
+		carousel.onmouseenter = function(){
+			clearInterval(carousel.timer);
+		}
+
+		carousel.onmouseleave = function(){
+			carousel.timer = setInterval(autoPlay,3000);
+		}
+
+		// 前后按钮
+		carousel.onclick = function(e){
+			if(e.target.className == 'prev'){
+				idx--;
+				showPic();
+			}else if(e.target.className == 'next'){
+				idx++;
+				showPic();
+			}else if(e.target.tagName.toLowerCase() == 'span'){
+				idx = e.target.innerText-1;
+				showPic();
+			}
+		}
+
+
+		// 添加分页效果
+		var page = document.createElement('div');
+		page.classList.add('page');
+
+		for(var i=1;i<len;i++){
+			var span = document.createElement('span');
+			span.innerHTML = i;
+
+			if(i===1){
+				span.classList.add('active');
+			}
+
+			page.appendChild(span);
+		}
+
+		carousel.appendChild(page);
+
+
+		function autoPlay(){
+			idx++;
+
+			showPic();
+		}
+
+		function showPic(){
+			if(idx<0){
+				idx = len - 1;
+			}else if(idx>len-1){
+				// 立即切换到初始状态
+				list.style.left = 0;
+
+				idx = 1;
+			}
+
+			// 分页高亮效果
+			// 3=>4
+			for(var i=0;i<len-1;i++){
+				page.children[i].classList.remove('active');
+			}
+
+			// 当滚动到复制图片时
+			if(idx===len-1){
+				page.children[0].classList.add('active');
+			}else{
+				page.children[idx].classList.add('active');
+			}
+
+			animate(list,{left:-idx*imgWidth});
+		}
+	});
+	</script>
+</head>
+<body>
+	<div class="carousel">
+		<ul>
+			<li><img src="img/001.jpg" alt=""></li>
+			<li><img src="img/002.jpg" alt=""></li>
+			<li><img src="img/003.jpg" alt=""></li>
+			<li><img src="img/004.jpg" alt=""></li>
+		</ul>
+		<div class="prev"></div>
+		<div class="next"></div>
+	</div>
+</body>
+</html>

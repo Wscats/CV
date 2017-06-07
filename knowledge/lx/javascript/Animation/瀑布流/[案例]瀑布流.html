@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>瀑布流布局</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        height: 100%;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    div.wrap {
+        width: 100%;
+        margin: 0 auto;
+        /*overflow: hidden;*/
+        position: relative;
+        background: #DDD;
+    }
+    
+    div.wrap div {
+        width: 200px;
+        padding: 4px;
+        border: 1px solid #000;
+        float: left;
+        position: absolute;
+        left:0;top:0;
+        background:#fff;
+    }
+    
+    div.wrap div h3 {
+        line-height: 35px;
+    }
+    
+    div.wrap div img {
+        width: 200px;
+    }
+    </style>
+    <script src="../../common.js"></script>
+    <script>
+            /*
+            瀑布流布局
+                1）计算当前容器能容纳多少列
+                    列数 = Math.floor(容器宽度/图片宽度)
+                2）计算水平间隔
+                    间隔 = 容器宽度%图片宽度/(列数+1)
+                3）创建一个数组pos
+                    用来保存第一行每列图片左上角坐标(left,top)
+                    left = (i+1)*hgap + i*imgWidth
+                    top = vgap;
+                4）开始排列图片：遍历所有图片，往容器里添加图片
+                    遍历数组pos，查找最小top值，然后更新当前top值
+                        top = oldtop + vgap + 图片高度
+             */
+            
+            document.addEventListener('DOMContentLoaded',()=>{
+                var waterfall = document.querySelector('#waterfall');
+                var list = waterfall.children;
+
+                // 获取图片的宽度
+                var imgWidth = 210;
+
+                // 垂直间距
+                var vgap = 10;
+
+                myWaterfall();
+
+                // 自适应
+                window.onresize = myWaterfall;
+
+                function myWaterfall(){console.log(3.8)
+                    // 1）计算当前容器能容纳多少列
+                    var cellNum = Math.floor(waterfall.clientWidth/imgWidth);
+
+                    // 2）计算水平间隔
+                    var hgap = waterfall.clientWidth%imgWidth/(cellNum+1);
+
+                    // 3）创建一个数组pos，用来保存第一行每列图片左上角坐标(left,top)
+                    var arrPos = [];
+                    for(var i=0;i<cellNum;i++){
+                        arrPos.push({
+                            left:(i+1)*hgap + i*imgWidth,
+                            top:vgap
+                        });
+                    }
+                    
+
+
+                    //  4）开始排列图片：遍历所有图片，往容器里添加图片
+                    // 遍历数组arrPos，查找最小top值，然后把当前图片放到这个坐标中，
+                    // 并更新当前top值：top = oldtop + vgap + 图片高度
+                    for(let i=0;i<list.length;i++){
+
+                        // 并更新当前top值
+                        var currentImg = list[i].querySelector('img');
+
+                        // 图片加载完成
+                        // complete属性为true
+                        console.log(currentImg.complete);
+                        currentImg.onload = function(){
+                            var minIdx = 0;
+                            var min = arrPos[minIdx].top;
+
+                            for(var j=1;j<arrPos.length;j++){
+                                if(arrPos[j].top < min){
+                                    min = arrPos[j].top;
+
+                                    // 得到最小值对应的索引值
+                                    minIdx = j;
+                                }
+                            }
+
+                            // 定位图片
+                            // list[i].style.left = arrPos[minIdx].left + 'px';
+                            // list[i].style.top = arrPos[minIdx].top + 'px';
+                            animate(list[i],{left:parseInt(arrPos[minIdx].left),top:parseInt(arrPos[minIdx].top)});
+                            // console.log(arrPos[minIdx].left,arrPos[minIdx].top)
+
+                            // 并更新当前top值
+                            arrPos[minIdx].top += vgap + list[i].offsetHeight;
+                        }
+                        if(currentImg.complete){
+                            currentImg.onload();
+                        }
+                        
+                    }
+                }
+
+            })  
+    </script>
+</head>
+
+<body>
+    <div class="wrap" id="waterfall">
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/1.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/2.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/3.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/4.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/5.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/6.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/7.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/8.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/9.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/10.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/11.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/12.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/13.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/14.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/15.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/16.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/17.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/18.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/19.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/20.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/21.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/22.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/23.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/24.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/25.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/26.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/27.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/28.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/29.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/30.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/31.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/32.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/33.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/34.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/35.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/36.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/37.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/38.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/39.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/40.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/41.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/42.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/43.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/44.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/45.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/46.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/47.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/48.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/49.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/50.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/51.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/52.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/53.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/54.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/55.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/56.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/57.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+        <div>
+            <h3>瀑布流</h3>
+            <a href="#" title=""><img src="waterfall/58.jpg" alt="" title="" /></a>
+            <p>瀑布流瀑布流瀑布流瀑布流</p>
+            <span>瀑布流瀑布流瀑布流</span>
+        </div>
+    </div>
+</body>
+
+</html>

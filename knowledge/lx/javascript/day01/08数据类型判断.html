@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据类型的判断</title>
+	<script>
+		/*
+			数据类型：
+				1、基本数据类型
+					Number，
+					String，
+					Boolean:true,false
+				2、特殊类型
+					Null:null, 
+					Undefined:undefined, 
+					NaN
+				3、引用数据类型
+					数组Array，对象Object
+
+			数据类型的判断：typeof
+				typeof 100 		=> number
+				typeof 'laoxie' => string
+				typeof true 	=> boolean;
+				typeof null 	=> object
+				typeof undefined=> undefined
+		 */
+		var myName = 'laoxie';
+
+		// alert(typeof myName);
+
+
+		var num1 = 100;
+		var str = '20$';
+
+		//alert(num1 + str);//10020;
+		//alert(num1 + parseInt(str));//120
+		alert(num1 * str);//NaN
+		/*
+			num1 - str
+			1.尝试把不是数字的str转换乘数字
+			2.如果转换成功，则计算结果
+			3.如果转换不成功，则得到NaN
+		 */
+		
+		var res1 = 100 - '50';//50
+		var res1 = 100 - 'abc';//NaN
+		var res3 = 100 - true;//99
+		var res4 = 100 - false;//100
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

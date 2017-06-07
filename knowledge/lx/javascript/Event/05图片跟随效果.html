@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05图片跟随效果</title>
+	<style>
+		#bird{position:absolute;width:100px;}
+	</style>
+	<script>
+		window.onload = function(){
+			var bird = document.getElementById('bird');
+
+			document.onmousemove = function(e){
+				bird.style.left = e.clientX - bird.offsetWidth/2 + 'px';
+				bird.style.top = e.clientY - bird.offsetHeight/2 + 'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<img src="img/bird.jpg" id="bird">
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>17显示最新输入的新闻信息</title>
+	<style>
+		#newslist{line-height:2;}
+		#newslist time{margin-left:10px;color:#999;}
+	</style>
+	<script>
+	window.onload = function(){
+
+		// 初始数据
+		var datalist = [{
+			title:'小明由于调戏女老师再次被滚粗教室',
+			time:'2016-10-1'
+		},{
+			title:'iPhone10发布,屏幕高度亮瞎了所有小伙伴',
+			time:'2014-1-1'
+		},{
+			title:'为了弘扬乐于助人的精神，中国人大开会决定授予老王“中国好邻居”称号',
+			time:'2017-2-1'
+		}];
+
+
+		// 获取页面元素
+		var news = document.getElementById('news');
+		var newslist = document.getElementById('newslist');
+		var btnAdd = document.getElementById('btnAdd');
+
+
+		// 封装显示函数
+		function render(){
+			// 把数据显示到页面
+			var html = '<ul>'
+			for(var i=0;i<datalist.length;i++){
+				// 只显示5条
+				if(i === 5){
+					break;
+				}
+				html += '<li><a href="#">'+ datalist[i].title +'</a><time>'+datalist[i].time+'</time></li>';
+			}
+			html += '</ul>';
+
+			newslist.innerHTML = html;
+		}
+		
+		render();
+
+
+		// 给按钮绑定点击事件
+		btnAdd.onclick = function(){
+
+			// 创建一个对象，用于放置新闻信息
+			var obj = {title:news.value,time:new Date().toLocaleDateString()};
+
+			// 把最新消息写入数组datalist
+			datalist.unshift(obj);
+
+			render();
+
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="text" id="news"><button id="btnAdd">添加新闻</button>
+	<div id="newslist">
+		<!-- <ul>
+			<li><a href="#">xxx</a><time>2017-2-1</time></li>
+		</ul> -->
+	</div>
+</body>
+</html>

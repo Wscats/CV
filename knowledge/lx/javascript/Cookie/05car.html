@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<style>
+		#carList li{position:relative;padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid #ddd;}
+		#carList img{display:block;width:100px;}
+		#carList li .btn-close{position:absolute;top:0;right:0;padding:0 5px;cursor:default;}
+		#carList li .btn-close:hover{background-color:#f00;color:#fff;}
+		.subPrice{padding:5px 20px;color:#f00;font-weight:bold;text-align:right;}
+		#carList .price{color:#f00;}
+		.price::before{
+			content:'￥';
+			font-size:11px;
+		}
+		#carList .price span{font-size:11px;}
+	</style>
+	<script>
+	window.onload = function(){
+		/*
+			读取cookie中的carlist
+			把json字符串转换成对象/数组：JSON.parse()
+		 */
+		var oCarList = document.getElementById('carList');
+		var oSubPrice = oCarList.nextElementSibling;
+		var btnClear = document.getElementById('btnClear');
+
+		// 用于保存购物车中的商品列表
+		var carlist = [];
+
+		// 如果cookie中存在商品列表，则赋值给carlist
+		var cookie = document.cookie.split('; ');
+		cookie.forEach(function(item){
+			var arr = item.split('=');
+			if(arr[0] === 'carlist'){
+				// 在cookie中得到的数据都是字符串
+				// 所以需要转换成数组/对象
+				carlist = JSON.parse(arr[1]);
+			}
+		});
+
+		console.log(carlist);
+
+		// 生成购物车列表
+		render();
+
+		function render(){
+			var sumPrice = 0;
+
+			var ul = document.createElement('ul');
+			// 遍历carlist，把内容写入#carList元素
+			carlist.forEach(function(goods){
+				// 计算价格
+				sumPrice += goods.price*goods.qty;
+
+				var li = document.createElement('li');
+				li.setAttribute('data-guid',goods.guid);
+
+				// 商品名称
+				var h4 = document.createElement('h4');
+				h4.innerHTML = goods.name;
+
+				// 价格
+				var price = document.createElement('p');
+				price.className = 'price';
+				price.innerHTML = goods.price + '&times;' + goods.qty;
+
+				var img = document.createElement('img');
+				img.src = goods.src;
+
+				// 删除按钮
+				var btnDel = document.createElement('span');
+				btnDel.className = 'btn-close';
+				btnDel.innerHTML = '&times;';
+
+				li.appendChild(h4);
+				li.appendChild(price);
+				li.appendChild(img);
+				li.appendChild(btnDel);
+
+				ul.appendChild(li);
+			});
+
+			// 写入前要清空
+			oCarList.innerHTML = '';
+
+			oCarList.appendChild(ul);
+			oSubPrice.innerHTML = sumPrice;
+		}
+
+
+		// 删除商品
+		// 删除商品对应的cookie
+		// 利用事件委托把事件绑定到#carList
+
+		oCarList.onclick = function(e){
+			e = e || window.event;
+			var target = e.target || e.srcElement;
+
+			// 判断是否点击了删除按钮
+			if(target.className === 'btn-close'){
+				var currentLi = target.parentElement;
+				var currentGUID = currentLi.getAttribute('data-guid');
+				for(var i=0;i<carlist.length;i++){
+					if(carlist[i].guid === currentGUID){
+						// 删除数组中的对应商品
+						carlist.splice(i,1);
+
+						// // 删除对应DOM节点
+						// currentLi.parentElement.removeChild(currentLi);
+						render();
+
+						// 删除完后，重新写入cookie
+						var now = new Date();
+						now.setDate(now.getDate() + 3);
+						document.cookie = 'carlist=' + JSON.stringify(carlist) + ';expires='+now;
+						break;
+					}
+				}
+			}
+		}
+
+
+		// 清空购物车
+		// 删除carlist这个cookie
+		// 利用设置过期时间达到删除的效果。
+		btnClear.onclick = function(){
+			var now = new Date();
+			now.setDate(now.getDate()-1);
+			document.cookie = 'carlist=null;expires=' + now;
+
+			// 清空数组
+			carlist = [];
+
+			render();
+		}
+	}
+		
+	</script>
+</head>
+<body>
+	<h1>购物车</h1>
+	<div id="carList">
+		
+	</div>
+	<div class="subPrice price"></div>
+	<a href="#" id="btnClear">清空购物车</a>
+</body>
+</html>

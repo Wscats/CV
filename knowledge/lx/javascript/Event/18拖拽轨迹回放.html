@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>18拖拽轨迹回放</title>
+	<style>
+		img{position: absolute;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				拖拽轨迹回放
+				1）鼠标按下且移动时，记录光标移动过的位置到数组arr_pos
+				2）鼠标弹开后，依次把图片的top,left值改成arr_pos中的坐标
+			 */
+			var monkey = document.images[0];
+
+			// 用于记录鼠标移动过的位置
+			var arr_pos = [];
+
+			// 给document绑定mousedown事件
+			document.onmousedown = function(e){
+				// 先记录按下时的坐标
+				arr_pos.push({x:e.clientX,y:e.clientY});
+
+				// 按下并移动时，记录移动过的位置坐标
+				document.onmousemove = function(evt){
+					arr_pos.push({x:evt.clientX,y:evt.clientY});
+				}
+			}
+
+			// 鼠标弹起
+			// 让图片沿着记录的坐标移动
+			document.onmouseup = function(){
+				var idx = 0;
+
+				// 先把图片移动到记录坐标的初始位置
+				monkey.style.left = arr_pos[idx].x + 'px';
+				monkey.style.top = arr_pos[idx].y + 'px';
+
+				// 启用攻击状态
+				monkey.src = 'img/2.gif';
+
+
+				var timer = setInterval(function(){
+					idx++;
+					monkey.style.left = arr_pos[idx].x + 'px';
+					monkey.style.top = arr_pos[idx].y + 'px';
+
+					// 当图片移动到最后的位置时，停止定时器
+					if(idx>=arr_pos.length-1){
+						clearInterval(timer);
+
+						// 清空数组
+						arr_pos = [];
+
+						// 移动完成后回复初始状态
+						monkey.src = 'img/1.gif';
+					}
+
+				},30);
+				
+				// 鼠标弹起后清除mousemove事件
+				document.onmousemove = null;
+			}
+		}
+	</script>
+</head>
+<body>
+	<img src="img/1.gif">
+</body>
+</html>

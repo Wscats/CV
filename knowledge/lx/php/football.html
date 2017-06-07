@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分页获取数据</title>
+	<style>
+		body{padding:50px;}
+		ul{list-style: none;padding:0;margin:0;}/*reset*/
+		#datalist{border:1px solid #ddd;padding:15px;}
+		#datalist li{padding:15px 5px;border-bottom:1px dotted #ccc;}
+		#datalist li h4{margin:0;}
+		#page span{display:inline-block;margin:5px;width:40px;line-height:1.8;text-align: center;background-color:#dfdfdf;color:#666;}
+		#page span.active{background-color:#fc0;color:#fff;}
+	</style>
+	<script>
+	document.addEventListener('DOMContentLoaded',function(){
+		var datalist = document.querySelector('#datalist');
+		var page = document.querySelector('#page');
+
+
+		var xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4 && xhr.status === 200){
+				var res = JSON.parse(xhr.responseText);
+				console.log(res);
+
+				var ul = document.createElement('ul');
+				res.forEach((item)=>{
+					var li = document.createElement('li');
+
+					li.innerHTML = `
+					<h4>${item.name}</h4>
+					<p>${item.content}</p>
+					`;
+
+					ul.appendChild(li);
+				});
+
+				datalist.innerHTML = '';
+				datalist.appendChild(ul);
+			}
+		}
+
+		xhr.open('get','http://localhost/1612/ajax/football.php?pageNo=1',true);
+
+		xhr.send(null);
+
+
+		// 分页获取数据
+		page.onclick = function(e){
+			e = e || window.event;
+
+			if(e.target.tagName.toLowerCase() === 'span'){
+				var _page = e.target.innerText;
+				xhr.open('get','http://localhost/1612/ajax/football.php?pageNo='+_page,true);
+				xhr.send(null);
+
+				// 清除所有高亮
+				for(var i=0;i<page.children.length;i++){
+					page.children[i].classList.remove('active');
+				}
+
+				e.target.classList.add('active');
+			}
+
+
+		}
+	});
+		
+	</script>
+</head>
+<body>
+	<div id="datalist">
+		
+		
+	</div>
+	<div id="page">
+		<span class="active">1</span>
+		<span>2</span>
+		<span>3</span>
+	</div>
+</body>
+</html>

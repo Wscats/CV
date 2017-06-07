@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+			为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+			25h = 1天1小时
+			48h = 2天
+
+			一天24小时
+		 */
+		
+		// 抗洪总时间
+		var total = 89;
+
+		// 先计算天数
+		// 小数取整1.042：parseInt(1.042) => 1
+		var day = parseInt(total/24);
+
+		// 计算小时数
+		// 取余（取模）%
+		var hours = 89%24;
+
+		alert('为抵抗洪水，战士连续作战89小时，编程计算共'+day+'天零'+hours+'时')
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

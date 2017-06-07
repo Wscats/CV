@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03刹车效果(减速运动)</title>
+	<style>
+		.car{position:absolute;width:300px;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			// 减速运动
+			var car = document.querySelector('.car');
+			var speed = 60;
+
+			var timer = setInterval(()=>{
+				var left = car.offsetLeft;
+				speed -= 3;
+
+				// 速度为0时，车停止
+				if(speed<=0){
+					clearInterval(timer);
+					speed = 0;
+				}
+
+				car.style.left = left + speed + 'px';
+			},50);
+
+		});
+
+	</script>
+</head>
+<body>
+	<img src="img/car.jpg" class="car">
+</body>
+</html>

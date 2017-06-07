@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>找出所有节点</title>
+		<script>
+			window.onload = function(){
+				// 获取所有a标签元素
+				var link = document.getElementsByTagName('a');
+				console.log(link);
+
+				// 只获取#datalist下的a元素
+				// 通过class名获取元素
+				var datalist = document.getElementsByClassName('datalist')[0]
+				console.log(datalist);
+				var goodslist = datalist.getElementsByTagName('a');
+				console.log(goodslist)
+
+				// 找到百度所在的文本节点
+				var baidu = document.getElementById('baidu');
+				console.log(baidu.childNodes[0].nodeValue)
+
+
+				// 获取#list下的所有子节点
+				var list = document.getElementById('list');
+				console.log(list.childNodes)
+			}
+		</script>
+	</head>
+	<body>
+		<h1>DOM树</h1>
+		<div id="list">
+			<a href="#">Google</a>
+			<a href="#" id="baidu">百度</a>
+			<a href="#">Bing</a>
+		</div>
+		<div></div>
+		<div class="datalist">
+			<h2>商品展示</h2>
+			<ul>
+				<li><a href="#">商品1</a></li>
+				<li><a href="#">商品2</a></li>
+				<li><a href="#">商品3</a></li>
+			</ul>
+		</div>
+
+		<!-- <input type="text" name="username"> -->
+	</body>
+</html>

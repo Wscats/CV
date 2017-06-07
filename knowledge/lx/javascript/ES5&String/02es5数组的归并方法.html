@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES5</title>
+	<script>
+		var arr = [10,20,30,5,100,256,22,11,233];
+
+		var sum = 0;
+		for(var i=0;i<arr.length;i++){
+			sum += arr[i];
+		}
+		// console.log(sum)
+
+		/*var sum2 = arr.reduce(function(prev,cur,idx,arr){
+			console.log(prev,cur);
+
+			return prev+cur;
+		});
+		console.log(sum2)*/
+
+
+		// 模拟reduce方法
+		function red(prev,cur,idx,arr){
+			console.log(prev,cur);
+			return prev + cur;
+		}
+
+		var sum = 0;
+		for(var i=0;i<arr.length;i++){
+			sum = red(sum,arr[i],i,arr);
+		}
+
+		console.log(sum);
+
+
+		// 模拟forEach方法
+		for(var i=0;i<arr.length;i++){
+			forEach(arr[i],i,arr);
+		}
+
+		function forEach(item,idx,arr){
+			
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

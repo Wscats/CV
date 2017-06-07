@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06重置原型对象</title>
+	<script>
+		function Tab(){
+			this.title = [];
+			this.content = [];
+			this.index = 0;
+		}
+
+		// 原型对象
+		// console.log(Tab.prototype);
+		Tab.prototype.init = function(){
+			console.log('初始化')
+		};
+		// Tab.prototype.show = function(){};
+
+		var tab0 = new Tab();
+
+		Tab.prototype = {
+			// 解决识别问题
+			constructor:Tab,
+
+			close:function(){
+				console.log('关闭');
+			},
+			show:function(){
+				console.log('显示');
+			}
+		}
+
+
+		// 判断原型对象是否数据某个构造函数
+		console.log(Tab.prototype.constructor === Tab);
+
+
+
+		var tab1 = new Tab();
+		// tab1.init();
+		tab1.show();
+
+
+		tab0.init();
+
+
+		// 判断实例是否由某个构造函数生成
+		// console.log(tab1 instanceof Tab);
+
+		// 判断实例是否存在某个属性
+		// 实例.hasOwnProperty(属性);
+		console.log('tab1是否含有title属性：',tab1.hasOwnProperty('title'));
+		console.log('tab1是否含有close方法：',tab1.hasOwnProperty('close'));
+		
+		// 判断属性是否可用
+		console.log('tab1是能用close方法：','toString' in tab1);
+
+
+		// 判断一个属性name是否存在原型链中
+		// 'name' in tab1 && !tab1.hasOwnProperty('name');
+		console.log('判断toString是否存在原型链中','toString' in tab1 && !tab1.hasOwnProperty('show'));
+
+		
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

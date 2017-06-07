@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05自定义属性的操作</title>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var li = document.querySelector('.datalist li');
+			
+			console.log(li.getAttribute('data-guid'));
+			
+			console.log(li.dataset)
+		})
+
+
+	</script>
+</head>
+<body>
+	<div class="datalist">
+		<ul>
+			<li data-guid="g01" data-title="商品1" data-price="998" data-sale-price="98">
+				商品1
+			</li>
+			<li data-guid="g02">
+				商品2
+			</li>
+			<li data-guid="g03">
+				商品3
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

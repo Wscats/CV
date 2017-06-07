@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02保存拖拽的位置</title>
+	<style>
+		img{position: absolute;}
+	</style>
+	<script>
+		window.onload = function(){
+			var meinv = document.images[0];
+
+			// 给图片绑定mousedown
+			meinv.onmousedown = function(e){
+				e = e || window.event;
+				var oWidth = e.offsetX;
+				var oHeight = e.offsetY;
+
+				document.onmousemove = function(evt){
+					meinv.style.top = evt.clientY - oHeight + 'px';
+					meinv.style.left = evt.clientX - oWidth + 'px';
+
+					evt.preventDefault ? evt.preventDefault() : e.returnValue=false;
+				}
+			}
+
+			document.onmouseup = function(){
+				document.onmousemove = null;
+
+				// 保存图片的位置
+				document.cookie = 'left=' + meinv.offsetLeft;
+				document.cookie = 'top=' + meinv.offsetTop;
+			}
+
+
+			// 保存拖拽位置
+			// 利用cookie技术
+			// 这里的代码什么时候执行？
+			var cookie = document.cookie.split('; ');
+			console.log(cookie);
+
+			// 遍历cookie，找出top,left
+			cookie.forEach(function(item){
+				var arr = item.split('=');
+				if(arr[0] === 'left'){
+					meinv.style.left = arr[1] + 'px';
+				}else if(arr[0] === 'top'){
+					meinv.style.top = arr[1] + 'px';
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<img src="img/g1.jpg">
+</body>
+</html>

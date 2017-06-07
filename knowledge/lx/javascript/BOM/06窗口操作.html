@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08窗口操作</title>
+	<script>
+		window.onload = function(){
+			// 获取元素
+			var x = document.getElementById('x');
+			var y = document.getElementById('y');
+			var btnChange = document.getElementById('btnChange');
+
+
+			var newWin = open(null,'tx','width=400,height=400');
+
+			setInterval(function(){
+				var _x = parseInt(Math.random()*1000);
+				var _y = parseInt(Math.random()*1000);
+				var _w = parseInt(Math.random()*1000);
+				var _h = parseInt(Math.random()*1000);
+				newWin.moveTo(_x,_y);
+				newWin.resizeTo(_w,_h);
+			},500);
+
+			btnChange.onclick = function(){
+				var _x = x.value;
+				var _y = y.value;
+
+				newWin.moveTo(_x,_y);
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<input type="text" id="x" placeholder="x坐标">
+	<input type="text" id="y" placeholder="x坐标">
+	<button id="btnChange">改变</button>
+</body>
+</html>

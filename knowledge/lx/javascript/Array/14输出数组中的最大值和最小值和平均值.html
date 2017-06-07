@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14输出数组中的最大值和最小值和平均值</title>
+	<script>
+		/*
+			[10,2,8,55,32,18,9,11,30,16,19,20]
+			分别计算出以上数组的最大值，最小值和整个数组的平均值，并输出他们的索引
+		*/
+		
+		// 遍历数组
+		var arr = [10,2,8,55,32,18,9,11,30,16,19,20];
+
+		// 先假设最大值和最小值
+		var maxIdx = 0;
+		var minIdx = 0;
+		var max = arr[0];
+		var min = arr[0];
+		var sum = arr[0];
+		for(var i=1;i<arr.length;i++){
+			// 找出最大值
+			// 遍历过程中当前数字大于max，则把当前数字赋值给max
+			if(arr[i] > max){
+				max = arr[i];
+				maxIdx = i;
+			}else if(arr[i] < min){
+				min = arr[i];
+				minIdx = i;
+			}
+
+			// 计算所有数值的和
+			sum += arr[i];
+		}
+
+		var average = sum/arr.length;
+
+		console.log(maxIdx,max);
+		console.log(minIdx,min);
+		console.log('平均值：',average);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业_数码时钟</title>
+	<script>
+	window.onload = function(){
+		/*
+			数码时钟
+			1）各用两张图片表示时、分、秒
+			2）每隔1秒获取当前时间并替换对应图片
+		*/
+	
+		// 获取页面元素
+		var h1 = document.getElementById('h1');
+		var h2 = document.getElementById('h2');
+		var m1 = document.getElementById('m1');
+		var m2 = document.getElementById('m2');
+		var s1 = document.getElementById('s1');
+		var s2 = document.getElementById('s2');
+
+		
+		showTime();
+
+
+		// 2）每隔1秒获取当前时间并替换对应图片
+		setInterval(showTime,1000);
+
+		function showTime(){
+			var now = new Date();
+
+			// 获取时分秒
+			var hour = now.getHours();
+			var min = now.getMinutes();
+			var sec = now.getSeconds();
+
+			// 替换对应图片
+			h1.src = 'img/'+ (hour<10 ? 0 : Math.floor(hour/10)) +'.png';
+			h2.src = 'img/'+ (hour%10) +'.png';
+
+			m1.src = 'img/'+ (min<10 ? 0 : Math.floor(min/10)) +'.png';
+			m2.src = 'img/'+ (min%10) +'.png';
+
+			s1.src = 'img/'+ (sec<10 ? 0 : Math.floor(sec/10)) +'.png';
+			s2.src = 'img/'+ (sec%10) +'.png';
+
+		}
+	}
+	
+		
+	</script>
+</head>
+<body>
+	<div class="clock">
+		<img src="img/0.png" id="h1">
+		<img src="img/0.png" id="h2">时
+		<img src="img/0.png" id="m1">
+		<img src="img/0.png" id="m2">分
+		<img src="img/0.png" id="s1">
+		<img src="img/0.png" id="s2">秒
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>五星评分</title>
+    <style type="text/css">
+    #star {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 300px;
+        height: 28px;
+    }
+    
+    #star li {
+        float: left;
+        background: url(img/star.gif) no-repeat 0 0;
+        width: 27px;
+        height: 28px;
+    }
+    
+    #star .active{background-position:0 -29px;}
+    
+    .default {}
+    </style>
+    <script>
+    	document.addEventListener('DOMContentLoaded',function(){
+    		var star = document.querySelector('#star');
+    		var info = document.querySelector('#info');
+
+    		var arr = ['差评', '不推荐', '一般', '推荐', '强力推荐'];
+
+    		// 鼠标移入高亮星星
+    		star.onmouseover = function(e){
+    			if(e.target.tagName.toLowerCase() === 'li'){
+    				e.target.classList.add('active');
+
+    				// 把当前li之前的li添加active
+    				var preLi = e.target.previousElementSibling;
+    				while(preLi){
+    					preLi.classList.add('active');
+    					preLi = preLi.previousElementSibling;
+    				}
+
+
+    				// 把当前li之后的li移除active
+    				var nextLi = e.target.nextElementSibling;
+    				while(nextLi){
+    					nextLi.classList.remove('active');
+    					nextLi = nextLi.nextElementSibling;
+    				}
+
+    			}
+    		}
+
+    		// 点击li显示对应信息
+    		star.onclick = function(e){
+    			if(e.target.tagName.toLowerCase() === 'li'){
+    				for(var i=0;i<star.children.length;i++){
+    					if(e.target === star.children[i]){
+    						info.innerHTML = arr[i];
+    						break;
+    					}
+    				}
+    			}
+    		}
+    	});
+    </script>
+</head>
+
+<body>
+    <ul id="star">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="info"></div>
+</body>
+
+</html>

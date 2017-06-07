@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08继承</title>
+	<style>
+		.popover{
+			position:relative;
+			border:1px solid #ddd;
+
+		}
+		.popover .title{border-bottom:1px solid #ddd;line-height:2;padding-left:10px;}
+		.popover .content{padding:15px;}
+		.popover .btnClose{position: absolute;right:0;top:0;padding:8px;}
+		.popover .btnClose:hover{color:#f00;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			// 1.生成并描述对象
+			// 生成一个弹窗
+			function Popover(opt){
+				var defaults = {
+					width:600,
+					title:'弹窗标题',
+					content:'内容'
+				}
+
+				for(var attr in opt){
+					defaults[attr] = opt[attr];
+				}
+				
+				this.df = defaults;
+				this.init();
+
+			}
+
+			Popover.prototype = {
+				// 识别
+				constructor:Popover,
+				init:function(){
+					var div = document.createElement('div');
+					div.classList.add('popover');
+
+					// 定义样式
+					div.style.width = this.df.width + 'px';
+
+					var title;
+					if(this.df.title){
+						title = document.createElement('div');
+						title.classList.add('title');
+						title.innerHTML = this.df.title;
+
+
+						div.appendChild(title);
+					}
+
+
+					var content;
+					if(this.df.content){
+						content = document.createElement('div');
+						content.classList.add('content');
+						content.innerHTML = this.df.content;
+
+						div.appendChild(content);
+					}
+
+					// 关闭按钮
+					var btnClose = document.createElement('span');
+					btnClose.classList.add('btnClose');
+					btnClose.innerHTML = '&times;';
+
+					div.appendChild(btnClose);
+
+					btnClose.onclick = function(){
+						this.close();
+					}.bind(this);
+
+
+					this.ele = div;
+
+				},
+
+				show:function(){
+					document.body.appendChild(this.ele);
+				},
+				close:function(){
+					document.body.removeChild(this.ele);
+				}
+			}
+
+
+			// 2.操作对象
+			var pop = new Popover();
+			pop.show();
+
+
+			// 广告弹窗
+			// * 没有标题
+			// * 显示在右下角
+			function AdPop(){
+				var defaults = {
+					width:200,
+					title:false,
+					content:'弹窗内容'
+				}
+				//继承属性
+				//借用构造函数法
+				//1.new Popover(defaults)
+				//2.把Popover中的this改成当前的this
+				Popover.call(this,defaults);
+				// Popover.apply(this,[defaults]);
+				
+			}
+
+
+			// 继承方法
+			// 原型链继承法: 继承对象的方法
+			AdPop.prototype = new Popover();
+
+
+
+
+
+
+			var ad1 = new AdPop();
+			ad1.show();
+
+			console.log(ad1);
+		})
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>day06作业_封装norepeat去重函数</title>
+	<script>
+		/*
+			编写一个norepeat(arr)去重函数，去掉数组中的重复项，并返回一个新的数组
+
+				1）创建一个空的数组newArr,用于存放结果
+				2）遍历传入的数组arr
+					* 把arr中的每一项元素与newArr中的所有元素进行对比
+					* 如果newArr不存在相同的元素，则把添加当前元素到newArr
+				3）返回newArr
+		 */
+
+		 function norepeat(arr){
+		 	var newArr = [];
+
+		 	// 遍历传入的数组arr
+		 	for(var i=0;i<arr.length;i++){
+
+		 		for(var j=0;j<newArr.length;j++){
+		 			// 如果newArr中已经存在相同元素，则退出当前循环
+		 			if(arr[i] === newArr[j]){
+		 				break;
+		 			}
+		 		}
+
+		 		// 如果newArr中不存在与arr[i]相同元素
+		 		// 则把当前元素添加到newArr
+		 		if(j === newArr.length){
+		 			newArr.push(arr[i]);
+		 		}
+		 		
+		 	}
+
+		 	return newArr;
+		 }
+
+
+		 var res = norepeat([10,20,10,11,100,20,10,30]);//[10,20,11,100,30]
+		 console.log(res);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04打印表单内容</title>
+	<script>
+	window.onload = function(){
+		var name = document.getElementById('name');
+		var gender = document.getElementById('gender');
+		var psw = document.getElementById('psw');
+		var output = document.getElementById('output');
+		
+
+		// 绑定事件
+		// 当change事件发生时才执行函数中的代码
+		// 当输入框的内容改变并且失去焦点时触发change事件
+		name.onchange = function(){
+			// 打印输入框的内容
+			// 如何获取输入框的内容？
+			console.log(name.value);
+		}
+
+		gender.onchange = function(){
+			console.log(gender.value);
+		}
+
+		// 监听密码输入
+		psw.onkeyup = function(){
+			output.innerHTML = psw.value;
+		}
+	}
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="name">
+	<input type="password" id="psw">
+	<select name="gender" id="gender">
+		<option value="男">男</option>
+		<option value="女">女</option>
+		<option value="保密">保密</option>
+	</select>
+	<div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06xss攻击</title>
+	<style>
+		textarea{width:300px;height:80px;display: block;}
+	</style>
+	<script src="../common.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var msg = document.getElementById('msg');
+			var btnSubmit = document.getElementById('btnSubmit');
+			var datalist = btnSubmit.nextElementSibling;
+
+			var msglist = getCookie('msglist');//['你好','你号码']
+			if(msglist){
+				msglist = JSON.parse(msglist);
+			}else{
+				msglist = [];
+			}
+			console.log(msglist)
+
+			// 遍历数据写入页面
+			msglist.forEach(function(item){
+				var li = document.createElement('li');
+				li.innerHTML = item;
+
+				datalist.appendChild(li);
+			});
+
+			// 添加数据
+			btnSubmit.onclick = function(){
+				
+
+				_msg = msg.value.replace('<script>','').replace('<\/script>','');
+
+				msglist.push(_msg);
+
+				var li = document.createElement('li');
+				li.innerHTML = _msg;
+
+				datalist.appendChild(li);
+
+				setCookie('msglist',JSON.stringify(msglist));
+
+				msg.value = ''
+				msg.focus();
+			}
+		});
+	</script>
+</head>
+<body>
+	<textarea id="msg"></textarea>
+	<button id="btnSubmit">提交</button>
+	<ul class="datalist"></ul>
+</body>
+</html>

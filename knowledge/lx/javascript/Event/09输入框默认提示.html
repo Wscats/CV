@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09输入框默认提示</title>
+	<script>
+		/*
+			兼容低版本ie浏览器
+			利用value属性模拟placeholder
+			1)focus时，清空value属性
+			2)blur时，把palceholder属性写入value属性
+		 */
+		window.onload =function(){
+			var username = document.getElementById('username');
+
+			// 判断是否为IE低版本浏览
+			if(document.body.currentStyle){
+				username.value = username.placeholder;
+				
+				// 1)focus时，清空value属性
+				username.onfocus = function(){
+					username.value = '';
+				}
+
+				// 2)blur时，把palceholder属性写入value属性
+				username.onblur = function(){
+					username.value = username.placeholder;
+				}
+			}
+
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="username" placeholder="请输入用户名">
+</body>
+</html>

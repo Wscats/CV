@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型scroll</title>
+	<style>
+		body{margin:50px;}
+		#box{padding:50px;width:420px;height:200px;overflow:auto;border:10px solid #ddd;}
+		.content{padding-top:800px;padding-left:600px;width:800px;height:500px;background-color:#efefef;}
+	</style>
+	<script>
+		window.onload = function(){
+			var box = document.getElementById('box');
+			var links = document.getElementById('links');
+			var output = document.getElementById('output');
+
+			output.innerHTML +='clientHeight: ' + box.clientHeight + '<br>';
+			output.innerHTML +='clientWidth: ' + box.clientWidth + '<br>';
+
+			output.innerHTML +='offsetWidth: ' + box.offsetWidth + '<br>';
+			output.innerHTML +='offsetHeight: ' + box.offsetHeight + '<br>';
+			
+			output.innerHTML +='scrollWidth: ' + box.scrollWidth + '<br>';
+			output.innerHTML +='scrollHeight: ' + box.scrollHeight + '<br>';
+			
+			// box.scrollTo(100,50)
+			// box.scrollLeft = 100;
+			// box.scrollTop = 50;
+			// links.scrollIntoView();
+			output.innerHTML +='scrollTop: ' + box.scrollTop + '<br>';
+			output.innerHTML +='scrollLeft: ' + box.scrollLeft + '<br>';
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div class="content">
+			<a id="links">可见链接</a>
+		</div>
+	</div>
+	<div id="output"></div>
+</body>
+</html>

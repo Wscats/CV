@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12加载html文件</title>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			$('#header').load('12header.html header');
+			$('#footer').load('12footer.html');
+		});
+	</script>
+</head>
+<body>
+	<div id="header"></div>
+	<div class="container">
+		<h1>网页主体</h1>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

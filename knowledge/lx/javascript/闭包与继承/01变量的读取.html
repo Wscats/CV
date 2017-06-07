@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01变量的读取</title>
+	<script>
+		var a = 10;
+
+		function sum(){
+			var b = 20;
+
+			// 结论1：函数内部能够访问外部的变量
+			var res = a + b;//30
+
+			function showResult(){
+				res++;
+				console.log(res);
+			}
+
+			return showResult;
+
+			// 正常情况下：
+			// 只要函数执行完毕，函数内的变量都会被垃圾回收
+			// 垃圾回收机制规则：不定期扫描内存，清空不被其他地方引用的变量
+		}
+
+		var show = sum();
+
+		// 结论2：外部不能访问函数内部的变量
+		//console.log(b);
+
+
+		// 利用函数内部返回一个函数，间接从函数外部读取内部的变量
+		// 这个函数我们称之为：闭包函数
+		// 变量的查找规则：从函数定义位置开始往上查找
+		show();//31
+		show();//32
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

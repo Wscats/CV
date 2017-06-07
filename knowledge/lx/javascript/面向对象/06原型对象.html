@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06原型对象</title>
+	<script>
+		// 构造函数
+		function SuperStar(name,age,type){
+			// 描述属性
+			this.name = name;
+			this.age = age;
+			this.type = type;
+
+			/*// 描述方法
+			this.sing = function(){
+				console.log(`我叫${this.name},我会唱歌`);
+			}
+			this.liaomei = function(){
+				console.log(`我叫${this.name},我会撩妹`);
+			}
+			this.paoba = function(){
+				console.log(`我叫${this.name},我会泡吧`);
+			}*/
+		}
+
+
+		// 原型对象
+		// 利用原型对象优化代码
+		SuperStar.prototype.sing = function(){
+			console.log(`我叫${this.name},我会唱歌`);
+		}
+		SuperStar.prototype.liaomei = function(){
+			console.log(`我叫${this.name},我会撩妹`);
+		}
+		SuperStar.prototype.paoba = function(){
+			console.log(`我叫${this.name},我会泡吧`);
+		}
+		
+
+		console.log(SuperStar.prototype)
+
+		// 示例
+		var huge = new SuperStar('胡歌',26,'影视明星');
+		var wuyifan = new SuperStar('吴亦凡',22,'小鲜肉');
+		var marong = new SuperStar('马蓉',28,'经纪人老婆');
+
+		console.log(huge,wuyifan,marong)
+		wuyifan.sing();
+
+		// 通过示例得到原型对象
+		// 通过wuyifan得到原型对象
+		// 私用属性：__proto__
+		// ES5的方法：Object.getPrototypeOf(实例)
+		console.log(wuyifan.__proto__);
+		console.log(Object.getPrototypeOf(wuyifan));
+
+
+		/*var obj = {}
+		obj.name = 'xxx';
+		obj.say = function(){
+			alert(6666)
+		}
+		obj.call()*/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

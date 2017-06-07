@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+			输入月份，显示当月的天数
+				* 不考虑闰年
+				* 利用case穿透简化代码
+
+			思路：
+				1）获取输入的月份
+				2）根据月份得到当月的天数
+					1,3,5,7,8,10,12：31天
+					4,6,9,11:30天
+					2：28天
+		 */
+		function getDays(){
+			var month = document.getElementById('month');
+
+			// 通过.value属性得到的值为字符串，所以需要转换数据类型
+			var currentMonth = Number(month.value);
+
+			var output = document.getElementById('output');
+
+			switch(currentMonth){
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					output.innerHTML = '本月有31天';
+
+					// 跳出switch
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					output.innerHTML = '本月有30天';
+					break;
+				case 2:
+					output.innerHTML = '本月有28天';
+					break;
+
+				// 当所有的case都不满足的情况下会执行defalut下面的语句
+				// 一般写在switch语句的最后
+				default:
+					output.innerHTML = '没有你输入的月份'
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="month">
+	<button onclick="getDays()">查询天数</button>
+	<div id="output"></div>
+</body>
+</html>

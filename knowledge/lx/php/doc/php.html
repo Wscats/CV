@@ -1,0 +1,1571 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>php</title></head><body><article class="markdown-body"><div class="toc">
+<ul>
+<li><a href="#php">PHP</a><ul>
+<li><a href="#_1">安装</a><ul>
+<li><a href="#_2">环境配置</a></li>
+<li><a href="#ide">IDE安装</a></li>
+</ul>
+</li>
+<li><a href="#_3">语法</a><ul>
+<li><a href="#_4">分界标示符</a></li>
+<li><a href="#_5">注释</a></li>
+<li><a href="#_6">输出语句</a></li>
+<li><a href="#_7">变量</a></li>
+<li><a href="#_8">常量</a></li>
+<li><a href="#_9">运算符</a></li>
+<li><a href="#_10">条件语句</a></li>
+</ul>
+</li>
+<li><a href="#_11">数据类型</a></li>
+<li><a href="#_12">函数</a><ul>
+<li><a href="#_13">内建函数</a></li>
+<li><a href="#_14">自定义函数</a></li>
+</ul>
+</li>
+<li><a href="#_15">面向对象</a><ul>
+<li><a href="#_16">面向对象术语</a></li>
+<li><a href="#_17">类</a></li>
+</ul>
+</li>
+<li><a href="#_18">生成动态页面</a><ul>
+<li><a href="#_19">表单提交</a></li>
+<li><a href="#session">session</a></li>
+</ul>
+</li>
+<li><a href="#_20">接口</a><ul>
+<li><a href="#_21">本地数据</a><ul>
+<li><a href="#_22">直接返回数据</a></li>
+<li><a href="#_23">文件的读取与写入</a></li>
+<li><a href="#_24">数据库的增删改（后面课程详解）</a></li>
+</ul>
+</li>
+<li><a href="#json">获取远程JSON数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="php"><a name="user-content-php" href="#php" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PHP</h1>
+<blockquote>
+<p>PHP是一种通用开源服务端脚本语言，将程序嵌入到HTML文档中去执行，结果以纯 HTML 形式返回给浏览器<br />
+PHP: Hypertext Preprocessor “超文本预处理器”，1994年由Rasmus Lerdorf创建，刚刚开始仅仅是为了要维护他本人个人网页而制作的一个简单程序（Perl语言编写），原名Personal Home Page（PHP由此得名），后用C语言重新编写，改名Hypertext Preprocessor</p>
+</blockquote>
+<p><strong>PHP能做什么：</strong></p>
+<ul>
+<li>生成动态页面内容</li>
+<li>创建、打开、读取、写入、关闭服务器上的文件</li>
+<li>收集表单数据</li>
+<li>发送和接收 cookies</li>
+<li>添加、删除、修改您的数据库中的数据</li>
+<li>限制用户访问您的网站上的一些页面</li>
+<li>加密数据</li>
+</ul>
+<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>安装</h2>
+<h3 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>环境配置</h3>
+<ul>
+<li>安装 Web 服务器Apache</li>
+<li>安装 PHP</li>
+<li>安装MySQL数据库</li>
+</ul>
+<blockquote>
+<p>对于初学者建议使用集成的服务器组件（如：WampServer），它已经包含了 PHP、Apache、Mysql 等服务,免去了开发人员将时间花费在繁琐的配置环境过程。</p>
+</blockquote>
+<p>WampServer下载地址：<a href="http://www.wampserver.com/">http://www.wampserver.com/</a></p>
+<h3 id="ide"><a name="user-content-ide" href="#ide" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>IDE安装</h3>
+<blockquote>
+<p>IDE: Integrated Development Environment (集成开发环境)，推荐使用PhpStorm</p>
+</blockquote>
+<p>PhpStorm官方下载地址：<a href="http://www.jetbrains.com/phpstorm/download/">http://www.jetbrains.com/phpstorm/download/</a></p>
+<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>语法</h2>
+<blockquote>
+<ul>
+<li>默认文件扩展名是 &ldquo;.php&rdquo;。</li>
+<li>通常包含 HTML 标签和一些 PHP 脚本代码。</li>
+</ul>
+</blockquote>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>分界标示符</h3>
+<pre><code>&lt;?php //开始 
+
+//...php代码
+
+?&gt; //结束
+</code></pre>
+
+<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>注释</h3>
+<blockquote>
+<p>与js一样，分单行和多行注释</p>
+</blockquote>
+<pre><code>- 单行注释：//
+- 多行注释：/**/
+</code></pre>
+<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>输出语句</h3>
+<ul>
+<li>
+<p>echo<br />
+可以输出一个或多个字符串（字符串可以包含 HTML 标签）<br />
+<pre><code>&lt;?php
+    //输出一个字符
+    echo &quot;Hello world!&lt;br&gt;&quot;;
+
+    //输出多个字符
+    echo &quot;This&quot;, &quot; string&quot;, &quot; was&quot;, &quot; made&quot;, &quot; with multiple parameters.&quot;;
+?&gt;
+</code></pre></p>
+</li>
+<li>
+<p>print<br />
+只允许输出一个字符串，返回值总为 1</p>
+</li>
+</ul>
+<blockquote>
+<p>提示：echo 输出的速度比 print 快， echo 没有返回值，print有返回值1。</p>
+</blockquote>
+<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>变量</h3>
+<ul>
+<li>
+<p>命名规则</p>
+<ul>
+<li>以 $ 符号开始，后面跟着变量的名称（$称为标识符，不属于变量组成部分）</li>
+<li>只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）</li>
+<li>必须以字母或者下划线字符开始</li>
+<li>不能包含空格</li>
+<li>区分大小写 </li>
+</ul>
+<pre><code>//PHP 没有声明变量的命令。
+//变量在第一次赋值时被创建：
+&lt;?php
+    $txt=&quot;Hello world!&quot;;
+    $x=5;
+    $y=10.5;
+?&gt;
+</code></pre>
+
+</li>
+<li>
+<p>全局变量<br />
+PHP 将所有全局变量存储在一个名为 $GLOBALS数组中。这个数组可以任意位置访问，格式：$GLOBALS[变量名]，其中变量名不带$。<br />
+<pre><code>&lt;?php
+    $x='global x';
+    function myTest(){
+        //echo $x;//报错
+
+        //正确写法
+        echo $GLOBALS['x'];
+
+        //在函数中创建全局变量
+        $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+    } 
+    myTest();
+    echo $y;
+?&gt;
+</code></pre></p>
+</li>
+<li>
+<p>global关键字<br />
+用于函数内访问全局变量。<br />
+在函数内调用全局变量，除了用$GLOBALS数组，还可以在变量前加上 global 关键字<br />
+<pre><code>&lt;?php
+    $x=5;
+    $y=10;
+    function myTest(){
+        global $x,$y;
+        $y=$x+$y;
+    }
+    myTest();
+    echo $y; // 输出 15
+?&gt;
+</code></pre></p>
+</li>
+<li>
+<p>static作用域<br />
+当函数执行完毕时，内部的变量通常都会被删除以减少内存的暂用。但如果要指定某个局部变量不被删除。可以在第一次声明变量时使用 static 关键字<br />
+<pre><code>&lt;?php
+function myTest(){
+    static $x=0;
+    echo $x;
+    $x++;
+}
+myTest();//=&gt;0
+myTest();//=&gt;1
+myTest();//=&gt;2
+//变量不被删除的结果是：每次执行函数都在原来的基础上+1
+?&gt;
+</code></pre></p>
+</li>
+<li>
+<p>超级全局变量</p>
+<ul>
+<li>$GLOBALS</li>
+<li>$_POST / $_GET<br />
+被广泛应用于收集表单数据，常用于ajax请求等操作</li>
+<li>$_COOKIE<br />
+用于收集前端发送过来的cookie数据</li>
+<li>$_REQUEST<br />
+变量包含了 $_GET、$_POST 和 $_COOKIE 的内容</li>
+<li>$_SESSION<br />
+服务器版cookie</li>
+</ul>
+</li>
+</ul>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>常量</h3>
+<ul>
+<li>命名规则与变量一致，但常量名不需要加 $ 修饰符。</li>
+<li>常量值被定义后，在脚本的其他任何地方都不能被改变。</li>
+<li>默认是全局变量，可以在整个运行的脚本的任何地方使用。</li>
+<li>常量名建议全部大写</li>
+</ul>
+<p><strong>格式：</strong><br />
+define(name,value[,case_insensitive])</p>
+<ul>
+<li>name：必选参数，常量名称，即标志符。</li>
+<li>value：必选参数，常量的值。</li>
+<li>case_insensitive ：可选参数，如果设置为 TRUE，该常量则大小写不敏感。默认是大小写敏感的。</li>
+</ul>
+<pre><code>define(&quot;ENNAME&quot;, &quot;laoxie&quot;);
+</code></pre>
+
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>运算符</h3>
+<ul>
+<li>算术运算符<ul>
+<li>+, -, *, /, %</li>
+<li>取反-，</li>
+<li>并置.</li>
+</ul>
+</li>
+<li>赋值运算符</li>
+<li>递增/递减运算符</li>
+<li>比较运算符<ul>
+<li>等于：<code>x == y</code></li>
+<li>恒等于：<code>x === y</code> </li>
+<li>不等于：<code>x != y</code> ，<code>x &lt;&gt; y</code> </li>
+<li>不恒等于：<code>x !== y</code> </li>
+<li>大于：<code>x &gt; y</code>     </li>
+<li>小于：<code>x &lt; y</code>     </li>
+<li>大于等于：<code>x &gt;= y</code>  </li>
+<li>小于等于：<code>x &lt;= y</code>  </li>
+</ul>
+</li>
+<li>逻辑运算符<ul>
+<li>与：<code>x and y</code>，<code>x &amp;&amp; y</code></li>
+<li>或：<code>x or y</code>，<code>x || y</code></li>
+<li>异或：<code>x xor y</code></li>
+<li>非：<code>!x</code></li>
+</ul>
+</li>
+<li>三元运算符<br />
+格式：<code>expr1 ? expr2 : expr3</code><br />
+自 PHP 5.3 起，可以省略三元运算符中间那部分。<code>expr1 ?: expr3</code> 在 expr1 求值为 TRUE 时返回 expr1，否则返回 expr3。</li>
+</ul>
+<h3 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>条件语句</h3>
+<ul>
+<li>if语句<br />
+与javascript一致</li>
+<li>switch语句<br />
+与javascript一致</li>
+</ul>
+<h2 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数据类型</h2>
+<ul>
+<li>
+<p>String（字符串）</p>
+<ul>
+<li>并置运算符“.”<br />
+<pre><code>&lt;?php 
+    $txt1=&quot;你是我的小呀小苹果&quot;; 
+    $txt2=&quot;怎么爱你都不嫌多&quot;; 
+    echo $txt1 . &quot;, &quot; . $txt2; 
+?&gt;
+</code></pre></li>
+<li>strlen()<br />
+获取字符串长度</li>
+<li>strpos() <br />
+查找某个字符在字符串中的索引，如果未找到匹配，则返回 FALS<br />
+<code>strpos("Hello world!","world");//=&gt;6</code></li>
+</ul>
+</li>
+<li>
+<p>Integer（整型）</p>
+</li>
+<li>Float（浮点型）</li>
+<li>Boolean（布尔型）</li>
+<li>Array（数组）<blockquote>
+<p>数组是一个能在单个变量中存储多个值的特殊变量。</p>
+</blockquote>
+<ul>
+<li>类型<ul>
+<li>数值数组 - 带有数字索引值的数组</li>
+<li>关联数组 - 带有指定的键的数组，每个键关联一个值</li>
+<li>多维数组 - 包含一个或多个数组的数组</li>
+</ul>
+</li>
+<li>array() 函数用于创建数组<br />
+<pre><code>//数值数组
+$cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);
+
+//关联数组
+$age=array(&quot;Peter&quot;=&gt;&quot;35&quot;,&quot;Ben&quot;=&gt;&quot;37&quot;,&quot;Joe&quot;=&gt;&quot;43&quot;);
+</code></pre></li>
+<li>count()<br />
+获取数组长度</li>
+<li>遍历数值数组<ul>
+<li>for</li>
+<li>foreach()<br />
+<pre><code>&lt;?php
+    //遍历数值数组：for循环
+    $cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);
+    $arrlength=count($cars);
+    for($x=0;$x&lt;$arrlength;$x++){
+        echo $cars[$x] . &quot;&lt;br&gt;&quot;;
+    }
+
+    //遍历关联数组：foreach
+    $age=array(&quot;Peter&quot;=&gt;&quot;35&quot;,&quot;Ben&quot;=&gt;&quot;37&quot;,&quot;Joe&quot;=&gt;&quot;43&quot;);
+    foreach($age as $x=&gt;$x_value){
+        echo &quot;Key=&quot; . $x . &quot;, Value=&quot; . $x_value;
+        echo &quot;&lt;br&gt;&quot;;
+    }
+?&gt;
+</code></pre></li>
+</ul>
+</li>
+<li>数组排序<ul>
+<li>sort() 对数组进行升序排列</li>
+<li>rsort() 对数组进行降序排列</li>
+<li>asort() 根据关联数组的值，对数组进行升序排列</li>
+<li>ksort() 根据关联数组的键，对数组进行升序排列</li>
+<li>arsort() 根据关联数组的值，对数组进行降序排列</li>
+<li>krsort() 根据关联数组的键，对数组进行降序排列</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Object（对象）</li>
+<li>NULL（空值）</li>
+</ul>
+<h2 id="_12"><a name="user-content-_12" href="#_12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>函数</h2>
+<h3 id="_13"><a name="user-content-_13" href="#_13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>内建函数</h3>
+<p>PHP 的真正威力源自于它的函数。在 PHP 中，提供了超过 1000 个内建的函数</p>
+<h3 id="_14"><a name="user-content-_14" href="#_14" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>自定义函数</h3>
+<ul>
+<li>参数</li>
+<li>return返回值<br />
+<pre><code>function add($x,$y){
+    $total=$x+$y;
+    return $total;
+}
+
+</code></pre></li>
+</ul>
+<h2 id="_15"><a name="user-content-_15" href="#_15" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>面向对象</h2>
+<h3 id="_16"><a name="user-content-_16" href="#_16" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>面向对象术语</h3>
+<h3 id="_17"><a name="user-content-_17" href="#_17" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>类</h3>
+<ul>
+<li>
+<p>定义一个类</p>
+<ul>
+<li>类使用 class 关键字后加上类名定义。</li>
+<li>类名后的一对大括号({})内可以定义变量和方法。</li>
+<li>类的变量使用 var 来声明, 变量也可以初始化值。</li>
+<li>函数定义类似 PHP 函数的定义，但函数只能通过该类及其实例化的对象访问。<br />
+<pre><code>&lt;?php
+    class Person{
+        // 成员变量
+        var $name;
+        var $age = 18;
+
+        //成员函数
+        function setName($name){
+            $this-&gt;name = $name;
+        }
+
+        function getAge(){
+            return $this-&gt;age;
+        }
+    }
+?&gt;
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>实例化对象<br />
+<code>$p = new Person;</code></p>
+</li>
+<li>
+<p>调用成员属性/方法<br />
+在实例化对象后，我们可以使用‘-&gt;’操作该对象调用成员属性/方法<br />
+<pre><code>$p-&gt;setName('老谢');
+$p-&gt;name;
+</code></pre></p>
+</li>
+<li>
+<p>构造函数<br />
+__construct构造函数是一种特殊的方法。主要用来在创建对象时初始化对象，写在创建对象的语句中。<br />
+<pre><code>class Web{
+    function __construct( $par1, $par2 ) {
+       $this-&gt;url = $par1;
+       $this-&gt;title = $par2;
+    }
+}
+</code></pre></p>
+</li>
+<li>
+<p>析构函数<br />
+__destruct析构函数(destructor) 与构造函数相反，当对象结束其生命周期时（例如对象所在的函数已调用完毕），系统自动执行析构函数。<br />
+PS：格式与构造函数一样，一个类中只能定义一个析构函数</p>
+</li>
+<li>
+<p>访问控制<br />
+PHP 对属性或方法的访问控制，是通过在前面添加关键字public（公有），protected（受保护）或 private（私有）来实现的。</p>
+<ul>
+<li>public（公有，默认）：公有的类成员可以在任何地方被访问。</li>
+<li>private（私有）：私有的类成员只能在类本身中访问。</li>
+<li>protected（受保护）：受保护的类成员只能在类本身、子类、父类中访问。</li>
+<li>static（静态）：声明类属性或方法为静态，就可以不实例化类而直接访问<ul>
+<li>访问方式：<code>类名::方法</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>PS：<br />
+    - 类属性必须定义为公有，受保护，私有之一。如果用 var 定义，则被视为公有。<br />
+    - 类中的方法可以被定义为公有，私有或受保护。如果没有设置这些关键字，则该方法默认为公有。</p>
+</blockquote>
+<ul>
+<li>继承<br />
+使用关键字 extends 来继承一个类，继承后子类就拥有父类的属性和方法（私有除外），格式如下：<br />
+<pre><code>class Man extends Person {
+    // 添加成员函数
+    function setAge($age){
+        $this-&gt;age = $age;
+    }
+
+    //重写方法
+    function setName($name){
+        $this-&gt;name = $name;
+        return $name;
+    }
+}
+</code></pre><ul>
+<li>私有属性/方法不能被继承</li>
+</ul>
+</li>
+</ul>
+<h2 id="_18"><a name="user-content-_18" href="#_18" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>生成动态页面</h2>
+<h3 id="_19"><a name="user-content-_19" href="#_19" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>表单提交</h3>
+<ul>
+<li>$_GET</li>
+<li>$_POST</li>
+<li>$_REQUREST</li>
+</ul>
+<h3 id="session"><a name="user-content-session" href="#session" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>session</h3>
+<ul>
+<li>session_start()：启动新会话</li>
+<li>session_destroy()：销毁一个会话中的全部数据</li>
+<li>time()：获取当前时间，返回自1970 年 1 月 1 日 0时到当前时间的秒数<br />
+<pre><code>    session_start();
+
+    if(!isset($_SESSION['last-access'])){
+        $_SESSION['last-access'] = time();
+    }
+
+    //超过60s为超时
+    $overtime = (time() - $_SESSION['last-access']) &gt; 60;
+</code></pre></li>
+</ul>
+<h2 id="_20"><a name="user-content-_20" href="#_20" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口</h2>
+<p>利用php编写数据接口</p>
+<h3 id="_21"><a name="user-content-_21" href="#_21" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>本地数据</h3>
+<h4 id="_22"><a name="user-content-_22" href="#_22" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>直接返回数据</h4>
+<ul>
+<li>json_encode();<br />
+把数组转成字符串<ul>
+<li>php5.4+ 使用<code>JSON_UNESCAPED_UNICODE</code>防止中文转义</li>
+</ul>
+</li>
+<li>json_decode(json,assoc);<br />
+把字符串转成数组/对象<ul>
+<li>json：待解码的 json string 格式的字符串</li>
+<li>assoc：当该参数为 TRUE 时，将返回 array 而非 object  </li>
+</ul>
+</li>
+</ul>
+<h4 id="_23"><a name="user-content-_23" href="#_23" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>文件的读取与写入</h4>
+<ul>
+<li>fopen(filename,mode)：打开文件<br />
+<strong>使用fopen函数打开文件时，你首先需要明确：</strong><ul>
+<li>打开文件干什么？是读文件中的数据呢，还是将数据写入文件，亦或者读写文件</li>
+<li>另外你需要考虑如果文件中已经存在相关数据，你是覆盖原有文件中的数据呢，还是仅仅将新数据添加至文件末尾</li>
+<li>文件模式:<ul>
+<li><code>r</code>  以只读方式打开文件，从文件头开始读</li>
+<li><code>r+</code>  以读写方式打开文件</li>
+<li><code>w</code>  以写入方式打开文件，从文件头开始写。如果文件不存在则尝试创建，如果文件存在，则先删除文件中的内容</li>
+<li><code>w+</code>  以读写方式打开文件，从文件头开始读写。如果文件不存在则尝试创建，如果文件存在，则先删除文件中的内容</li>
+<li><code>a</code>  以写入方式打开，从文件末尾开始追加写。如果文件不存在则尝试创建</li>
+<li><code>a+</code>  以读写方式打开，从文件末尾开始追加写写或者读。如果文件不存在则尝试创建。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>fread()：读取内容</li>
+<li>fwrite()：写入内容</li>
+<li>fclose()：关闭文件</li>
+<li>filesize()：读取文件字符长度</li>
+</ul>
+<pre><code>    //以读取模式打开文件
+    $myfile = fopen('./data/weibo.json', 'r');
+
+    //读取文件内容
+    $content = fread($myfile, filesize('./data/weibo.json'));
+
+    //关闭文件，减少资源占用
+    fclose($myfile);
+</code></pre>
+
+<h4 id="_24"><a name="user-content-_24" href="#_24" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数据库的增删改（后面课程详解）</h4>
+<h3 id="json"><a name="user-content-json" href="#json" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>获取远程JSON数据</h3>
+<ul>
+<li>API数据<ul>
+<li>curl：client Url<br />
+<pre><code>$url = 'http://wthrcdn.etouch.cn/weather_mini?city=广州';
+
+//初始化 cURL会话
+$ch = curl_init(); 
+
+// 设置需要的选项
+curl_setopt($ch, CURLOPT_URL, $url); 
+
+//执行会话
+$contents = curl_exec($ch); 
+
+//关闭会话
+curl_close($ch); 
+
+//输出内容
+echo $contents; 
+</code></pre></li>
+</ul>
+</li>
+<li>爬虫<ul>
+<li>file_get_contents()</li>
+<li>preg_match_all()</li>
+</ul>
+</li>
+</ul></article></body></html>

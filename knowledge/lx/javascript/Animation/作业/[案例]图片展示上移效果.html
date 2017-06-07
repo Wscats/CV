@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>作业_图片展示上移效果</title>
+    <meta charset='utf-8' />
+    <style>
+    
+    .picList {
+        width: 100%;
+        overflow:hidden;
+        font-size:12px;
+    }
+    
+    .picList .col {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+        float: left;
+        margin: 10px 0 0 10px;
+    }
+    
+    .picList .col a {
+        position: absolute;
+        width: 280px;
+        height: 180px;
+        top: 160px;
+        background: #000;
+        color: white;
+        line-height: 25px;
+        padding: 10px;
+        opacity: 0.8;
+        text-decoration: none;
+    }
+    </style>
+    <script>
+    /*
+    		图片展示上移效果
+    		1）鼠标移入
+    			文字a标签的top值改成0
+    		2）鼠标移出
+    			文字a标签的top值改成160
+    	 */
+    	document.addEventListener('DOMContentLoaded',()=>{
+    		var picList = document.querySelector('#picList');
+    		var cols = picList.querySelectorAll('.col');
+
+    		// 遍历cols，并绑定事件
+    		for(let i=0;i<cols.length;i++){
+
+    			// 鼠标移入
+    			cols[i].onmouseenter = function(){
+    				// 获取文本所在元素
+    				var txt = this.children[1];
+
+    				clearInterval(this.timer);
+
+    				// 不断改变txt的top值，直到0
+    				this.timer = setInterval(()=>{
+    					var top = txt.offsetTop;
+
+    					// 计算速度
+    					// 向上取整，使速度至少为1
+    					var speed = Math.ceil(top/8);//0.5
+
+    					if(top<=1){
+    						clearInterval(this.timer);
+    						top = speed;
+    					}
+
+    					txt.style.top = top - speed + 'px';
+    				},50);
+    			}
+
+    			//鼠标移出
+    			cols[i].onmouseleave = function(){
+    				// 获取文本所在元素
+    				var txt = this.children[1];
+
+    				clearInterval(this.timer);
+    				
+    				// 不断改变txt的top值，直到0
+    				this.timer = setInterval(()=>{
+    					var top = txt.offsetTop;
+
+    					// 计算速度
+    					// 向上取整，使速度至少为1
+    					var speed = Math.ceil((160-top)/8);//0.5
+
+    					if(top >= 160){
+    						clearInterval(this.timer);
+    						top = 160 - speed;
+    					}
+
+    					txt.style.top = top + speed + 'px';
+    				},50);
+    			}
+    			
+    		}
+    	});
+    	
+    
+    </script>
+</head>
+
+<body>
+    <div class='picList' id="picList">
+        <div class="col">
+            <img src="img/b1.jpg" />
+            <a href="#">学会html5 <br/>
+	 本课程由浅入深，逐步推进，以示例为主线，详细完整地介绍HTML5的新功能与新特征
+	   </a>
+        </div>
+        <div class="col">
+            <img src="img/b2.jpg" />
+            <a href="#">圆角水晶按钮制作<br/>
+	网页中的圆角按钮和宽度自适应按钮就这么轻松制作！
+	   </a>
+        </div>
+        <div class="col">
+            <img src="img/b3.jpg" />
+            <a href="#">导航条菜单的制作<br/>
+	30分钟教你轻松制作出各种形式的网站导航条菜单
+	   </a>
+        </div>
+    </div>
+</body>
+
+</html>

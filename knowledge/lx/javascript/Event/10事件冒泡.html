@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10事件冒泡</title>
+	<style>
+		#box{position:relative;width:300px;height:100px;background-color: #ffc;border:1px solid #f60;}
+		#box span{position: absolute;right:10px;bottom:10px;padding:10px;background-color:#f00;}
+	</style>
+	<script>
+	window.onload = function(){
+		var box = document.getElementById('box');
+		document.body.onclick = function(e){
+			console.log(e.target)
+			console.log(666)
+		}
+
+		box.onclick = function(e){
+			console.log(e.target);
+			console.log('#box')
+		}
+
+	}
+		
+	</script>
+</head>
+<body>
+	<div id="box">
+		<span>点我</span>
+	</div>
+</body>
+</html>

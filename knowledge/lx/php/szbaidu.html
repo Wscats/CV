@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>山寨百度</title>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			var keyword = document.querySelector('#keyword');
+			var suggest = document.querySelector('#suggest');
+
+
+
+			// 后端代理方案：
+			/*var searchurl = 'http://localhost/1612/ajax/baidusearch.php';
+
+			// 输入时发送请求
+			// oninput
+			keyword.oninput = ()=>{
+				var _keyword = keyword.value;
+
+				var xhr = new XMLHttpRequest();
+
+				xhr.open('get',searchurl + '?key='+_keyword,true);
+
+				xhr.send(null);
+			}*/
+
+
+			// 1.预设全局函数getData
+			// jsonp的回调函数必须是全局函数
+			window.getData = function(data){
+				console.log(data);
+				var res = data.g;
+
+				suggest.innerHTML = res.map((item)=>{
+					return `<option value="${item.q}">${item.q}</option>`
+				}).join('');
+
+				// console.log(arr)
+			}
+
+			// jsonp方案
+			var searchurl = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&cb=getData&wd=';
+
+			var timer;
+			keyword.oninput = ()=>{
+				var _keyword = keyword.value;
+
+				clearTimeout(timer);
+
+				// 延迟减少请求数量
+				timer = setTimeout(()=>{
+					// 2.生成script标签
+					var script = document.createElement('script');
+					script.src = searchurl+_keyword;
+
+					// 3.插入script标签
+					document.head.appendChild(script);
+				},500);
+			}
+		});
+	</script>
+	<!-- <script src="js/test.js"></script> -->
+	<!-- <script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&cb=getData&wd=h"></script> -->
+</head>
+<body>
+	<input type="text" id="keyword" list="suggest">
+	<datalist id="suggest">
+		<!-- <option value="海贼王">海贼王</option> -->
+		<!-- <option value="海贼王">海贼王</option> -->
+	</datalist>
+</body>
+</html>

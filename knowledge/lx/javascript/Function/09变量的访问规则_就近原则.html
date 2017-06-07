@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09变量的访问规则_就近原则</title>
+	<script>
+		//就近原则
+		//变量声明提前
+		var x = 100;
+		function sum(){
+			var y = 20;
+
+			console.log(x+y);//undefined+20 => NaN
+
+			var x = 30;
+
+			console.log(x + y);
+		}
+
+		sum();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

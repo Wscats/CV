@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06动态生成表格并实现隔行变色</title>
+	<style>
+		table{border:1px solid #ddd;border-collapse: collapse;}
+		td{border:1px solid #ddd;padding:4px;}
+	</style>
+	<script>
+		window.onload = function(){
+			// 获取页面元素
+			var row = document.getElementById('row');
+			var cell = document.getElementById('cell');
+			var btn = document.getElementsByClassName('btn')[0];
+			var output = document.getElementsByClassName('output')[0];
+
+			btn.onclick = function(){
+
+				var table = document.createElement('table');
+
+				// for循环生成行
+				for(var i=1;i<=row.value;i++){
+					var tr = document.createElement('tr');
+
+					// 隔行变色
+					if(i%2===0){
+						tr.style.backgroundColor = '#efefef';
+					}
+
+					//循环生成列
+					for(var j=1;j<=cell.value;j++){
+						var td = document.createElement('td');
+						td.innerHTML = '单元格' + i + j;
+
+						// 把td写入tr
+						tr.appendChild(td);
+					}
+
+					table.appendChild(tr);
+				}
+
+				// 把table写入.output
+				// 在加入前先清空.output
+				output.innerHTML = '';
+
+				output.appendChild(table);
+			}
+		}
+	</script>
+</head>
+<body>
+	行：<input type="text" id="row">
+	列：<input type="text" id="cell">
+	<button class="btn">生成表格</button>
+	<div class="output"></div>
+</body>
+</html>

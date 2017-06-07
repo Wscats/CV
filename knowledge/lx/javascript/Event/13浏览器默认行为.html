@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13浏览器默认行为</title>
+	<script>
+		for(var i=0;i<1000;i++){
+			document.write('<p>返回顶部' + i + '</p>');
+		}
+
+		window.onload = function(){
+			var form = document.forms[0];
+			var btnSubmit = form.getElementsByTagName('button')[0];
+
+			form.onsubmit = function(e){
+				e = e || window.event;
+
+				// 阻止表单的提交
+				// 兼容写法
+				if(e.preventDefault){
+					e.preventDefault();
+				}else{
+
+					e.returnValue = false;
+				}
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<a href="#">返回顶部</a>
+
+	<form>
+		用户名：<input type="text" name="username">
+		密码：<input type="password" name="psw">
+		<button type="submit">提交</button>
+	</form>
+</body>
+</html>

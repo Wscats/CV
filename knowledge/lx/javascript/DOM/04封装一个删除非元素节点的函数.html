@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>封装一个删除非元素节点的函数</title>
+		<script>
+			window.onload = function(){
+				/*
+					封装一个删除非元素节点的函数
+				 */
+				
+				// 获取#list下的所有子节点
+				var list = document.getElementById('list');
+				var childNodes = list.childNodes;
+				console.log(childNodes)
+
+				console.log(list.firstChild,childNodes[0]);
+
+
+
+				var links = getElement(list.childNodes);//得到元素节点
+
+				console.log(links)
+
+				function getElement(nodes){
+					var res = [];
+
+					// 遍历节点，删除非元素节点
+					for(var i=0;i<nodes.length;i++){
+						if(nodes[i].nodeType === 1){
+							res.push(nodes[i]);
+						}
+					}
+
+					return res;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>DOM树</h1>
+		<div id="list">
+			<a href="#">Google</a>
+			<a href="#" id="baidu">百度</a>
+			<a href="#">Bing</a>
+		</div>
+		<div class="datalist">
+			<h2>商品展示</h2>
+			<ul>
+				<li><a href="#">商品1</a></li>
+				<li><a href="#">商品2</a></li>
+				<li><a href="#">商品3</a></li>
+			</ul>
+		</div>
+
+		<!-- <input type="text" name="username"> -->
+	</body>
+</html>

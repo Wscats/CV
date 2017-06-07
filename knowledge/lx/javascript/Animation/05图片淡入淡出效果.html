@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05图片淡入淡出效果</title>
+	<style>
+		.zb{opacity: 0.5}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			var zb = document.querySelector('.zb');
+
+			// 鼠标移入不透明
+			zb.onmouseover =function(){
+				var currentOpacity = Number(getComputedStyle(zb).opacity);
+
+				// 在开启定时器之前，先清楚之前的定时器
+				clearInterval(zb.timer);
+				zb.timer = setInterval(()=>{
+					currentOpacity += 0.05;
+
+					// opacity到达最终值时停止定时器
+					if(currentOpacity >= 1){
+						currentOpacity = 1;
+						clearInterval(zb.timer);
+					}
+					zb.style.opacity = currentOpacity;
+				},50);
+				
+			};
+
+			// 鼠标移出，回复半透明效果
+			zb.onmouseout = function(){
+				var currentOpacity = Number(getComputedStyle(zb).opacity);
+
+				// 在开启定时器之前，先清楚之前的定时器
+				clearInterval(zb.timer);
+				zb.timer = setInterval(()=>{
+					currentOpacity -= 0.05;
+
+					// opacity到达最终值时停止定时器
+					if(currentOpacity <= 0.5){
+						currentOpacity = 0.5;
+						clearInterval(zb.timer);
+					}
+					zb.style.opacity = currentOpacity;
+				},50);
+			}
+		})
+	</script>
+</head>
+<body>
+	<img src="img/zb.jpg" class="zb">
+</body>
+</html>

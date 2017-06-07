@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02全屏按钮</title>
+	<style>
+		#beauty{position:absolute;top:0;left:20px;width:180px;height:180px;border:5px solid #ddd;border-radius:50%;}
+	</style>
+	<script>
+	window.onload = function(){
+		var beauty = document.getElementById('beauty');
+
+		var timer = setInterval(function(){
+			// console.log(beauty.offsetLeft);
+			var left = beauty.offsetLeft;
+			if(left >= window.innerWidth - beauty.offsetWidth){
+				left = window.innerWidth - beauty.offsetWidth - 5;
+				clearInterval(timer);
+			}
+			beauty.style.left = left + 5 + 'px';
+		},50);		
+	}	
+	</script>
+	
+</head>
+<body>
+	<img src="img/g3.jpg" id="beauty">
+	
+</body>
+</html>

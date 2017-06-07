@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10延迟器</title>
+	<style>
+		#box{position:relative;text-align:center;}
+		#time{position:absolute;top:0;right:0;padding:10px;background-color: rgba(0,0,0,0.3)}
+	</style>
+	<script>
+		
+	window.onload = function(){
+		var box = document.getElementById('box');
+		var oTime = document.getElementById('time');
+
+		// 延迟5s隐藏元素
+		// setTimeout(fn,20);
+		var time = 10;
+		var timer = setTimeout(function(){
+			time--;
+			oTime.innerHTML = time + 's';
+			if(time==0){
+				box.style.display = 'none';
+				clearTimeout(timer);
+			}
+			setTimeout(arguments.callee,1000);
+		},1000);
+
+		//
+
+	}
+
+	</script>
+</head>
+<body>
+	<div id="box"><img src="img/25-1.png"><span id="time">10s</span></div>
+</body>
+</html>

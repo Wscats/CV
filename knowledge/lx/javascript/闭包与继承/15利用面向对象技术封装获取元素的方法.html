@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15利用面向对象技术封装获取元素的方法</title>
+	<script>
+		//获取元素的方式
+		//document.getElementById()
+		//getElementsByTagName()
+		//getElementsByClassName()
+		//document.getElementsByName()
+		//querySelector();
+		//querySelectorAll();
+
+		// function getEle(selector){
+		// 	var res;
+
+		// 	try{
+		// 		// 高级浏览器用法
+		// 		res = document.querySelectorAll(selector);
+		// 	}catch(err){
+		// 		// 如果传进来的是ID
+		// 		if(/^#[\w\-]+/i.test(selector)){
+		// 			res = document.getElementById(selector.substring(1));
+		// 		}else if(/^\.[\w\-]+/i.test(selector)){
+		// 			res = document.getElementsByClassName(selector.substring(1));
+		// 		}else if(/^[a-z][\da-z]*/i.test(selector)){
+		// 			res = document.getElementsByTagName(selector);
+		// 		}
+		// 	}
+
+
+		// 	return res;
+		// }
+
+		// getEle('#box');
+		// getEle('.content');
+		// getEle('button');
+		// 
+		
+		// 要达到这样的效果，必须创建一个构造函数
+		// getEle('#box').hide()
+
+		// 创建并描述对象
+		function GetEle(selector){
+			this.selector = selector;
+
+			this.init();
+		}
+
+		// 获取元素
+		GetEle.prototype.init = function(){
+			var selector = this.selector;
+
+			var res;
+
+			try{
+				// 高级浏览器用法
+				res = document.querySelectorAll(selector);
+			}catch(err){
+				// 如果传进来的是ID
+				if(/^#[\w\-]+/i.test(selector)){
+					res = document.getElementById(selector.substring(1));
+				}else if(/^\.[\w\-]+/i.test(selector)){
+					res = document.getElementsByClassName(selector.substring(1));
+				}else if(/^[a-z][\da-z]*/i.test(selector)){
+					res = document.getElementsByTagName(selector);
+				}
+			}
+
+			this.ele = res;
+
+			// 为了链式调用
+			return this;
+		}
+
+		// 隐藏元素
+		GetEle.prototype.hide = function(){
+			for(var i=0;i<this.ele.length;i++){
+				this.ele[i].style.display = 'none'
+			}
+
+			return this;
+		}
+
+		// 显示元素
+		GetEle.prototype.show = function(){
+			for(var i=0;i<this.ele.length;i++){
+				this.ele[i].style.display = 'block'
+			}
+
+			return this;
+		}
+
+		// 绑定事件
+		GetEle.prototype.on = function(type,handle){
+			// 给谁绑定事件
+			for(var i=0;i<this.ele.length;i++){
+				this.ele[i]['on' + type] = handle;
+			}
+
+			return this;
+		}
+
+		/*
+			要求：
+			1、添加css()方法
+				$('#box').css('color','#f00');
+			2、append()
+				插入元素
+				$('#box').append('<div>添加的内容</div>');
+				<div id="box"><h1>111</h1><div>添加的内容</div></div>
+		 */
+
+
+		// 简化生成实例的过程
+		function $(selector){
+			return new GetEle(selector);
+		}
+
+		document.addEventListener('DOMContentLoaded',()=>{
+			/*var btn2 = document.getElementById('btn2');
+			var btn3 = document.getElementById('btn3');
+
+
+			// var content = new GetEle('.content');
+			// content.init();
+
+
+			btn2.onclick = function(){
+				new GetEle('.content').hide();
+			}
+
+			btn3.onclick = function(){
+				new GetEle('.content').show();
+			}*/
+
+			/*new GetEle('#btn2').on('click',function(){
+				new GetEle('.content').hide();
+			});
+
+			new GetEle('#btn3').on('click',function(){
+				new GetEle('.content').show();
+			});*/
+
+
+			$('#btn2').on('click',function(){
+				$('.content').hide()
+			});
+			$('#btn3').on('click',function(){
+				$('.content').show()
+			});
+
+
+
+		});
+
+	</script>
+</head>
+<body>
+	<div class="content">
+		con1
+	</div>
+	<div class="content">
+		con2
+	</div>
+	<div class="content box">
+		con3
+	</div>
+	<button>11</button>
+	<button id="btn2">隐藏</button>
+	<button id="btn3">显示</button>
+</body>
+</html>

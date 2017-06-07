@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归实现阶乘</title>
+	<script>
+		// 递归实现阶乘
+		// factorial(5) = 5 * 4 * 3 * 2 * 1
+		// factorail(n) = n * factorial(n-1)
+		function factorial(n){
+			// 退出条件
+			if(n===1){
+				return 1;
+			}
+
+			// return n * factorial(n-1);
+			// arguments.callee:表示函数本
+
+			return n * arguments.callee(n-1);
+		}
+
+
+		var res = factorial(5);
+		console.log(res);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

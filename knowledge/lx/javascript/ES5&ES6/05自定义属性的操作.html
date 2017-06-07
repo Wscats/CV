@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04对元素类的操作</title>
+	<style>
+		.box{width:300px;height:100px;background:#efefef;}
+		.none{display:none;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var btn = document.querySelector('.btn');
+			var box = document.querySelector('.box');
+			
+			//删除btn-default
+			btn.className = btn.className.replace('btn-default','btn-success');
+			
+//			btn.className += ' btn-success';
+
+			//点击按钮时，显示/隐藏#box
+			btn.onclick = function(){
+				box.classList.toggle('none');
+			}
+		})
+
+
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+	<button class="btn btn-xs btn-default">按钮</button>
+</body>
+</html>

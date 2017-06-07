@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08location获取表单信息</title>
+	<script>
+		// 转码解码
+		// decodeURI()/decodeURIComponent()
+		var attr = decodeURIComponent(location.search);
+		console.log(attr);
+
+		window.onload = function(){
+			var btnRefresh = document.getElementById('btnRefresh');
+
+			btnRefresh.onclick = function(){
+				location.reload(true);
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="">
+		用户名：<input type="text" name="username">
+		密码：<input type="password" name="password">
+		邮箱：<input type="email" name="email">
+		<button type="submit">提交</button>
+	</form>
+
+	<button id="btnRefresh">刷新当前页面</button>
+</body>
+</html>

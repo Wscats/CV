@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20生成表格</title>
+	<style>
+		body{padding:20px;}
+		table{width:100%;border:1px solid #ddd;border-collapse:collapse;}
+		th,td{border:1px solid #ddd;padding:5px 10px;}
+	</style>
+	<script>
+	window.onload = function(){
+		// 获取页面元素
+		var row = document.getElementById('row');
+		var cell = document.getElementById('cell');
+		var btnRender = document.getElementById('btnRender');
+		var container = document.getElementById('container');
+
+		// 给按钮绑定点击事件
+		btnRender.onclick = function(){
+			var _row = row.value;
+			var _cell = cell.value;
+
+			// 生成表格
+			var code = createTable(_row,_cell);
+
+			// 把代码写入#container
+			container.innerHTML = code;
+		}
+
+		// 生成表格
+		function createTable(row,cell){
+			var res = '<table>';
+
+			// 外层循环控制行
+			for(var i=1;i<=row;i++){
+				res += '<tr>'
+				// 内层循环控制列
+				for(var j=1;j<=cell;j++){
+					var bgColor = getRandomColor();
+					res += '<td style="background-color:'+ bgColor +'">单元格'+ i + j +'</td>';
+				}
+
+				// 结束tr标签
+				res += '</tr>';
+			}
+
+			// 结束table标签
+			res += '</table>';
+
+			return res;
+		}
+
+
+		// 生成随机颜色
+		// rgb(255,255,55)
+		// btnRender.style = 'background-color:rgb(0,255,0)';
+		function getRandomColor(){
+			var r = getRandomNumber(0,255);
+			var g = getRandomNumber(0,255);
+			var b = getRandomNumber(0,255);
+
+			return 'rgb('+r+','+g+','+b+')';
+		}
+
+
+		// 封装获取某个范围内随机整数的方法
+		function getRandomNumber(min,max){
+			// Math.random();//0-1
+			var res = parseInt(Math.random()*(max - min + 1)) + min;
+
+			return res;
+		}
+
+	}
+	</script>
+</head>
+<body>
+	<label for="row">行：</label><input type="text" id="row">
+	<label for="cell">列：</label><input type="text" id="cell">
+	<button id="btnRender">生成</button>
+	<div id="container">
+
+	</div>
+</body>
+</html>

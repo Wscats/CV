@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08愤怒的小鸟</title>
+	<style>
+		#bird{
+			position:absolute;width:200px;/*transition:transform 0.2s;*/
+		}
+
+		.dright{transform:rotateY(180deg);}
+		.ddown{transform: rotateZ(-90deg);}
+		.dup{transform: rotateZ(90deg);}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				1、延迟代码，以便获取页面元素
+				2、避免全局环境的污染
+			 */
+			
+			// 键盘方向键控制小鸟的方向
+			var bird = document.getElementById('bird');
+
+			//给document绑定点击事件
+			document.onkeydown = function(e){
+				// IE8-: window.event
+				// 兼容写法
+				// var evt = e || window.event;
+				e = e || window.event;
+
+				var keyCode = e.keyCode || e.which;
+
+				// 上
+				if(keyCode === 38){
+					bird.style.top = bird.offsetTop - 5 + 'px';
+					bird.className = 'dup';
+				}
+
+				// 下
+				else if(keyCode === 40){
+					bird.style.top = bird.offsetTop + 5 + 'px';
+					bird.className = 'ddown';
+				}
+
+				// 左
+				else if(keyCode === 37){
+					bird.style.left = bird.offsetLeft - 5 + 'px';
+					// bird.removeAtrribute('class');
+					bird.className = '';
+				}
+
+				// 右
+				else if(keyCode === 39){
+					bird.style.left = bird.offsetLeft + 5 + 'px';
+					bird.className = 'dright';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<img src="img/bird.jpg" id="bird">
+</body>
+</html>

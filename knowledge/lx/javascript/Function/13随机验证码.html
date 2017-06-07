@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13随机验证码</title>
+	<style>
+		#vcode2{display:inline-block;margin:0 5px;padding:5px;background-color: #ffc;border:1px solid #fc0;}
+	</style>
+	<script>
+	window.onload = function(){
+		// 获取页面元素
+		var vcode = document.getElementById('vcode');
+		var vcode2 = document.getElementById('vcode2');
+		var btnLogin = document.getElementById('btnLogin');
+
+		/*
+			随机生成4位验证码
+		 */
+		function vCode(){
+			// Math.random();
+			var vcode = String(parseInt(Math.random()*10000));//0.0071
+
+			// 如果生成的vcode不足4位，则在前面补0
+			while(vcode.length<4){
+				vcode = '0' + vcode;
+			}
+
+			vcode2.innerHTML = vcode;
+		}
+
+		vCode();
+
+		// 点击生成验证码
+		vcode2.onclick = function(){
+			vCode();
+		}
+
+
+		// 登录
+		btnLogin.onclick = function(){
+			if(vcode.value !== vcode2.innerHTML){
+				alert('你输入的验证码不正确');
+			}else{
+				document.write('亲，欢迎登录我的网站');
+			}
+		}
+	}
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="vcode"><span id="vcode2"></span>
+	<button id="btnLogin">登录</button>
+</body>
+</html>

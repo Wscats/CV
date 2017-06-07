@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>原生js放大镜效果</title>
+    <style>
+    .smallPic img{width:300px;}
+	.arzoom{position:relative;}
+	.arzoom .minzoom{position: absolute;width:30px;height:30px;border:1px solid #fc0;background-color:#ff0;background-color: rgba(255,255,0,.3);filter:alpha(Opacity=30);}
+	.arbzoom{position: absolute;width:480px;height:300px;overflow:hidden;}
+	.arbzoom img{position: absolute;left:0;right:0;}
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        /*
+            1）获取页面元素
+            2）鼠标移入事件
+                * 生成放大镜区域效果
+                * 生成大图
+                * 计算小图与大图的比例ratio
+            3）鼠标移动事件
+                * 把放大镜中心定位到鼠标位置
+                * 根据鼠标在小图上的移动，定位大图的位置
+                鼠标在小图上移动10px,大图移动10/ratio
+            4）鼠标移出事件
+                * 移除大图
+                * 移出放大镜
+         */
+        // 1）获取页面元素
+        var smallContainer = document.querySelector('.smallPic');
+        var smallImg = smallContainer.querySelector('img');
+
+
+        // 生成放大镜
+        var zoom = document.createElement('span');
+        zoom.classList.add('minzoom');
+
+         // 生成大图
+        var bigContainer = document.createElement('div');
+        bigContainer.classList.add('arbzoom');
+        var bigImg = new Image();
+        bigImg.src = smallImg.dataset.big || smallImg.src;
+        bigContainer.appendChild(bigImg);
+
+        // 定位大图
+        bigContainer.style.left = smallContainer.offsetLeft + smallImg.offsetWidth + 20 + 'px';
+        bigContainer.style.top = smallContainer.offsetTop + 'px';
+
+        // 小图与大图的比例
+        var ratio;
+
+        // 2）鼠标移入事件
+        smallContainer.onmouseenter = ()=>{
+            // 往页面写入放大镜和大图
+            smallContainer.appendChild(zoom);
+            document.body.appendChild(bigContainer);
+
+            // 必须把大图写入页面后再计算比例
+            // 否则bigImg.offsetWidth为0
+            ratio = smallImg.offsetWidth/bigImg.offsetWidth;
+
+            // 根据小图与大图的比例改变放大镜的形状
+            zoom.style.width = bigContainer.offsetWidth*ratio + 'px';
+            zoom.style.height = bigContainer.offsetHeight*ratio + 'px';
+        }
+
+        // 3）鼠标移动事件
+        smallContainer.onmousemove = (e)=>{
+            // 把放大镜中心定位到鼠标位置
+            var left = e.pageX - smallContainer.offsetLeft - zoom.offsetWidth/2;
+            var top = e.pageY - smallContainer.offsetTop - zoom.offsetHeight/2;
+
+            // 限定放大镜移动的区域
+            if(left < 0){
+                left = 0;
+            }else if(left > smallImg.offsetWidth - zoom.offsetWidth){
+                left = smallImg.offsetWidth - zoom.offsetWidth
+            }
+
+            if(top < 0){
+                top = 0;
+            }else if(top > smallImg.offsetHeight - zoom.offsetHeight){
+                top = smallImg.offsetHeight - zoom.offsetHeight
+            }
+            zoom.style.left = left + 'px';
+            zoom.style.top = top + 'px';
+
+            // 根据鼠标在小图上的移动，定位大图的位置
+            bigImg.style.left = -left/ratio + 'px';
+            bigImg.style.top = -top/ratio + 'px';
+        }
+
+        // 4）鼠标移出事件
+        smallContainer.onmouseleave = ()=>{
+            smallContainer.removeChild(zoom);
+            document.body.removeChild(bigContainer);
+        }
+    });
+    	
+    </script>
+</head>
+
+<body>
+	<!-- 
+		src:放置小图路径
+		jqimg:放置大图路径
+		(大图小图比例越大放大镜效果越明显)
+	 -->
+   <div class="smallPic arzoom"><img src="car.jpg" data-big="car.jpg"></div>
+</body>
+
+</html>

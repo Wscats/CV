@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05成绩判定</title>
+	<script>
+		/*
+			成绩判定(要求用if和switch两种写法)
+			    * 大于85 优秀
+			    * 大于等于75小于等于85 良好
+			    * 大于等于60小于75 及格
+			    * 小于60  不及格
+
+			    ():圆括号
+			    {}:花括号
+			    []:方括号
+		 */
+		function check(){
+			// 获取输入的成绩
+			var score = document.getElementById('score');
+			var _score = score.value;
+
+
+			// 获取输出信息的元素
+			var output = document.getElementById('output');
+
+			if(_score > 85){
+				// document.write('成绩优秀');
+				output.innerHTML = '成绩优秀';
+			}
+
+			//  * 大于等于75小于等于85 良好
+			else if(_score>=75 && _score<=85){
+				output.innerHTML = '成绩良好';
+			}
+
+			// * 大于等于60小于75 及格
+			else if(_score>=60 && _score<75){
+				output.innerHTML = '刚过及格线，很危险哦';
+			}
+
+			// * 小于60  不及格
+			else{
+				output.innerHTML = '<span style="color:#f00;">亲，继续努力哦</span>';
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="score">
+	<button onclick="check()">判定成绩</button>
+	<div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12参数排序</title>
+	<script>
+		/*
+			编写一个函数，计算三个数字的大小，按从小到大顺序输出
+		 */
+		
+		function sort(){
+			// arguments [8,5,12]
+			// arguments[0] = 10;
+			for(var i=0;i<arguments.length;i++){
+				for(var j=0;j<arguments.length-i-1;j++){
+					if(arguments[j] > arguments[j+1]){
+						// 交换位置
+						// 创建一个临时变量
+						var max = arguments[j];
+
+						arguments[j] = arguments[j+1];
+						arguments[j+1] = max;
+					}
+					
+				}
+			}
+
+			console.log(arguments);
+		}
+
+		sort(5,8,12);//=>2,5,8
+		sort(2,8,5,20,11,3);//=>2,3,5,8,11,20
+		/*
+				2,8,5,20,11,3
+			i=0:
+			0：2,8,5,20,11,3
+			1：2,5,8,20,11,3
+			2: 2,5,8,20,11,3
+			3：2,5,8,11,20,3
+			4：2,5,8,11,3,20
+
+			i=1:
+			0: 2,5,8,11,3,20
+			1: 2,5,8,11,3,20
+			2: 2,5,8,11,3,20
+			3: 2,5,8,3,11,20
+			4: 2,5,8,3,11,20
+
+			i=2:
+			...
+			i=arguments.length-1
+		 */
+		
+		// 冒泡排序发
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

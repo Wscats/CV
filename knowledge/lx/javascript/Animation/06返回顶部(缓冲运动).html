@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06返回顶部(缓冲运动)</title>
+	<style>
+		.totop{display:none;position:fixed;right:10px;bottom:10px;width:80px;height:80px;line-height:80px;background-color: rgba(255,0,0,.8);text-align:center;color:#fff;}
+	</style>
+	<script>
+		for(var i=0;i<500;i++){
+			document.write(`<p>我叫你${i+1}声逗比你敢答应吗？</p>`);
+		}
+		document.addEventListener('DOMContentLoaded',()=>{
+			var totop = document.querySelector('.totop');
+
+			window.onscroll = ()=>{
+				// 获取滚动条滚动过的距离
+				var scrollTop = window.scrollY;
+
+				// 当滚动条滚动到一定距离时才显示.totop
+				if(scrollTop > 200){
+					totop.style.display = 'block';
+				}else{
+					totop.style.display = 'none';
+				}
+
+
+			}
+
+
+			// 给.totop绑定点击事件
+			totop.onclick = ()=>{
+				var scrollTop = window.scrollY;
+
+				// 缓冲运动
+				// 一开始速度很快，然后慢下来，直到停止
+				var timer = setInterval(()=>{
+					// 缓冲运动的关键：动态计算速度
+					// 这个速度会根据滚动距离大小而改变
+					var speed = parseInt(scrollTop/10);
+
+
+					// 在速度小于5时清除定时器
+					if(speed < 5){
+						scrollTop = speed = 0;
+						clearInterval(timer);
+					}
+
+					scrollTop = scrollTop - speed;console.log(speed,scrollTop);
+
+					// 改变滚动条滚动过的距离
+					window.scrollTo(0,scrollTop);
+				},30);
+
+				
+			}
+		})
+	</script>
+</head>
+<body>
+	<div class="totop">TOP</div>
+</body>
+</html>

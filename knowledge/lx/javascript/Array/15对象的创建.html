@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15对象的创建</title>
+	<script>
+	window.onload = function(){
+		var arr = [20017,'html5',true];
+		var person = ['laoxie',18,'男'];
+
+		// person[2]
+		// person.push()
+
+
+		// 无序的数据的集合
+		// 对象的属性
+		var obj = {age:19,name:'laoxie',gender:'男'};
+
+		// 读取
+		// 如何获取对象的属性
+		obj['gender'];//'男'
+		obj.gender;//'男'
+
+		// 对象遍历
+		// for...in
+		for(var attr in obj){
+			// attr为变量:age,age,gender
+			// console.log(attr);
+			console.log(obj[attr]);
+		}
+
+		// 遍历对象for..in
+		// attr为变量,在循环过程中分别为：age,name,gender
+		// 获取对象属性值：obj[attr]
+
+		// 写入新属性
+		obj.hobby = '撸代码';
+		obj['hobby'] = 'CBA';
+
+	}
+		
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

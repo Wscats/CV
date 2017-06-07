@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06新闻提示信息</title>
+	<style>
+		.details{display:none;position:absolute;padding:10px;width:200px;border:1px solid #f60;background-color: #ffc;}
+		.details::before,.details::after{
+			content:'';
+			position:absolute;top:-20px;left:10px;
+			border:10px solid #f60;
+			border-color:transparent transparent #f60;
+		}
+
+		.details::after{
+			top:-18px;
+			border-bottom-color:#ffc;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var newslist = document.getElementsByClassName('newslist')[0];
+			var details = document.getElementsByClassName('details')[0];
+			var links = newslist.getElementsByTagName('a');
+
+			for(var i=0;i<links.length;i++){
+				// 绑定鼠标移入事件mouseover
+				links[i].onmouseover = function(){
+					details.innerText = this.title;
+					details.style.display = 'block';
+				}
+
+				links[i].onmousemove = function(e){
+					details.style.left = e.clientX - 30 + 'px';
+					details.style.top = e.clientY + 20 + 'px';
+				}
+
+				// 隐藏
+				links[i].onmouseout = function(){
+					details.style.display = 'none';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul class="newslist">
+		<li><a href="#" title="小明由于调戏女老师再次被滚粗教室">教室文化</a></li>
+		<li><a href="#" title="iPhone10发布,屏幕高度亮瞎了所有小伙伴">iphone10发布会</a></li>
+		<li><a href="#" title="为了弘扬乐于助人的精神，中国人大开会决定授予老王“中国好邻居”称号">关于老王</a></li>
+	</ul>
+	<div class="details">
+		
+	</div>
+</body>
+</html>

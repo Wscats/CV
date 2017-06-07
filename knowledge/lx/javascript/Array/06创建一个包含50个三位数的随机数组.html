@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建一个包含50个三位数的随机数组</title>
+	<script>
+		var arr = [];
+
+		// for循环添加元素
+		// 100-999
+		var arr = [];
+		for(var i=0;i<50;i++){
+			var num = parseInt(Math.random()*(999-100+1))+100;
+
+			arr[i] = num;
+			// arr[arr.length] = num;
+			//arr.push(num);
+		}
+
+		console.log(arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

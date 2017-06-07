@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>day07作业_表单验证</title>
+	<style>
+	label{display:inline-block;width:120px;text-align:right;}
+	label::after{
+		content:':';
+	}
+    </style>
+	<script>
+		/*
+			注册页面的简单数据校验，并在页面上显示输入的内容
+			* 用户名只能包含数字、字母和下划线，数字不可以开头，长度不低于6，不高于20
+			* 密码必须一致
+			* 输入框中要有默认提示
+			* 昵称一栏要将敏感词或特殊符号自动过滤，删除不文明用语
+			* 所有输入框不能为空，并数据合法，点击提交才可以正确提交表单数据
+		 */
+		
+		window.onload = function(){
+			// 获取页面元素
+			var username = document.getElementById('username');
+			var password = document.getElementById('psw');
+			var psw2 = document.getElementById('psw2');
+			var nickname = document.getElementById('nickname');
+			var btnSubmit = document.getElementById('btnSubmit');
+			var info = document.getElementById('info');
+
+			// 敏感字符
+			var mingan = 'fuck,shit,你大爷,SB,下流,脑残,贱人'.split(',');
+
+			// 点击按钮时验证表单
+			btnSubmit.onclick = function(){
+				// 用户名
+				var _username = username.value;
+
+				// 长度不低于6，不高于20
+				if(_username.length<6 || _username.length>20){
+					alert('用户名长度不合法');
+
+					// 不提交表单
+					return false;
+				}
+
+				// 数字不可以开头
+				// isNaN()
+				if(!isNaN(_username[0])){
+					alert('用户名第一个字符不能为数字');
+					return false;
+				}
+
+				// 用户名只能包含数字、字母和下划线
+				var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+				for(var i=0;i<_username.length;i++){
+					if(str.indexOf(_username[i]) === -1){
+						alert('用户名只能包含数字、字母和下划线');
+						return false;
+					}
+				}
+
+
+				// 密码必须一致
+				if(password.value != psw2.value){
+					alert('两次输入密码不一致');
+					return false;
+				}
+
+				if(password.value.trim() == ''){
+					alert('密码不能为空');
+					return false;
+				}
+
+				// 昵称一栏要将敏感词或特殊符号自动过滤，删除不文明用语
+				var _nickname = nickname.value;
+
+				// 昵称不能为空
+				if(_nickname.trim() == ''){
+					alert('昵称不能为空');
+					return false;
+				}
+
+				for(var i=0;i<mingan.length;i++){
+					var reg = new RegExp(mingan[i],'gi');
+
+					// 把敏感字符替换成**
+					_nickname = _nickname.replace(reg,'**');
+				}
+
+
+				// 当所有条件都满足后,把用户名和昵称写入#info
+				info.innerHTML = '用户名为：' + _username + ', 昵称：' + _nickname;
+
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form>
+        <p>
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" placeholder="用户名">
+        </p>
+        <p>
+            <label for="psw">密码</label>
+            <input type="password" id="psw" name="psw" placeholder="请输入密码">
+        </p>
+        <p>
+            <label for="psw2">确认密码</label>
+            <input type="password" id="psw2" name="psw2">
+        </p>
+        <p>
+            <label for="nickname">昵称</label>
+            <input type="text" id="nickname" name="nickname" placeholder="不能使用不文明用语">
+        </p>
+        <button id="btnSubmit">提交</button>
+    </form>
+    <div id="info"></div>
+</body>
+</html>

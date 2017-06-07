@@ -1,0 +1,1767 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>jQuery</title></head><body><article class="markdown-body"><div class="toc">
+<ul>
+<li><a href="#jquery">jQuery</a><ul>
+<li><a href="#jquery_1">了解jQuery</a><ul>
+<li><a href="#jquery_2">jQuery版本</a></li>
+<li><a href="#_1">下载与安装</a></li>
+<li><a href="#jquery_3">jQuery实现原理</a></li>
+</ul>
+</li>
+<li><a href="#_2">选择器</a><ul>
+<li><a href="#_3">常用操作</a></li>
+<li><a href="#_4">筛选</a><ul>
+<li><a href="#_5">基本筛选</a></li>
+<li><a href="#_6">筛选方法</a></li>
+</ul>
+</li>
+<li><a href="#_7">查找</a></li>
+</ul>
+</li>
+<li><a href="#jquery_4">jQuery动画</a><ul>
+<li><a href="#_8">基本动画效果</a></li>
+<li><a href="#_9">自定义动画</a></li>
+<li><a href="#_10">动画队列</a></li>
+</ul>
+</li>
+<li><a href="#dom">DOM节点操作</a><ul>
+<li><a href="#_11">增删改</a></li>
+<li><a href="#_12">盒模型属性</a></li>
+</ul>
+</li>
+<li><a href="#_13">事件</a><ul>
+<li><a href="#_14">常用事件方法</a></li>
+<li><a href="#jquery_5">jquery事件绑定与移除</a></li>
+<li><a href="#_15">其他事件方法</a></li>
+</ul>
+</li>
+<li><a href="#ajax">ajax</a><ul>
+<li><a href="#jqueryajax">jQuery的ajax方法</a></li>
+</ul>
+</li>
+<li><a href="#_16">插件</a><ul>
+<li><a href="#_17">了解插件</a></li>
+<li><a href="#_18">使用插件</a></li>
+<li><a href="#jquery_6">编写jquery插件</a></li>
+<li><a href="#_19">编写插件常用方法</a></li>
+</ul>
+</li>
+<li><a href="#jquery_7">常用jQuery实例方法</a></li>
+<li><a href="#jquery_8">常用jQuery全局方法</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="jquery"><a name="user-content-jquery" href="#jquery" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>jQuery</h1>
+<h2 id="jquery_1"><a name="user-content-jquery_1" href="#jquery_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>了解jQuery</h2>
+<p>JQuery是一个兼容多浏览器的javascript类库，核心理念是write less,do more(写得更少,做得更多)。是一个快速的简洁的javascript框架，可以简化查询DOM对象、处理事件、制作动画、处理Ajax交互过程。在2006年1月由美国人John Resig在纽约的barcamp发布。</p>
+<p><img alt="John Resig" src="///F://mydoc/kphone/newOutline/section2/jquery/img/zz.jpg" title="jQuery作者John Resig" /><br />
+作者：John Resig<br />
+官方网站：<a href="http://jquery.com/">http://jquery.com/</a></p>
+<h3 id="jquery_2"><a name="user-content-jquery_2" href="#jquery_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>jQuery版本</h3>
+<ul>
+<li>1.x.x<ul>
+<li>兼容低版本浏览器IE8-</li>
+<li>代码过于庞杂，性能不高</li>
+<li>最新版本1.12</li>
+</ul>
+</li>
+<li>2.x.x<ul>
+<li>已经不支持IE低版本浏览器IE8-</li>
+<li>最新版本2.2</li>
+</ul>
+</li>
+<li>3.x.x<ul>
+<li>3.0 版本是从 2.0 版本分支出来的，但由于改动过大，因此更新了主版本号</li>
+<li>不支持IE低版本浏览器</li>
+<li>性能大幅度提高（推荐使用）</li>
+</ul>
+</li>
+</ul>
+<h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>下载与安装</h3>
+<ul>
+<li>官网下载<br />
+<a href="http://jquery.com/download/">http://jquery.com/download/</a></li>
+<li>CDN<ul>
+<li><a href="https://code.jquery.com/jquery-3.0.0.js">https://code.jquery.com/jquery-3.0.0.js</a></li>
+<li><a href="https://code.jquery.com/jquery-3.0.0.min.js">https://code.jquery.com/jquery-3.0.0.min.js</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="jquery_3"><a name="user-content-jquery_3" href="#jquery_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>jQuery实现原理</h3>
+<ul>
+<li>jQuery构造函数</li>
+<li>jQuery实例对象<br />
+<pre><code>jQuery('#box');//得到jquery对象（实例）
+</code></pre></li>
+</ul>
+<blockquote>
+<p>jquery对象只能用jquery的方法</p>
+</blockquote>
+<ul>
+<li>jQuery实例属性<ul>
+<li>length: 返回jQuery对象中匹配元素的个数</li>
+<li>jquery: 当前jquery类库版本号（一般用于判断是否jquery对象）</li>
+<li>下标（索引）: DOM节点</li>
+</ul>
+</li>
+<li>jQuery的别名：$</li>
+<li>延迟代码执行：jQuery(document).ready(fn)<ul>
+<li>此方法传入一个匿名函数;</li>
+<li>页面DOM渲染完成时执行，用来替代window.onload;</li>
+<li>简写方式:<code>$(function(){})</code>;</li>
+</ul>
+</li>
+<li>编写jquery代码只需两步<br />
+1. 选择元素<br />
+2. 操作元素</li>
+</ul>
+<h2 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>选择器</h2>
+<blockquote>
+<p>选择页面中的元素，得到jQuery实例对象</p>
+</blockquote>
+<ul>
+<li>ID选择器$(&ldquo;#save&rdquo;)</li>
+<li>类选择器$(&ldquo;.class&rdquo;)</li>
+<li>标签选择器$(&ldquo;div&rdquo;)</li>
+<li>复合选择器 $(&ldquo;div,span,p.myClass&rdquo;)</li>
+<li>属性选择器$(&lsquo;[id=box]&rsquo;)<ul>
+<li>$(&lsquo;li[data-index]&rsquo;):获取有data-index属性的所有元素</li>
+<li>$(&lsquo;li[data-index!=10]&rsquo;):data-index属性不等于10的元素,css目前未支持</li>
+<li>$(&lsquo;li[data-index^=10]&rsquo;):data-index属性以10开头的元素</li>
+<li>$(&lsquo;li[data-index$=10]&rsquo;):data-index属性以10结尾的元素</li>
+<li>$(&lsquo;li[data-index*=10]&rsquo;):data-index属性包含10的元素</li>
+</ul>
+</li>
+<li>
+<p>表单选择器$(&lsquo;:input&rsquo;)</p>
+<ul>
+<li>:submit     //匹配所有提交按钮</li>
+<li>:reset      //匹配所有重置按钮</li>
+<li>
+<p>:button     //匹配所有按钮</p>
+</li>
+<li>
+<p>:radio      //匹配所有单选按钮</p>
+</li>
+<li>:checkbox   //匹配所有复选按钮</li>
+<li>:text       //匹配所有的单行文本框</li>
+<li>
+<p>:password   //匹配所有密码框</p>
+</li>
+<li>
+<p>:selected   //获取已选择的option元素</p>
+</li>
+<li>:checked    //匹配所有被选中的元素(复选框、单选框等，select中的option)</li>
+</ul>
+</li>
+<li>
+<p>可见性<br />
+    :hidden     //匹配所有不可见元素(display:none)，或者type为hidden的元素<br />
+    :visible    //匹配所有可见元素</p>
+<blockquote>
+<p>以上两个选择器配合is()方法通常用于判断，返回布尔值<br />
+<pre><code>if(box.is(':visible')){
+    box.css('display','none');
+}
+</code></pre></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>常用操作</h3>
+<ul>
+<li>jquery对象与原生对象的转换<ul>
+<li>jquery转原生: <ul>
+<li>get(0)/[0]获取集合中第一个DOM节点</li>
+<li>get()不传参得到集合中所有的dom节点</li>
+</ul>
+</li>
+<li>原生转jquery: $(dom);</li>
+</ul>
+</li>
+<li>判断是否为jquery对象<br />
+<pre><code>var box = $('#box');
+if(box.jquery){
+
+}
+</code></pre></li>
+<li>判断一个jquery对象是否存在(是否能获取到元素)<ul>
+<li>length</li>
+<li>转成原生对象再判断</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>筛选</h3>
+<blockquote>
+<p>利用选择器得到得结果不一定是我们想要得最终结果，有时需要进一步筛选</p>
+</blockquote>
+<h4 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>基本筛选</h4>
+<ul>
+<li>:odd/:even,:gt(n)/:lt(n) 筛选范围（索引支持负数）</li>
+<li>:contains(奥巴马)   筛选出包含“奥巴马”这三个字的元素</li>
+</ul>
+<h4 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>筛选方法</h4>
+<ul>
+<li>first()/last(): 获取集合中第一个/最后一个元素</li>
+<li>eq(index|-index): 获取第N个元素,n支持负数（表示从后面查找）</li>
+<li>filter(expr|obj|ele|fn): 筛选出与指定表达式匹配的元素集合。这个方法用于缩小匹配* 的范围。用逗号分隔多个表达式</li>
+<li>map(fn): 将一组元素转换成其他数组（不论是否是元素数组）</li>
+<li>slice(start,[end]): 选取一个从start到end(不包括end)匹配的子集</li>
+<li>has(expr|ele): 保留包含特定后代的元素，去掉那些不含有指定后代的元素。</li>
+<li>not(expr|ele|fn): 删除与指定表达式匹配的元素</li>
+</ul>
+<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>查找</h3>
+<blockquote>
+<p>利用当前元素去查找其他元素</p>
+</blockquote>
+<ul>
+<li>
+<p>查找子元素</p>
+<ul>
+<li>find(expr|obj|ele): 查找后代元素</li>
+<li>children([expr]): 取得匹配元素的所有子元素。(原生js:children)</li>
+</ul>
+</li>
+<li>
+<p>查找父级元素</p>
+<ul>
+<li>parent([expr]): 获取父元素</li>
+<li>parents([expr]): 取得所有父级元素</li>
+<li>closest(expr|obj|ele): 从元素本身开始，逐级向上级元素匹配，并返回最先匹配的元素</li>
+<li>offsetParent(): 返回第一个有定位属性(absolute,relative,fixed)* 的父元素,如果没有定位父级，则返回html元素</li>
+</ul>
+</li>
+<li>
+<p>查找兄弟元素</p>
+<ul>
+<li>next([expr]): 返回下一个同辈元素 ==&gt; nextElementSibling</li>
+<li>prev([expr]): 获取前一个同辈元素 ==&gt; previousElementSibling</li>
+<li>nextAll([expr]): 获取当前元素之后所有的同辈元素 </li>
+<li>prevAll([expr]) 获取当前元素之前所有的同辈元素</li>
+<li>siblings([expr]) 获取当前元素的所有兄弟元素（除自身以外的所有兄弟元素 = * prevAll + nextAll）</li>
+</ul>
+</li>
+</ul>
+<h2 id="jquery_4"><a name="user-content-jquery_4" href="#jquery_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>jQuery动画</h2>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>基本动画效果</h3>
+<ul>
+<li>
+<p>显示隐藏：show()/hide()</p>
+<ul>
+<li>hide(duration)通过改变元素的高度、宽度、和不透明度，直到这三个属性值到0</li>
+<li>show(duration)通过改变元素的高度、宽度、和不透明度，直至内容完全可见</li>
+</ul>
+</li>
+<li>
+<p>滑动（通过改变高度）</p>
+<ul>
+<li>slideDown([speed,callback])：<ol>
+<li>显示元素</li>
+<li>不断改变高度，直到样式内设定的值</li>
+</ol>
+</li>
+<li>slideUp([speed,callback])：<ol>
+<li>不断改变高度，直到0</li>
+<li>隐藏元素</li>
+</ol>
+</li>
+<li>slideToggle([speed,callback])<br />
+    当元素隐藏时调用slideDown()，当元素显示时调用slideUp()</li>
+</ul>
+</li>
+<li>
+<p>淡入淡出（通过改变不透明度）</p>
+<ul>
+<li>fadeIn:<br />
+    1)显示元素<br />
+    2)不断改变透明度直到1</li>
+<li>fadeOut:<br />
+    1)不断改变透明度直到0<br />
+    2)隐藏元素</li>
+<li>
+<p>fadeToggle([speed,callback])</p>
+</li>
+<li>
+<p>fadeTo([[speed],opacity,[fn]])  不断改变透明度opacity，直到设定的值，并在动画完成后可选地触发一个回调函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>PS：jQuery动画由三种预设速度slow,normal,fast（600，400，200）</p>
+</blockquote>
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>自定义动画</h3>
+<ul>
+<li>
+<p>animate (params,[speed],[fn])</p>
+</li>
+<li>
+<p>:animated<br />
+获取正在执行动画的元素，一般与is()方法配合使用，用于判断元素是否处于动画状态</p>
+</li>
+</ul>
+<h3 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>动画队列</h3>
+<ul>
+<li>
+<p>一个元素上的动画：</p>
+<ul>
+<li>当animate中存在多个属性时，动画同时发生</li>
+<li>当同一个元素链式调用animate时，动画是按顺序发生(队列)</li>
+</ul>
+</li>
+<li>
+<p>多个元素上的动画：</p>
+<ul>
+<li>默认情况下，动画同时发生</li>
+<li>回调函数内的动画等到当前动画执行完后才接着执行</li>
+</ul>
+</li>
+<li>
+<p>stop([clearQueue],[jumpToEnd])<br />
+    不加参数：停止当前元素所有《正在运行》的动画。</p>
+<ul>
+<li>clearQueue:值为true时，清除队列</li>
+<li>jumpToEnd:值为true时，跳到当前动画的最后一帧</li>
+</ul>
+</li>
+<li>
+<p>delay(duration)<br />
+    设置一个延时来推迟执行队列中之后的动画。</p>
+<ul>
+<li>duration:延迟的时间</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>[案例]<br />
+1. 手风琴效果<br />
+2. 自动轮播图效果</p>
+<hr />
+<h2 id="dom"><a name="user-content-dom" href="#dom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>DOM节点操作</h2>
+<h3 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>增删改</h3>
+<ul>
+<li>
+<p>创建jquery对象<br />
+<pre><code>$('&lt;div/&gt;');
+$('&lt;div&gt;生成一个div&lt;/div&gt;');
+</code></pre></p>
+</li>
+<li>
+<p>元素添加</p>
+<ul>
+<li>
+<p>内部添加（添加为子元素）</p>
+<ul>
+<li>append(content|obj|ele|fn): 在元素内部最后面追加内容（后置）</li>
+<li>prepend: 向元素内部增加内容（前置）<blockquote>
+<p>appendTo,prependTo</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>外部插入内容（添加为兄弟元素）</p>
+<ul>
+<li>after: 在元素后面插入内容</li>
+<li>before: 在元素前面插入内容<blockquote>
+<p>insertAfter,insertBefore</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果页面上已经存在了要添加的元素，append,prepend,after,before会把元素移动到页面相应的位置</p>
+</blockquote>
+<ul>
+<li>
+<p>元素删除</p>
+<ul>
+<li>remove();   删除元素, 虽然元素从文档中删除了，但js内部依然保留对它引用</li>
+<li>empty();    清空内容</li>
+</ul>
+</li>
+<li>
+<p>元素复制</p>
+<ul>
+<li>clone([Event[,deepEvent]])<ul>
+<li>Event：（true 或 false）是否复制元素的行为，默认为false</li>
+<li>deepEvent: （true 或 false）是否复制子元素的行为，默认为Even的值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_12"><a name="user-content-_12" href="#_12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>盒模型属性</h3>
+<ul>
+<li>
+<p>.offset():获取匹配元素相对于根元素的偏移量<br />
+返回一个对象，包含当前元素的top,left值</p>
+</li>
+<li>
+<p>position():获取匹配元素相对(有定位属性)父元素的偏移量，如果没有定位父级，则相对于根元素(html)，返回一个对象，包含当前元素的top,left值。</p>
+</li>
+<li>width(v) = width;    //取值/赋值,当传入v时，相当于css(&lsquo;width&rsquo;,v);</li>
+<li>innerWidth() = width + padding; &lt;==&gt; clientWidth</li>
+<li>outerWidth() = width + padding + border; &lt;==&gt; offsetWidth</li>
+<li>outerWidth(true) = width + padding + border + margin;</li>
+</ul>
+<h2 id="_13"><a name="user-content-_13" href="#_13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>事件</h2>
+<h3 id="_14"><a name="user-content-_14" href="#_14" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>常用事件方法</h3>
+<ul>
+<li>
+<p>鼠标事件</p>
+<ul>
+<li>click([[data],fn])  //点击时触发 click = mousedown + mouseup</li>
+<li>dblclick([[data],fn]) //双击事件 dblclick = 2*click</li>
+<li>mousedown([[data],fn])</li>
+<li>mouseup([[data],fn])</li>
+<li>mousemove([[data],fn])</li>
+<li>mouseout([[data],fn])</li>
+<li>mouseover([[data],fn])</li>
+<li>mouseenter([[data],fn]) //事件不会冒泡</li>
+<li>mouseleave([[data],fn]) ) //事件不会冒泡</li>
+</ul>
+</li>
+<li>
+<p>键盘事件</p>
+<ul>
+<li>keydown([[data],fn]) //键盘按下时触发</li>
+<li>keypress([[data],fn])//字符按键</li>
+<li>keyup([[data],fn]) //键盘弹起时触发</li>
+</ul>
+</li>
+<li>
+<p>表单事件</p>
+<ul>
+<li>blur([[data],fn])  //失去焦点时触发</li>
+<li>focus([[data],fn])  //获得焦点</li>
+<li>change([[data],fn]) //值改变并失去焦点时触发</li>
+<li>submit([[data],fn])</li>
+</ul>
+</li>
+<li>
+<p>其他事件</p>
+<ul>
+<li>resize([[data],fn]) //元素大小改变时触发</li>
+<li>scroll([[data],fn]) //滚动时触发</li>
+</ul>
+</li>
+</ul>
+<h3 id="jquery_5"><a name="user-content-jquery_5" href="#jquery_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>jquery事件绑定与移除</h3>
+<ul>
+<li>
+<p>on(type,[selector],fn)</p>
+<ul>
+<li>selector: 把本来绑定给selector的事件委托给它的父级</li>
+<li>事件命名空间, 自定义事件（对事件加以细分）<br />
+<code>格式：事件类型.自定名字</code></li>
+<li>
+<p>一次性绑定多个事件，事件之间以空格隔开</p>
+</li>
+<li>
+<p>支持自定义事件的绑定<br />
+<code>$(ele).on('laowang',function(){})</code><br />
+触发自定义事件：$(ele).trigger(&lsquo;laowang&rsquo;);</p>
+</li>
+</ul>
+</li>
+<li>
+<p>off: 清除绑定事件</p>
+<ul>
+<li>off(&lsquo;click&rsquo;);//清除当前元素的点击事件</li>
+<li>off();//清除当前元素所有事件</li>
+<li>off(&lsquo;click mouseover&rsquo;) 一次性清除多个事件，事件之间以空格隔开</li>
+<li>off(&lsquo;click.output&rsquo;) 清除命名空间事件</li>
+</ul>
+</li>
+</ul>
+<h3 id="_15"><a name="user-content-_15" href="#_15" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>其他事件方法</h3>
+<ul>
+<li>hover(over[,out])<ul>
+<li>over:鼠标移入时执行</li>
+<li>out:鼠标移出时执行</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>hover方法内部使用mouseenter + mouseleave来实现效果</p>
+</blockquote>
+<ul>
+<li>trigger(type): 手动触发事件（即使事件没有发生，也能执行事件处理函数）</li>
+<li>
+<p>triggerHandler(type): 这个方法会触发指定的事件类型上所有绑定的处理函数。但不会执行浏览器默认行为，也不会产生事件冒泡</p>
+</li>
+<li>
+<p>阻止浏览器默认行为<br />
+event.preventDefault();</p>
+</li>
+<li>
+<p>阻止冒泡<br />
+event.stopPropagation();</p>
+</li>
+<li>
+<p>两者一起阻止：<br />
+return false; </p>
+</li>
+</ul>
+<h2 id="ajax"><a name="user-content-ajax" href="#ajax" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ajax</h2>
+<h3 id="jqueryajax"><a name="user-content-jqueryajax" href="#jqueryajax" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>jQuery的ajax方法</h3>
+<ul>
+<li>
+<p>$.ajax(settings)</p>
+<ul>
+<li>type:请求类型，默认GET</li>
+<li>url:数据请求地址（API地址）</li>
+<li>data:发送到服务器的数据对象，格式：{Key:value}。</li>
+<li>success:请求成功时回调函数。</li>
+<li>dataType:设定返回数据的格式，json, jsonp, text(默认), html, xml, script</li>
+<li>async：是否为异步请求，默认true</li>
+</ul>
+</li>
+<li>
+<p>$.get(url,[data],[fn],[dataType]) // type:&rsquo;get&rsquo;</p>
+</li>
+<li>
+<p>$.post(url,[data],[fn],[dataType]) // type:&rsquo;post&rsquo;</p>
+</li>
+<li>
+<p>$.getJSON(url,[data],[fn]) // type:&rsquo;get&rsquo;, dataType:&rsquo;json&rsquo;</p>
+</li>
+<li>
+<p>$.getScript(url,[callback]) // type:&rsquo;get&rsquo;, dataType:&rsquo;script&rsquo;</p>
+</li>
+<li>
+<p>load(url,[data],[callback]) 载入远程 HTML 文件代码并插入页面中。</p>
+</li>
+</ul>
+<p>[案例]</p>
+<ul>
+<li>加载html文件</li>
+<li>滚动加载（懒加载）</li>
+</ul>
+<hr />
+<h2 id="_16"><a name="user-content-_16" href="#_16" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>插件</h2>
+<h3 id="_17"><a name="user-content-_17" href="#_17" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>了解插件</h3>
+<ul>
+<li>
+<p>什么是插件<br />
+插件(Plugin)也称为jQuery的扩展。以jQuery核心代码为基础编写的符合一定规范的应用程序。通过js文件的方式引用。</p>
+</li>
+<li>
+<p>插件分类<br />
+UI类、表单及验证类、输入类、特效类、Ajax类、滑动类、图形图像类、导航类、综合工具类、动画类等等</p>
+</li>
+<li>
+<p>常用插件： </p>
+<ul>
+<li>jqueryUI //官方插件，功能多且全面，逛网：<a href="http://www.jqueryui.com">www.jqueryui.com</a></li>
+<li>jquery.validation //表单验证插件,官网：<a href="https://jqueryvalidation.org/">https://jqueryvalidation.org/</a></li>
+<li>jquery.easyUI //是一组基于jQuery的UI插件集合,Demo：<a href="http://www.jeasyui.net/">http://www.jeasyui.net/</a></li>
+<li>bootstrap  //是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目，官网：<a href="http://v3.bootcss.com/">http://v3.bootcss.com/</a></li>
+<li>highcharts <ul>
+<li><a href="https://www.hcharts.cn">https://www.hcharts.cn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_18"><a name="user-content-_18" href="#_18" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用插件</h3>
+<ul>
+<li>引入插件的步骤<ol>
+<li>引入jquery.js文件，必须在所有插件之前引入</li>
+<li>引入插件</li>
+<li>引入插件相关文件，比如样式、语言包等</li>
+</ol>
+</li>
+</ul>
+<p>[案例]jqueryUI<br />
+[案例]jquery.validation</p>
+<h3 id="jquery_6"><a name="user-content-jquery_6" href="#jquery_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>编写jquery插件</h3>
+<ul>
+<li>
+<p>插件形式分为3类：</p>
+<ul>
+<li>封装对象方法插件，扩展原型对象方法</li>
+<li>封装全局函数插件，如$.each,$.map,$.makeArray&hellip;</li>
+<li>选择器插件(类似于.find())</li>
+</ul>
+</li>
+<li>
+<p>自定义插件的规范（降低各种插件之间的冲突，减少错误机率）</p>
+<ul>
+<li>命名规范：jquery.插件名.js</li>
+<li>插件中的this应该指向jQuery实例</li>
+<li>使用this.each()迭代元素,为了实现多个调用</li>
+<li>插件内部必须返回jQuery实例(this)，便于链式调用</li>
+<li>所有的对象法附加在jQuery.fn对象(jQuery.prototype)上面，所有全局函数附加在jquery上</li>
+<li>所有的方法或插件必须用分号结尾，避免出问题,为了保证插件的安全性，也可以在插件开始的地方加分号</li>
+<li>避免插件内部的$冲突，请传递jQuery($并不是总等于jQuery，另外其他js框架也可能使用$)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>最终格式：;(function($){$.fn.插件名=function(){}})(jQuery);</p>
+</blockquote>
+<h3 id="_19"><a name="user-content-_19" href="#_19" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>编写插件常用方法</h3>
+<ul>
+<li>
+<p>$.extend([d],target,obj1,obj2,&hellip;,[objN])  //扩展对象或jQuery对象本身。用来扩展jQuery全局函数</p>
+<ul>
+<li>用obj1-objN对象来扩展target对象</li>
+<li>只有一个参数时，用来扩展jQuery全局函数：$.extend({&lsquo;hobby&rsquo;:&rsquo;撸串&rsquo;})<br />
+    $.ajax,$.map,$.each</li>
+<li>d:是否深拷贝,布尔类型（true,false）</li>
+</ul>
+</li>
+<li>
+<p>$.fn.extend()  //扩展 jQuery元素集合提供新的方法（扩展jQuery原型对象，通常用来制作插件）。</p>
+</li>
+</ul>
+<hr />
+<p>[作业]</p>
+<ul>
+<li>编写轮播图插件，要求如下：<ul>
+<li>是否自动轮播</li>
+<li>是否显示小图</li>
+<li>是否显示左右按钮</li>
+<li>可设置轮播间隔时间</li>
+<li>轮播类型: fade:淡入淡出, vertial:垂直滚动, horizontal:水平滚动, show:幻灯片</li>
+<li>默认显示第几张图片</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="jquery_7"><a name="user-content-jquery_7" href="#jquery_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>常用jQuery实例方法</h2>
+<blockquote>
+<p>写在jQuery原型对象中的方法，通过jQuery实例调用</p>
+</blockquote>
+<ul>
+<li>css(attr[,val]): 获取/改变元素style属性（内联样式） <ul>
+<li>取值：css(attr),css([&lsquo;color&rsquo;,&rsquo;text-align&rsquo;]) &lt;==&gt; getComputedStyle[attr]</li>
+<li>赋值：css(attr,val),css({attr:val});</li>
+</ul>
+</li>
+<li>
+<p>val(v): 获取/设置匹配表单元素的值（等同于原生js中的value属性）</p>
+<ul>
+<li>取值：<br />
+<code>input.val()</code></li>
+<li>赋值：<br />
+<code>input.val(v)</code><ul>
+<li>v:字符串</li>
+<li>v:数组（一般用于单选/复选框的勾选）</li>
+<li>v:函数function(idx,val){ return 值}//函数内部一定要返回值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>html(): （等同于原生js中的innerHTML）<br />
+    取值div.html()：取得第一个匹配元素的html内容<br />
+    赋值div.html(&lsquo;:&rsquo;)：设置匹配元素的内容</p>
+</li>
+<li>text(): 取得所有匹配元素的文本内容。</li>
+<li>addClass()/removeClass(): 添加/删除类,支持多个类同时添加或删除<ul>
+<li>toggleClass(): 如果存在（不存在）就删除（添加）类。</li>
+<li>hasClass(&lsquo;con&rsquo;): 判断当前元素是否包含con这个类，返回布尔值（不支持多个类进行判断）</li>
+</ul>
+</li>
+<li>eq(n) 获取第N个jquery对象（元素）,n支持负数（表示从后面查找）</li>
+<li>index():获取当前元素在同辈元素中的索引值<br />
+<pre><code>$(this).index();
+</code></pre></li>
+<li>显示/隐藏 <ul>
+<li>show()：显示元素</li>
+<li>hide()：隐藏元素<ul>
+<li>带参数：同时改变width,height,opacity的动画</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>is(expr|obj|ele|fn) 根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，其中如果有一个元素符合这个给定的选择器表达式就返回true。如果没有元素符合，或者表达式无效，都返回false。</li>
+<li>attr(name[,val]) 设置/获取元素的属性值（用于一般属性）</li>
+<li>prop(attr[,val]) 获取/设置布尔类型属性（用于布尔类型属性）<ul>
+<li>获取：获取在匹配的元素集中的第一个元素的属性值。</li>
+<li>赋值：给集合中所有元素属性赋值<ul>
+<li>val为函数<br />
+<pre><code>$(':checkbox').prop('checked',function(idx,oldVal){
+    return !oldVal;
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>each(function(idx,ele){}) //用于遍历jquery对象<ul>
+<li>return true;// 跳过当前循环，进入下一个循环（等效原生js中得continue）</li>
+<li>return false;// 退出整个each循环（等效原生js中得break）</li>
+</ul>
+</li>
+</ul>
+<p><strong>jquery大部分方法的共性：</strong></p>
+<ul>
+<li>无参数时为取值，带参数时为赋值</li>
+<li>取值：取得第一个匹配元素的值</li>
+<li>赋值：设置所有匹配元素的值</li>
+<li>隐式迭代（隐式遍历）：看不见的遍历，大部分的jquery方法都支持隐式迭代</li>
+</ul>
+<h2 id="jquery_8"><a name="user-content-jquery_8" href="#jquery_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>常用jQuery全局方法</h2>
+<ul>
+<li>$.each(arr|obj,callback)：通用遍历方法，用于遍历对象和数组。<ul>
+<li>callback(idx,item)</li>
+</ul>
+</li>
+<li>$.map(arr|obj,callback)：根据现有数组生成一个新的数组，新数组的元素为callback内return的值<ul>
+<li>callback(item,idx)</li>
+</ul>
+</li>
+<li>$.type(n)：检测参数n的数据类型</li>
+<li>$.makeArray(obj) //将类数组对象转换为数组。</li>
+<li>$.parseJSON(json) //接受一个JSON字符串，返回解析后的对象。类似原生js中的JSON.parse</li>
+<li>$.inArray(value,array,[fromIndex]) //确定value在数组array中的位置，从0开始计数(如果没有找到则返回 -1 )，一般用于判断数组中是否包含某一字符。</li>
+<li>serialize()/serializeArray() : 只能在form表单中使用，并且表单元素必须有name属性</li>
+</ul>
+<hr />
+<p>[练习]</p>
+<ol>
+<li>无限级菜单</li>
+<li>名单过滤</li>
+<li>选项卡</li>
+<li>楼梯</li>
+<li>jquery实现表单验证</li>
+<li>根据数据生成表单</li>
+<li>购买商品飞入购物车效果</li>
+<li>水平手风琴效果</li>
+<li>模拟QQ发送消息</li>
+<li>自动居中弹窗</li>
+<li>编写放大镜插件</li>
+</ol>
+<p>[扩展]</p>
+<ul>
+<li>可编辑表格<ul>
+<li>上下左右方向键定位单元格</li>
+<li>回车编辑单元格</li>
+<li>失去焦点保存数据</li>
+<li>复制行</li>
+<li>删除行</li>
+</ul>
+</li>
+</ul></article></body></html>

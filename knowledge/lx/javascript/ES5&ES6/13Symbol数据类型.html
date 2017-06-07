@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13Symbol数据类型</title>
+	<script>
+		var s1 = Symbol('s1');
+		var s2 = Symbol('s2');
+		console.log(s1 ,s2);
+
+
+		function person(){
+			// 利用symbol创建私有的属性
+			var sym = Symbol();
+
+			var obj = {
+				name:'小敏',
+				age:18,
+				// [sym]:'私有属性'
+			}
+
+			obj[sym] = '私有属性';
+
+			return obj;
+		}
+
+		let p1 = person();
+		p1.name = '小明';
+		console.log(p1)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

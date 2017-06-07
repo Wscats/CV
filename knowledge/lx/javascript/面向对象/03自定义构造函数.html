@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03自定义构造函数</title>
+	<script>
+		var obj = new Object();
+		obj.name = '哈巴';
+
+
+		// 自定义构造函数
+		function Dog(){
+			this.name = '哈巴';
+			this.color = '白色';
+
+			this.jiao = function(){
+				console.log(`我的名字叫${this.name}`);
+			}
+		}
+
+
+		// 调用自定构造函数
+		// 创建对象新方式
+		var habadog = new Dog();
+		console.log(habadog);
+		habadog.jiao();
+
+		// 普通函数执行方式
+		// Dog(); => undefined
+		// 构造函数的调用方式
+		// new Dog(); => 对象
+
+
+		// 构造函数的约定：首字母大写
+		// Oject,String,Number,Boolean,Date,RegExp,Array...
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

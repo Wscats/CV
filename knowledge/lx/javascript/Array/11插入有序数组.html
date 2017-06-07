@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11插入有序数组</title>
+	<script>
+	window.onload = function(){
+		/*
+			有一个从小到大排序的数组。现输入一个数，要求按原来的规律将它插入数组中，并打印出新的数组
+
+			1）获取元素
+			2）给#btnInster绑定点击事件
+				* 获取输入的值
+				* 把数值根据从小到大的排列顺序写入arr数组
+			3）把排序好的数组写入#output
+		 */
+		
+		var arr = [2,10,13,20,30,60,77,80,100];//3
+
+		// 获取元素
+		var num = document.getElementById('num');
+		var btnInsert = document.getElementById('btnInsert');
+		var output = document.getElementById('output');
+
+
+		// 页面开始就把数组写入页面
+		output.innerHTML = arr.join();
+
+		// 给#btnInster绑定点击事件
+		btnInsert.onclick = function(){
+			var _num = num.value;
+
+			// 写入数组并排序
+			for(var i=0;i<arr.length;i++){
+				if(_num <= arr[i]){
+					arr.splice(i,0,_num);
+
+					// 直接跳出循环
+					break;
+				}
+			}
+
+			// 3）把排序好的数组写入#output
+			output.innerHTML = arr.join();
+		}
+	}
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="num">
+	<button id="btnInsert">插入</button>
+	<div id="output"></div>
+</body>
+</html>

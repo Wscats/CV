@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取微博信息</title>
+	<style>
+		.datalist{margin:0 auto;line-height:2;}
+		.datalist li{position:relative;padding:5px 0;margin:10px 0;border-bottom:1px dotted #ddd;padding-right:100px;}
+		.datalist li span{position:absolute;right:0;top:0;margin:0 5px;padding:2px 5px 2px 20px;background:skyblue url(icon/com.svg) no-repeat 5px center;background-size:20px;border-radius: 5px;width:30px;text-align:center;color:#fff;}
+		.datalist li span.like{right:70px;background-image:url(icon/zan.svg);background-color:orange;}
+
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			var datalist = document.querySelector('.datalist');
+
+			var xhr = new XMLHttpRequest();
+
+			// 数据处理
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState === 4 && xhr.status === 200){
+					var res = JSON.parse(xhr.responseText);
+
+					// eval()
+					// var res = eval('(' + xhr.responseText + ')');
+					// console.log(res);
+
+					//遍历对象
+					var ul = document.createElement('ul');
+					res.forEach((item)=>{
+						var li = document.createElement('li');
+
+						li.setAttribute('data-guid',item.id);
+
+						li.innerHTML = `<strong>${item.username}</strong>: ${item.content} <span class="like">${item.likecnt}</span><span>${item.comtcnt}</span>`;
+
+						ul.appendChild(li);
+					});
+
+					datalist.appendChild(ul);
+				}
+			}
+
+			xhr.open('get','http://localhost/1612/ajax/weibo.php',true);
+
+			xhr.send();
+
+
+			// 利用事件委托实现点赞效果
+			datalist.onclick = e=>{
+				if(e.target.className === 'like'){
+					var currentId = e.target.parentElement.dataset.guid;
+
+					var xhr = new XMLHttpRequest();
+
+					// 数据处理
+					xhr.onreadystatechange = ()=>{
+						if(xhr.readyState === 4 && xhr.status === 200){
+							var res = JSON.parse(xhr.responseText);
+
+							// 修改页面点赞数量
+							e.target.innerText = res.likecnt;
+						}
+					}
+
+					xhr.open('get','http://localhost/1612/ajax/weibo_zan.php?id='+currentId,true);
+
+					xhr.send(null);
+				}
+			}
+
+		})
+	</script>
+</head>
+<body>
+	<div class="datalist">
+		
+	</div>
+</body>
+</html>

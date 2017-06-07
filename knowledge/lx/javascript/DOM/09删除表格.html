@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09删除表格</title>
+	<style>
+		table{border:1px solid #ddd;border-collapse: collapse;width:90%;}
+		td{border:1px solid #ddd;padding:4px;}
+	</style>
+	<script>
+	window.onload = function(){
+
+		var datalist = document.getElementsByClassName('datalist')[0];
+		var buttons = datalist.getElementsByTagName('button');
+
+		// 
+		// 给button绑定点击事件，删除当前行
+		for(var i=0;i<buttons.length;i++){
+			buttons[i].onclick = function(){
+				if(confirm('你确定要删除么')){
+					// 先获取当前行
+					var tr = this.parentElement.parentElement;
+
+					tr.parentElement.removeChild(tr);
+				}
+				
+			}
+		}
+
+	}
+	</script>
+</head>
+<body>
+	<table class="datalist">
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+		<tr>
+			<td>单元格1</td>
+			<td>单元格2</td>
+			<td>单元格3</td>
+			<td><button>删除</button></td>
+		</tr>
+	</table>
+</body>
+</html>

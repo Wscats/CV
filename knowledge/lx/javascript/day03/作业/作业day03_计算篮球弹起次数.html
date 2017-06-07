@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业day03_计算篮球弹起次数</title>
+	<script>
+		/*
+			作业：篮球从5米高的地方掉下来，每次弹起的高度是原来的30%，经过几次弹起，篮球的高度小于0.1米
+
+			目的：计算篮球弹起的次数
+		 */
+		
+		// 篮球初始高度
+		var height = 5;
+
+		// 篮球弹起的次数
+		var times = 0;
+
+		while(true){
+			height *= 0.3;
+			times++;
+
+			// 循环跳出的条件
+			if(height <= 0.1){
+				break;
+			}
+		}
+
+		console.log(times);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

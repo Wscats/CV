@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个ajax请求</title>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+	$(function(){
+		/*
+			* http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=58.248.240.46
+
+			* http://ip.taobao.com/service/getIpInfo.php?ip=58.248.240.46
+
+			
+			ajax依赖数据解决方案
+			* ajax嵌套
+				* 层级太深，难以维护
+			* 同步请求
+				* 影响其他代码的执行
+			* ES6 Promise
+				* 	
+		 */
+		
+		var currentCity;
+
+
+		// 通过IP获取当前城市
+		var cityPromise = new Promise(function(resolve,reject){
+			$.ajax({
+				url:'/api/getCity.php',
+				// async:false,
+				dataType:'json',
+				success:function(data){
+					console.log(data);
+					currentCity = data.data.city.replace(/市$/,'');
+					console.log(currentCity);
+
+					resolve(currentCity);
+				},
+				error:function(){
+					reject('请求失败')
+				}
+			});
+		});
+
+		cityPromise.then(function(city){
+			console.log('成功',city);
+
+			$.ajax({
+				url:'http://wthrcdn.etouch.cn/weather_mini',
+				dataType:'json',
+				data:{city:currentCity},
+				success:function(data){
+					console.log(data)
+				}
+			});
+		},
+		function(){
+			console.log('失败')
+		});
+
+
+		
+	})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

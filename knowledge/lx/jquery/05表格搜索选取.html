@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格选取</title>
+	<style>
+		body{padding:50px;}
+		.datalist{
+			border:1px solid #ccc;
+			width:100%;
+			border-collapse: collapse;
+		}
+		.datalist td,.datalist th{padding:5px 10px;border:1px solid #ccc;}
+		.datalist tr.even{background-color:#efefef;}
+		.datalist tr.selected{background-color:#fc0;color:#fff;}
+
+		/*.datalist tr:nth-child(even){background-color:#efefef;}*/
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			/*
+				eq()
+				addClas()
+				find()
+				prop()
+			 */
+			$('.tr1').on('click',function(){
+				var $currentTr = $('.datalist tbody tr').eq(0);
+				$currentTr.addClass('selected');
+
+				// $currentTr.find(':checkbox')[0].checked = true;
+				$currentTr.find(':checkbox').prop('checked',true);
+			});
+
+
+			// 获取第三行
+			$('.tr3').on('click',function(){
+
+				// 1.获取元素
+				var $currentTr = $('.datalist tbody tr').eq(2);
+
+				// 2.操作元素
+				$currentTr.addClass('selected');
+
+				$currentTr.find(':checkbox').prop('checked',true);
+
+				// 布尔类型属性
+				// 改变布尔类型属性用：prop()
+				// 一般属性：attr('title','xxx')
+				// checked,selected,disabled,readonly,required,autocomlete,autofocus...
+
+
+			});
+
+
+			$('.tr3-5').on('click',function(){
+				var $currentTr = $('.datalist tbody tr').slice(2,5);
+
+				// 隐式迭代（隐式的遍历）
+				// 把遍历封装到方法中
+				$currentTr.addClass('selected');
+				$currentTr.find(':checkbox').prop('checked',true);
+			});
+
+			// $('xx').click(function(){})
+			// $('xx').on('click',function(){})
+
+
+			$('.ds2').click(function(){
+				var $currentTr = $('.datalist tbody tr').eq(-2);
+
+				$currentTr.addClass('selected');
+				$currentTr.find(':checkbox').prop('checked',true);
+			});
+
+
+			// 反选
+			$('#btnFx').click(function(){
+				var $trs = $('.datalist tbody tr');
+
+				$trs.each(function(idx,tr){
+					// 如何判断是否为jquery对象
+					// tr.jquery属性
+
+					// 判断是否存在一个类
+					if($(tr).hasClass('selected')){
+						$(tr).removeClass('selected');
+						$(tr).find(':checkbox').prop('checked',false);
+					}else{
+						$(tr).addClass('selected');
+						$(tr).find(':checkbox').prop('checked',true);
+					}
+				})
+			});
+
+			// 全选
+			$('#all').on('click',function(){
+				var $trs = $('.datalist tbody tr');
+
+				var isCheck = $('#all').prop('checked');
+
+				/*if($('#all').prop('checked')){
+					$trs.addClass('selected').find(':checkbox').prop('checked',true);
+				}else{
+					$trs.removeClass('selected').find(':checkbox').prop('checked',false);
+				}*/
+
+				$trs[isCheck ? 'addClass':'removeClass']('selected').find(':checkbox').prop('checked',isCheck);
+				
+			});
+
+
+			var $keyword = $('#keyword');
+			$keyword.next('button').click(function(){
+				var _value = $keyword.val();
+
+				var $trs = $('.datalist tbody tr');
+
+				// var $tr = $('.datalist tbody tr:contains(' + _value + ')');
+
+				var $tr = $trs.filter(':contains(' + _value + ')');
+
+				$tr.addClass('selected');
+				$tr.find(':checkbox').prop('checked',true);
+
+
+			});
+		})
+	</script>
+</head>
+<body>
+	<button class="tr1">第1个tr</button>
+	<button class="tr3">第3个tr</button>
+	<button class="tr3-5">第3-5个tr</button>
+	<button class="ds2">倒数第2个tr</button>
+	<button id="btnFx">反选</button>
+	<input type="text" id="keyword"><button>选择</button>
+	<table class="datalist">
+		<thead>
+			<tr>
+				<th width="20"><input type="checkbox" id="all"></th>
+				<th width="10">#</th>
+				<th>姓名</th>
+				<th>昵称</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>是否单身</th>
+				<th>爱好</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" name="check"></td>
+				<td>1</td>
+				<td>关羽</td>
+				<td>关二哥</td>
+				<td>49</td>
+				<td>男</td>
+				<td>否</td>
+				<td>装逼</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check"></td>
+				<td>2</td>
+				<td>张飞</td>
+				<td>张三</td>
+				<td>45</td>
+				<td>男</td>
+				<td>是</td>
+				<td>喝酒</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check"></td>
+				<td>3</td>
+				<td>赵云</td>
+				<td>赵四</td>
+				<td>33</td>
+				<td>男</td>
+				<td>是</td>
+				<td>跳舞</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check"></td>
+				<td>4</td>
+				<td>奥巴马</td>
+				<td>小黑</td>
+				<td>56</td>
+				<td>男</td>
+				<td>否</td>
+				<td>打篮球，段子</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check"></td>
+				<td>5</td>
+				<td>李宇春</td>
+				<td>春哥</td>
+				<td>30</td>
+				<td>女</td>
+				<td>是</td>
+				<td>唱歌</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check"></td>
+				<td>6</td>
+				<td>岳云鹏</td>
+				<td>小月月</td>
+				<td>32</td>
+				<td>男</td>
+				<td>否</td>
+				<td>相声，段子，唱歌</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

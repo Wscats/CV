@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08tab标签切换</title>
+	<style>
+		.box{width:100px;height:100px;background: #fc0;}
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			$('button').on('click',function(){
+				// $('.box').slideToggle();
+				$('.box').fadeToggle(800);
+
+				// 如果.box存在active，则移除acitve
+				// 如果.box没有active, 则添加
+				$('.box').toggleClass('active');
+			});
+
+
+		});
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+	<button>显示隐藏</button>
+</body>
+</html>

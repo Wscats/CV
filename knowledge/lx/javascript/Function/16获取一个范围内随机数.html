@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装获取某个范围内随机数的方法</title>
+	<script>
+		// 封装获取某个范围内随机整数的方法
+		function getRandomNumber(min,max){
+			// Math.random();//0-1
+			var res = parseInt(Math.random()*(max - min + 1)) + min
+
+			return res;
+		}
+
+		for(var i=0;i<100;i++){
+			console.log(getRandomNumber(1,2));
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

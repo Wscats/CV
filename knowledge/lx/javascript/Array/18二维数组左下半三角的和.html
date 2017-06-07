@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>18二维数组左下半三角的和</title>
+	<script>
+		/*
+			通过循环按顺序为一个5×5的二维数组arr赋1到25的自然数，然后输出该数组的左下半三角的和。试编程
+
+				1）创建二维数组
+				2）遍历数组，计算左下半三角的和
+		 */
+
+
+		// 1）创建二维数组
+		var arr = [];
+		var arr2 = [];
+		for(var i=1;i<=25;i++){
+			arr2.push(i);
+
+			// 判断i是否能被5整除
+			if(i%5===0){
+				arr.push(arr2);
+				arr2 = [];
+			}
+		}
+
+		console.log(arr);
+
+		// 2）遍历数组，计算左下半三角的和
+		var sum = 0;
+		for(var i=0;i<arr.length;i++){
+			/*for(var j=0;j<arr[i].length;j++){
+				sum += arr[i][j];
+				if(i===j){
+					break;
+				}
+			}*/
+			for(var j=0;j<=i;j++){
+				sum += arr[i][j];
+			}
+		}
+
+		console.log(sum);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

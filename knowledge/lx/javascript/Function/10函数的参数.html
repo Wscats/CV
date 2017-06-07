@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10函数的参数</title>
+	<script>
+		// 计算两个数的和
+		// 随意输入两个数，都可以计算他们的和
+		/*var width = 10;
+		var height = 20;
+		function sum(){
+			var res = width + height;
+			console.log(res);
+		}
+
+		sum();
+		sum();*/
+
+
+		function sum(a,b,c,d,e,f){
+			// var a=10,b=20,c,d,e,f
+			// 形参：a，b
+			var res = a+b;
+			console.log(res);
+		}
+
+		// sum(10,20);//30
+		// sum(100,200,0.1,0.2);//100，200称为实参
+
+		function square(){
+			// 在函数内有这么一个东西：arguments
+			// 只有在函数内才能使用
+			// arguments包含函数执行时所有的实参
+			// console.log(arguments);
+
+			// 获取arguments中的值
+			// arguments[0]
+			// arguments.length : 实参的数量
+			// console.log(arguments.length);
+
+			for(var i=0;i<arguments.length;i++){
+				console.log(arguments[i])
+			}
+		}
+
+		square(10,5,3,4,10,1);//125
+		square(11,3,3);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12js实现居中弹窗</title>
+	<style>
+		#pop{position:absolute;width:500px;height:200px;background-color:#efefef;border:5px solid #ddd;}
+		#pop header{padding-left:15px;height:50px;line-height:50px;background-color: #efefef;}
+		#btnClose{position:absolute;right:0;top:0;padding:5px;}
+		#btnClose:hover{background-color: #f00;color:#fff;}
+	</style>
+	<script>
+		window.onload = function(){
+			var pop = document.getElementById('pop');
+			var btnClose = document.getElementById('btnClose');
+
+			// 把弹窗居中
+			pop.style.left = (window.innerWidth - 510)/2 + 'px';
+			pop.style.top = (window.innerHeight - 210)/2 + 'px';
+
+			// 当窗口大小改变时触发onresize事件
+			window.onresize = function(){
+				pop.style.left = (window.innerWidth - 510)/2 + 'px';
+				pop.style.top = (window.innerHeight - 210)/2 + 'px';
+			}
+
+			btnClose.onclick = function(){
+				// pop.style.display = 'none';
+
+				document.body.removeChild(pop);
+			}
+
+			// document.head
+			// document.documentElement
+			// 获取滚动条滚动过的距离（兼容写法）
+			// var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+		}
+	</script>
+</head>
+<body>
+	<div id="pop">
+		<header>
+			弹窗标题
+		</header>
+		<span id="btnClose">&times;</span>
+	</div>
+</body>
+</html>

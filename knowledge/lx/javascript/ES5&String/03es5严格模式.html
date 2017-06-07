@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES5严格模式</title>
+	<script>
+		'use strict';
+
+		var arr = [10,20,30];
+
+		var num = 100;
+
+		function sum(){
+			// 'use strict';
+
+			// 不适用var声明的变量在正常模式下会称为全局变量
+			// 在严格模式下会报错
+			x = 100;
+			console.log(x);
+		}
+		// sum();
+		// console.log(x);
+
+
+		// delete
+		var obj = {name:'1612',add:'广州'}
+		obj.add = '广州天河';
+
+		// 删除add属性
+		// delete obj.add;
+		console.log(obj)
+
+		// 全局变量是不可删除的属性
+		// window.num = 100;
+		// delete num;//删除失败，因为num为全局变量
+
+
+		// 严格模式下的arguments
+		function test(){
+			'use strict';
+
+			console.log(arguments);
+
+			// 交换arguments中的参数位置
+			var temp = arguments[0];
+			arguments[0] = arguments[1];
+			arguments[1] = temp;
+
+			console.log(arguments);
+
+		}
+		// test(10,20,30);
+
+
+		// 递归计算5的阶乘
+		function factorial(num){
+			// 'use strict'
+			if(num === 1){
+				return 1;
+			}
+			return num * arguments.callee(num-1);
+		}
+		// console.log(factorial(5));
+
+		
+
+		// 不允许把函数声明写在条件判断/循环语句中
+		for(var i=0;i<100;i++){
+			function test(idx){
+				console.log(idx);
+			}
+			test(i);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

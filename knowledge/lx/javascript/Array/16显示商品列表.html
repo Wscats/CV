@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16显示商品列表</title>
+	<style>
+		#goodslist img{width:200px;}
+	</style>
+	<script>
+	window.onload = function(){
+		var datalist = [{
+				name:'iphone7',
+				price:5399.00,
+				color:'土豪金',
+				img:'img/ip7.jpg'
+			},{
+				name:'note 7',
+				price:2399.00,
+				color:'黑色',
+				img:'img/note7.jpg'
+			},{
+				name:'honor 7',
+				price:1999.00,
+				color:'银色',
+				img:'img/honor7.jpg'
+			}
+		];
+
+		var html = '<ul>';
+
+		// 遍历datalist
+		for(var i=0;i<datalist.length;i++){
+			// 获取单个商品
+			var goods = datalist[i];
+
+			// 拼接html结构
+			html += '<li><img src="' + goods.img + '"/><h4>' + goods.name + '</h4><p class="price">' + goods.price + '</p><p class="color">' + goods.color + '</p></li>';
+		}
+
+		// 结束ul标签
+		html += '</ul>';
+
+
+		// 写入页面
+		var goodslist = document.getElementById('goodslist');
+		goodslist.innerHTML = html;
+	}
+		
+
+
+	</script>
+</head>
+<body>
+	<div id="goodslist">
+		<!-- <ul>
+			<li><img src="img/ip7.jpg"><h4>iphone7</h4><p class="price">5399.00</p><p class="color">土豪金</p>
+			</li>
+		</ul> -->
+	</div>
+</body>
+</html>

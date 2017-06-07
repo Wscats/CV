@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math对象的属性和方法</title>
+	<style>
+		/*html{background-color:#fff;}*/
+		body{border:5px solid #f00;height:200px;}
+	</style>
+	<script>
+	window.onload = function(){
+		/*
+			编写一个函数，获得一个十六进制的随机颜色的字符串(例如：#20CD4F)
+		*/
+		var str = '0123456789abcdef';
+
+		function randomColor(){
+			var res = '#';
+			for(var i=0;i<6;i++){
+				// 先获取随机索引值
+				var idx = Math.floor(Math.random()*str.length);
+
+				res += str[idx];
+			}
+			
+			return res;
+		}
+
+
+		// document.getElementById('myBody').style.backgroundColor = randomColor();
+
+		// 获取body元素的方式
+		document.body.style.backgroundColor = randomColor();
+	}
+	
+
+
+	</script>
+</head>
+<body>
+asdfasdf
+</body>
+</html>

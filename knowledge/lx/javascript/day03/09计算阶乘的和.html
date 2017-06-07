@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>找出所有的水仙花数</title>
+	<script>
+		/*
+			求1!+2!+3!+4!+5!…20!
+
+			1）遍历1-20
+			2）计算1-20之间所有数的阶乘
+			3）把所有数的阶乘相加
+		*/
+	
+		// 求和
+		var sum = 0;
+
+		for(var i=1;i<=5;i++){
+
+			// 计算每个数阶乘
+			var fac = 1;
+			for(var j=1;j<=i;j++){
+				fac *=j;
+			}
+
+			sum += fac;
+		}
+
+		console.log('1!+2!+3!+4!+5!…20!的最终值为：' + sum);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

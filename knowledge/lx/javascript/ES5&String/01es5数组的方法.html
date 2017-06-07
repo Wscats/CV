@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES5</title>
+	<script>
+		// ES新增的数组方法
+		var arr = ['html5','css3','ecmascript5','jquery','angular'];
+
+		/*for(var i=0;i<arr.length;i++){
+			var new = ''
+			document.write('<p>' + arr[i] + '</p>');
+		}*/
+
+		// 用于遍历数组的forEach()
+		// forEach的缺点：不能使用break/continue
+		arr.forEach(function(item,idx,arr){
+			console.log(item,idx,arr);
+			// item就是for循环中的arr[i]
+			document.write('<p>' + item + '</p>');
+		});
+
+
+
+
+		// map()
+		var arr = [10,20,30,5,100];
+
+		var newArr = arr.map(function(item){
+			console.log(item);
+
+			// 一定要有一个返回值
+			// 返回一个增加20%的数
+			// 得到数组元素取决于下面的return值
+
+			// return item + item*0.2
+			return item * item;
+		});
+		console.log(newArr,arr)
+
+
+		// 获取arr中小于等于10的元素
+		var res = arr.filter(function(item){
+			return item <= 10;
+		});
+		console.log(res);
+
+		
+		// 判断arr中的数是否都大于10
+		var res = arr.every(function(item){
+			return item > 10;
+		});
+		console.log(res);
+
+		// 只要数组中有一项符合return后的条件（返回true）
+		var res = arr.some(function(item){
+			return item > 20;
+		});
+		console.log(res);
+
+
+
+		// indexOf(keyword)
+		// 返回keyword所在的索引值
+		var arr = ['html5','css3','ecmascript5','jquery','css3','angular'];
+		// console.log(arr.indexOf('css6',3));
+		console.log(arr.indexOf('css3'));
+		console.log(arr.lastIndexOf('css3'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

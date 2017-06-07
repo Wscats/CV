@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10吸顶菜单</title>
+	<style>
+		body{margin:0;padding-bottom:1000px;}
+		header{height:100px;background-color:#ffc;}
+		#menu{width:100%;height:50px;background-color: #f00;}
+		ul{line-height:2;}
+	</style>
+	<script>
+		window.onload = function(){
+			var menu = document.getElementById('menu');
+
+			// 滚动事件
+			window.onscroll = function(){
+				// 获取滚动条滚动过的距离
+				// window.scrollY
+				if(window.scrollY >= 100){
+					menu.style.position = 'fixed';
+					menu.style.left = 0;
+					menu.style.top = 0;
+				}else{
+					menu.style.position = 'static';
+				}
+			}
+
+			
+		}
+	</script>
+</head>
+<body>
+	<header>
+		欢迎光临
+	</header>
+	<div id="menu">
+		吸顶菜单
+	</div>
+	<ul>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+		<li>
+			<a href="#">分类1</a>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax测试</title>
+	<script>
+		//ajax请求（异步请求）
+		// 1.创建请求对象,返回一个异步请求对象
+		var xhr = new XMLHttpRequest();
+
+		// **怎样接收后端返回的数据
+		xhr.onreadystatechange = function(){
+			// 判断数据是否完全接受完毕
+			if(xhr.readyState === 4){
+				// 数据在哪里
+				// xhr.responseText;
+				console.log(xhr.responseText);
+
+				var p = document.createElement('p');
+				p.innerHTML = xhr.responseText;
+
+				document.body.appendChild(p);
+			}
+			
+		}
+
+		// 2.建立与服务器的连接
+		// open(请求类型,url,是否异步)
+		// API地址:(接口)http://localhost/1612/ajax/ajaxtest.php
+		// 页面请求地址  http://localhost/1612/test.html
+		// 协议：http
+		// 域名：localhost,baidu.com
+		// 端口：80
+
+		//页面请求地址：http://localhost:8000/php/test.html
+		//端口：8000
+		//跨域
+		xhr.open('get','http://localhost/1612/ajax/ajaxtest.php',true);//readyState:1
+
+		// 3.发送
+		xhr.send();//readyState:2
+
+
+
+
+
+		// 同步的例子
+		// for(var i=0;i<10;i++){
+		// 	//等一分钟
+		// }
+
+		// console.log('end');
+	</script>
+</head>
+<body>
+	<h1>ajax测试</h1>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07open弹窗</title>
+	<script>
+		(function(){
+			var newWin = open('http://www.qq.com','tx','width=400,height=400');
+
+			// 10秒后关闭弹窗
+			// 延迟：setTimeout(fn,10000);
+			// setTimeout(function(){
+			// 	newWin.close();
+			// },5000);
+
+			for(var i=0;i<10;i++){
+				var w = parseInt(Math.random()*1000);
+				var h = parseInt(Math.random()*1000);
+				var name = 'tx' + parseInt(Math.random()*1000);
+
+				open('http://www.qq.com',name,'width='+w+',height='+h+'');
+			}
+		})();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

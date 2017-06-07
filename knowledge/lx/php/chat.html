@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聊天室</title>
+	<style>
+		.container{display:none;width:800px;margin:0 auto;}
+		#chatWin{height:380px;overflow-y:auto;border:5px solid #ddd;}
+		#chatWin h4{margin-bottom:0;}
+		.gender{margin:0;color:#999;}
+		.content{margin-top:10px;word-wrap: break-word;}
+
+		#sendWin{text-align:right;}
+		#sendWin textarea{display:block;margin:10px 0;width:100%;min-height:80px;box-sizing:border-box;text-align:left;}
+	</style>
+	<script src="js/common.js"></script>
+	<script>
+	document.addEventListener('DOMContentLoaded',()=>{
+		var container = document.querySelector('.container');
+		var chatWin = document.querySelector('#chatWin');
+		var sendWin = document.querySelector('#sendWin');
+		var btnSend = sendWin.querySelector('button');
+		var msg = sendWin.querySelector('textarea');
+		var loginWin = document.querySelector('#loginWin');
+		var btnLogin = loginWin.querySelector('button');
+		var username = loginWin.querySelector('#username');
+		var gender = loginWin.querySelectorAll('[name=gender]');
+		var btnLogout = container.querySelector('.logout');
+		
+		// 页面刷新保持登录状态
+
+		// var _username = getCookie('username');
+		// var _gender = getCookie('gender');
+
+
+		var _username='';
+		var _gender='';
+		checkLogin();
+
+
+		// 登录
+		btnLogin.onclick = function(){
+			_username = username.value;
+			_gender;
+
+			for(var i=0;i<gender.length;i++){
+				if(gender[i].checked){
+					_gender = gender[i].value;
+				}
+			}
+
+			// 写入cookie
+			// setCookie('username',_username);
+			// setCookie('gender',_gender);
+
+
+
+			// 显示隐藏
+			checkLogin('login');
+
+
+			function send(){
+				var _msg = msg.value;
+
+				ajax({
+					url:'/1612/ajax/chat.php',
+					data:{type:'send',msg:_msg, username:_username,gender:_gender},
+					success:function(data){
+						console.log(data);
+
+						// 发送成功后从新获取内容
+						ajax({
+							url:'data/chat.json',
+							success:successHandle
+						});
+
+						msg.value = '';
+						msg.focus();
+					}
+				});
+			}
+
+
+			// 点击发送消息
+			btnSend.onclick = send;
+
+			// 回车发送消息
+			msg.onkeyup = (e)=>{
+				if(e.keyCode === 13){
+					send();
+				}
+				e.preventDefault();
+			}
+		}
+
+		// 登出
+		btnLogout.onclick = ()=>{
+			checkLogin('logout');
+		}
+
+
+		function checkLogin(action){
+			ajax({
+				url:'/1612/ajax/checklogin.php?action='+action + '&username='+_username + '&gender='+_gender,
+				success:function(res){
+					if(res === '') return;
+					if(res === 'login'){
+						loginWin.style.display = 'none';
+						container.style.display = 'block';
+
+						getMsg();
+
+					}else if(res === 'logout'){
+						// loginWin.style.display = 'block';
+						// container.style.display = 'none';
+						location.reload();
+					}else{
+						_username = res.username;
+						_gender = res.gender;
+
+
+						loginWin.style.display = 'none';
+						container.style.display = 'block';
+
+						getMsg();
+					}
+				}
+			});
+		}
+
+		function getMsg(){
+			ajax({
+				url:'data/chat.json',
+				success:successHandle
+			});
+		}
+
+
+		function successHandle(data){
+			console.log(data);
+			var ul = document.createElement('ul');
+			ul.innerHTML = data.map((item,idx)=>{
+				return `
+					<li>
+						<h4>${item.name}</h4>
+						<p class="gender">${item.gender}</p>
+						<div class="content">${item.content}</div>
+					</li>
+				`;
+			}).join('');
+
+			// 写入页面
+			chatWin.innerHTML = '';
+			chatWin.appendChild(ul);
+
+			// 把最后一条消息滚动到可视区域
+			ul.lastElementChild.scrollIntoView();
+		}
+		
+	})
+		
+	</script>
+</head>
+<body>
+	<div id="loginWin">
+		<input type="text" id="username">
+		<input type="radio" value="男" name="gender">男
+		<input type="radio" value="女" name="gender">女
+		<input type="radio" value="保密" name="gender">保密
+		<button>登录</button>
+	</div>
+	<div class="container">
+		<button class="logout">退出</button>
+		<div id="chatWin">
+		</div>
+		<div id="sendWin">
+			<textarea></textarea>
+			<button>发送</button>
+		</div>
+	</div>
+</body>
+</html>

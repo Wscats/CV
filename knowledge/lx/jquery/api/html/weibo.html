@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01请求微博数据</title>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		// ajax({
+		// 	url:'/api/weibo.php',
+		// 	success:function(data){
+		// 		console.log(data);
+		// 	}
+		// })
+
+
+		// API: http://localhost/api/weibo.php
+		// $.ajax({
+		// 	url:'/api/weibo.php',
+		// 	dataType:'json',
+		// 	success:function(data){
+		// 		// data = JSON.parse(data);
+		// 		console.log(data);
+		// 	}
+		// });
+
+		$.get('/api/weibo.php',function(data){
+			console.log(data)
+		},'json');
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业_搜索下拉菜单</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		body{background:#23384e;font:12px/1.5 \5fae\8f6f\96c5\9ed1;}
+		.search,.search .inner-box,.search .box,.search .select,.search a{background:url(img/search.jpg) no-repeat;}
+		.search,.search .box,.search .inner-box{height:34px;}
+		.search{position:relative;width:350px;margin:10px auto;}
+		.search .box{background-position:right 0;}
+		.search .inner-box{background-repeat:repeat-x;background-position:0 -34px;margin:0 20px 0 40px;}
+		.search .select{float:left;color:#fff;width:190px;height:22px;border:none;cursor:pointer;margin-top:4px;line-height:22px;padding-left:10px;background-position:0 -68px;}
+		.search a{float:left;width:80px;height:24px;color:#333;letter-spacing:4px;line-height:22px;text-align:center;text-decoration:none;background-position:0 -90px;margin:4px 0 0 10px;}
+		.search a:hover{color:#f60;background-position:-80px -90px;}
+		.search ul{position:absolute;top:26px;left:40px;color:#fff;width:198px;background:#2b2b2b;border:1px solid #fff;display:none;}
+		.search ul li{height:25px;line-height:24px;cursor:pointer;padding-left:10px;margin-bottom:-1px;border-bottom:1px dotted #fff;}
+		.search ul li:hover,.search ul li.active{background:#8b8b8b;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				搜索下拉框菜单
+				1）获取页面元素
+				2）输入框获取焦点时显示下拉菜单
+				3）输入框时区焦点时隐藏下拉菜单
+				4）键盘上下方向键选择下拉菜单
+				5）回车键把当前选中菜单文字写入输入框
+			 */
+			
+			 // 1）获取页面元素
+			 var search = document.getElementsByClassName('search')[0];
+			 var keyword = document.getElementById('keyword');
+			 var list = search.lastElementChild;
+
+			 // 2）输入框获取焦点时显示下拉菜单
+			 keyword.onfocus = function(){
+			 	list.style.display = 'block';
+			 }
+
+			 // 3）输入框时区焦点时隐藏下拉菜单
+			 keyword.onblur = function(){
+			 	list.style.display = 'none';
+			 }
+
+			 // 默认选中第一个菜单项
+			 var activeIdx = 0;
+
+			 // 4）键盘上下方向键选择下拉菜单
+			 document.onkeyup = function(e){
+			 	var keyCode = e.keyCode || e.which;
+			 	// 上方向键
+			 	if(keyCode === 38){
+			 		activeIdx--;
+			 		setActive();
+			 	}else if(keyCode === 40){
+			 		activeIdx++;
+			 		setActive();
+			 	}
+
+			 	// 5）回车键把当前选中菜单文字写入输入框
+			 	else if(keyCode === 13){
+			 		keyword.value = list.children[activeIdx].innerText;
+			 		list.style.display = 'none';
+			 	}
+			 }
+
+			 // 封装设置高亮样式函数
+			 function setActive(){
+			 	// 对临界值的判断
+			 	if(activeIdx<0){
+			 		activeIdx = 0;
+			 		return;
+			 	}else if(activeIdx>list.children.length-1){
+			 		activeIdx=list.children.length-1;
+			 		return;
+			 	}
+
+			 	// 先清除其他li的高亮效果
+			 	for(var i=0;i<list.children.length;i++){
+			 		list.children[i].className = '';
+			 	}
+
+			 	// 添加当前li的高亮
+			 	list.children[activeIdx].className = 'active';
+			 }
+		}
+	</script>
+</head>
+<body>
+	<div class="search">
+		<div class="box">
+			<div class="inner-box">
+				<input type="text" id="keyword" class="select" autocomplete="off" placeholder="请选择游戏名称">
+				<a href="#">搜索</a>
+			</div>
+		</div>
+		<ul>
+			<li>地下城与勇士</li>
+			<li>魔兽世界（国服）</li>
+			<li>魔兽世界（台服）</li>
+			<li>热血江湖</li>
+			<li>大话西游II</li>
+			<li>QQ幻想世界</li>
+		</ul>
+	</div>
+</body>
+</html>

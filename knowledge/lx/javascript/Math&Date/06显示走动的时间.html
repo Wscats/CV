@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	window.onload = function(){
+		/*
+			将当前日期格式化输出为 “2015-08-24 14:30:56 星期五”格式
+		*/
+	
+		showTime();
+
+		// 定时器
+		setInterval(showTime,1000);
+
+
+		function showTime(){
+			// 运行代码时的本地时间
+			var now = new Date();
+
+			var year = now.getFullYear();
+
+			var month = now.getMonth();
+
+			var date = now.getDate();
+
+			// 星期0-6
+			var week = now.getDay();
+
+
+			// 时
+			var hours = now.getHours();
+
+			// 分
+			var min = now.getMinutes();
+
+			// 秒
+			var sec = now.getSeconds();
+
+
+			// 补0操作
+			sec = sec<10 ? '0'+sec : sec;
+			min = min<10 ? '0'+min : min;
+
+
+			// 获取页面元素
+			var time = document.getElementById('time');
+
+
+			var arrWeek = ['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+			time.innerHTML = year + '年'+month+'月'+date+' '+ hours + ':' + min + ':' + sec +' ' + arrWeek[week];
+		}
+	}
+
+
+
+		
+
+	</script>
+</head>
+<body>
+	<div id="time"></div>
+</body>
+</html>

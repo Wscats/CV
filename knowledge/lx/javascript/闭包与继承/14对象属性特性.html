@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14对象属性特性</title>
+	<script>
+	document.addEventListener('DOMContentLoaded',()=>{
+		var obj = {
+			name:'laoxie',
+			age:18,
+			gender:'男'
+		}
+		obj.age = 19;
+
+		console.log(obj)
+
+
+		for(var attr in obj){
+			console.log(attr,obj[attr]);
+		}
+
+		// 疑问1：Object.prototype中的属性无法遍历
+		console.log(Object.prototype);
+		for(var attr in Object.prototype){
+			console.log(attr)
+		}
+
+		var box = document.querySelector('#box');
+		// for(var attr in box){
+		// 	console.log(attr)
+		// }
+		console.log(box);
+
+
+
+		// 给对像添加属性
+		var person = {};
+		person.name = 'laoxie';
+
+		// 创建一个不能被遍历的属性len
+		// person.len = 10;
+		// 属性特性：
+		// * configurable
+		// * enumerable
+		// * writable
+		// * value
+		Object.defineProperty(person,'len',{
+			configurable:true,
+			enumerable:false,
+			writable:true,
+			value:10
+		});
+
+		console.log(person);
+		for(var attr in person){
+			console.log(attr)
+		}
+
+
+		// 创建一个不可修改的属性
+		Object.defineProperty(person,'name',{
+			configurable:true,
+			enumerable:true,
+			writable:false
+		});
+
+		person.name = 'lx';
+
+
+		// 默认属性特性
+		// 传统方式创建的属性，它属性特性默认都为true
+		var superStar = {
+			name:'韩红'
+		}
+
+		console.log('name属性特性:',Object.getOwnPropertyDescriptor(superStar,'name'));
+
+
+		// 通过Object.defineProperty方法创建的属性，属性特性默认为false
+		Object.defineProperty(superStar,'age',{
+			value:30
+		});
+
+		console.log('age属性特性:',Object.getOwnPropertyDescriptor(superStar,'age'));
+
+		// 一次性添加多个属性
+		// Object.defineProperties(对象，属性)
+		Object.defineProperties(superStar,{
+			gender:{
+				enumerable:true,
+				value:'女'
+			},
+			hobby:{
+				configurable:true,//configurable控制着其他属性特性的修改
+				value:['唱歌','跳舞']
+			}
+		});
+
+
+		Object.defineProperty(superStar,'hobby',{
+			enumerable:true
+		});
+
+		console.log(superStar);
+
+		console.log(Object.keys(superStar));
+		console.log(Object.getOwnPropertyNames(superStar));
+
+	})
+		
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

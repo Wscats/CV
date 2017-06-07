@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02下拉列表</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.list{display:none;width:200px;border:1px solid #ddd;line-height:2;}
+		.list li{padding-left:10px;border-bottom:1px dotted #ccc;}
+	</style>
+	<script>
+		window.onload =function(){
+			var username = document.getElementById('username');
+			var list = document.getElementsByClassName('list')[0];
+
+			// 获得焦点时，显示.list
+			username.onfocus = function(){
+				list.style.display = 'block';
+			}
+
+			// 失去焦点时隐藏
+			username.onblur = function(){
+				// 延迟0.5s，以便点击时能获取名字
+				setTimeout(function(){
+					list.style.display = 'none';
+				},500);
+			}
+
+
+			// 点击li把大名显示在输入框
+			var lis = list.getElementsByTagName('li');
+			for(var i=0;i<lis.length;i++){
+				lis[i].onclick = function(){
+					var name = this.firstChild.nodeValue;
+					username.value = name;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="username">
+	<div class="list">
+		<ul>
+			<li>刘备<span>草鞋备</span></li>
+			<li>关羽<span>关二</span></li>
+			<li>张飞<span>张三</span></li>
+			<li>赵云<span>赵四</span></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02数组的遍历</title>
+	<script>
+	window.onload = function(){
+		var arr = ['广州','东莞','北京', '上海', '深圳', '杭州','北海','南宁'];
+
+		// 数组的遍历
+		// 用for循环
+		var opts = '';
+		for(var i=0;i<arr.length;i++){
+			opts += '<option value="'+arr[i]+'">' + arr[i] + '</option>'
+		}
+
+		document.getElementById('city').innerHTML = opts;
+	}
+
+	</script>
+</head>
+<body>
+	<select id="city">
+	</select>
+</body>
+</html>

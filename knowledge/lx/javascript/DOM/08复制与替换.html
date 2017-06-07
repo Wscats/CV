@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08复制与替换</title>
+	<style>
+		.person{display:inline-block;}
+		.person img{width:100px;}
+
+		#btnCopy{display:block;}
+	</style>
+	<script>
+	window.onload = function(){
+		var person = document.getElementsByClassName('person')[0];
+		var btnCopy = document.getElementById('btnCopy');
+		var btnRepalce = btnCopy.nextElementSibling;
+
+		// 点击按钮复制图片
+		btnCopy.onclick = function(){
+			var p = person.cloneNode(true);
+
+			// 
+			document.body.insertBefore(p,btnCopy);
+		}
+
+		btnRepalce.onclick = function(){
+			var rmb = document.createElement('img');
+			rmb.src = 'img/100rmb.jpg';
+
+			person.replaceChild(rmb,person.children[0]);
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="person"><img src="img/g3.jpg"></div>
+	<!-- 复制节点放置的位置 -->
+	
+	<button id="btnCopy">复制</button>
+	<button>替换RMB</button>
+</body>
+</html>

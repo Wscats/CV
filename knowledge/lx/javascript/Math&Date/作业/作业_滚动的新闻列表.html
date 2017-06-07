@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业_滚动的新闻列表</title>
+	<style>
+		#newslist{line-height:2;}
+		#newslist time{margin-left:10px;color:#999;}
+	</style>
+	<script>
+	window.onload = function(){
+		/*
+			滚动的新闻列表
+				1)新建一个包含新闻的数组
+				2)遍历数组把新闻显示到页面
+				3)添加新闻
+					给按钮绑定点击事件，往新闻列表数组添加元素
+				4)定时滚动新闻列表
+					利用定时器每隔3秒把最后一条新闻放到数组最前面
+		 */
+		
+		// 1)新建一个包含新闻的数组
+		var arrNews = [{
+			title:'小明由于调戏女老师再次被滚粗教室',
+			time:'2016/10/1'
+		},{
+			title:'iPhone10发布,屏幕高度亮瞎了所有小伙伴',
+			time:'2016/10/10'
+		},{
+			title:'为增加收视率，《跑男》第十季决定邀请香港四大天王参加，但由于年龄太大实在跑不动',
+			time:'2017/1/1'
+		},{
+			title:'为了弘扬乐于助人的精神，中国人大开会决定授予老王“中国好邻居”称号',
+			time:'2015/11/11'
+		}];
+
+
+		// 获取页面元素
+		var news = document.getElementById('news');
+		var btnAdd = document.getElementById('btnAdd');
+		var newslist = document.getElementById('newslist');
+
+
+		// 2)遍历数组把新闻显示到页面
+		showNews();
+
+
+		// 3)添加新闻
+		//给按钮绑定点击事件，往新闻列表数组添加元素
+		btnAdd.onclick = function(){
+			var obj = {title:news.value,time:new Date().toLocaleDateString()};
+
+			arrNews.unshift(obj);
+
+			showNews();
+		}
+
+
+		// 4)定时滚动新闻列表
+		//利用定时器每隔3秒把最后一条新闻放到数组最前面
+
+		setInterval(function(){
+			arrNews.unshift(arrNews.pop());
+
+			showNews();
+		},3000);
+
+		function showNews(){
+			var html = '';
+			arrNews.forEach(function(item,idx){
+				html += '<li><a href="#">'+item.title+'</a><time>'+item.time+'</time></li>';
+			});
+
+			newslist.innerHTML = html;
+		}
+	}
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="news"><button id="btnAdd">添加</button>
+	<h1>今日要闻</h1>
+	<ul id="newslist"></ul>
+</body>
+</html>

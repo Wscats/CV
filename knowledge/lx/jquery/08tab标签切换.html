@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08tab标签切换</title>
+	<style>
+		.tab{width:600px;height:160px;border:5px solid #ddd;overflow:hidden;}
+		.tab .title{border-bottom:1px solid #ddd;overflow:hidden;}
+		.tab .title span{float:left;padding:10px;border-right:1px solid #ddd;}
+		.tab .title span.active{background: #fc0;}
+		.tab .content{position:relative;height:160px;}
+		.tab .content div{position:absolute;left:0;bottom:0;top:0;min-height:80px;padding:20px;background-color:#fc0;width:100%;box-sizing:border-box;}
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			var $tab = $('.tab');
+
+			// 给第一个tab加高亮
+			$tab.children('.title').children().first().addClass('active');
+
+			// 隐藏除第一个以外的.content
+			$tab.children('.content').children().not(':first').hide();
+			// $tab.children('.content').children().first().show();
+
+			// jQuery的事件委托
+			// on方法的第二个参数，写上事件元对象的选择器
+			$tab.on('click','.title span',function(){
+				// 事件委托
+				// 这里的this表示事件源对象
+				$(this).addClass('active').siblings().removeClass('active');
+
+				// 获取this所在同辈元素中的索引值
+				var idx = $(this).index();
+
+				// $tab.children('.content').children().eq(idx).show().siblings().hide();
+
+				// 动画
+				$tab.children('.content').children().eq(idx).fadeIn().siblings().fadeOut();
+			})
+		});
+	</script>
+</head>
+<body>
+	<div class="tab">
+		<div class="title">
+			<span>Tab1</span>
+			<span>Tab2</span>
+			<span>Tab3</span>
+		</div>
+		<div class="content">
+			<div>content1</div>
+			<div>content2</div>
+			<div>content3</div>
+		</div>
+	</div>
+</body>
+</html>

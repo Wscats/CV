@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>17事件捕获</title>
+	<style>
+		#box{border:1px solid #ddd;padding:10px;}
+	</style>
+	<script>
+		window.onload = function(){
+			var box = document.getElementById('box');
+			box.addEventListener('click',function(){
+				console.log('div#box');
+			});
+			document.body.addEventListener('click',function(e){
+				console.log('body');
+
+				// 阻止事件传播（捕获，冒泡）
+				e.stopPropagation();
+			},true);
+
+			// 事件捕获
+			document.addEventListener('click',function(){
+				console.log('document');
+			},true);
+			window.addEventListener('click',function(){
+				console.log('window');
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		事件捕获效果
+	</div>
+</body>
+</html>

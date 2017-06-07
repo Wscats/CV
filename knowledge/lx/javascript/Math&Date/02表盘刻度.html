@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math对象的属性和方法</title>
+	<style>
+		#biao{position:absolute;left:50%;top:50%;margin:-150px 0 0 -150px;border:5px solid #ddd;width:300px;height:300px;border-radius:50%;}
+		#biao span{position:absolute;left:0;top:0;width:5px;height:5px;background-color: #ddd;}
+		#biao span.hour{width:10px;height:10px;}
+	</style>
+	<script>
+	window.onload = function(){
+		var biao = document.getElementById('biao');
+
+		var html = ''
+		for(var i=0;i<60;i++){
+			var deg = 360/60*i;
+			var radian = deg*Math.PI/180;
+
+			var a = Math.sin(radian) * 150;
+			var b = Math.cos(radian) * 150;
+
+			var left = 150 + b ;
+			var top = 150 - a;
+
+			// 判断是否为时针刻度
+			if(i%5===0){
+				html += '<span style="left:'+(left-5)+'px;top:'+(top-5)+'px;" class="hour"></span>'
+			}else{
+				html += '<span style="left:'+(left-2.5)+'px;top:'+(top-2.5)+'px;"></span>'
+			}
+
+		}
+
+		biao.innerHTML = html;
+	}
+	</script>
+</head>
+<body>
+	<div id="biao">
+		
+	</div>
+</body>
+</html>

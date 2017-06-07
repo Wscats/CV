@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02jQuery选择器.</title>
+	<style>
+		.container{
+			height:100px;background: #ffc;border:1px solid #fc0;
+		}
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			// $('#btnShow').on('click',function(){
+			// 	if($('.container').is(':hidden')){
+			// 		$('.container').show();
+			// 	}else{
+			// 		$('.container').hide();
+			// 	}
+			// });
+
+
+			// 动画
+			$('#btnShow').on('click',function(){
+				if($('.container').is(':hidden')){
+					$('.container').show(3000);
+				}else{
+					$('.container').hide(200);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		.container
+	</div>
+	<button id="btnShow">显示隐藏</button>
+</body>
+</html>

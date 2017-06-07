@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14参数传递</title>
+	<script>
+		// 基本数据类型作为参数传递
+		// 值的传递
+		var a = 10;
+		var b = 'h5';
+		/*function add(str){
+			// var str = a;
+			str = 100;
+			console.log('add: ',str);
+		}
+
+		add(a);//10
+
+		console.log(a);*/
+
+
+		/*function test(a){
+			//var a;
+			a = 100;
+			b = 'h6';//改变的是全局的变量b
+			console.log('test:',a);//100
+			console.log('test:',b);//h6
+		}
+		test(a);
+		console.log(a);//10
+		console.log(b);//h5*/
+
+
+		// 函数作为参数传递
+		function getName(callback){
+			var name = '广州';
+
+			// console.log(typeof callback)
+			if(typeof callback === 'function'){
+				callback(name)
+			}
+		}
+
+		//上一层
+		function showName(name){
+			//var name=广州;
+			console.log(name);
+		}
+
+		//showName('laoxie');
+		// getName('东莞');
+		// getName(showName);
+
+
+		// 断点（调式）
+		// 让代码的执行暂停下来
+		// 观察当前位置变量的值
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

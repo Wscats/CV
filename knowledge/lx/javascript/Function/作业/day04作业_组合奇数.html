@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业1</title>
+	<script>
+		/*
+			编写一个函数，计算任意两个数字之间所能组成的奇数个数，参数数字必须是个位数
+			比如： 计算0-3之间能组成的奇数是01、21、03、13、23、31
+			* 不能单个数字本身进行组合，如11,33
+		 */
+		
+		function oddNum(min,max){
+			var res = '';
+
+			for(var i=min;i<=max;i++){
+				for(var j=min;j<=max;j++){
+
+					// 忽略单个数字组合
+					if(i===j){
+						continue;
+					}
+
+					// 得到组合数字
+					var num = '' + i + j;
+
+					// 判断num是否为奇数
+					if(num%2 !== 0){
+						res += num + ', ';
+					}
+				}
+			}
+
+			console.log(res);
+		}
+
+		oddNum(0,3);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

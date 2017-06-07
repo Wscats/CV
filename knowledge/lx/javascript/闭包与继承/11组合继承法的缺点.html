@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11组合继承法的缺点</title>
+	<script>
+		function Person(name,age,gender,geyan){
+			this.name = name;
+			this.age = age;
+			this.gender = gender;
+			this.geyan = geyan;
+		}
+
+		Person.prototype.say = function(){
+			console.log(`我叫${this.name},${this.gender},我今年${this.age}岁，我的人生格言是：${this.geyan}`);
+		}
+
+
+		var p1 = new Person('lx',18,'男','我姓谢，王菲的哪个谢');
+		var p2 = new Person('lw',45,'男','你有困难我帮忙，我住隔壁，我姓王');
+		p1.say();
+		p2.say();
+
+
+		function Student(){
+			// 借用构造函数法
+			// Person.call(this,name,age,gender,geyan)
+			Person.apply(this,arguments);
+		}
+
+
+		// 原型链继承法
+		// Student.prototype = new Person();
+
+		// 原生式继承法
+		// 不会产生多余的属性
+		/*function object(o){
+		    function F(){}
+		    F.prototype = o;
+		    return new F();
+		}
+		Student.prototype = object(Person.prototype);*/
+
+		// ES5的原型式继承
+		Student.prototype = Object.create(Person.prototype);
+
+		var s1 = new Student('小明',12,'男','姐姐，约么？');
+
+
+		// 最终推荐使用的继承方式：寄生组合继承法
+		// 属性：借用构造函数法
+		// 方法：原型式继承法
+
+		console.log(s1)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

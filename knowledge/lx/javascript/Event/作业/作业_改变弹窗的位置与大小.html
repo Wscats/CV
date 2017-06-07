@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15拖拽效果</title>
+	<style>
+		.pop{position: absolute;width:480px;border:1px solid #ddd;}
+		.pop header{padding-left:10px;height:40px;line-height:40px;border-bottom:1px solid #ddd;}
+		.pop .content{padding:15px;min-height:100px;}
+		.pop .btn-close{position:absolute;top:0;right:0;padding:10px;}
+		.pop .btn-close:hover{background-color: #f00;color:#fff;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*拖动效果
+				1.给标题绑定onmousedown事件
+				2.给document绑定onmousemove事件
+					1）获取光标位置
+					2）改变拖拽窗口top,left属性
+				3.给标题绑定onmouseup事件
+					1）清除document的onmousemove事件
+
+			改变窗口大小
+				1.给document绑定onmousemove事件
+					1）当光标移动到特定区域时，改变光标形状，并确定鼠标在弹窗的位置
+					* 光标形状cursor
+						* 移动：move
+						* 水平双箭头：w-resize
+						* 垂直双箭头：n-resize
+					* 鼠标在弹窗的位置
+						水平：left,right
+						垂直：top,bottom
+				2.在光标形状改变的位置按下鼠标（onmousedown）
+					1）给document绑定onmousemove事件
+						根据光标所在的位置改变相应的属性
+						* left：改变width和left
+						* right：改变width
+						* top：改变height和top
+						* bottom：改变height
+					
+			*/ 
+			var pop = document.getElementsByClassName('pop')[0];
+			var title = pop.getElementsByTagName('header')[0];
+			var btnClose = pop.getElementsByClassName('btn-close')[0];
+
+			// 给弹窗绑定mousedown事件
+			title.onmousedown = function(evt){
+				// 保存按下时光标距离header的距离
+				var ox = evt.offsetX;
+				var oy = evt.offsetY;
+
+				// 在mousedown事件中给document绑定mousemove事件
+				document.onmousemove = function(e){
+					pop.style.left = e.clientX - ox + 'px';
+					pop.style.top = e.clientY - oy + 'px';
+
+					e.preventDefault();
+				}
+
+				evt.stopPropagation();
+			}
+
+			// 鼠标弹起后清除document的mousemove事件
+			title.onmouseup = function(){
+				document.onmousemove = null;
+			}
+
+
+			// 关闭
+			btnClose.onmousedown = function(e){
+				pop.style.display = 'none';
+				
+				// 阻止事件冒泡只能阻止同类事件
+				e.stopPropagation();
+			}
+
+
+			// 水平/垂直方向
+			// 用于判定改变弹窗的属性
+			var xDirection;
+			var yDirection;
+
+			// 给document绑定onmousemove事件
+			// * 改变光标的形状
+			// * 确定水平/垂直方向上的位置
+			document.onmousemove = moveHandle
+
+
+			// 鼠标按下改变属性
+			// 根据方向改变相应的属性
+			document.onmousedown = function(e){
+				e = e || window.event;
+				// 初始位置
+				var startLeft = e.clientX;
+				var startTop = e.clientY;
+
+				// 初始宽高
+				var startWidth = pop.offsetWidth;
+				var startHeight = pop.offsetHeight;
+
+				// 按下并移动鼠标
+				document.onmousemove = function(evt){
+					evt = evt || window.event;
+
+					// 计算移动的距离
+					var oWidth = evt.clientX - startLeft;
+					var oHeight = evt.clientY - startTop;
+
+					// 在弹窗左侧移动时
+					if(xDirection == 'left'){
+						pop.style.left = startLeft + oWidth + 'px';
+						pop.style.width = startWidth - oWidth + 'px';
+					}
+
+					// 在弹窗右侧移动时
+					else if(xDirection == 'right'){
+						pop.style.width = startWidth + oWidth + 'px';
+					}
+
+					// 在弹窗上边移动时
+					if(yDirection == 'top'){
+						pop.style.top = startTop + oHeight + 'px';
+						pop.style.height = startHeight - oHeight + 'px';
+					}
+
+					// 在弹窗下边移动
+					else if(yDirection == 'bottom'){
+						pop.style.height = startHeight + oHeight + 'px';
+					}
+
+					// 阻止文字选中
+					evt.preventDefault();
+				}
+
+
+			}
+
+			// 鼠标弹起时
+			document.onmouseup = function(){
+				document.onmousemove = moveHandle;
+			}
+
+
+			// 鼠标移动事件处理函数
+			function moveHandle(e){
+				e = e || window.event;
+
+				var x = e.clientX;
+				var y = e.clientY;
+
+				// 重置光标形状
+				document.body.style.cursor = 'default';
+
+				// 水平判定
+				if(x >= pop.offsetLeft-5 && x <= pop.offsetLeft+5 && y >= pop.offsetTop && y<=pop.offsetTop + pop.offsetHeight){
+					// 把body元素的光标形状改成
+					document.body.style.cursor = 'w-resize';
+
+					// 方向
+					xDirection = 'left';
+				}else if(x >= pop.offsetLeft+pop.offsetWidth-5 && x <= pop.offsetLeft+pop.offsetWidth+5 && y >= pop.offsetTop && y<=pop.offsetTop + pop.offsetHeight){
+					// 把body元素的光标形状改成
+					document.body.style.cursor = 'w-resize';
+
+					// 方向
+					xDirection = 'right';
+				}
+
+
+				// 垂直
+				if(y >= pop.offsetTop-5 && y<=pop.offsetTop+5 && x>=pop.offsetLeft && x<=pop.offsetLeft+pop.offsetWidth){
+					// 把body元素的光标形状改成
+					document.body.style.cursor = 'n-resize';
+
+					// 方向
+					yDirection = 'top';
+				}else if(y>=pop.offsetTop+pop.offsetHeight-5 && y<=pop.offsetTop+pop.offsetHeight+5  && x>=pop.offsetLeft && x<=pop.offsetLeft+pop.offsetWidth){
+					// 把body元素的光标形状改成
+					document.body.style.cursor = 'n-resize';
+
+					// 方向
+					yDirection = 'bottom';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="pop">
+		<header>
+			弹窗标题
+		</header>
+		<div class="content"></div>
+		<span class="btn-close">&times;</span>
+	</div>
+</body>
+</html>

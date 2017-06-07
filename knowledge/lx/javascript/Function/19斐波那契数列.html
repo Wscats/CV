@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>19斐波那契数列</title>
+	<script>
+		/*
+			斐波那契数列(兔子数列)
+
+			1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ....
+			
+			推导公式：f(n) = f(n-1) + f(n-2);
+
+		 */
+		
+		function fibonacci(n){
+			// 跳出条件
+			if(n<=2){
+				return 1;
+			}
+			return fibonacci(n-1) + fibonacci(n-2)
+		}
+
+		fibonacci(3);//=>1 + 1=2
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

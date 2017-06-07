@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11案例_闰年判断</title>
+	<script>
+	/*
+		闰年判断
+			能被4整除但不能被100整除，或者能被400整除的才叫闰年
+				1900，2000
+
+		1.条件判断语句
+			if(条件){
+				//如果条件为true,则执行这里的代码
+			}else{
+				//否则执行这里的代码
+			}
+		2.逻辑运算
+			&&:逻辑与（且）
+				true && true => true;
+				true && false => false;
+			||:逻辑或（或）
+				true || true => true;
+				true || false => true;
+				false || false => false;
+			!:逻辑非（取反）
+				!true => false;
+				!false => true;
+
+		3.再js中如何获取html元素（后面课程详解）
+			通过id获取页面元素：document.getElementById('year')
+
+		4.函数的定义（后面课程详解）
+			格式：function 函数名(){
+	
+			}
+	 */
+	/*var year = 2000;
+
+
+
+	// 能被4整除,并且不能被100整除
+
+
+	// 1900=>true && false
+	if(year%4==0 && year%100!=0 || year%400==0){
+		alert(year + '是闰年');
+
+
+	}else{
+		alert(year + '不是闰年');
+	}*/
+
+	// 定义一个函数：用于计算输入的年份是否为闰年
+	// 页面加载时不会执行
+	function isLeapYear(){
+		//1.先获取input标签
+		var year = document.getElementById('year');//这里得到input标签
+
+		// 2.获取输入的年份
+		var _year = year.value;//2016
+
+		// 3.判断是否为闰年
+		if(_year%4==0 && _year%100!=0 || _year%400==0){
+			alert(_year + '是闰年');
+		}else{
+			alert(_year + '是平年');
+		}
+	}
+
+	// 函数的执行
+	//isLeapYear()
+
+	</script>
+</head>
+<body>
+	<!-- 
+		onclick属性：表示鼠标点击时做什么
+	 -->
+	<input type="text" id="year"><button onclick="isLeapYear()">是否闰年</button>
+
+
+</body>
+</html>

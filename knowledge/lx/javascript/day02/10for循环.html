@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09打印100内所有7的倍数</title>
+	<script>
+		// for循环格式：
+		/*
+			for(变量初始化; 条件判断; 变量更新){
+			    //循环条件成立，则执行这里的代码
+			}
+
+			1）变量初始化
+			2）条件判断
+			3）如果条件成立，则执行花括号中的代码
+			4）变量更新
+				* 变量更新后，再次进入第二步；
+				* 当变量更新后，如果不满足条件则终止for循环
+		 */
+		
+
+		for(var num=1;num<5;num++){
+			console.log(num);
+		}
+
+		console.log('num最终值：'+num);
+
+		// 打印100以内的奇数
+		for(var i=0;i<=100;i++){
+			// 判断奇数
+			if(i%2 !== 0){
+				console.log(i);
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12ES6中的继承方法</title>
+	<script>
+
+		// 类：
+		class Person{
+
+			// 构造函数
+			constructor(name,age){
+				this.name = name;
+				this.age = age;
+			}
+
+			// 原型对象中的方法
+			say(){
+				console.log('say,say');
+			}
+
+			en(){
+
+			}
+
+
+			// 静态方法
+			static sing(){
+				console.log(`我叫${this.name},我会唱歌`);
+			}
+		}
+
+		
+
+		// Person.prototype.say = function(){}
+
+		var p1 = new Person('lx',18);
+		p1.say();
+
+
+		// 静态方法的调用
+		Person.sing();
+
+
+		class Student extends Person{
+			constructor(name,age){
+				super(name,age);
+			}
+		}
+
+		var s1 = new Student('小红',12);
+
+		Student.sing();
+
+		s1.say()
+
+
+		console.log(p1,s1)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

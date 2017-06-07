@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03七天免登陆</title>
+	<script>
+		window.onload = function(){
+			var form = document.forms[0];
+			var username = document.getElementById('username');
+			var password = document.getElementById('password');
+			var btnSubmit = document.getElementById('btnSubmit');
+
+			btnSubmit.onclick = function(e){
+				var _username = username.value.trim();
+				var _password = password.value.trim();
+
+				// 验证用户名密码不能为空
+				if(_username === '' || _password === ''){
+					alert('用户名或密码不能为空');
+
+					return false;
+				}
+
+				jump(_username);
+
+
+				// 把用户名，密码保存到cookie
+				// 保留7天
+				var now = new Date();
+				now.setDate(now.getDate()+7);
+				document.cookie = 'username=' + _username + ';expires=' + now;
+				document.cookie = 'password=' + _password + ';expires=' + now;
+
+
+				// 阻止表单的提交
+				e.preventDefault();
+			}
+
+
+			function jump(username){
+				// 显示欢迎信息
+				var msg = document.createElement('div');
+				msg.innerHTML = '您好，' + username + '欢迎来到百度，跳转中...';
+
+				// 把form替换成msg
+				form.parentNode.replaceChild(msg,form);
+
+				// 2s后跳入百度网站
+				setTimeout(function(){
+					location.href =  "https://www.baidu.com"
+				},2000);
+			}
+
+
+			// 页面刷新时，判断cookie中是否有username和password
+			// 如果有，则跳转
+			var cookie = document.cookie.split('; ');
+			var myname;
+			var mypassword;
+			cookie.forEach(function(item){
+				var arr = item.split('=');
+				if(arr[0] === 'username'){
+					myname = arr[1];
+				}else if(arr[0] === 'password'){
+					mypassword = arr[1];
+				}
+			});
+
+			if(myname && mypassword){
+				jump(myname);
+			}
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<p>
+			<label for="username">用户名：</label>
+			<input type="text" name="username" id="username">
+		</p>
+		<p>
+			<label for="password">用户名：</label>
+			<input type="password" name="password" id="password">
+		</p>
+		<button id="btnSubmit">登录</button>
+	</form>
+</body>
+</html>

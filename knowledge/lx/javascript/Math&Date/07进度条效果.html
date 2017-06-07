@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#loading{height:10px;width:0;background-color: #00f;}
+	</style>
+	<script>
+		
+		window.onload = function(){
+			/*
+				使用定时器实现进度条效果
+			 */
+			var loading = document.getElementById('loading');
+
+			var width = 0;
+			var timer = setInterval(function(){
+				width += 2;
+				loading.style.width = width + 'px';
+
+				if(width >= 800){
+					clearInterval(timer);
+				}
+			},50);
+		}
+
+		
+	</script>
+</head>
+<body>
+	<div id="loading"></div>
+</body>
+</html>

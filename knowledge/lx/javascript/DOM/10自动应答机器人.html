@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动应答机器人</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.msg-list{width:600px;margin:0 auto;}
+		.msg-list ul{padding:10px;min-height:200px;overflow:hidden;border:1px solid #ddd;}
+		.msg-list li{float:left;clear:both;margin:10px 0;padding:5px;line-height:2;border-radius:5px;background-color:#efefef;}
+		.msg-list li.active{float:right;background-color:#fc0;color:#fff;}
+		.msg-list textarea{display:block;min-height:50px;margin:10px 0;width:100%;box-sizing: border-box;}
+	</style>
+	<script>
+		window.onload = function(){
+			var autoApply = document.getElementById('autoApply');
+			var list = autoApply.children[0];
+			var msg = autoApply.children[1];
+			var btnSend = autoApply.lastElementChild;
+
+			// 创建一一对应的数组
+			var q = ['你好','在吗','约吗','10年的感情']
+			var a = ['他好我也好','心若在梦就在','不闲聊，直接约','十年之前，我不认识你，你也不属于我，所以，别跟我谈感情，太伤钱']
+
+			// 点击按钮发送信息
+			btnSend.onclick = function(){
+				var _msg = msg.value;
+
+				render(_msg,true);
+
+				// 延迟1s回复信息
+				setTimeout(function(){
+
+					// 根据消息获取对应的回答
+					var idx = q.indexOf(_msg);
+					var answer;
+					if(idx === -1){
+						answer = '你说什么？风太大，我听不见~~'
+					}else{
+						answer = a[idx];
+					}
+
+					render(answer);
+
+				},1000);
+
+
+				// 清空输入框
+				msg.value = '';
+
+				// 自动获取焦点
+				// focus()
+				msg.focus();
+			}
+
+			function render(txt,isme){
+				// 创建一个li
+				var li = document.createElement('li');
+
+				// 给li添加类名active
+				if(isme){
+					li.className = 'active';
+				}
+
+				// 创建文本节点
+				var txtNode = document.createTextNode(txt);
+
+				// 把文本写入li
+				li.appendChild(txtNode);
+
+				// 把li写入页面
+				list.appendChild(li);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="autoApply" class="msg-list">
+		<ul>
+		</ul>
+		<textarea></textarea>
+		<button>提交</button>
+	</div>
+
+	<h1>自动应答机器人</h1>
+    <div class="content">
+        <h4>要求：</h4>
+        <ol>
+            <li>点击按钮发送信息</li>
+            <li>根据输入的信息，机器人延迟1秒做出响应回答
+				响应消息如下：
+				<p>你好 ==> 他好我也好</p>
+				<p>在吗 ==> 心若在梦就在</p>
+				<p>约吗 ==> 不闲聊，直接约</p>
+				<p>10年的感情说没就没 ==> 十年之前，我不认识你，你也不属于我，所以，别跟我谈感情，太伤钱</p>
+				<p>其他任意消息 ==> 你说什么？风太大，我听不见~~</p>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

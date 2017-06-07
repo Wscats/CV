@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01判断奇数偶数</title>
+	<style>
+		.even{color:#f00;}
+		.odd{color:#0f0;}
+	</style>
+	<script>
+		// 判断一个数是偶数还是奇数，并输出判断结果；
+
+		function oddEven(){
+			// 先获取输入的数字
+			var num = document.getElementById('num');
+			var _num = num.value;
+
+			// 获取输出信息的元素
+			var output = document.getElementById('output');
+
+			// 判断奇偶
+			// 通过判断是否能被2整除，如果能被2整除，则为偶数，否则为奇数
+			if(_num%2 === 0){
+				// alert('偶数');
+				// 如何把信息写入html元素：innerHTML
+				// 的
+				output.innerHTML = '<span class="even">偶数</span>';
+			}else{
+				// alert('奇数');
+				output.innerHTML = '<span class="odd">奇数</span>';
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="number" id="num"><button onclick="oddEven()">判断奇偶</button>
+	<div id="output"></div>
+</body>
+</html>

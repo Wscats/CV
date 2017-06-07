@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07父级元素</title>
+	<style>
+		html{background: #0f0;}
+		body{margin:20px;background: #fff;height:300px;}
+		#box{position: absolute;left:0;top:0;width:100px;height:100px;background: #f00;}
+	</style>
+	<script src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function(){
+			var $box = $('#box');
+
+			console.log($box.offsetParent());
+		})
+	</script>
+</head>
+<body>
+	<div style="position:relative;">
+		<div id="box"></div>
+	</div>
+</body>
+</html>

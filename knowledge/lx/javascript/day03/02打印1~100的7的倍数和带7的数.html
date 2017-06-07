@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印1~100的7的倍数和带7的数</title>
+	<script>
+		/*
+			打印1~100的7的倍数和带7的数
+		 */
+		for(var i=1;i<=100;i++){
+			// 十位数
+			var a = parseInt(i/10);
+
+			// 个位数
+			var b = i%10;
+
+			if(i%7===0 || a===7 || b===7){
+				console.log(i);
+			}
+		}
+
+
+		// 获取某个数的个位/十位/百位
+		var num = 369;
+
+		// 个位数
+		var a = num%10;
+
+		// 十位数360
+		var b = (num-a)/10%10;
+
+		// 百位数
+		var c = parseInt(num/100);
+		console.log(c,b,a);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

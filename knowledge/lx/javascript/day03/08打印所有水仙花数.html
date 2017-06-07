@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>找出所有的水仙花数</title>
+	<script>
+		/*
+			找出所有的水仙花数，三位数，各位立方和等于该数本身。
+				如: 153 = 1^3 + 5^3 + 3^3
+
+			1）遍历100-999所有的数字
+			2）取出每个数的个、十、百位数a,b,c
+			3）根据公式“cba = c*c*c + b*b*b + a*a*a”判断当前是否是水仙花数
+		*/
+		for(var i=100;i<=999;i++){
+			// 获取个位数
+			var a = i%10;
+			// 十位数
+			var b = (i-a)/10%10;
+			// 百位数
+			var c = parseInt(i/100);
+
+			if(i===c*c*c + b*b*b + a*a*a){
+				console.log(i);
+			}
+		}
+
+		// 370 = 3*3*3 + 7*7*7 + 0
+		// 			27 + 343 + 0
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

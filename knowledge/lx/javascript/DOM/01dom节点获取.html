@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>DOM树</title>
+		<script>
+		window.onload = function(){
+			var list = document.getElementById('list');//元素(节点)
+
+			var h1 = document.getElementsByTagName('h1');
+
+			console.log(h1[0].nodeType);
+
+			var link = document.getElementsByTagName('a');
+			console.log(link)
+		}
+			
+		</script>
+	</head>
+	<body>
+		<h1>DOM树</h1>
+		<div id="list">
+			<a href="#">Google</a>
+			<a href="#" id="baidu">百度</a>
+			<a href="#">Bing</a>
+		</div>
+	</body>
+</html>

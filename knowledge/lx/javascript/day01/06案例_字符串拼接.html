@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一个引号引发的公司倒闭</title>
+	<script>
+		/*
+			一个引号引发的公司倒闭
+			老王：5000 = 2000 + 绩效3000
+			小李：3000 = 2000 + 绩效1000
+			小明：2000 = 2000 + 绩效0
+			小谢：6000 = 2000 + 绩效4000
+
+
+			字符串转数字：
+				parseInt() => 整数
+				parseFloat() => 保留小数
+				数字.toFixed(2) => 保留2位小数
+		 */
+		
+		var wang = 2000 + 3000;
+		var li = 2000 + parseFloat('1000.5');//'20001000'
+		var ming = 2000 + 0;
+		var xie = 2000 + 4000;
+
+		var total = wang + li + ming + xie;
+		alert(total.toFixed(2));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

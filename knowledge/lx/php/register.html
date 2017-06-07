@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断用户名是否被占用</title>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var username = document.querySelector('#username');
+			var msg = document.querySelector('.msg');
+
+			// 失去焦点时提示用户是否已经被注册
+			username.onblur = function(){
+				var _username = username.value;
+
+				// 1.创建xhr对象
+				var xhr = new XMLHttpRequest();
+
+				// 数据处理
+				xhr.onreadystatechange = ()=>{
+					if(xhr.readyState === 4 && xhr.status === 200){
+						var res = xhr.responseText;
+						if(res === 'yes'){
+							msg.innerHTML = '恭喜你，你填写的用户名可以注册';
+						}else{
+							msg.innerHTML = '不好，<strong>'+_username+'</strong>被别人抢先一步';
+						}
+					}
+				}
+
+				// 2.建立与服务器的连接
+				xhr.open('post','http://localhost/1612/ajax/reg.php?',true);
+
+				// 设置请求头
+				xhr.setRequestHeader('content-type',"application/x-www-form-urlencoded");
+
+				xhr.send('username='+_username );
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>用户注册</h1>
+	<div>
+		<label for="username">用户名</label>
+		<input type="text" name="username" id="username">
+		<div class="msg"></div>
+	</div>
+	
+</body>
+</html>

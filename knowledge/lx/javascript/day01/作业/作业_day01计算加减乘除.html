@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+	<script>
+		/*
+		作业：计算两个文本框的加减乘除
+			* 定义加减乘除4个函数
+			* 点击每个按钮时分别执行对应的函数
+
+		 */
+		
+		// 加法
+		function jia(){
+			var num1 = document.getElementById('num1');
+			var num2 = document.getElementById('num2');
+			var res = document.getElementById('res');
+
+			res.value = Number(num1.value) + Number(num2.value);//10+10 = 20
+		}
+
+		// 减法
+		function jian(){
+			var num1 = document.getElementById('num1');
+			var num2 = document.getElementById('num2');
+			var res = document.getElementById('res');
+
+			res.value = Number(num1.value) - Number(num2.value);//10-10 = 0
+		}
+
+		// 乘法
+		function cheng(){
+			var num1 = document.getElementById('num1');
+			var num2 = document.getElementById('num2');
+			var res = document.getElementById('res');
+
+			res.value = Number(num1.value) * Number(num2.value);//10*10 = 100
+		}
+
+		// 除法
+		function chu(){
+			var num1 = document.getElementById('num1');
+			var num2 = document.getElementById('num2');
+			var res = document.getElementById('res');
+
+			res.value = Number(num1.value) / Number(num2.value);//10/10 = 1
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="num1"> ?
+	<input type="text" id="num2">
+	<input type="text" id="res">
+
+	<button onclick="jia()">加</button>
+	<button onclick="jian()">减</button>
+	<button onclick="cheng()">乘</button>
+	<button onclick="chu()">除</button>
+</body>
+</html>

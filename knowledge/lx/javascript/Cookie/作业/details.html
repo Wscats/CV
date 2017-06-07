@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业_记录商品浏览记录</title>
+	<style>
+		ul{list-style:none;padding:0;margin:0;}
+		.goods h1{font-size:24px;}
+		.goods img{width:320px;border:2px solid #ddd;}
+		.price{color:#f00;font-weight:bold;}
+		.price::before{
+			content:"￥";
+		}
+
+		.history{position:absolute;top:0;right:0;bottom:0;padding:0 15px;width:220px;border-left:5px solid #ddd;font-size:12px;overflow-y:auto;}
+		.history h4{font-weight: normal;}
+		.history img{width:80px;}
+		.history h3{margin:0;border-bottom:1px solid #ddd;padding:10px 0;}
+	</style>
+	<script>
+		window.onload = function(){
+			var goods = document.getElementsByClassName('goods')[0];
+			var history = document.getElementsByClassName('history')[0];
+
+			// 用于保存当前商品信息
+			var currentGoods;
+
+			// 用于保存浏览记录
+			var historyList = [];
+
+			// 先获取cookie
+			var cookie = document.cookie.split('; ');
+			cookie.forEach(function(item){
+				var arr = item.split('=');
+				if(arr[0] === 'currentGoods'){
+					currentGoods = JSON.parse(arr[1]);
+				}else if(arr[0] === 'historyList'){
+					historyList = JSON.parse(arr[1]);
+				}
+			});
+
+
+			// 如果当前商品已经存在historyList，则删除（放置重复）
+			for(var i=0;i<historyList.length;i++){
+				if(historyList[i].guid === currentGoods.guid){
+					historyList.splice(i,1);
+					break;
+				}
+			}
+
+			historyList.unshift(currentGoods);
+
+			// 重新把history写回cookie
+			// 3天有效期
+			var now = new Date();
+			now.setDate(now.getDate()+3);
+			document.cookie = 'historyList=' + JSON.stringify(historyList) + ';expires=' + now;
+
+			// 把当前商品信息写入goods
+			var img = document.createElement('img');
+			img.src = currentGoods.imgurl;
+
+			var h1 = document.createElement('h1');
+			h1.innerText = currentGoods.title;
+
+			var price = document.createElement('p');
+			price.className = 'price';
+			price.innerText = currentGoods.price;
+
+			goods.appendChild(img);
+			goods.appendChild(h1);
+			goods.appendChild(price);
+
+			// 把历史记录写入页面.history
+			var ul = document.createElement('ul');
+			historyList.forEach(function(item){
+				var li = document.createElement('li');
+				li.setAttribute('data-guid',item.guid);
+
+				var link = document.createElement('a');
+				link.href = 'details.html';
+
+				var img = document.createElement('img');
+				img.src = item.imgurl;
+
+				// 把图片插入a标签
+				link.appendChild(img);
+
+				// 标题
+				var h4 = document.createElement('h4');
+				h4.innerHTML = item.title;
+
+				// 价格
+				var price =document.createElement('p');
+				price.className = 'price';
+				price.innerText = item.price;
+
+				// 组合
+				li.appendChild(link);
+				li.appendChild(h4);
+				li.appendChild(price);
+
+				ul.appendChild(li);
+			});
+
+			history.appendChild(ul);
+		}
+	</script>
+</head>
+<body>
+	<div class="goods"></div>
+	<div class="history">
+		<h3>您的足迹</h3>
+	</div>
+</body>
+</html>

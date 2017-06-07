@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09判断数据类型增强版</title>
+	<script>
+		var name = [1,2,3];
+
+		console.log(typeof name);//object
+
+		function type(data){
+			// Object.prototype.toString();
+
+			// data.toString()
+
+			var res = Object.prototype.toString.call(data);
+
+			res = res.slice(8,-1).toLowerCase();
+
+			console.log(res);
+		}
+
+		// type([1,2,3]);//array
+		// type('test');//string
+		// type({});//object
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

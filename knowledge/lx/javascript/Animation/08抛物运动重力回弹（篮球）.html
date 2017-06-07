@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04抛物运动（篮球）</title>
+	<style>
+		body{overflow:hidden;background-color: #000;}
+		.basketball{position:absolute;width:100px;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			var basketball = document.querySelector('.basketball');
+			var xspeed = 5;
+			var yspeed = 0;
+
+			// 抛物运动
+			// 水平匀速+垂直加速
+			var timer = setInterval(()=>{
+				var left = basketball.offsetLeft;
+				var top = basketball.offsetTop;
+
+				yspeed++;
+
+				// 垂直边界处理
+				if(top > window.innerHeight - basketball.offsetHeight){
+					// 如何判断篮球停止的位置
+					// 下降的时候
+					if(yspeed>0 && yspeed<=5){
+						clearInterval(timer);
+					}
+
+					xspeed -=1;
+
+					// clearInterval(timer);
+					// top = window.innerHeight - basketball.offsetHeight - yspeed;
+					yspeed *= -1*0.7;
+
+					top = window.innerHeight - basketball.offsetHeight - yspeed;
+				}
+
+				// 水平速度判断
+				if(xspeed <= 0){
+					xspeed = 0;
+				}
+
+
+
+				basketball.style.left = left + xspeed + 'px';
+				basketball.style.top = top + yspeed + 'px';
+			},30);
+		})
+	</script>
+</head>
+<body>
+	<img src="img/basketball.jpg" class="basketball">
+</body>
+</html>

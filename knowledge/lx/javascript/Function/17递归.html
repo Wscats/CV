@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var times = 0;
+		// 递归：自己调用自己
+		function showMsg(){
+			times++;
+			console.log(times);
+
+			// 在递归函数中一定要有退出条件
+			if(times == 100){
+				return;
+			}
+			showMsg();
+
+			
+		}
+
+		//showMsg();
+
+
+		// for(var i=0;i<100000000000000;i++){
+		// 	// 这里花2小时
+		// }
+
+		// console.log(6666);
+
+
+		function num(n){
+			console.log(n);
+
+			// 跳出条件
+			if(n==0){
+				return;
+			}
+
+			num(n-1);
+		}
+
+		num(10);//10,9,8,7,6,5,4,3,2,1,0
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

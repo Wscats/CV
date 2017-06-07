@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业day02_BMI指数</title>
+	<script>
+		/*
+			BMI指数（即身体质量指数，简称体质指数又称体重，英文为Body Mass Index，简称BMI），是用体重公斤数除以身高米数平方得出的数字，是目前国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。主要用于统计用途，当我们需要比较及分析一个人的体重对于不同高度的人所带来的健康影响时，BMI值是一个中立而可靠的指标。
+
+		    成人的BMI数值：
+			    - 过轻：低于18.5
+			    - 正常：18.5-24.99
+			    - 过重：25-28
+			    - 肥胖：28-32
+			    - 非常肥胖, 高于32
+
+		    公式：体质指数（BMI）= 体重（kg）÷身高^2（m）
+		    如：70kg÷（1.75×1.75）=22.86
+		 */
+		
+		// 计算BMI指数
+		function check(){
+			var output = document.getElementById('output');
+			var weight = document.getElementById('weight');
+			var height = document.getElementById('height');
+
+			// 根据公式得到BMI指数
+			var bmi = weight.value / (height.value*height.value);
+
+			// - 过轻：低于18.5
+			if(bmi < 18.5){
+				output.innerHTML = '你的体重过轻了,多吃点';
+			}
+			// - 正常：18.5-24.99
+			else if(bmi>=18.5 && bmi <= 24.99){
+				output.innerHTML = '你的体重很正常，请继续保持';
+			}
+			// - 过重：25-28
+			else if(bmi>=25 && bmi<=28){
+				output.innerHTML = '你的体重过重，请注意哦';
+			}
+			// - 肥胖：28-32
+			else if(bmi>28 && bmi<=32){
+				output.innerHTML = '你的体重有点肥胖，请警惕';
+			}
+			//非常肥胖, 高于32
+			else{
+				output.innerHTML = '你的体重非常肥胖，请尽快减肥';
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	体重：<input type="text" id="weight">(Kg)
+	身高：<input type="text" id="height">(m)
+	<button onclick="check()">计算</button>
+	<div id="output"></div>
+</body>
+</html>

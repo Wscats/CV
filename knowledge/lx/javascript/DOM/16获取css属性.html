@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16获取css属性</title>
+	<style>
+		#box{padding:10px;width:200px;height:100px;border:1px solid #ddd;background-color: #ffc;}
+	</style>
+	<script src="../common.js"></script>
+	<script>
+		window.onload = function(){
+			var box = document.getElementById('box');
+
+			// style属性获取的是内联样式
+			console.log(box.style.width);
+
+			// 如何获取css文件中定义的样式
+			// 获取非内联样式
+			// 全局方法：window对象下的方法
+			// getComputedStyle得到的样式带单位
+			// console.log(getComputedStyle(box).border)
+			// console.log(getComputedStyle(box)['background-color']);
+
+
+			// IE8-
+			// 每个元素都有一个curretStyle
+			// console.log(box.currentStyle.borderLeftColor)
+
+			// 封装一个兼容所有浏览器的方法getStyle
+			// 用于获取css样式
+			//getStyle(ele,'width');//'200px';
+			console.log(getStyle(box,'height'))
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+</html>

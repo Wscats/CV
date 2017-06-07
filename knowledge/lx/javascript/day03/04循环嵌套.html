@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04循环嵌套</title>
+	<script>
+		/*for(var i=0;i<10;i++){
+		    for(var j=0;j<10;j++){
+		        console.log(i,j);
+		        break;
+		    }
+		}*/
+
+		// break:终止当前for循环
+		/*for(var i=0;i<100;i++){
+			console.log(i);
+			if(i===10){
+				break;
+				console.log('break后');
+			}
+		}*/
+
+
+		// 不打印12,13,14,15
+		/*for(var i=1;i<20;i++){
+			if(i>=12 && i<=15){
+				continue;
+			}
+			console.log(i);
+		}*/
+
+		// 嵌套循环中的break和continue
+		// label：给循环添加标识
+		wrap:for(var i=0;i<10;i++){
+		    for(var j=0;j<10;j++){
+		        if(j===5){
+		        	break wrap;
+		        }
+		        console.log('外层i:' + i,'内层j:' + j);
+		    }
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

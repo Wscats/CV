@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>login</title>
+	<style type="text/css">
+	    body{
+		    background-color:rgb(177, 208,224); font: normal 12px Trebuchet MS; color:#000;
+	    }
+	    .roundedCorners{ 
+		    width:350px; padding:10px;
+		    background-color:#DDEEF6; 
+		    box-shadow: 0px 0px 10px 0px #888888;
+		    border:1px solid #DDEEF6;
+		    border-radius:6px;
+		    margin: auto;
+	    }
+	    .roundedCorners-textbox{ 
+			border:1px solid #999; width:250px;
+	    }
+		.checkbox {
+			margin-left: 30px;
+			border:1px solid #999; width:20px;
+		}
+		.label {
+			display: inline-block;
+			width: 50px;
+			text-align: center;
+		}   
+    	.default {
+    		color: grey;
+    		font-size: 12px;
+    	}
+		.input {
+    		color: grey;
+    		font-size: 12px;			
+		}
+	</style>
+</head>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	
+	var btnCheck = document.getElementById('btnCheck');
+	var username = document.getElementById('username');
+	var nickname = document.getElementById('nickname');
+	var email = document.getElementById('email');
+	var password = document.getElementById('password');
+	var identity = document.getElementById('identity');
+	var phone = document.getElementById('phone');
+	var birthday = document.getElementById('birthday');
+
+	// 点击提交按钮时进行表单验证
+	btnCheck.onclick = function(e){
+		/*
+			账号：
+			* 不能为空，
+			* 不能使用特殊字符（数字、字母、下划线、-），
+			* 长度6-20
+		 */
+		var _username = username.value;
+		if(!/^[\w\-]{6,20}$/.test(_username)){
+			alert('用户名不合法');
+			return false;
+		}
+
+		/*
+			昵称只能输入中文
+		 */
+		var _nickname = nickname.value;
+		if(!/^[\u2E80-\u9FFF]+$/.test(_nickname)){
+			alert('昵称必须为中文');
+			return false;
+		}
+
+		/*
+			电子邮件
+			jinrong.xie@qq.com
+			x1@qq.com
+			x_2@163.com
+			x-x@a-r.com.cn
+		 */
+		var _email = email.value;
+		if(!/^[\w\-\.]+@[\da-z\-]+(\.[a-z]{2,3}){1,2}$/.test(_email)){
+			alert('邮箱地址不合法');
+			return false;
+		}
+
+		/*
+			密码
+			* 长度小于20
+			* 不能包含空格
+		 */
+		var _psw = password.value;
+		if(!/^\S{1,19}$/.test(_psw)){
+			alert('密码不合法');
+			return false;
+		}
+
+		/*
+			身份证
+			18/15位
+			445655 19900707 2165
+			445655 19900707 211x
+		 */
+		var _identity = identity.value;
+		if(!/^(\d{14}|\d{17})[\dx]$/.test(_identity)){
+			alert('身份证不合法');
+			return false;
+		}
+
+		/*
+			手机号码
+		 */
+		var _phone = phone.value;
+		if(!/^1[34578]\d{9}$/.test(_phone)){
+			alert('手机号不合法');
+			return false;
+		}
+
+		/*
+			生日 
+			1999/05/08
+			1999-5-8
+			19990508
+			1988/05/01
+		 */
+		var _birthday = birthday.value;
+		if(!/^\d{4}([\/\-\.]?)\d{1,2}\1\d{1,2}$/.test(_birthday)){
+			alert('生日格式不合法');
+			return false;
+		}
+		
+	}
+
+})
+</script>
+<body>
+	<form id="myform" action="http://www.baidu.com" method="get">	
+		<div class="roundedCorners">
+			<label class="label">账号</label>
+			<input id="username" type="text" placeholder="用户名不得使用特殊字符，长度在6-20之间" class="default roundedCorners-textbox" /><br /><br />
+			<label class="label">昵称</label>
+			<input id="nickname" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label class="label">电子邮件</label>
+			<input id="email" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label class="label">身份证</label>
+			<input id="identity" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label class="label">手机号码</label>
+			<input id="phone" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label class="label">生日</label>
+			<input id="birthday" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label class="label">密码</label>
+			<input id="password" type="password" class="roundedCorners-textbox" /><br /><br />	
+			<label class="label">确认密码</label>
+			<input id="confirm_pwd" type="text" class="roundedCorners-textbox" /><br /><br />	
+		    	<input type="checkbox" class="checkbox" />
+				<label>10天内免登陆</label>
+		    	<br/><br/>
+			
+			<input type="submit" id="btnCheck" value="确定" />
+			
+			<input type="reset" value="清空" />
+		</div>
+	</form>
+	
+</body>
+</html>

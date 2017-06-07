@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>06ES6的变量声明</title>
+	<script>
+		var a = 10;
+		/*function test(){
+			var  b = 100;
+		}
+		
+		var btns = document.querySelectorAll('button');
+		for(var i=0;i<5;i++){
+			btn[i].idx = i;
+			btns[i].onclick = function(){
+				console.log(i);
+				console.log(this.idx)
+			}
+		}
+		console.log(i);*/
+		
+		
+		if(a > 5){
+			var res = 100;
+			
+			//let声明的变量只能在本花括号内使用
+			let res2 = 200;
+		}
+		console.log(res);
+		
+		let b = 20;
+		console.log(b);
+		
+		
+		let c = 100;
+		c = 200;
+		console.log(c);
+		
+		
+		//常量
+		//常量名默认是大写
+		const MY_NAME = 'laoxie';
+		//MY_NAME = 1000;
+		console.log(MY_NAME)
+		
+		
+	</script>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<button>按钮5</button>
+</body>
+</html>

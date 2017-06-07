@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04显示光标位置</title>
+	<style>
+		body{padding-bottom:2000px;}
+		.info{position:fixed;top:0;right:0;background-color: rgba(0,0,0,.3
+	</style>
+	<script>
+		window.onload = function(){
+			// 显示光标位置
+			var info = document.getElementsByClassName('info')[0];
+
+			document.onmousemove = function(e){
+				info.children[0].innerText = 'clientXY光标在浏览器中的位置：' + e.clientX + ', ' + e.clientY;
+				info.children[1].innerText = 'screenXY光标在电脑屏幕中的位置：' + e.screenX + ', ' + e.screenY;
+				info.children[2].innerText = 'pageXY光标相对于文档的位置：' + e.pageX + ', ' + e.pageY;
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul class="info">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

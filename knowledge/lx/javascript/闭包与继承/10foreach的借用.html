@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10foreach的借用</title>
+</head>
+<body>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<button>按钮5</button>
+
+	<script>
+		var btns = document.getElementsByTagName('button');
+
+		/*for(var i=0;i<btns.length;i++){
+
+		}*/
+
+		// btns.forEach(function(item,idx,arr){
+
+		// });
+		Array.prototype.forEach.call(btns,function(item,idx,arr){
+			console.log(item,idx,arr)
+		});
+
+
+		// [1,23,].forEach(function(){
+		// })
+	</script>
+</body>
+</html>

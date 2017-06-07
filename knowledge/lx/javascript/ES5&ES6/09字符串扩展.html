@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09字符串扩展</title>
+	<script>
+		var str = 'hello, my name is laoxie';
+
+		// 判断str中是否有my
+		if(str.indexOf('my') != -1){
+			//字符存在
+		}
+
+		// Es6
+		// includes()返回布尔值
+		if(str.includes('my')){
+			//字符存在
+		}
+
+
+		let strName = 'goooooogle';
+
+		console.log(strName.startsWith('gooo'))
+
+
+		//repeat(n)
+		//如果n为小数，内部会自动调用Math.floor(n)
+
+		function sum(){
+			var a = 10;
+			var b = 100;
+
+			return '计算结果为：' + (a + b) 
+		}
+
+		document.addEventListener('DOMContentLoaded',function(){
+			var select = document.createElement('select');
+
+			// select.innerHTML = ['html','css','js'].map(function(item){
+			// 	return '<option value="'+item+'">' + item + '</option>';
+			// }).join('');
+
+
+			// 字符串模板
+			// 变量：${变量名}
+			select.innerHTML = ['html','css','js'].map(function(item){
+				return `<option value="${item}">${item}</option>`
+			}).join('');
+
+			document.body.appendChild(select);
+
+			var html = `
+				<p>nihao</p>
+					<span>
+						你好
+					</span>
+			`
+			document.body.innerHTML = html;
+		})
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html charset="UTF-8">
+<head>
+<title>用户评分代码</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">-->
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+	.container{
+		margin-top: 50px;
+	}
+	.container .unit{
+		margin-top: 30px;
+	}
+	
+	.progress-title{
+		display: block;
+		width: 25px;
+		height: 25px;
+		line-height: 25px;
+		border: 1px solid #eee;
+	}
+	.progress-dragbtn{
+		position: absolute;
+		left: 0; top: 0;
+		margin-left: 16px;
+		margin-top: -5px;
+		width:15px;
+		height: 30px;
+		background: #3879D9;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+</style>
+<body>
+<script>
+	"use strict";
+	function Progress(main){
+		this.main = main;
+		this.btn = main.find(".progress-dragbtn");
+		this.bar = main.find(".progress-bar");
+		this.title = main.parent().prev().children(".progress-title");
+		this.init();
+	}
+	Progress.prototype = {
+		init: function(){
+			this.btn.mousedown(function(evt){
+				var mousex = evt.offsetX;
+				$(document).bind("mousemove",function(evt){
+					var _left = Math.max(0,Math.min(this.main.width()-this.btn.width()/2,evt.pageX-this.main.offset().left-mousex));
+					this.btn.css("left", _left);
+					this.bar.css("width", Math.ceil(_left/(this.main.width()-this.btn.width()/2)*100) +"%" ).text(Math.ceil(_left/(this.main.width()-this.btn.width()/2)*100) +"%");
+					this.title.text(Math.ceil(100*_left/(this.main.width()-this.btn.width()/2)))
+				}.bind(this));
+			}.bind(this));
+			$(document).mouseup(function(){
+				$(document).unbind("mousemove");
+			});
+		}
+	}
+	$(function(){
+		$(".progress").each(function(){
+			new Progress($(this));
+		});
+	})
+</script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>创意</span>-你觉得这个创意在外观上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>外观</span>-你觉得这个创意在外观上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>成本</span>-你觉得这个创意在成本上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>难度</span>-你觉得这个创意在难度上可行吗？<i>分数越高表示越可行。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 unit">
+			<div class="row">
+				<div class="col-md-12">
+					<p><span>环保</span>-你觉得这个创意在环保上优秀吗？<i>分数越高表示越优秀。</i></p>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-1">
+							<span class="progress-title">0</span>
+						</div>
+						<div class="col-md-9">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 0%;">
+									0%
+								</div>
+								<span class="progress-dragbtn"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+                    
+
+
+</body></html>

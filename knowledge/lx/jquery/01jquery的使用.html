@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01jquery的使用</title>
+	<script src="js/jquery-3.1.1.js"></script>
+	<!-- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script> -->
+
+	<script>
+	// document.addEventListener('DOMContentLoaded',function(){
+	// 	console.log(jQuery('#box'));
+	// })
+
+	// jquery的套路
+	// jQuery(document).ready(function(){
+	// 	console.log(jQuery('#box'));
+	// });
+
+	// 简化
+	$(document).ready(function(){
+		$('#box');
+	});
+
+	// 继续简化
+	$(function(){
+		// 为什么能在$('#box')后直接调用css方法
+		// 因为jQuery('#box')得到一个实例
+		$('#box').css('color','#f00');
+
+		console.log($('#box'))
+	})
+
+	
+	</script>
+</head>
+<body>
+	<div id="box">jquery 10年了</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12箭头函数</title>
+	<script>
+		// 声明函数的方式
+		// function sum(a,b){
+		// 	return a + b;
+		// }
+
+		// var sum = function(a,b){
+		// 	return a + b;
+		// }
+
+		// var res = sum(10,20);//30
+
+		// es6箭头函数写法
+		// a,b为函数参数
+		// =>后的值为返回值
+		let sum = (a,b) => a+b;
+
+		console.log(sum(10,11));//21
+
+		// 无参数的函数
+		// var a = 100,b=50;
+		// function sub(){
+		// 	return a - b;
+		// }
+		// 箭头函数写法
+		let sub = () => a-b;
+
+		// 如果箭头后跟着{}，表示代码块
+		let randomColor = () => {
+			var str = '0123456789abcdef';
+			var res = '#';
+			for(var i=0;i<6;i++){
+				var idx = parseInt(Math.random()*str.length);
+				res += str[idx];
+			}
+
+			// 如果要在代码块中返回值，则显性写return
+			return res;
+		}
+
+		// 如果我想返回一个对象呢
+		// 必须添加一个圆括号
+		// function person(){
+		// 	return {
+		// 		name:'lis',
+		// 		age:18
+		// 	}
+		// }
+
+		// 箭头函数写法
+		var person = () => ({
+			name:'lis',
+			age:18
+		});
+
+
+		var arr = ['html','css','javascript','html5','css3','ecmascript'];
+		// arr.forEach(function(item,idx,arr){
+
+		// 	if(idx<3){
+		// 		console.log(item);
+		// 	}
+		// })
+		// 箭头函数改造
+		arr.forEach((item,idx,arr) => {
+			if(idx<3){
+				console.log(item);
+			}
+		});
+
+
+		var arr_num = [10,11,23,100];
+		// arr_num.map(function(item){
+		// 	return item*item;
+		// });
+		var res_num = arr_num.map(item => item*item);
+		console.log(res_num)
+
+
+		// 箭头函数中的this
+		var title = '商品页';
+		var obj = {
+			title:'首页',
+			// getTitle:function(){
+			// 	console.log(this.title)
+			// }
+			getTitle:()=>{
+				console.log(this.title);
+			}
+		}
+		obj.getTitle();//首页,
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
