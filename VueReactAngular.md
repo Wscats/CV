@@ -3,7 +3,7 @@
 |-|Angular|Vue|React|
 |-|-|-|-|
 |维护团队|Google|国人 Even You|Facebook|
-|类型|MVP MVC MVVM|MVVM|MVVM|
+|类型|MVP MVC MVVM|MVVM|MS|
 |初始化|双向数据绑定|双向数据绑定|单项数据绑定|
 |实现方案|利用脏值检测实现双向数据绑定|数据劫持 利用ES5的Object.defineProperty的get和set属性值来实现双向数据绑定 2.0版本增加虚拟DOM|虚拟DOM|
 |性能|最差 功能最多|最轻 内置功能较少|比较轻 性能最少|
