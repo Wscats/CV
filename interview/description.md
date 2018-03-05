@@ -17,3 +17,7 @@
 > Experience with UI frameworks, HTML5, ES6, jQuery, AngularJS, AJAX, Node.JS
 
 对UI框架，HTML5，6，jQuery AJAX体验，Node.JS，AngularJS等有一定的经验
+
+> Strong experience with ReactJS and Redux frameworks
+
+在React和Redux技术框架上有资深的经验
