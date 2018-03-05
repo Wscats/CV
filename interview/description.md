@@ -38,6 +38,10 @@
 
 可以运用一个或者多个语法和技术
 
+> Single-page application experience
+
+有开发单页应用程序的经验
+
 > Can work in a small, fast paced environment
 
 可以在一个小的，快节奏的环境中工作
