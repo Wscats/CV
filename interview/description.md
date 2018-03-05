@@ -29,3 +29,7 @@
 > Conducting of device and usability tests, and assisting to debug when applicable
 
 进行设备和可用性测试，并在需要时协助调试
+
+> Knowledgeable in web development software such as Visual Studio Code/Photoshop
+
+具备常用的软件XXX运用能力
