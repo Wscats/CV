@@ -38,6 +38,10 @@
 
 可以运用一个或者多个语法和技术
 
+> Can work in a small, fast paced environment
+
+可以在一个小的，快节奏的环境中工作
+
 > Good understanding of HTTP, Git or other source control system
 
 对HTTP、Git或其他源代码控制系统有很好的理解
