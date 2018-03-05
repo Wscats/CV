@@ -53,3 +53,7 @@
 > Good command of written (and spoken English), (but not well in spoken)
 
 良好的英语口语和书写能力
+
+> Build reusable code and libraries for future use
+
+建立可重用的代码和库以备将来使用
