@@ -82,6 +82,11 @@
 
 对异步请求处理、部分页面更新和Ajax有很好的理解
 
+# 自我介绍范文
+
+Good morning, ladies and gentlemen! It is really my honor to have this opportunity for an interview. I hope I can make a good performance today. I&#39;m confident that I can succeed. Now I will introduce myself briefly. I am 26 years old, born in Shandong province. I graduated from Qingdao University. My major is electronics. And I got my bachelor degree after my graduation in the year of 2003. I spent most of my time on study, and I?ve passed CET-6 during my university. And I?ve acquired basic knowledge of my major. It is my long cherished dream to be an engineer and I am eager to get an opportunity to fully play my ability. In July 2003, I began working for a small private company as a technical support engineer in Qingdao city. Because there was no more chance for me to give full play to my talent, so I decided to change my job. And in August 2004, I left for Beijing and worked for a foreign enterprise as an automation software test engineer. Because I want to change my working environment, I&#39;d like to find a job which is more challenging. Moreover，Motorola is a global company, so I feel I can gain a lot from working in this kind of company. That is the reason why I come here to compete for this position. I think I&#39;m a good team player and a person of great honesty to others. Also，I am able to work under great pressure. I am confident that I am qualified for the post of engineer in your company. That’s all. Thank you for giving me the chance.
+
+（中文翻译） 女士们，先生们，早上好！很荣幸有机会参加此次面试。我希望今天我能有好的表现。我希望此次面试能够成功。现在，请允许我自我介绍一下。我今年26岁，出生于山东省。我毕业于青岛大学电子专业。我在2003年毕业获得学士学位。大学期间，我努力学习，通过了大学英语六级考试，掌握了基本的专业知识。成为电子工程师是我长期渴望的梦想。我渴望有机会施展我的才能。 2003年七月，我就职于青岛一家小的私人公司担任技术助理工程师。由于我的才能得不到足够的施展，我决定更换工作。在2004年8月，我前往北京为一家外资企业工作担任自动 软件测试工程师。因为我想更换一下工作环境，想找一个更具挑战性的工作。而且我认为摩托罗拉公司是一个国际公司，我可以在这样的工作环境里收获更多。这就是我来这里面试的原因。我觉得我是一位具有良好团队精神、诚恳的人。而且，我能够在高强度压力下进行工作。我非常有信心我有能力胜任该公司的工程师职位。 感谢各位给我此次机会。
 
 # 其他参考
 
