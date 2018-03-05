@@ -47,3 +47,9 @@
 对HTTP、Git或其他源代码控制系统有很好的理解
 
 > Full working knowledge and (proven) use of the latest versions of HTML and CSS
+
+充分的工作知识和（成熟地版本）使用最新版本的HTML和CSS
+
+> Good command of written (and spoken English), (but not well in spoken)
+
+良好的英语口语和书写能力
