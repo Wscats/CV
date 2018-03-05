@@ -23,3 +23,9 @@
 在React和Redux技术框架上有资深的经验
 
 > More then 3 year's Font-end engineering industry experience
+
+3年以上的前端开发经验
+
+> Conducting of device and usability tests, and assisting to debug when applicable
+
+进行设备和可用性测试，并在需要时协助调试
