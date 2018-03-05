@@ -34,6 +34,6 @@
 
 具备常用的软件XXX运用能力
 
-> Can program any one or more of following technologies and feature: Node.js, React.js, MongoDB, webpack, ES6 feature, express
+> Can program any one or more of following technologies and feature: Node.js, React.js, MongoDB, Webpack, ES6 feature, Express
 
 可以运用一个或者多个语法和技术
