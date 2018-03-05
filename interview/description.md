@@ -21,3 +21,5 @@
 > Strong experience with ReactJS and Redux frameworks
 
 在React和Redux技术框架上有资深的经验
+
+> More then 3 year's Font-end engineering industry experience
