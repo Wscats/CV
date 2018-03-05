@@ -61,3 +61,23 @@
 > Build reusable code and libraries for future use
 
 建立可重用的代码和库以备将来使用
+
+> Good understanding of Web APIs
+
+对Web API有很好的理解
+
+> Proficient understanding of code versioning tools, such as GIT
+
+精通代码版本化工具，如Git
+
+> Basic understanding of server-side CSS pre-processing platforms, such as LESS and SASS
+
+对服务器端的CSS预处理平台有基本的认识，如less和Sass
+
+> Proficient understanding of client-side scripting and JavaScript frameworks, including jQuery
+
+精通客户端脚本和JavaScript框架，包括jQuery
+
+> Good understanding of asynchronous request handling, partial page updates, and AJAX
+
+对异步请求处理、部分页面更新和Ajax有很好的理解
