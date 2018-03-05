@@ -81,3 +81,8 @@
 > Good understanding of asynchronous request handling, partial page updates, and AJAX
 
 对异步请求处理、部分页面更新和Ajax有很好的理解
+
+
+# 其他参考
+
+[怎样出色完成 1 分钟左右的英语自我介绍](https://www.zhihu.com/question/22394845)
