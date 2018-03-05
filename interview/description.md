@@ -37,3 +37,7 @@
 > Can program any one or more of following technologies and feature: Node.js, React.js, MongoDB, Webpack, ES6 feature, Express
 
 可以运用一个或者多个语法和技术
+
+> Good understanding of HTTP, Git or other source control system
+
+对HTTP、Git或其他源代码控制系统有很好的理解
