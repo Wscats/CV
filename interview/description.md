@@ -45,3 +45,5 @@
 > Good understanding of HTTP, Git or other source control system
 
 对HTTP、Git或其他源代码控制系统有很好的理解
+
+> Full working knowledge and (proven) use of the latest versions of HTML and CSS
