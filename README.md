@@ -133,7 +133,7 @@ I wrote javascript
 - 前端工具库：jQuery/Zepto
 - 前端插件：Swiper/Iscroll/ui-router
 - 前端工具：Webpack/Gulp/Sass/Less/Cordova
-- 数据库相关：MySQL/PgSQL/PDO/SQLite
+- 数据库相关：MySQL/MongoDB/PgSQL/PDO/SQLite
 - 版本管理、文档和自动化部署工具：SVN/Git
 - 单元测试：PHPUnit/SimpleTest/Qunit
 - 云和开放平台：SAE/BAE/AWS/微博开放平台/微信应用开发
@@ -150,7 +150,7 @@ I wrote javascript
 8、熟练运用ajax实现异步数据传递，熟悉JSON等数据交换格式；了解php和数据库；
 9、了解如何使用node.js搭建本地server模拟接口返回数据测试ajax接口；
 10、能使用Bootstrap、WeUI、Ionic等前端样式库和框架进行开发；
-11、熟练运用AngularJS，VueJS进行模块开发，了解双向数据绑定原理，熟练编写控制器、服务、组件等
+11、熟练运用AngularJS，VueJS进行模块开发，了解双向数据绑定原理，熟练编写控制器、服务、组件、过滤器等
 12、熟练使用Gulp对代码进行压缩合并；熟悉使用Git和SVN进行代码管理和版本控制；
 
 ```
