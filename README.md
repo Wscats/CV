@@ -2,7 +2,7 @@
 
 > Omi体验地址： http://wscats.github.io/CV/omi/build/index.html
 
-> Vue体验地址： https://wscats.github.io/piano/vue/dist/index.html
+> Vue体验地址： http://wscats.github.io/CV/vue/dist/index.html
 
 > 项目地址： https://github.com/Wscats/CV
 
