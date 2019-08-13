@@ -1,0 +1,115 @@
+<template name="app-markdown">
+  <div class="app-markdown">
+    <div class="column">
+      <h3>Markdown Input (editable)</h3>
+      <textarea value={this.data.input}
+        ref={e=> { this.textarea = e }} onKeyup={this.getInputValue.bind(this)}></textarea>
+    </div>
+    <div id="output" class="column">
+      <h3>Rendered</h3>
+      <div id="rendered" class="markdown-body" ref={e=> { this.rendered = e }}></div>
+    </div>
+  </div>
+</template>
+<script>
+  import { Remarkable } from 'remarkable';
+  import autosize from 'autosize';
+  import input from './index.txt'
+  import hljs from 'highlight.js'
+  const md = new Remarkable({
+    html: true,
+    highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(lang, str).value;
+        } catch (__) { }
+      }
+      try {
+        return hljs.highlightAuto(str).value;
+      } catch (__) { }
+      return ''
+    }
+  });
+  export default class {
+    install() {
+      this.data = {
+        title: 'Install Omi Snippets!',
+        input
+      }
+    }
+    installed() {
+      this.getInputValue({
+        target: {
+          value: input
+        }
+      })
+    }
+    getInputValue(e) {
+      // console.log(e.target.value)
+      let output = md.render(e.target.value)
+      this.rendered.innerHTML = output
+      console.log(output, this.rendered)
+      setTimeout(() => {
+        autosize(this.textarea)
+      }, 0)
+
+    }
+  }
+</script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .app-markdown {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+  }
+
+  textarea {
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 696px;
+  }
+
+  textarea {
+    font-size: 14px;
+    font-family: Consolas, monaco, monospace;
+    resize: none;
+    outline: none;
+    border: none;
+  }
+
+  .column {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .column h3 {
+    /* color: black; */
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  textarea,
+  #rendered {
+    /* overflow: hidden; */
+    max-width: 800px;
+    text-align: left;
+    background-color: white;
+    display: block;
+    width: 95%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .markdown-body h1 {
+    color: red;
+  }
+
+  h1 {
+    color: red;
+  }
+</style>
