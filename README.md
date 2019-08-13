@@ -1,5 +1,12 @@
-# 简历的本质
+# 演示
 
+> Omi体验地址： http://wscats.github.io/CV/omi/build/index.html
+
+> Vue体验地址： https://wscats.github.io/piano/vue/dist/index.html
+
+> 项目地址： https://github.com/Wscats/CV
+
+# 简历的本质
 
 在写简历之前，我们必须清楚的了解一件事情，那就是简历是什么？
 它不是人生履历，不是项目清单，也不是技能大放送。
