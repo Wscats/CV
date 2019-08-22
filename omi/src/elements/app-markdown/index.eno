@@ -16,6 +16,7 @@
   import autosize from 'autosize';
   import input from './index.txt'
   import hljs from 'highlight.js'
+  import style from './index.css'
   const md = new Remarkable({
     html: true,
     highlight: function (str, lang) {
@@ -31,6 +32,7 @@
     }
   });
   export default class {
+    static css = style
     install() {
       this.data = {
         title: 'Install Omi Snippets!',

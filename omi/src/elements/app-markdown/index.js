@@ -3,6 +3,7 @@ import { Remarkable } from "remarkable";
 import autosize from "autosize";
 import input from "./index.txt";
 import hljs from "highlight.js";
+import style from "./index.css";
 const md = new Remarkable({
   html: true,
   highlight: function(str, lang) {
@@ -84,7 +85,8 @@ class AppMarkdown extends WeElement {
   }
 }
 
-AppMarkdown.css = `
+AppMarkdown.css =
+  `
   * {
     margin: 0;
     padding: 0;
@@ -140,5 +142,5 @@ AppMarkdown.css = `
   h1 {
     color: red;
   }
-`;
+` + style;
 define("app-markdown", AppMarkdown);
