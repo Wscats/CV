@@ -5,8 +5,6 @@
 <a href="https://github.com/Wscats"><img src="https://img.shields.io/badge/Author-Eno Yao-blueviolet" /></a>
 </p>
 
-# 演示
-
 > Omi体验地址： http://wscats.github.io/CV/omi/build/index.html
 
 > Vue体验地址： http://wscats.github.io/CV/vue/dist/index.html
