@@ -1,3 +1,10 @@
+<p>
+<a href="https://github.com/Wscats/CV"><img src="https://img.shields.io/badge/Star-500+-orange" /></a>
+<a href="https://github.com/Wscats/CV"><img src="https://img.shields.io/badge/Version-6.66-brightgreen" /></a>
+<a href="https://github.com/Wscats/CV"><img src="https://img.shields.io/badge/Github Page-Wscats-yellow" /></a>
+<a href="https://github.com/Wscats"><img src="https://img.shields.io/badge/Author-Eno Yao-blueviolet" /></a>
+</p>
+
 # 演示
 
 > Omi体验地址： http://wscats.github.io/CV/omi/build/index.html
