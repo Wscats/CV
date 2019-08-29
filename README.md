@@ -124,8 +124,8 @@ I wrote javascript
 ## 开源项目
 
 （对于程序员来讲，没有什么比Show me the code能有说服力了）
- - [Angular-news](https://github.com/Wscats/Angular-news)：项目的简要说明，Star和Fork数多的可以注明
- - [Good-text-Share](https://github.com/Wscats/Good-text-Share)：项目的简要说明，Star和Fork数多的可以注明
+ - [Piano](https://github.com/Wscats/piano)：项目的简要说明，Star和Fork数多的可以注明
+ - [Articles](https://github.com/Wscats/articles)：项目的简要说明，Star和Fork数多的可以注明
 
 ## 技术文章
 
@@ -138,16 +138,20 @@ I wrote javascript
 
 （我一般主张将技能清单写入到工作经历里边去。不过很难完整，所以有这么一段也不错）
 以下均为我熟练使用的技能
-- Web开发：PHP/Node
-- Web框架：ThinkPHP/CodeIgniter
-- 前端框架：AngularJS/Vue/EmberJS/Cocos2dJS/Ionic
-- 前端样式库：WeUI/Bootstrap/AmazeUI
-- 前端工具库：jQuery/Zepto
-- 前端插件：Swiper/Iscroll/ui-router
-- 前端工具：Webpack/Gulp/Sass/Less/Cordova
+- 后端开发：PHP/Node
+- 后端框架：ThinkPHP/CodeIgniter
+- 前端框架：ReactJS/VueJS/AngularJS/Omi/EmberJS/Cocos2dJS/Ionic
+- 前端样式库：WeUI/Bootstrap/AntDesign/ElementUI/AmazeUI
+- 前端工具库：jQuery/Zepto/Lodash/Axios
+- 前端调试：Postman/Charles/Vue(React) Dev Tools
+- 前端插件：Swiper/Iscroll
+- 前端模块工具：Webpack/Gulp/RequireJS/Fis/Grunt
+- 预编译语言：Typescript/Sass/Less/Pug/Jade
+- Native开发：Weex/React Native/Cordova/Uni App
+- 小程序相关：Mpvue/Taro/Kbone/Wepy
 - 数据库相关：MySQL/MongoDB/PgSQL/PDO/SQLite
 - 版本管理、文档和自动化部署工具：SVN/Git
-- 单元测试：PHPUnit/SimpleTest/Qunit
+- 单元测试：PHPUnit/SimpleTest/Qunit/Mocha
 - 云和开放平台：SAE/BAE/AWS/微博开放平台/微信应用开发
 
 例如你可以这样写,当然你得根据自己的个人情况进行修改
