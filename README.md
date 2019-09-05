@@ -237,6 +237,13 @@ I wrote javascript
 
 - [142+张现场纸质面试题集合](https://github.com/ifyouremember/Interview)
 
+# 面试前学习片段和笔记
+
+- [Vue学习笔记](https://github.com/Wscats/vue-tutorial)
+- [Node学习笔记](https://github.com/Wscats/node-tutorial)
+- [React学习笔记](https://github.com/Wscats/react-tutorial)
+- [Angular学习笔记](https://github.com/Wscats/angular-tutorial)
+
 ---
 # 其他参考
 | Article | Article |
