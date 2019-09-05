@@ -177,7 +177,7 @@ I wrote javascript
 9、熟练LocalStorage、SessionStorage、Cookie等本地存储
 10、熟悉使用Swiper、Font-awesome、jQueryUI以及jQuery插件等前端插件
 11、熟练使用Cordova插件将WebApp打包成安卓App，实现混合App开发
-12、熟练使用DW、SublimeText、HBulid、Git、Gulp、Scss、Photoshop 等开发工具
+12、熟练使用Visual Studio Code、SublimeText、HBulider、Git、Gulp、Scss、Photoshop 等开发工具
 ```
 这里尽量不要重复叙述相同的技能点，保持好每一条都是独特的，每一条描述出现的英文技能点关键词尽量保持大小统一，比如`Bootstrap、WeUI、Ionic`，这样写没问题，但是不要个别大写个别小写`bootstrap、WeUI、ionic`，遇到强迫症的HR就尴尬了，不过有些还是例外的比如`jQuery`,还是第二个字母大写吧(...额，不解释)，还有这里不要出现一些“感性“的描述，比如熟悉使用PHP，能跟后端工程师愉快的合作(什么鬼)，这些句子就不要出现了
 
