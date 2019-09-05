@@ -7,12 +7,6 @@
 <a href="https://github.com/Wscats"><img src="https://img.shields.io/badge/Author-Eno Yao-blueviolet" /></a>
 </p>
 
-> Omi体验地址： http://wscats.github.io/CV/omi/build/index.html
-
-> Vue体验地址： http://wscats.github.io/CV/vue/dist/index.html
-
-> 项目地址： https://github.com/Wscats/CV
-
 # 简历的本质
 
 在写简历之前，我们必须清楚的了解一件事情，那就是简历是什么？
@@ -243,6 +237,15 @@ I wrote javascript
 - [Node学习笔记](https://github.com/Wscats/node-tutorial)
 - [React学习笔记](https://github.com/Wscats/react-tutorial)
 - [Angular学习笔记](https://github.com/Wscats/angular-tutorial)
+
+# 线上简历
+
+
+> Omi体验地址： http://wscats.github.io/CV/omi/build/index.html
+
+> Vue体验地址： http://wscats.github.io/CV/vue/dist/index.html
+
+> 项目地址： https://github.com/Wscats/CV
 
 ---
 # 其他参考
