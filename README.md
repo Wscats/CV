@@ -119,7 +119,7 @@ I wrote javascript
 
 （对于程序员来讲，没有什么比Show me the code能有说服力了）
  - [Piano](https://github.com/Wscats/piano)：🎹用键盘8个键演奏一首蒲公英的约定送给自己或月亮代表我的心送给她（项目的简要说明，Star和Fork数多的可以注明）
- - [Articles](https://github.com/Wscats/articles)：收录我的前端技术文章和学习笔记（项目的简要说明，Star和Fork数多的可以注明）
+ - [Articles](https://github.com/Wscats/articles)：🔖分享我的学习片段和与你的回忆（项目的简要说明，Star和Fork数多的可以注明）
 
 ## 技术文章
 
