@@ -13,7 +13,7 @@
           + <button onClick={this.insertInformation.bind(this,6)} class="btn btn-outline-info">技能清单</button>
           + <button onClick={this.insertInformation.bind(this,7)} class="btn btn-outline-info">自我评价</button>
           + <button onClick={this.insertInformation.bind(this,8)} class="btn btn-outline-info">致谢</button>
-           = <button onClick={this.download.bind(this)} class="btn btn-stop">下载&&导出简历</button>
+           = <button onClick={this.download.bind(this)} class="btn btn-stop">下载&导出简历</button>
         </div>
       </div>
       <hr />

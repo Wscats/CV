@@ -133,7 +133,7 @@ class AppMarkdown extends WeElement {
                 onClick: this.download.bind(this),
                 class: "btn btn-stop"
               },
-              "\u4E0B\u8F7D&&\u5BFC\u51FA\u7B80\u5386"
+              "\u4E0B\u8F7D&\u5BFC\u51FA\u7B80\u5386"
             )
           )
         ),
