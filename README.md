@@ -60,11 +60,12 @@ I wrote javascript
 # 个人信息
 
  - 易佳梦/女/1990 
- - 本科/XX大学计算机系 
+ - 年龄（年龄能侧面推断你的工作经验，年龄在某些时候是优势某些时候是劣势，是一把双刃剑）
+ - 本科/XX大学计算机系（好的大学，好的专业必须得写，如果不是特别好，建议可以不写）
  - 工作年限/经验：3年
  - 技术博客：https://wscats.github.io/blog ( ``` 使用GitHub Page映射页面会显得的逼格较高 ```  )
- - Github：https://github.com/Wscats ( ``` 原创repo+多star的Github帐号会极大的提升你的个人品牌 ```  )
- - 期望职位：Web前端程序员/工程师
+ - Github：https://github.com/Wscats ( ``` 原创repo+多star的Github帐号会极大的提升你的个人品牌，如果你的GitHub 没什么营养，或者博客只有寥寥几篇，那么还是不要献丑了```  )
+ - 期望职位：Web前端程序员/工程师（HTML5工程师，就不要写网页设计之类的了）
  - 期望薪资：税前月薪15k~20k，特别喜欢的公司可例外
  - 期望城市：广州
 ---
@@ -171,17 +172,21 @@ I wrote javascript
 当然再举个例子（精通慎用！熟悉可以多用，不够自信就用了解吧，额哼）
 ```html
 1、熟练HTML、DIV+CSS的页面布局，能根据设计图完成页面制作
-2、熟练响应式布局、弹性盒布局，熟悉基于HTML5的WebApp开发以及移动端适配
+2、熟练响应式布局、弹性盒布局，熟悉基于HTML5，CSS3和ES6新特性的WebApp开发以及移动端适配，了解Canvas动画制作
 3、熟练主流浏览器的兼容性以及相应的适配技术，完成页面的完整兼容
-4、熟练掌握HTML5、CSS3新增功能，了解Canvas动画制作
+4、熟练掌握Bootstrap，Ant Design等前端UI框架，了解Sass，Stylus等CSS预处理器，
 5、熟悉掌握原生JavaScript，熟悉jQuery，了解Zepto
-6、熟练Bootstrap、AngularJS等前段框架，了解MUI、Vue框架
+6、熟练ReactJS、AngularJS等前段框架，了解MUI、Vue框架
 7、熟练使用AJAX进行数据交互，协助后端开发工程师完成项目
 8、熟练JSON数据的使用以及处理方式
-9、熟练LocalStorage、SessionStorage、Cookie等本地存储
+9、熟练LocalStorage、SessionStorage、Cookie等本地存储，并实现token令牌登录
 10、熟悉使用Swiper、Font-awesome、jQueryUI以及jQuery插件等前端插件
 11、熟练使用Cordova插件将WebApp打包成安卓App，实现混合App开发
-12、熟练使用Visual Studio Code、SublimeText、HBulider、Git、Gulp、Scss、Photoshop 等开发工具
+12、熟练使用Visual Studio Code、SublimeText、HBulider、Git、Gulp、Postman、Photoshop 等开发工具
+13、熟练使用Node.js搭建Webpack环境，并使用过Express和MongoDB并开发过后端接口
+14、熟练Taro多端开发，能灵活调用接口实现摄像，录音，定位，支付等功能
+15、了解微信公众号开发，微信小程序开发
+16、了解云服务器的基本搭建部署和运作流程
 ```
 这里尽量不要重复叙述相同的技能点，保持好每一条都是独特的，每一条描述出现的英文技能点关键词尽量保持大小统一，比如`Bootstrap、WeUI、Ionic`，这样写没问题，但是不要个别大写个别小写`bootstrap、WeUI、ionic`，遇到强迫症的HR就尴尬了，不过有些还是例外的比如`jQuery`,还是第二个字母大写吧(...额，不解释)，还有这里不要出现一些“感性“的描述，比如熟悉使用PHP，能跟后端工程师愉快的合作(什么鬼)，这些句子就不要出现了
 
