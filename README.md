@@ -251,6 +251,7 @@ I wrote javascript
 
 ---
 # 其他参考
+
 | Article | Article |
 | --------- | --------- |
 |[前端程序员经常忽视的一个JavaScript面试题](https://github.com/Wscats/Good-text-Share/issues/85)|[怎样才是一份好的技术简历？](https://github.com/Wscats/CV)|
@@ -261,6 +262,10 @@ I wrote javascript
 |[前端开发面试题（马云云，ZTE）](https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions)|[收集的前端面试题和答案（邱德清，阿里妈妈）](https://github.com/qiu-deqing/FE-interview)|
 |[web前端面试相关的知识点（王文杰，乐视云）](https://github.com/wangwenjie1314/webQd)|[一道常被人轻视的前端JS面试题（沧海）](http://www.cnblogs.com/xxcanghai/p/5189353.html)|
 |[常见前端面试题及答案（默语，腾讯）](http://www.cnblogs.com/syfwhu/p/4434132.html)|[前端工作面试问题（一）（Ruipeng Zhang，哈工大）](http://www.cnblogs.com/syfwhu/p/4434132.html)|
+
+# 特别鸣谢
+
+- [Resume template for Chinese programmers](https://github.com/geekcompany/ResumeSample)
 
 # 最后
 
