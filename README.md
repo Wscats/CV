@@ -266,6 +266,7 @@ I wrote javascript
 # 特别鸣谢
 
 - [Resume template for Chinese programmers](https://github.com/geekcompany/ResumeSample)
+- [冷熊简历](http://cv.ftqq.com/)
 
 # 最后
 
