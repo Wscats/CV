@@ -1,0 +1,13 @@
+
+# 个人信息
+
+ - 易佳梦/女/1990 
+ - 本科/XX大学计算机系 
+ - 工作年限/经验：3年
+ - 技术博客：https://wscats.github.io/blog ( ``` 使用GitHub Page映射页面会显得的逼格较高 ```  )
+ - Github：https://github.com/Wscats ( ``` 原创repo+多star的Github帐号会极大的提升你的个人品牌 ```  )
+ - 期望职位：Web前端程序员/工程师
+ - 期望薪资：税前月薪15k~20k，特别喜欢的公司可例外
+ - 期望城市：广州
+
+ 

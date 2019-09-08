@@ -1,13 +1,33 @@
 <template name="app-markdown">
-  <div class="app-markdown">
-    <div class="column">
-      <h3>Markdown Input (editable)</h3>
-      <textarea value={this.data.input}
-        ref={e=> { this.textarea = e }} onKeyup={this.getInputValue.bind(this)}></textarea>
+  <div>
+    <div class="text-center">
+      <p>Click on the button below to add the corresponding content to your resume:</p>
+      <p>点击下面按钮，让简历增加对应的内容:</p>
+      <div>
+        <div>
+          <button onClick={this.insertInformation.bind(this,1)} class="btn btn-outline-info">联系方式</button>
+          + <button onClick={this.insertInformation.bind(this,2)} class="btn btn-outline-info">个人信息</button>
+          + <button onClick={this.insertInformation.bind(this,3)} class="btn btn-outline-info">工作经历</button>
+          + <button onClick={this.insertInformation.bind(this,4)} class="btn btn-outline-info">公司项目和作品</button>
+          + <button onClick={this.insertInformation.bind(this,5)} class="btn btn-outline-info">开源项目，博客和文章</button>
+          + <button onClick={this.insertInformation.bind(this,6)} class="btn btn-outline-info">技能清单</button>
+          + <button onClick={this.insertInformation.bind(this,7)} class="btn btn-outline-info">自我评价</button>
+          + <button onClick={this.insertInformation.bind(this,8)} class="btn btn-outline-info">致谢</button>
+           = <button onClick={this.download.bind(this)} class="btn btn-stop">下载&&导出简历</button>
+        </div>
+      </div>
+      <hr />
     </div>
-    <div id="output" class="column">
-      <h3>Rendered</h3>
-      <div id="rendered" class="markdown-body" ref={e=> { this.rendered = e }}></div>
+    <div class="app-markdown">
+      <div class="column">
+        <h3>Markdown Input (editable) - 输入</h3>
+        <textarea value={this.data.input}
+          ref={e=> { this.textarea = e }} onKeyup={this.getInputValue.bind(this)}></textarea>
+      </div>
+      <div id="output" class="column">
+        <h3>Rendered - 输出</h3>
+        <div id="rendered" class="markdown-body" ref={e=> { this.rendered = e }}></div>
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +37,22 @@
   import input from './index.txt'
   import hljs from 'highlight.js'
   import style from './index.css'
+  // 联系方式
+  import contact from './template/contact.txt'
+  // 个人信息
+  import personal from './template/personal.txt'
+  // 工作经历
+  import work from './template/work.txt'
+  // 项目
+  import project from './template/project.txt'
+  // 开源项目和博客
+  import source from './template/source.txt'
+  // 技能清单
+  import skill from './template/skill.txt'
+  // 自我评价
+  import evaluation from './template/evaluation.txt'
+  // 致谢
+  import thank from './template/thank.txt'
   const md = new Remarkable({
     html: true,
     highlight: function (str, lang) {
@@ -47,14 +83,58 @@
       })
     }
     getInputValue(e) {
-      // console.log(e.target.value)
       let output = md.render(e.target.value)
       this.rendered.innerHTML = output
+      this.data.input = e.target.value
       console.log(output, this.rendered)
       setTimeout(() => {
         autosize(this.textarea)
       }, 0)
-
+    }
+    // 插入简历信息
+    insertInformation(type) {
+      // console.log(type, this.textarea.value)
+      switch (type) {
+        case 1:
+          this.data.input = this.data.input + contact
+          break
+        case 2:
+          this.data.input = this.data.input + personal
+          break
+        case 3:
+          this.data.input = this.data.input + work
+          break
+        case 4:
+          this.data.input = this.data.input + project
+          break
+        case 5:
+          this.data.input = this.data.input + source
+          break
+        case 6:
+          this.data.input = this.data.input + skill
+          break
+        case 7:
+          this.data.input = this.data.input + evaluation
+          break
+        case 8:
+          this.data.input = this.data.input + thank
+          break
+      }
+      this.rendered.innerHTML = md.render(this.data.input)
+      this.update()
+      this.textarea.focus()
+      setTimeout(() => {
+        autosize(this.textarea)
+      }, 0)
+    }
+    // 下载
+    download() {
+      console.log(this.data.input)
+      let a = document.createElement("a");
+      let blob = new Blob([this.data.input]);
+      a.download = 'CV.md';
+      a.href = URL.createObjectURL(blob);
+      a.click();
     }
   }
 </script>
@@ -62,6 +142,12 @@
   * {
     margin: 0;
     padding: 0;
+  }
+
+  .text-center {
+    background-color: #f2f2f2;
+    padding-top: 25px;
+    text-align: center;
   }
 
   .app-markdown {
@@ -113,5 +199,50 @@
 
   h1 {
     color: red;
+  }
+
+  .btn-outline-info {
+    color: #17a2b8;
+    background-color: transparent;
+    background-image: none;
+    border-color: #17a2b8;
+
+  }
+
+  .btn {
+    text-transform: none;
+    margin: 15px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    /* white-space: nowrap; */
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #17a2b8;
+    padding: 8px 8px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 2.5px;
+    /* transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; */
+  }
+
+  .btn-stop {
+    color: #ff7171;
+    border-color: #ff7171;
+  }
+
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    margin: 0 50px;
+    border: 0;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 </style>

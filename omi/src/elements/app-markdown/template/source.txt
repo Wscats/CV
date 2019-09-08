@@ -1,0 +1,17 @@
+
+# 开源项目和作品
+
+选取你自己**Github**上的某个开源项目即可，当然开源项目最好写清楚文档，比如安装方法，核心代码的分析（这一段用于放置工作以外的、关键来证明你的能力的材料，也可以理解为其他工程师或者开源社区对你的认可度）
+
+## 开源项目
+
+（对于程序员来讲，没有什么比Show me the code能有说服力了）
+ - [Piano](https://github.com/Wscats/piano)：🎹用键盘8个键演奏一首蒲公英的约定送给自己或月亮代表我的心送给她（项目的简要说明，Star和Fork数多的可以注明）
+ - [Articles](https://github.com/Wscats/articles)：🔖分享我的学习片段和与你的回忆（项目的简要说明，Star和Fork数多的可以注明）
+
+## 技术文章
+
+（挑选你写作或翻译的技术文章，好的文章可以从侧面证实你的表达和沟通能力，也帮助招聘方更了解你）
+- [我如何用前端技术得到XXOO网站的VIP](https://github.com/Wscats/Good-text-Share/issues/62)
+- [前端程序员经常忽视的一个JavaScript面试题](https://github.com/Wscats/Good-text-Share/issues/85) （ ```或者好的翻译文章可以侧证你对英文技术文档的阅读能力```）
+
