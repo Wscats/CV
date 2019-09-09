@@ -39,7 +39,7 @@ class AppHeader extends WeElement {
                 "a",
                 {
                   class: "btn btn-outline-light btn-lg",
-                  href: "https://github.com/Wscats/piano"
+                  href: "https://github.com/Wscats/CV"
                 },
                 "View docs on Github"
               ),
@@ -47,7 +47,7 @@ class AppHeader extends WeElement {
                 "a",
                 {
                   class: "btn btn-outline-light btn-lg",
-                  href: "https://github.com/Wscats/piano"
+                  href: "https://github.com/Wscats/CV"
                 },
                 "\u67E5\u770B\u8BE5\u9879\u76EEGithub\u5730\u5740"
               )
