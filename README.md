@@ -1,5 +1,5 @@
 <p>
-<a href="https://github.com/Wscats/CV"><img src="https://img.shields.io/badge/Star-500+-orange" /></a>
+<a href="https://github.com/Wscats/CV"><a href="https://opencollective.com/yao" alt="Financial Contributors on Open Collective"><img src="https://opencollective.com/yao/all/badge.svg?label=financial+contributors" /></a> <img src="https://img.shields.io/badge/Star-500+-orange" /></a>
 <a href="https://github.com/Wscats/CV"><img src="https://img.shields.io/badge/Version-6.66-brightgreen" /></a>
 <a href="https://github.com/Wscats/CV"><img src="https://img.shields.io/badge/Github Page-Wscats-yellow" /></a>
 <a href="https://github.com/Wscats"><img src="https://img.shields.io/badge/Author-Eno Yao-blueviolet" /></a>
@@ -290,3 +290,33 @@ I wrote javascript
 # 最后
 
 最近比较忙，后面有时间继续整理，感谢您花时间阅读，期待你能找到一份不错的前端工作，加油！谢谢。如果本文能带您一丝帮助或者启发，请不要吝啬你的赞和Star，你的肯定是我前进的最大动力💞
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/Wscats/CV/graphs/contributors"><img src="https://opencollective.com/yao/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/yao/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/yao"><img src="https://opencollective.com/yao/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/yao/contribute)]
+
+<a href="https://opencollective.com/yao/organization/0/website"><img src="https://opencollective.com/yao/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/1/website"><img src="https://opencollective.com/yao/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/2/website"><img src="https://opencollective.com/yao/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/3/website"><img src="https://opencollective.com/yao/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/4/website"><img src="https://opencollective.com/yao/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/5/website"><img src="https://opencollective.com/yao/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/6/website"><img src="https://opencollective.com/yao/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/7/website"><img src="https://opencollective.com/yao/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/8/website"><img src="https://opencollective.com/yao/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/yao/organization/9/website"><img src="https://opencollective.com/yao/organization/9/avatar.svg"></a>
