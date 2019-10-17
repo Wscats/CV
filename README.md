@@ -295,12 +295,12 @@ I wrote javascript
 
 ### Code Contributors
 
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+This project exists thanks to all the people who contribute.
 <a href="https://github.com/Wscats/CV/graphs/contributors"><img src="https://opencollective.com/yao/contributors.svg?width=890&button=false" /></a>
 
 ### Financial Contributors
 
-Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/yao/contribute)]
+Become a financial contributor and help us sustain our community.
 
 #### Individuals
 
