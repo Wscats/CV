@@ -291,7 +291,7 @@ I wrote javascript
 
 最近比较忙，后面有时间继续整理，感谢您花时间阅读，期待你能找到一份不错的前端工作，加油！谢谢。如果本文能带您一丝帮助或者启发，请不要吝啬你的赞和Star，你的肯定是我前进的最大动力💞
 
-## Contributors
+# Contributors
 
 ### Code Contributors
 
@@ -308,7 +308,7 @@ Become a financial contributor and help us sustain our community.
 
 #### Organizations
 
-Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/yao/contribute)]
+Support this project with your organization. Your logo will show up here with a link to your website.
 
 <a href="https://opencollective.com/yao/organization/0/website"><img src="https://opencollective.com/yao/organization/0/avatar.svg"></a>
 <a href="https://opencollective.com/yao/organization/1/website"><img src="https://opencollective.com/yao/organization/1/avatar.svg"></a>
