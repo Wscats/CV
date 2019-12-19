@@ -293,20 +293,20 @@ I wrote javascript
 
 # Contributors
 
-### Code Contributors
+## Code Contributors
 
 This project exists thanks to all the people who contribute.
 <a href="https://github.com/Wscats/CV/graphs/contributors"><img src="https://opencollective.com/yao/contributors.svg?width=890&button=false" /></a>
 
-### Financial Contributors
+## Financial Contributors
 
 Become a financial contributor and help us sustain our community.
 
-#### Individuals
+### Individuals
 
 <a href="https://opencollective.com/yao"><img src="https://opencollective.com/yao/individuals.svg?width=890"></a>
 
-#### Organizations
+### Organizations
 
 Support this project with your organization. Your logo will show up here with a link to your website.
 
