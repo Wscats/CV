@@ -261,7 +261,6 @@ I wrote javascript
 
 <!-- # 线上简历
 
-
 > Omi体验地址： http://wscats.github.io/CV/omi/build/index.html
 
 > Vue体验地址： http://wscats.github.io/CV/vue/dist/index.html
