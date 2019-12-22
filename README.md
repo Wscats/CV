@@ -132,7 +132,6 @@ I wrote javascript
 - [我如何用前端技术得到XXOO网站的VIP](https://github.com/Wscats/Good-text-Share/issues/62)
 - [前端程序员经常忽视的一个JavaScript面试题](https://github.com/Wscats/Good-text-Share/issues/85) （ ```或者好的翻译文章可以侧证你对英文技术文档的阅读能力```）
 
-
 # 技能清单
 
 （我一般主张将技能清单写入到工作经历里边去。不过很难完整，所以有这么一段也不错）
