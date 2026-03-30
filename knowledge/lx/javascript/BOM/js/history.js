@@ -1,6 +1,8 @@
+'use strict';
+
 window.onload = function(){
-	var btnBack = document.getElementById('btnBack');
-	var btnForward = document.getElementById('btnForward');
+	const btnBack = document.getElementById('btnBack');
+	const btnForward = document.getElementById('btnForward');
 
 	// 点击后退
 	btnBack.onclick = function(){

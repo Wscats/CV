@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * mappingjs v2.0.0 by dntzhang
  * Objects mapping for javascript. Omi MVVM's best partner.
@@ -8,14 +10,14 @@
  * @return {Object} To Object
  */
 
-var ARRAYTYPE = '[object Array]'
-var OBJECTTYPE = '[object Object]'
+const ARRAYTYPE = '[object Array]'
+const OBJECTTYPE = '[object Object]'
 
 function mapping(from, to, rule) {
-  var tempRule = Object.assign({}, rule)
-  var res = to || {}
+  const tempRule = Object.assign({}, rule)
+  let res = to || {}
   Object.keys(from).forEach(function (key) {
-    var obj = from[key]
+    let obj = from[key]
     if (isArray(obj)) {
       res[key] = res[key] || []
       arrayMapping(obj, res[key], tempRule, key)
@@ -28,7 +30,7 @@ function mapping(from, to, rule) {
   })
 
   rule && Object.keys(tempRule).forEach(function (key) {
-    var arr = key
+    let arr = key
       .replace(/]/g, '')
       .replace(/\[/g, '.')
       .split('.')
@@ -60,16 +62,16 @@ function arrayMapping(from, to, rule, path) {
 
 
   rule && Object.keys(rule).forEach(function (key) {
-    var arr = key
+    let arr = key
       .replace(/]/g, '')
       .replace(/\[/g, '.')
       .split('.')
-    var pathArr = path
+    let pathArr = path
       .replace(/]/g, '')
       .replace(/\[/g, '.')
       .split('.')
 
-    var dl = arr.length - pathArr.length
+    const dl = arr.length - pathArr.length
     if (dl === 1 && equalArr(arr, pathArr)) {
       to[arr[arr.length - 1]] = rule[key].call ? rule[key].call(from) : rule[key]
       delete rule[key]
@@ -78,9 +80,9 @@ function arrayMapping(from, to, rule, path) {
 }
 
 function objMapping(from, to, rule, path) {
-  var res = to || {}
+  const res = to || {}
   Object.keys(from).forEach(function (key) {
-    var obj = from[key]
+    const obj = from[key]
     if (isArray(obj)) {
       res[key] = res[key] || []
       arrayMapping(obj, res[key], rule, path + '.' + key)
@@ -93,11 +95,11 @@ function objMapping(from, to, rule, path) {
   })
 
   rule && Object.keys(rule).forEach(function (key) {
-    var arr = key
+    const arr = key
       .replace(/]/g, '')
       .replace(/\[/g, '.')
       .split('.')
-    var pathArr = path
+    const pathArr = path
       .replace(/]/g, '')
       .replace(/\[/g, '.')
       .split('.')
@@ -115,7 +117,7 @@ function objMapping(from, to, rule, path) {
 }
 
 function equalArr(arrA, arrB) {
-  var i = 0, len = arrB.length
+  let i = 0, len = arrB.length
   for (; i < len; i++) {
     if (arrA[i] !== arrB[i] && !(arrA[i] === '*' && !isNaN(Number(arrB[i])))) {
       return false
@@ -135,9 +137,9 @@ function isObject(obj) {
 //Compatible with older versions
 mapping.auto = mapping
 
-if (typeof exports == "object") {
+if (typeof exports === "object") {
   module.exports = mapping
-} else if (typeof define == "function" && define.amd) {
+} else if (typeof define === "function" && define.amd) {
   define([], function () { return mapping })
 } else {
   window.mapping = mapping

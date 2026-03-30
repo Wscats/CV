@@ -1,3 +1,5 @@
+'use strict';
+
 /*
 	获取min到max的随机数
  */
@@ -10,10 +12,10 @@ function randomNum(min,max){
  * @return [返回16进制的颜色]
  */
 function randomColor(){
-	var str = '0123456789abcdef';
-	var res = '#';
-	for(var i=0;i<6;i++){
-		var idx = parseInt(Math.random()*str.length);
+	let str = '0123456789abcdef';
+	let res = '#';
+	for(let i=0;i<6;i++){
+		const idx = parseInt(Math.random()*str.length);
 		res += str[idx];
 	}
 
@@ -34,7 +36,7 @@ function getStyle(ele,attr){
 		return ele.style[attr];
 	}
 }
-// var ele = document.getElementById('box')
+// let ele = document.getElementById('box')
 // getStyle(ele,'width');//'200px';
 
 /**
@@ -63,11 +65,11 @@ function addEvent(ele,type,handle,capture){
  */
 
 function getCookie(name){
-	var cookie = document.cookie.split('; ');
+	let cookie = document.cookie.split('; ');
 	var res;
 
-	for(var i=0;i<cookie.length;i++){
-		var arr = cookie[i].split('=');
+	for(let i=0;i<cookie.length;i++){
+		const arr = cookie[i].split('=');
 		if(arr[0] === name){
 			res = arr[1];
 			break;
@@ -86,7 +88,7 @@ function getCookie(name){
  * @param path    [cookie保存的路径]
  */
 function setCookie(name,val,expires,path){
-	var cookieStr = name + '=' + val;
+	const cookieStr = name + '=' + val;
 
 	if(expires){
 		cookieStr += ';expires=' + expires;
@@ -103,7 +105,7 @@ function setCookie(name,val,expires,path){
 //setCookie('carlist',[{}])
 
 function removeCookie(name){
-	var now = new Date();
+	const now = new Date();
 	now.setDate(now.getDate()-1);
 	// document.cookie = name + '=null;expires='+ now
 	setCookie(name,'null',now);
@@ -112,7 +114,7 @@ function removeCookie(name){
 
 /*
 	去除首尾空格
-	'   abc' ==>'abc'
+	'   abc' ===>'abc'
 	'   abc123  ' =>'abc123'
 	'abc d  '=>'abc d'
  */
@@ -130,16 +132,16 @@ function trim(str){
  */
 /*function animate(ele,attr,target){
 	ele[attr+'timer'] = setInterval(()=>{
-		var current = getStyle(ele,attr);//10px,30deg,15,0.3;
+		let current = getStyle(ele,attr);//10px,30deg,15,0.3;
 
 		// 提取单位
-		var unit = current.match(/[a-z]+$/i);
+		let unit = current.match(/[a-z]+$/i);
 		unit = unit ? unit[0] : '';
 
 		current = parseFloat(current);
 
 		// 计算速度
-		var speed = (target - current)/10;
+		let speed = (target - current)/10;
 
 		if(attr === 'opacity'){
 			speed = speed>0 ? 0.05 : -0.05;
@@ -151,7 +153,7 @@ function trim(str){
 		console.log(current,target,speed);
 
 		// 当current达到target值时，停止定时器
-		if(current == target){
+		if(current === target){
 			clearInterval(ele[attr + 'timer']);
 			current = target - speed;
 		}
@@ -184,27 +186,27 @@ function animate(ele,opt,callback){
 		clearInterval(ele[timerName]);
 		ele[timerName] = setInterval(()=>{
 			// 获取当前值
-			var current = getStyle(ele,attr);
+			let current = getStyle(ele,attr);
 
 			// 提取单位
-			var unit = current.match(/[a-z]+$/i);//['px']/null
+			let unit = current.match(/[a-z]+$/i);//['px']/null
 			unit = unit ? unit[0] : '';
 
 			current = parseFloat(current);
 
 			// 计算缓动速度
-			var speed = (target - current)/8;//0.003
+			let speed = (target - current)/8;//0.003
 
 			// 取整（整数/负数）
 			speed = speed>0 ? Math.ceil(speed) : Math.floor(speed);//0.1=>1,-0.1=>-1
 
 			// 如果是opacity
-			if(attr == 'opacity'){
+			if(attr === 'opacity'){
 				speed = speed>0 ? 0.05 : -0.05;
 			}
 
 			// 当达到目标值时，清除定时器
-			if(current == target){
+			if(current === target){
 				clearInterval(ele[timerName]);
 				current = target - speed;
 
@@ -231,14 +233,14 @@ function animate(ele,opt,callback){
 //如果支持jsonp请求
 function ajax(opt){
 	// 默认值
-	var defaults = {
+	const defaults = {
 		type:'get',
 		async:true,
 		// data:{}
 	}
 
 	// 兼容浏览器写法
-	var req = null;
+	let req = null;
 	try{
 	    req = new XMLHttpRequest();
 	}catch(err){
@@ -258,10 +260,10 @@ function ajax(opt){
 	for(var attr in opt){
 		defaults[attr] = opt[attr];
 	}
-	var df = defaults;
+	const df = defaults;
 
 	// 传递数据处理
-	var dataStr = '';//'name=xxx&age=18'
+	let dataStr = '';//'name=xxx&age=18'
 	if(df.data){
 		for(var attr in df.data){
 			dataStr += attr + '=' + df.data[attr] + '&';
@@ -315,7 +317,7 @@ function ajax(opt){
  */
 function type(data){
 	//data.toString();
-	var res = Object.prototype.toString.call(data);
+	let res = Object.prototype.toString.call(data);
 	res = res.slice(8,-1).toLowerCase();
 
 	return res;
@@ -330,7 +332,7 @@ function GetEle(selector){
 
 // 获取元素
 GetEle.prototype.init = function(){
-	var selector = this.selector;
+	const selector = this.selector;
 
 	var res;
 
@@ -359,7 +361,7 @@ GetEle.prototype.init = function(){
 
 // 隐藏元素
 GetEle.prototype.hide = function(){
-	for(var i=0;i<this.len;i++){
+	for(let i=0;i<this.len;i++){
 		this.ele[i].style.display = 'none'
 	}
 
@@ -368,7 +370,7 @@ GetEle.prototype.hide = function(){
 
 // 显示元素
 GetEle.prototype.show = function(){
-	for(var i=0;i<this.len;i++){
+	for(let i=0;i<this.len;i++){
 		this.ele[i].style.display = 'block'
 	}
 
@@ -378,7 +380,7 @@ GetEle.prototype.show = function(){
 // 绑定事件
 GetEle.prototype.on = function(type,handle){
 	// 给谁绑定事件
-	for(var i=0;i<this.len;i++){
+	for(let i=0;i<this.len;i++){
 		this.ele[i]['on' + type] = handle;
 	}
 
@@ -404,7 +406,7 @@ GetEle.prototype.css = function(attr,val){
 
 	// 设置样式
 	else{
-		for(var i=0;i<this.len;i++){
+		for(let i=0;i<this.len;i++){
 			this.ele[i].style[attr] = val;
 		}
 	}
@@ -415,10 +417,10 @@ GetEle.prototype.css = function(attr,val){
 
 // 添加元素
 // $('#box').append('<div>aaa</div>');
-// var box2 = document.querySelector('#box2');
+// const box2 = document.querySelector('#box2');
 // $('#box').append(box2);
 GetEle.prototype.append = function(content){
-	for(var i=0;i<this.len;i++){
+	for(let i=0;i<this.len;i++){
 		if(typeof content === 'string'){
 			this.ele[i].innerHTML += content;
 		}else{
@@ -434,7 +436,7 @@ GetEle.prototype.append = function(content){
 // $('#box').remove();
 // $('a').remove();
 GetEle.prototype.remove = function(){
-	for(var i=0;i<this.len;i++){
+	for(let i=0;i<this.len;i++){
 		this.ele[i].parentNode.removeChild(this.ele[i]);
 	}
 }

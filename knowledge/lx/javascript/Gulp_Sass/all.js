@@ -1,3 +1,5 @@
+'use strict';
+
 
 
 
@@ -18,7 +20,7 @@ function Bullet() {
 		//console.log(gameEngine.bullets);
 		
 		//位置
-		var left = myPlane.ele.offsetLeft + myPlane.ele.offsetWidth/2 - this.ele.offsetWidth/2;
+		let left = myPlane.ele.offsetLeft + myPlane.ele.offsetWidth/2 - this.ele.offsetWidth/2;
 		this.ele.style.left =  left + "px";
 		this.ele.style.top = myPlane.ele.offsetTop - this.ele.offsetHeight + "px";
 		return this;
@@ -26,7 +28,7 @@ function Bullet() {
 	
 	//移动
 	this.move = function() {
-		var self = this;
+		let self = this;
 		//让子弹向上移动
 		this.timer = setInterval(function(){
 			//当子弹超出游戏区域的最上方, 则移除,并关闭定时器
@@ -48,10 +50,10 @@ function Bullet() {
 		this.ele.className = "bullet-die"; 
 		
 		//爆炸动画
-		var self = this;
-		var index = 0;
-		var dieImgs = ["images/die1.png", "images/die2.png"];
-		var dieTimer = setInterval(function(){
+		let self = this;
+		let index = 0;
+		let dieImgs = ["images/die1.png", "images/die2.png"];
+		let dieTimer = setInterval(function(){
 			if (index >= 2) {
  				clearInterval(dieTimer); //关闭定时器
  				gameEngine.ele.removeChild(self.ele); //移除子弹
@@ -81,12 +83,12 @@ function Bullet() {
  */
 function isCrash(obj1, obj2){
 	if(obj1 && obj2){
-		var leftSide = obj2.offsetLeft-obj1.offsetWidth/2;
-		var rightSide = obj2.offsetLeft+obj2.offsetWidth+obj1.offsetWidth/2;
-		var upSide = obj2.offsetTop - obj1.offsetHeight/2;
-		var downSide = obj2.offsetTop + obj2.offsetHeight + obj1.offsetHeight/2;
-		var x = obj1.offsetLeft+obj1.offsetWidth/2;
-		var y = obj1.offsetTop + obj1.offsetHeight/2;
+		const leftSide = obj2.offsetLeft-obj1.offsetWidth/2;
+		const rightSide = obj2.offsetLeft+obj2.offsetWidth+obj1.offsetWidth/2;
+		const upSide = obj2.offsetTop - obj1.offsetHeight/2;
+		const downSide = obj2.offsetTop + obj2.offsetHeight + obj1.offsetHeight/2;
+		let x = obj1.offsetLeft+obj1.offsetWidth/2;
+		let y = obj1.offsetTop + obj1.offsetHeight/2;
 		if(x > leftSide && x < rightSide && y > upSide && y < downSide){
 			return true;
 		} 
@@ -159,7 +161,7 @@ function Enemy(type) {
 		//console.log(gameEngine.enemys);
 		
 		//位置
-		var left = Math.random() * (gameEngine.ele.offsetWidth - this.ele.offsetWidth);
+		let left = Math.random() * (gameEngine.ele.offsetWidth - this.ele.offsetWidth);
 		this.ele.style.left = left + "px";
 		this.ele.style.top = -this.ele.offsetHeight + "px";
 		return this;
@@ -167,7 +169,7 @@ function Enemy(type) {
 	
 	//移动
 	this.move = function() {
-		var self = this;
+		let self = this;
 		//开启定时器, 让敌机向下移动
 		this.timer = setInterval(function() {
 			
@@ -188,7 +190,7 @@ function Enemy(type) {
 	//受到一点伤害
 	this.hurt = function() {
 		this.hp--; //掉一点血
-		if (this.hp == 0) { //当血量为0时
+		if (this.hp === 0) { //当血量为0时
 			this.boom(); //爆炸
 			//把分数添加
 			gameEngine.scoreNode.innerHTML = (gameEngine.scoreNode.innerHTML-0) + this.score;
@@ -200,9 +202,9 @@ function Enemy(type) {
 		clearInterval(this.timer); //关闭move中的定时器, 让敌机停止移动
 		
 		//爆炸动画
-		var self = this;
-		var index = 0;
-		var dieTimer = setInterval(function(){
+		const self = this;
+		let index = 0;
+		let dieTimer = setInterval(function(){
 			
 			if (index >= self.dieImgs.length) {
 				clearInterval(dieTimer); //关闭定时器
@@ -244,7 +246,7 @@ Enemy.prototype = {
  * 开始游戏, 加载游戏, 进入游戏主界面
  * 创建敌机, 控制移动我的飞机, 碰撞检测...
  */
-var gameEngine = {
+const gameEngine = {
 	//属性ele:是游戏的主界面(游戏区域) 
 	ele: null,
 	
@@ -294,21 +296,21 @@ var gameEngine = {
 	loading: function(loadCallBack) {
 		
 		//显示logo
-		var logo = document.createElement("div");
+		const logo = document.createElement("div");
 		logo.className = "logo";
 		gameEngine.ele.appendChild(logo);
 		
 		//显示加载动画的图片
-		var load = document.createElement("div");
+		const load = document.createElement("div");
 		load.className = "loading";
 		gameEngine.ele.appendChild(load);
 		
 		//开始加载动画
-		var index = 0;
-		var loadImgs = ["images/loading1.png", "images/loading2.png", "images/loading3.png"];
-		var timer = setInterval(function(){
+		let index = 0;
+		const loadImgs = ["images/loading1.png", "images/loading2.png", "images/loading3.png"];
+		let timer = setInterval(function(){
 			
-			//当运动到index==5时, 则游戏加载结束
+			//当运动到index===5时, 则游戏加载结束
 			if (index >= 2) {
 				clearInterval(timer); //关闭定时器
 				//移除图片(logo,load)
@@ -330,31 +332,31 @@ var gameEngine = {
 	//开启键盘监听
 	keyListening: function(){
 		
-		var speed = 0; //速度
+		let speed = 0; //速度
 		
 		//监听键盘
 		window.onkeydown = function(evt){
-			var oEvent = evt || event;
-			var keycode = oEvent.keyCode; //键码
+			let oEvent = evt || event;
+			const keycode = oEvent.keyCode; //键码
 			console.log(keycode);
 			
 			//使用键盘按下不松开的持续触发来移动
 			/*
 			//向左
-			if (keycode == 37) {
+			if (keycode === 37) {
 				myPlane.ele.style.left = myPlane.ele.offsetLeft - 10 + "px";
 			}
 			//向右
-			else if (keycode == 39) {
+			else if (keycode === 39) {
 				myPlane.ele.style.left = myPlane.ele.offsetLeft + 10 + "px";
 			}
 			*/
 			//向左
-			if (keycode == 37) {
+			if (keycode === 37) {
 				speed = -10;
 			}
 			//向右
-			else if (keycode == 39){
+			else if (keycode === 39){
 				speed = 10;
 			}
 		}
@@ -365,7 +367,7 @@ var gameEngine = {
 		
 		//通过速度speed来匀速移动飞机
 		setInterval(function(){
-			var x = myPlane.ele.offsetLeft + speed;
+			let x = myPlane.ele.offsetLeft + speed;
 			if (x < 0) { //如果超出左边界, 则最多在左边界的位置
 				x = 0;
 			}
@@ -383,9 +385,9 @@ var gameEngine = {
 		//随机创建大型敌机
 		setInterval(createBig, 6000);
 		function createBig() {
-			var flag = Math.random() > 0.5 ? true : false; //30%的几率创建敌机
+			let flag = Math.random() > 0.5 ? true : false; //30%的几率创建敌机
 			if (flag) {
-				var bigEnemy = new Enemy(Enemy.prototype.Enemy_Type_Large); //创建大型敌机对象
+				const bigEnemy = new Enemy(Enemy.prototype.Enemy_Type_Large); //创建大型敌机对象
 				bigEnemy.init().move(); //初始化,并开始向下移动
 			}
 		}
@@ -393,9 +395,9 @@ var gameEngine = {
 		//随机创建中型飞机
 		setInterval(createMiddle, 1000);
 		function createMiddle() {
-			var flag = Math.random() > 0.7 ? true : false; //30%的几率创建敌机
+			let flag = Math.random() > 0.7 ? true : false; //30%的几率创建敌机
 			if (flag) {
-				var middleEnemy = new Enemy(Enemy.prototype.Enemy_Type_Middle); //创建中型敌机对象 
+				const middleEnemy = new Enemy(Enemy.prototype.Enemy_Type_Middle); //创建中型敌机对象 
 				middleEnemy.init().move(); //初始化,并开始向下移动
 			}
 		}
@@ -403,9 +405,9 @@ var gameEngine = {
 		//随机创建小型飞机
 		setInterval(createSmall, 500);
 		function createSmall() {
-			var flag = Math.random() > 0.5 ? true : false; //50%的几率创建敌机
+			const flag = Math.random() > 0.5 ? true : false; //50%的几率创建敌机
 			if (flag) {
-				var smallEnemy = new Enemy(Enemy.prototype.Enemy_Type_Small); //创建小型敌机对象 
+				const smallEnemy = new Enemy(Enemy.prototype.Enemy_Type_Small); //创建小型敌机对象 
 				smallEnemy.init().move(); //初始化,并开始向下移动
 			}
 		}
@@ -414,12 +416,12 @@ var gameEngine = {
 	//碰撞检测
 	crashListening: function() {
 		/*
-		var a = [1,2,3,4,5]
-		var b = ["d",4,"g","t"]
-		for (var i=0; i<a.length; i++) {
-			var m = a[i];
-			for (var j=0; j<b.length; j++) {
-				if (m == b[j]) {
+		const a = [1,2,3,4,5]
+		const b = ["d",4,"g","t"]
+		for (let i=0; i<a.length; i++) {
+			const m = a[i];
+			for (let j=0; j<b.length; j++) {
+				if (m === b[j]) {
 					
 				}
 			}
@@ -474,7 +476,7 @@ var gameEngine = {
 	
 	//让背景图移动
 	move: function() {
-		var y = 0;
+		let y = 0;
 		setInterval(function(){
 			gameEngine.ele.style.backgroundPositionY = y++ + "px";
 		}, 30);
@@ -492,7 +494,7 @@ var gameEngine = {
 
 
 //我的飞机:(对象)
-var myPlane = {
+const myPlane = {
 	//属性ele: 我的飞机div节点
 	ele: null,
 	fireInterval: 80, //发射子弹的频率
@@ -504,7 +506,7 @@ var myPlane = {
 		this.ele.className = "myplane"; 
 		gameEngine.ele.appendChild(this.ele); //添加到游戏界面main上
 		//位置
-		var left = (gameEngine.ele.offsetWidth - this.ele.offsetWidth) / 2; 
+		let left = (gameEngine.ele.offsetWidth - this.ele.offsetWidth) / 2; 
 		this.ele.style.left = left + "px"; 
 		this.ele.style.bottom = 0;
 		
@@ -519,7 +521,7 @@ var myPlane = {
 		//开启定时器, 创建并发射子弹
 		this.timer = setInterval(function(){
 			//创建子弹,并让子弹移动
-			var bullet = new Bullet(); //创建子弹对象
+			const bullet = new Bullet(); //创建子弹对象
 			bullet.init().move(); //初始化并发射子弹
 		}, this.fireInterval);
 	},
@@ -528,16 +530,16 @@ var myPlane = {
 	startDrag: function() {
 		//onmousedown
 		this.ele.onmousedown = function(evt) {
-			var oEvent = evt || event;
-			var disX = oEvent.offsetX;
-			var disY = oEvent.offsetY;
+			let oEvent = evt || event;
+			const disX = oEvent.offsetX;
+			const disY = oEvent.offsetY;
 			
 			//onmousemove
 			document.onmousemove = function(evt) {
-				var oEvent = evt || event;
+				const oEvent = evt || event;
 				
-				var x = oEvent.clientX - gameEngine.ele.offsetLeft - disX;
-				var y = oEvent.clientY - disY;
+				let x = oEvent.clientX - gameEngine.ele.offsetLeft - disX;
+				const y = oEvent.clientY - disY;
 				
 				if (x < 0) { //如果超出左边界, 则最多在左边界的位置
 					x = 0;
@@ -562,10 +564,10 @@ var myPlane = {
 		
 		clearInterval(this.timer); //关闭定时器, 不发射子弹
 		
-		var dieImgs = ["images/me_die1.png", "images/me_die2.png", "images/me_die3.png", "images/me_die4.png"]
-		var index = 0;
+		const dieImgs = ["images/me_die1.png", "images/me_die2.png", "images/me_die3.png", "images/me_die4.png"]
+		let index = 0;
 		
-		var dieTimer = setInterval(function(){
+		const dieTimer = setInterval(function(){
 			
 			if (index >= dieImgs.length) {
 				clearInterval(dieTimer); //关闭定时器

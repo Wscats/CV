@@ -1,3 +1,5 @@
+'use strict';
+
 $(function(){
 	var $write = $('#write'),
 		shift = false,
@@ -25,7 +27,7 @@ $(function(){
 		
 		// Delete
 		if ($this.hasClass('delete')) {
-			var html = $write.html();
+			const html = $write.html();
 			
 			$write.html(html.substr(0, html.length - 1));
 			return false;

@@ -1,7 +1,9 @@
+'use strict';
+
 
 
 //我的飞机:(对象)
-var myPlane = {
+const myPlane = {
 	//属性ele: 我的飞机div节点
 	ele: null,
 	fireInterval: 80, //发射子弹的频率
@@ -13,7 +15,7 @@ var myPlane = {
 		this.ele.className = "myplane"; 
 		gameEngine.ele.appendChild(this.ele); //添加到游戏界面main上
 		//位置
-		var left = (gameEngine.ele.offsetWidth - this.ele.offsetWidth) / 2; 
+		let left = (gameEngine.ele.offsetWidth - this.ele.offsetWidth) / 2; 
 		this.ele.style.left = left + "px"; 
 		this.ele.style.bottom = 0;
 		
@@ -28,7 +30,7 @@ var myPlane = {
 		//开启定时器, 创建并发射子弹
 		this.timer = setInterval(function(){
 			//创建子弹,并让子弹移动
-			var bullet = new Bullet(); //创建子弹对象
+			const bullet = new Bullet(); //创建子弹对象
 			bullet.init().move(); //初始化并发射子弹
 		}, this.fireInterval);
 	},
@@ -37,16 +39,16 @@ var myPlane = {
 	startDrag: function() {
 		//onmousedown
 		this.ele.onmousedown = function(evt) {
-			var oEvent = evt || event;
-			var disX = oEvent.offsetX;
-			var disY = oEvent.offsetY;
+			let oEvent = evt || event;
+			const disX = oEvent.offsetX;
+			const disY = oEvent.offsetY;
 			
 			//onmousemove
 			document.onmousemove = function(evt) {
-				var oEvent = evt || event;
+				const oEvent = evt || event;
 				
-				var x = oEvent.clientX - gameEngine.ele.offsetLeft - disX;
-				var y = oEvent.clientY - disY;
+				let x = oEvent.clientX - gameEngine.ele.offsetLeft - disX;
+				const y = oEvent.clientY - disY;
 				
 				if (x < 0) { //如果超出左边界, 则最多在左边界的位置
 					x = 0;
@@ -71,10 +73,10 @@ var myPlane = {
 		
 		clearInterval(this.timer); //关闭定时器, 不发射子弹
 		
-		var dieImgs = ["images/me_die1.png", "images/me_die2.png", "images/me_die3.png", "images/me_die4.png"]
-		var index = 0;
+		const dieImgs = ["images/me_die1.png", "images/me_die2.png", "images/me_die3.png", "images/me_die4.png"]
+		let index = 0;
 		
-		var dieTimer = setInterval(function(){
+		const dieTimer = setInterval(function(){
 			
 			if (index >= dieImgs.length) {
 				clearInterval(dieTimer); //关闭定时器

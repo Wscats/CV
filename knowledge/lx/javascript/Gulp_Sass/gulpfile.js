@@ -1,10 +1,12 @@
-var gulp = require('gulp');
+'use strict';
 
-var concat = require('gulp-concat');
+const gulp = require('gulp');
 
-var uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 
-var rename = require('gulp-rename');
+const uglify = require('gulp-uglify');
+
+const rename = require('gulp-rename');
 
 // 合并js文件
 // 1.引包

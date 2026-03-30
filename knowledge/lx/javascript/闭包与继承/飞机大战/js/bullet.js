@@ -1,3 +1,5 @@
+'use strict';
+
 
 
 
@@ -18,7 +20,7 @@ function Bullet() {
 		//console.log(gameEngine.bullets);
 		
 		//位置
-		var left = myPlane.ele.offsetLeft + myPlane.ele.offsetWidth/2 - this.ele.offsetWidth/2;
+		let left = myPlane.ele.offsetLeft + myPlane.ele.offsetWidth/2 - this.ele.offsetWidth/2;
 		this.ele.style.left =  left + "px";
 		this.ele.style.top = myPlane.ele.offsetTop - this.ele.offsetHeight + "px";
 		return this;
@@ -26,7 +28,7 @@ function Bullet() {
 	
 	//移动
 	this.move = function() {
-		var self = this;
+		let self = this;
 		//让子弹向上移动
 		this.timer = setInterval(function(){
 			//当子弹超出游戏区域的最上方, 则移除,并关闭定时器
@@ -48,10 +50,10 @@ function Bullet() {
 		this.ele.className = "bullet-die"; 
 		
 		//爆炸动画
-		var self = this;
-		var index = 0;
-		var dieImgs = ["images/die1.png", "images/die2.png"];
-		var dieTimer = setInterval(function(){
+		const self = this;
+		let index = 0;
+		const dieImgs = ["images/die1.png", "images/die2.png"];
+		const dieTimer = setInterval(function(){
 			if (index >= 2) {
  				clearInterval(dieTimer); //关闭定时器
  				gameEngine.ele.removeChild(self.ele); //移除子弹

@@ -1,1 +1,3 @@
+'use strict';
+
 console.log('测试是否加载成功');

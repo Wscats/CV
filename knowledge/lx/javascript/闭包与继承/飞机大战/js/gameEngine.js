@@ -1,3 +1,5 @@
+'use strict';
+
 
 
 //游戏引擎(对象)
@@ -5,7 +7,7 @@
  * 开始游戏, 加载游戏, 进入游戏主界面
  * 创建敌机, 控制移动我的飞机, 碰撞检测...
  */
-var gameEngine = {
+const gameEngine = {
 	//属性ele:是游戏的主界面(游戏区域) 
 	ele: null,
 	
@@ -55,21 +57,21 @@ var gameEngine = {
 	loading: function(loadCallBack) {
 		
 		//显示logo
-		var logo = document.createElement("div");
+		const logo = document.createElement("div");
 		logo.className = "logo";
 		gameEngine.ele.appendChild(logo);
 		
 		//显示加载动画的图片
-		var load = document.createElement("div");
+		const load = document.createElement("div");
 		load.className = "loading";
 		gameEngine.ele.appendChild(load);
 		
 		//开始加载动画
-		var index = 0;
-		var loadImgs = ["images/loading1.png", "images/loading2.png", "images/loading3.png"];
-		var timer = setInterval(function(){
+		let index = 0;
+		const loadImgs = ["images/loading1.png", "images/loading2.png", "images/loading3.png"];
+		const timer = setInterval(function(){
 			
-			//当运动到index==5时, 则游戏加载结束
+			//当运动到index===5时, 则游戏加载结束
 			if (index >= 2) {
 				clearInterval(timer); //关闭定时器
 				//移除图片(logo,load)
@@ -91,31 +93,31 @@ var gameEngine = {
 	//开启键盘监听
 	keyListening: function(){
 		
-		var speed = 0; //速度
+		let speed = 0; //速度
 		
 		//监听键盘
 		window.onkeydown = function(evt){
-			var oEvent = evt || event;
-			var keycode = oEvent.keyCode; //键码
+			const oEvent = evt || event;
+			const keycode = oEvent.keyCode; //键码
 			console.log(keycode);
 			
 			//使用键盘按下不松开的持续触发来移动
 			/*
 			//向左
-			if (keycode == 37) {
+			if (keycode === 37) {
 				myPlane.ele.style.left = myPlane.ele.offsetLeft - 10 + "px";
 			}
 			//向右
-			else if (keycode == 39) {
+			else if (keycode === 39) {
 				myPlane.ele.style.left = myPlane.ele.offsetLeft + 10 + "px";
 			}
 			*/
 			//向左
-			if (keycode == 37) {
+			if (keycode === 37) {
 				speed = -10;
 			}
 			//向右
-			else if (keycode == 39){
+			else if (keycode === 39){
 				speed = 10;
 			}
 		}
@@ -126,7 +128,7 @@ var gameEngine = {
 		
 		//通过速度speed来匀速移动飞机
 		setInterval(function(){
-			var x = myPlane.ele.offsetLeft + speed;
+			let x = myPlane.ele.offsetLeft + speed;
 			if (x < 0) { //如果超出左边界, 则最多在左边界的位置
 				x = 0;
 			}
@@ -144,9 +146,9 @@ var gameEngine = {
 		//随机创建大型敌机
 		setInterval(createBig, 6000);
 		function createBig() {
-			var flag = Math.random() > 0.5 ? true : false; //30%的几率创建敌机
+			let flag = Math.random() > 0.5 ? true : false; //30%的几率创建敌机
 			if (flag) {
-				var bigEnemy = new Enemy(Enemy.prototype.Enemy_Type_Large); //创建大型敌机对象
+				const bigEnemy = new Enemy(Enemy.prototype.Enemy_Type_Large); //创建大型敌机对象
 				bigEnemy.init().move(); //初始化,并开始向下移动
 			}
 		}
@@ -154,9 +156,9 @@ var gameEngine = {
 		//随机创建中型飞机
 		setInterval(createMiddle, 1000);
 		function createMiddle() {
-			var flag = Math.random() > 0.7 ? true : false; //30%的几率创建敌机
+			let flag = Math.random() > 0.7 ? true : false; //30%的几率创建敌机
 			if (flag) {
-				var middleEnemy = new Enemy(Enemy.prototype.Enemy_Type_Middle); //创建中型敌机对象 
+				const middleEnemy = new Enemy(Enemy.prototype.Enemy_Type_Middle); //创建中型敌机对象 
 				middleEnemy.init().move(); //初始化,并开始向下移动
 			}
 		}
@@ -164,9 +166,9 @@ var gameEngine = {
 		//随机创建小型飞机
 		setInterval(createSmall, 500);
 		function createSmall() {
-			var flag = Math.random() > 0.5 ? true : false; //50%的几率创建敌机
+			const flag = Math.random() > 0.5 ? true : false; //50%的几率创建敌机
 			if (flag) {
-				var smallEnemy = new Enemy(Enemy.prototype.Enemy_Type_Small); //创建小型敌机对象 
+				const smallEnemy = new Enemy(Enemy.prototype.Enemy_Type_Small); //创建小型敌机对象 
 				smallEnemy.init().move(); //初始化,并开始向下移动
 			}
 		}
@@ -175,12 +177,12 @@ var gameEngine = {
 	//碰撞检测
 	crashListening: function() {
 		/*
-		var a = [1,2,3,4,5]
-		var b = ["d",4,"g","t"]
-		for (var i=0; i<a.length; i++) {
-			var m = a[i];
-			for (var j=0; j<b.length; j++) {
-				if (m == b[j]) {
+		const a = [1,2,3,4,5]
+		const b = ["d",4,"g","t"]
+		for (let i=0; i<a.length; i++) {
+			const m = a[i];
+			for (let j=0; j<b.length; j++) {
+				if (m === b[j]) {
 					
 				}
 			}
@@ -235,7 +237,7 @@ var gameEngine = {
 	
 	//让背景图移动
 	move: function() {
-		var y = 0;
+		let y = 0;
 		setInterval(function(){
 			gameEngine.ele.style.backgroundPositionY = y++ + "px";
 		}, 30);

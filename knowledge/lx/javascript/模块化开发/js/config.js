@@ -1,3 +1,5 @@
+'use strict';
+
 // 配置文件
 requirejs.config({
 	// baseUrl:'js',

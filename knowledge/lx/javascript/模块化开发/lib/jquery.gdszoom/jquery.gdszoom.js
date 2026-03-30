@@ -1,3 +1,5 @@
+'use strict';
+
 ;(function($){
 	$.fn.gdszoom = function(options){
 		/*
@@ -7,7 +9,7 @@
 			* 放大镜颜色
 		 */
 		
-		var defaults = {
+		const defaults = {
 			width:480,
 			height:300,
 			position:'right',//left,bottom,right
@@ -17,10 +19,10 @@
 
 		// 覆盖默认参数
 		// ES6
-		// var opt = Object.assign({},defaults,options);
+		// let opt = Object.assign({},defaults,options);
 
 		// jQuery的静态方法
-		var opt = $.extend({},defaults,options);
+		const opt = $.extend({},defaults,options);
 
 		// 遍历
 		this.each(function(){
@@ -42,7 +44,7 @@
 
 				$bigContainer = $('<div/>').addClass('gdszoom-big');
 
-				var imgUrl = $smallImg.data('big') || $smallImg.attr('src');
+				const imgUrl = $smallImg.data('big') || $smallImg.attr('src');
 				$bigImg = $('<img/>').attr('src',imgUrl);
 
 				// 大图写入页面
@@ -51,8 +53,8 @@
 
 				// 定制样式
 				if(opt.position){
-					var left = 0;
-					var top = $smallContainer.offset().top;
+					let left = 0;
+					let top = $smallContainer.offset().top;
 					if(opt.position === 'left'){
 						left = $smallContainer.offset().left - opt.width - opt.gap;
 
@@ -96,11 +98,11 @@
 				}).on('mouseleave',function(){
 					hide();
 				}).on('mousemove',function(e){
-					var offset = $smallContainer.offset();
+					const offset = $smallContainer.offset();
 
 					// 把放大镜中心定位到鼠标位置
-		            var left = e.pageX - offset.left - $minZoom.outerWidth()/2;
-		            var top = e.pageY - offset.top - $minZoom.outerHeight()/2;
+		            let left = e.pageX - offset.left - $minZoom.outerWidth()/2;
+		            let top = e.pageY - offset.top - $minZoom.outerHeight()/2;
 
 		            // 限定放大镜移动的区域
 		            if(left < 0){

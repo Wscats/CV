@@ -1,3 +1,5 @@
+'use strict';
+
 
 
 //敌机: 类(构造函数)
@@ -46,7 +48,7 @@ function Enemy(type) {
 		//console.log(gameEngine.enemys);
 		
 		//位置
-		var left = Math.random() * (gameEngine.ele.offsetWidth - this.ele.offsetWidth);
+		let left = Math.random() * (gameEngine.ele.offsetWidth - this.ele.offsetWidth);
 		this.ele.style.left = left + "px";
 		this.ele.style.top = -this.ele.offsetHeight + "px";
 		return this;
@@ -54,7 +56,7 @@ function Enemy(type) {
 	
 	//移动
 	this.move = function() {
-		var self = this;
+		let self = this;
 		//开启定时器, 让敌机向下移动
 		this.timer = setInterval(function() {
 			
@@ -75,7 +77,7 @@ function Enemy(type) {
 	//受到一点伤害
 	this.hurt = function() {
 		this.hp--; //掉一点血
-		if (this.hp == 0) { //当血量为0时
+		if (this.hp === 0) { //当血量为0时
 			this.boom(); //爆炸
 			//把分数添加
 			gameEngine.scoreNode.innerHTML = (gameEngine.scoreNode.innerHTML-0) + this.score;
@@ -87,9 +89,9 @@ function Enemy(type) {
 		clearInterval(this.timer); //关闭move中的定时器, 让敌机停止移动
 		
 		//爆炸动画
-		var self = this;
-		var index = 0;
-		var dieTimer = setInterval(function(){
+		const self = this;
+		let index = 0;
+		const dieTimer = setInterval(function(){
 			
 			if (index >= self.dieImgs.length) {
 				clearInterval(dieTimer); //关闭定时器
